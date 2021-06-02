@@ -28,9 +28,9 @@
 
 <owl:ObjectProperty rdf:about="#type">
   <rdfs:domain rdf:resource="#Interaction"/>
+  <rdfs:domain rdf:resource="#ExternallyDefined"/>
   <rdfs:domain rdf:resource="#Component"/>
   <rdfs:domain rdf:resource="#LocalSubComponent"/>
-  <rdfs:domain rdf:resource="#ExternallyDefined"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">type</rdfs:label>
 </owl:ObjectProperty>
 
@@ -49,8 +49,8 @@
 </owl:ObjectProperty>
 
 <owl:ObjectProperty rdf:about="#hasFeature">
-  <rdfs:domain rdf:resource="#Component"/>
   <rdfs:domain rdf:resource="#ComponentReference"/>
+  <rdfs:domain rdf:resource="#Component"/>
   <rdfs:range rdf:resource="#Feature"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hasFeature</rdfs:label>
 </owl:ObjectProperty>
@@ -108,9 +108,9 @@
 </owl:ObjectProperty>
 
 <owl:ObjectProperty rdf:about="#hasLocation">
+  <rdfs:domain rdf:resource="#SequenceFeature"/>
   <rdfs:domain rdf:resource="#SubComponent"/>
   <rdfs:domain rdf:resource="#LocalSubComponent"/>
-  <rdfs:domain rdf:resource="#SequenceFeature"/>
   <rdfs:range rdf:resource="#Location"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hasLocation</rdfs:label>
 </owl:ObjectProperty>
@@ -222,7 +222,7 @@
 
 <owl:ObjectProperty rdf:about="#variantMeasure">
   <rdfs:domain rdf:resource="#VariableFeature"/>
-  <rdfs:range rdf:resource=" http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+  <rdfs:range rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">variantMeasure</rdfs:label>
 </owl:ObjectProperty>
 
@@ -253,8 +253,8 @@
 
 <owl:ObjectProperty rdf:about="#source">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-  <rdfs:domain rdf:resource="#Model"/>
   <rdfs:domain rdf:resource="#Attachment"/>
+  <rdfs:domain rdf:resource="#Model"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">source</rdfs:label>
 </owl:ObjectProperty>
 
@@ -305,7 +305,7 @@
 
 <owl:DatatypeProperty rdf:about="#hasMeasure">
   <rdfs:domain rdf:resource="#Identified"/>
-  <rdfs:range rdf:resource=" http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+  <rdfs:range rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hasMeasure</rdfs:label>
 </owl:DatatypeProperty>
 
@@ -529,6 +529,12 @@
 
 <owl:Class rdf:about="#CombinatorialDerivation">
   <rdfs:subClassOf rdf:resource="#TopLevel"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#template"/>
+      <owl:someValuesFrom rdf:resource="#Component"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CombinatorialDerivation</rdfs:label>
 </owl:Class>
 
@@ -561,12 +567,6 @@
     <owl:Restriction>
       <owl:onProperty rdf:resource="#object"/>
       <owl:someValuesFrom rdf:resource="#Feature"/>
-    </owl:Restriction>
-  </rdfs:subClassOf>
-  <rdfs:subClassOf>
-    <owl:Restriction>
-      <owl:onProperty rdf:resource="#template"/>
-      <owl:someValuesFrom rdf:resource="#Component"/>
     </owl:Restriction>
   </rdfs:subClassOf>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Constraint</rdfs:label>

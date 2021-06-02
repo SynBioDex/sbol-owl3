@@ -11,7 +11,7 @@ from owlready2 import *
 
 sbol3 = get_ontology("http://sbols.org/v3")
 prov = get_ontology("https://www.w3.org/ns/prov#")
-om = get_ontology(" http://www.ontology-of-units-of-measure.org/resource/om-2/")
+om = get_ontology("http://www.ontology-of-units-of-measure.org/resource/om-2/")
 
 with om: 
     class Measure(Thing):
@@ -334,7 +334,7 @@ with sbol3:
     
     class template(CombinatorialDerivation >> Component, FunctionalProperty):
         label = "template" 
-    Constraint.is_a.append(template.some(Component))
+    CombinatorialDerivation.is_a.append(template.some(Component))
         
     class hasVariableFeature(CombinatorialDerivation >> VariableFeature):
         label = "participant"  
