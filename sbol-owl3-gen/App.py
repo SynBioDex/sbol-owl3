@@ -254,7 +254,7 @@ with sbol3:
     SequenceFeature.is_a.append(hasLocation.some(Location))
     
     #-----ComponentReference properties-----
-    class inChildOf(SubComponent >> Component , FunctionalProperty):
+    class inChildOf(ComponentReference >> SubComponent, FunctionalProperty):
         label = "inChildOf"  
     ComponentReference.is_a.append(inChildOf.some(Component))
           
