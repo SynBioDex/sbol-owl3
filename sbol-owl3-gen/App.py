@@ -192,7 +192,7 @@ with sbol3:
     #-----Component properties-----
     class type(ObjectProperty):
         label = "type"
-        domain = [Component, LocalSubComponent, ExternallyDefined, Interaction]
+        domain = [Or([Component, LocalSubComponent, ExternallyDefined, Interaction])]
     Component.is_a.append(type.some(Thing))
     LocalSubComponent.is_a.append(type.some(Thing))
     ExternallyDefined.is_a.append(type.some(Thing))
@@ -200,19 +200,19 @@ with sbol3:
     
     class role(ObjectProperty):
         label = "role"
-        domain = [Component, Feature, Participation]
+        domain = [Or([Component, Feature, Participation])]
     Participation.is_a.append(role.some(Thing))
        
     class hasSequence(ObjectProperty):
         label = "hasSequence"
-        domain = [Component, Location]
+        domain = [Or([Component, Location])]
         range= [Sequence]
     Location.is_a.append(hasSequence.some(Sequence))
     Location.is_a.append(hasSequence.max(1,Sequence))
         
     class hasFeature(ObjectProperty):
         label = "hasFeature"
-        domain = [Component, ComponentReference]
+        domain = [Or([Component, ComponentReference])]
         range= [Feature]
     ComponentReference.is_a.append(hasFeature.some(Feature))
     ComponentReference.is_a.append(hasFeature.max(1,Feature))
@@ -232,7 +232,7 @@ with sbol3:
     #-----Feature properties-----
     class orientation(ObjectProperty, FunctionalProperty):
         label = "orientation"
-        domain = [Feature, Location]
+        domain = [Or([Feature, Location])]
         range = [Orientation]
       
     #-----SubComponent properties-----
@@ -249,7 +249,7 @@ with sbol3:
     
     class hasLocation(ObjectProperty):
         label = "hasLocation"
-        domain = [SubComponent, LocalSubComponent, SequenceFeature] 
+        domain = [Or([SubComponent, LocalSubComponent, SequenceFeature])]
         range = [Location]
     SequenceFeature.is_a.append(hasLocation.some(Location))
     
@@ -367,7 +367,7 @@ with sbol3:
     #-----Model properties-----
     class source(ObjectProperty, FunctionalProperty):
         label = "source"  
-        domain = [Model, Attachment]
+        domain = [Or([Model, Attachment])]
     Model.is_a.append(source.some(Thing))
     Attachment.is_a.append(source.some(Thing))
     
