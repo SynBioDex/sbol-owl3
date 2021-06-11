@@ -233,7 +233,7 @@ with sbol3:
     class orientation(ObjectProperty, FunctionalProperty):
         label = "orientation"
         domain = [Or([Feature, Location])]
-        range = [Orientation]
+        range = [Or([inline, reverseComplement])]
       
     #-----SubComponent properties-----
     class roleIntegration(ObjectProperty, FunctionalProperty):
