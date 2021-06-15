@@ -329,8 +329,10 @@ with sbol3:
         label = "nondirectional"  
     
     #-----CombinatorialDerivation properties-----
-    class strategy(CombinatorialDerivation >> CombinatorialDerivationStrategy, FunctionalProperty):
-        label = "strategy"  
+    class strategy(FunctionalProperty):
+        label = "strategy"
+        domain = [CombinatorialDerivation]
+        range = [Or([enumerate, sample])]
     
     class template(CombinatorialDerivation >> Component, FunctionalProperty):
         label = "template" 
@@ -340,8 +342,10 @@ with sbol3:
         label = "participant"  
     
     #-----VariableFeature properties-----
-    class cardinality(VariableFeature >> Cardinality, FunctionalProperty):
-        label = "cardinality"  
+    class cardinality(FunctionalProperty):
+        label = "cardinality"
+        domain = [VariableFeature]
+        range = [Or([zeroOrOne, one, zeroOrMore, oneOrMore])]
     VariableFeature.is_a.append(cardinality.some(Cardinality))
       
     class variable(VariableFeature >> Feature, FunctionalProperty):
