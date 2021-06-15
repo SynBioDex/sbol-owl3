@@ -183,7 +183,7 @@ with sbol3:
         label = "elements"
         domain = [Sequence]
         range = [str] 
-    Sequence.is_a.append(elements.some(str))
+    # Sequence.is_a.append(elements.some(str))
     
     class encoding(ObjectProperty, FunctionalProperty):
         label = "encoding"
