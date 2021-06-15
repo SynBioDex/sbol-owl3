@@ -114,7 +114,14 @@
       </owl:unionOf>
     </owl:Class>
   </rdfs:domain>
-  <rdfs:range rdf:resource="#Orientation"/>
+  <rdfs:range>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#inline"/>
+        <rdf:Description rdf:about="#reverseComplement"/>
+      </owl:unionOf>
+    </owl:Class>
+  </rdfs:range>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">orientation</rdfs:label>
 </owl:ObjectProperty>
 
@@ -222,13 +229,6 @@
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">nondirectional</rdfs:label>
 </owl:ObjectProperty>
 
-<owl:ObjectProperty rdf:about="#strategy">
-  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-  <rdfs:domain rdf:resource="#CombinatorialDerivation"/>
-  <rdfs:range rdf:resource="#CombinatorialDerivationStrategy"/>
-  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">strategy</rdfs:label>
-</owl:ObjectProperty>
-
 <owl:ObjectProperty rdf:about="#template">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
   <rdfs:domain rdf:resource="#CombinatorialDerivation"/>
@@ -240,13 +240,6 @@
   <rdfs:domain rdf:resource="#CombinatorialDerivation"/>
   <rdfs:range rdf:resource="#VariableFeature"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">participant</rdfs:label>
-</owl:ObjectProperty>
-
-<owl:ObjectProperty rdf:about="#cardinality">
-  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-  <rdfs:domain rdf:resource="#VariableFeature"/>
-  <rdfs:range rdf:resource="#Cardinality"/>
-  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cardinality</rdfs:label>
 </owl:ObjectProperty>
 
 <owl:ObjectProperty rdf:about="#variable">
@@ -495,12 +488,6 @@
 
 <owl:Class rdf:about="#Sequence">
   <rdfs:subClassOf rdf:resource="#TopLevel"/>
-  <rdfs:subClassOf>
-    <owl:Restriction>
-      <owl:onProperty rdf:resource="#elements"/>
-      <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    </owl:Restriction>
-  </rdfs:subClassOf>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sequence</rdfs:label>
 </owl:Class>
 
@@ -901,6 +888,36 @@
 <owl:Class rdf:about="#oneOrMore">
   <rdfs:subClassOf rdf:resource="#Cardinality"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OneOrMore</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#strategy">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#CombinatorialDerivation"/>
+  <rdfs:range>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#enumerate"/>
+        <rdf:Description rdf:about="#sample"/>
+      </owl:unionOf>
+    </owl:Class>
+  </rdfs:range>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">strategy</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#cardinality">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#VariableFeature"/>
+  <rdfs:range>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#zeroOrOne"/>
+        <rdf:Description rdf:about="#one"/>
+        <rdf:Description rdf:about="#zeroOrMore"/>
+        <rdf:Description rdf:about="#oneOrMore"/>
+      </owl:unionOf>
+    </owl:Class>
+  </rdfs:range>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cardinality</rdfs:label>
 </owl:Class>
 
 
