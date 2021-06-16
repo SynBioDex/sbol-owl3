@@ -183,7 +183,7 @@ with sbol3:
         label = "elements"
         domain = [Sequence]
         range = [str] 
-    Sequence.is_a.append(elements.some(str))
+    # Sequence.is_a.append(elements.some(str))
     
     class encoding(ObjectProperty, FunctionalProperty):
         label = "encoding"
@@ -233,7 +233,7 @@ with sbol3:
     class orientation(ObjectProperty, FunctionalProperty):
         label = "orientation"
         domain = [Or([Feature, Location])]
-        range = [Orientation]
+        range = [Or([inline, reverseComplement])]
       
     #-----SubComponent properties-----
     class roleIntegration(ObjectProperty, FunctionalProperty):
@@ -329,8 +329,10 @@ with sbol3:
         label = "nondirectional"  
     
     #-----CombinatorialDerivation properties-----
-    class strategy(CombinatorialDerivation >> CombinatorialDerivationStrategy, FunctionalProperty):
-        label = "strategy"  
+    class strategy(FunctionalProperty):
+        label = "strategy"
+        domain = [CombinatorialDerivation]
+        range = [Or([enumerate, sample])]
     
     class template(CombinatorialDerivation >> Component, FunctionalProperty):
         label = "template" 
@@ -340,8 +342,10 @@ with sbol3:
         label = "participant"  
     
     #-----VariableFeature properties-----
-    class cardinality(VariableFeature >> Cardinality, FunctionalProperty):
-        label = "cardinality"  
+    class cardinality(FunctionalProperty):
+        label = "cardinality"
+        domain = [VariableFeature]
+        range = [Or([zeroOrOne, one, zeroOrMore, oneOrMore])]
     VariableFeature.is_a.append(cardinality.some(Cardinality))
       
     class variable(VariableFeature >> Feature, FunctionalProperty):
