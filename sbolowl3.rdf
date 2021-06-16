@@ -27,30 +27,54 @@
 </owl:ObjectProperty>
 
 <owl:ObjectProperty rdf:about="#type">
-  <rdfs:domain rdf:resource="#Interaction"/>
-  <rdfs:domain rdf:resource="#ExternallyDefined"/>
-  <rdfs:domain rdf:resource="#Component"/>
-  <rdfs:domain rdf:resource="#LocalSubComponent"/>
+  <rdfs:domain>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Component"/>
+        <rdf:Description rdf:about="#LocalSubComponent"/>
+        <rdf:Description rdf:about="#ExternallyDefined"/>
+        <rdf:Description rdf:about="#Interaction"/>
+      </owl:unionOf>
+    </owl:Class>
+  </rdfs:domain>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">type</rdfs:label>
 </owl:ObjectProperty>
 
 <owl:ObjectProperty rdf:about="#role">
-  <rdfs:domain rdf:resource="#Feature"/>
-  <rdfs:domain rdf:resource="#Component"/>
-  <rdfs:domain rdf:resource="#Participation"/>
+  <rdfs:domain>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Component"/>
+        <rdf:Description rdf:about="#Feature"/>
+        <rdf:Description rdf:about="#Participation"/>
+      </owl:unionOf>
+    </owl:Class>
+  </rdfs:domain>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">role</rdfs:label>
 </owl:ObjectProperty>
 
 <owl:ObjectProperty rdf:about="#hasSequence">
-  <rdfs:domain rdf:resource="#Location"/>
-  <rdfs:domain rdf:resource="#Component"/>
+  <rdfs:domain>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Component"/>
+        <rdf:Description rdf:about="#Location"/>
+      </owl:unionOf>
+    </owl:Class>
+  </rdfs:domain>
   <rdfs:range rdf:resource="#Sequence"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hasSequence</rdfs:label>
 </owl:ObjectProperty>
 
 <owl:ObjectProperty rdf:about="#hasFeature">
-  <rdfs:domain rdf:resource="#ComponentReference"/>
-  <rdfs:domain rdf:resource="#Component"/>
+  <rdfs:domain>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Component"/>
+        <rdf:Description rdf:about="#ComponentReference"/>
+      </owl:unionOf>
+    </owl:Class>
+  </rdfs:domain>
   <rdfs:range rdf:resource="#Feature"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hasFeature</rdfs:label>
 </owl:ObjectProperty>
@@ -82,8 +106,14 @@
 
 <owl:ObjectProperty rdf:about="#orientation">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-  <rdfs:domain rdf:resource="#Feature"/>
-  <rdfs:domain rdf:resource="#Location"/>
+  <rdfs:domain>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Feature"/>
+        <rdf:Description rdf:about="#Location"/>
+      </owl:unionOf>
+    </owl:Class>
+  </rdfs:domain>
   <rdfs:range rdf:resource="#Orientation"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">orientation</rdfs:label>
 </owl:ObjectProperty>
@@ -108,17 +138,23 @@
 </owl:ObjectProperty>
 
 <owl:ObjectProperty rdf:about="#hasLocation">
-  <rdfs:domain rdf:resource="#SequenceFeature"/>
-  <rdfs:domain rdf:resource="#SubComponent"/>
-  <rdfs:domain rdf:resource="#LocalSubComponent"/>
+  <rdfs:domain>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#SubComponent"/>
+        <rdf:Description rdf:about="#LocalSubComponent"/>
+        <rdf:Description rdf:about="#SequenceFeature"/>
+      </owl:unionOf>
+    </owl:Class>
+  </rdfs:domain>
   <rdfs:range rdf:resource="#Location"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hasLocation</rdfs:label>
 </owl:ObjectProperty>
 
 <owl:ObjectProperty rdf:about="#inChildOf">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-  <rdfs:domain rdf:resource="#SubComponent"/>
-  <rdfs:range rdf:resource="#Component"/>
+  <rdfs:domain rdf:resource="#ComponentReference"/>
+  <rdfs:range rdf:resource="#SubComponent"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">inChildOf</rdfs:label>
 </owl:ObjectProperty>
 
@@ -253,8 +289,14 @@
 
 <owl:ObjectProperty rdf:about="#source">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-  <rdfs:domain rdf:resource="#Attachment"/>
-  <rdfs:domain rdf:resource="#Model"/>
+  <rdfs:domain>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Model"/>
+        <rdf:Description rdf:about="#Attachment"/>
+      </owl:unionOf>
+    </owl:Class>
+  </rdfs:domain>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">source</rdfs:label>
 </owl:ObjectProperty>
 
