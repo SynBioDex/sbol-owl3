@@ -67,16 +67,15 @@
 </owl:ObjectProperty>
 
 <owl:ObjectProperty rdf:about="#hasFeature">
-  <rdfs:domain>
-    <owl:Class>
-      <owl:unionOf rdf:parseType="Collection">
-        <rdf:Description rdf:about="#Component"/>
-        <rdf:Description rdf:about="#ComponentReference"/>
-      </owl:unionOf>
-    </owl:Class>
-  </rdfs:domain>
+  <rdfs:domain rdf:resource="#Component"/>
   <rdfs:range rdf:resource="#Feature"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hasFeature</rdfs:label>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#refersTo">
+  <rdfs:domain rdf:resource="#ComponentReference"/>
+  <rdfs:range rdf:resource="#Feature"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">refersTo</rdfs:label>
 </owl:ObjectProperty>
 
 <owl:ObjectProperty rdf:about="#hasInteraction">
@@ -97,10 +96,15 @@
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hasModel</rdfs:label>
 </owl:ObjectProperty>
 
+<owl:ObjectProperty rdf:about="#compositionalProperty">
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">compositionalProperty</rdfs:label>
+</owl:ObjectProperty>
+
 <owl:ObjectProperty rdf:about="#hasInterface">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
   <rdfs:domain rdf:resource="#Component"/>
   <rdfs:range rdf:resource="#Interface"/>
+  <rdfs:subPropertyOf rdf:resource="#compositionalProperty"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hasInterface</rdfs:label>
 </owl:ObjectProperty>
 
@@ -626,13 +630,13 @@
   <rdfs:subClassOf rdf:resource="#Feature"/>
   <rdfs:subClassOf>
     <owl:Restriction>
-      <owl:onProperty rdf:resource="#hasFeature"/>
+      <owl:onProperty rdf:resource="#refersTo"/>
       <owl:someValuesFrom rdf:resource="#Feature"/>
     </owl:Restriction>
   </rdfs:subClassOf>
   <rdfs:subClassOf>
     <owl:Restriction>
-      <owl:onProperty rdf:resource="#hasFeature"/>
+      <owl:onProperty rdf:resource="#refersTo"/>
       <owl:onClass rdf:resource="#Feature"/>
       <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
     </owl:Restriction>

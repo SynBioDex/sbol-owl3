@@ -147,6 +147,12 @@ with sbol3:
     #ExternallyDefinedA.equivalent_to.append(orientation.only(Inline | ReverseComplement))
     
     #--------------SBOL properties-------------- 
+   
+        
+    '''class testProperty(compositionalProperty):
+        label = "testProperty"  
+    '''
+        
     #Identified properties
     class displayId(DataProperty, FunctionalProperty):
         label = "displayId"
@@ -209,13 +215,28 @@ with sbol3:
         range= [Sequence]
     Location.is_a.append(hasSequence.some(Sequence))
     Location.is_a.append(hasSequence.max(1,Sequence))
-        
+    
+    '''    
     class hasFeature(ObjectProperty):
         label = "hasFeature"
         domain = [Or([Component, ComponentReference])]
         range= [Feature]
     ComponentReference.is_a.append(hasFeature.some(Feature))
     ComponentReference.is_a.append(hasFeature.max(1,Feature))
+    '''
+    
+    class hasFeature(ObjectProperty):
+        label = "hasFeature"
+        domain = [Component]
+        range= [Feature]
+    
+    class refersTo(ObjectProperty):
+        label = "refersTo"
+        domain = [ComponentReference]
+        range= [Feature]    
+    ComponentReference.is_a.append(refersTo.some(Feature))
+    ComponentReference.is_a.append(refersTo.max(1,Feature))
+    
          
     class hasInteraction(Component >> Interaction):
         label = "hasInteraction"
@@ -225,8 +246,11 @@ with sbol3:
 
     class hasModel(Component >> Model):
         label = "hasModel" 
+    
+    class compositionalProperty(ObjectProperty):
+        label = "compositionalProperty"  
         
-    class hasInterface(Component >> Interface, FunctionalProperty):
+    class hasInterface(compositionalProperty, Component >> Interface, FunctionalProperty):
         label = "hasInterface"  
   
     #-----Feature properties-----
@@ -408,6 +432,10 @@ with sbol3:
         label = "hashAlgorithm"  
         domain = [Attachment]
         range= [str]
+        
+   
+        
+       
                  
     #TODO: Incorporate restrictions for sequence.encoding types.
     #TODO: Incorporate restrictions for component.type values.
