@@ -8,6 +8,17 @@
 
 <owl:Ontology rdf:about="http://sbols.org/v3"/>
 
+<owl:ObjectProperty rdf:about="#compositionalProperty">
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">compositionalProperty</rdfs:label>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#hasMeasure">
+  <rdfs:domain rdf:resource="#Identified"/>
+  <rdfs:range rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+  <rdfs:subPropertyOf rdf:resource="#compositionalProperty"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hasMeasure</rdfs:label>
+</owl:ObjectProperty>
+
 <owl:ObjectProperty rdf:about="#hasNamespace">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
   <rdfs:domain rdf:resource="#TopLevel"/>
@@ -69,10 +80,12 @@
 <owl:ObjectProperty rdf:about="#hasFeature">
   <rdfs:domain rdf:resource="#Component"/>
   <rdfs:range rdf:resource="#Feature"/>
+  <rdfs:subPropertyOf rdf:resource="#compositionalProperty"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hasFeature</rdfs:label>
 </owl:ObjectProperty>
 
 <owl:ObjectProperty rdf:about="#refersTo">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
   <rdfs:domain rdf:resource="#ComponentReference"/>
   <rdfs:range rdf:resource="#Feature"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">refersTo</rdfs:label>
@@ -81,12 +94,14 @@
 <owl:ObjectProperty rdf:about="#hasInteraction">
   <rdfs:domain rdf:resource="#Component"/>
   <rdfs:range rdf:resource="#Interaction"/>
+  <rdfs:subPropertyOf rdf:resource="#compositionalProperty"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hasInteraction</rdfs:label>
 </owl:ObjectProperty>
 
 <owl:ObjectProperty rdf:about="#hasConstraint">
   <rdfs:domain rdf:resource="#Component"/>
   <rdfs:range rdf:resource="#Constraint"/>
+  <rdfs:subPropertyOf rdf:resource="#compositionalProperty"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hasConstraint</rdfs:label>
 </owl:ObjectProperty>
 
@@ -94,10 +109,6 @@
   <rdfs:domain rdf:resource="#Component"/>
   <rdfs:range rdf:resource="#Model"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hasModel</rdfs:label>
-</owl:ObjectProperty>
-
-<owl:ObjectProperty rdf:about="#compositionalProperty">
-  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">compositionalProperty</rdfs:label>
 </owl:ObjectProperty>
 
 <owl:ObjectProperty rdf:about="#hasInterface">
@@ -145,6 +156,7 @@
 <owl:ObjectProperty rdf:about="#sourceLocation">
   <rdfs:domain rdf:resource="#SubComponent"/>
   <rdfs:range rdf:resource="#Location"/>
+  <rdfs:subPropertyOf rdf:resource="#compositionalProperty"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">sourceLocation</rdfs:label>
 </owl:ObjectProperty>
 
@@ -159,6 +171,7 @@
     </owl:Class>
   </rdfs:domain>
   <rdfs:range rdf:resource="#Location"/>
+  <rdfs:subPropertyOf rdf:resource="#compositionalProperty"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hasLocation</rdfs:label>
 </owl:ObjectProperty>
 
@@ -198,6 +211,7 @@
 <owl:ObjectProperty rdf:about="#hasParticipation">
   <rdfs:domain rdf:resource="#Interaction"/>
   <rdfs:range rdf:resource="#Participation"/>
+  <rdfs:subPropertyOf rdf:resource="#compositionalProperty"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hasParticipation</rdfs:label>
 </owl:ObjectProperty>
 
@@ -233,6 +247,20 @@
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">nondirectional</rdfs:label>
 </owl:ObjectProperty>
 
+<owl:ObjectProperty rdf:about="#strategy">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#CombinatorialDerivation"/>
+  <rdfs:range>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#enumerate"/>
+        <rdf:Description rdf:about="#sample"/>
+      </owl:unionOf>
+    </owl:Class>
+  </rdfs:range>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">strategy</rdfs:label>
+</owl:ObjectProperty>
+
 <owl:ObjectProperty rdf:about="#template">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
   <rdfs:domain rdf:resource="#CombinatorialDerivation"/>
@@ -243,7 +271,24 @@
 <owl:ObjectProperty rdf:about="#hasVariableFeature">
   <rdfs:domain rdf:resource="#CombinatorialDerivation"/>
   <rdfs:range rdf:resource="#VariableFeature"/>
-  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">participant</rdfs:label>
+  <rdfs:subPropertyOf rdf:resource="#compositionalProperty"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hasVariableFeature</rdfs:label>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#cardinality">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#VariableFeature"/>
+  <rdfs:range>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#zeroOrOne"/>
+        <rdf:Description rdf:about="#one"/>
+        <rdf:Description rdf:about="#zeroOrMore"/>
+        <rdf:Description rdf:about="#oneOrMore"/>
+      </owl:unionOf>
+    </owl:Class>
+  </rdfs:range>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cardinality</rdfs:label>
 </owl:ObjectProperty>
 
 <owl:ObjectProperty rdf:about="#variable">
@@ -340,12 +385,6 @@
   <rdfs:domain rdf:resource="#Identified"/>
   <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">description</rdfs:label>
-</owl:DatatypeProperty>
-
-<owl:DatatypeProperty rdf:about="#hasMeasure">
-  <rdfs:domain rdf:resource="#Identified"/>
-  <rdfs:range rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
-  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hasMeasure</rdfs:label>
 </owl:DatatypeProperty>
 
 <owl:DatatypeProperty rdf:about="#elements">
@@ -636,13 +675,6 @@
   </rdfs:subClassOf>
   <rdfs:subClassOf>
     <owl:Restriction>
-      <owl:onProperty rdf:resource="#refersTo"/>
-      <owl:onClass rdf:resource="#Feature"/>
-      <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
-    </owl:Restriction>
-  </rdfs:subClassOf>
-  <rdfs:subClassOf>
-    <owl:Restriction>
       <owl:onProperty rdf:resource="#inChildOf"/>
       <owl:someValuesFrom rdf:resource="#Component"/>
     </owl:Restriction>
@@ -892,36 +924,6 @@
 <owl:Class rdf:about="#oneOrMore">
   <rdfs:subClassOf rdf:resource="#Cardinality"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OneOrMore</rdfs:label>
-</owl:Class>
-
-<owl:Class rdf:about="#strategy">
-  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-  <rdfs:domain rdf:resource="#CombinatorialDerivation"/>
-  <rdfs:range>
-    <owl:Class>
-      <owl:unionOf rdf:parseType="Collection">
-        <rdf:Description rdf:about="#enumerate"/>
-        <rdf:Description rdf:about="#sample"/>
-      </owl:unionOf>
-    </owl:Class>
-  </rdfs:range>
-  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">strategy</rdfs:label>
-</owl:Class>
-
-<owl:Class rdf:about="#cardinality">
-  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-  <rdfs:domain rdf:resource="#VariableFeature"/>
-  <rdfs:range>
-    <owl:Class>
-      <owl:unionOf rdf:parseType="Collection">
-        <rdf:Description rdf:about="#zeroOrOne"/>
-        <rdf:Description rdf:about="#one"/>
-        <rdf:Description rdf:about="#zeroOrMore"/>
-        <rdf:Description rdf:about="#oneOrMore"/>
-      </owl:unionOf>
-    </owl:Class>
-  </rdfs:range>
-  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cardinality</rdfs:label>
 </owl:Class>
 
 

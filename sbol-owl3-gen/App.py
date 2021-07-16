@@ -152,7 +152,10 @@ with sbol3:
     '''class testProperty(compositionalProperty):
         label = "testProperty"  
     '''
-        
+       
+    class compositionalProperty(ObjectProperty):
+        label = "compositionalProperty"  
+         
     #Identified properties
     class displayId(DataProperty, FunctionalProperty):
         label = "displayId"
@@ -169,10 +172,10 @@ with sbol3:
         domain = [Identified]
         range = [str]  
         
-    class hasMeasure(DataProperty):
+    class hasMeasure(compositionalProperty, Identified >> om.Measure):
         label = "hasMeasure"
-        domain = [Identified]
-        range = [om.Measure]  
+        #domain = [Identified]
+        #range = [om.Measure]  
         
     #-----TopLevel properties-----  
     class hasNamespace(ObjectProperty, FunctionalProperty):
@@ -225,30 +228,26 @@ with sbol3:
     ComponentReference.is_a.append(hasFeature.max(1,Feature))
     '''
     
-    class hasFeature(ObjectProperty):
+    class hasFeature(compositionalProperty, ObjectProperty):
         label = "hasFeature"
         domain = [Component]
         range= [Feature]
     
-    class refersTo(ObjectProperty):
+    class refersTo(ObjectProperty, FunctionalProperty):
         label = "refersTo"
         domain = [ComponentReference]
         range= [Feature]    
     ComponentReference.is_a.append(refersTo.some(Feature))
-    ComponentReference.is_a.append(refersTo.max(1,Feature))
-    
-         
-    class hasInteraction(Component >> Interaction):
+    #ComponentReference.is_a.append(refersTo.max(1,Feature))
+             
+    class hasInteraction(compositionalProperty, Component >> Interaction):
         label = "hasInteraction"
 
-    class hasConstraint(Component >> Constraint):
+    class hasConstraint(compositionalProperty, Component >> Constraint):
         label = "hasConstraint"
 
     class hasModel(Component >> Model):
         label = "hasModel" 
-    
-    class compositionalProperty(ObjectProperty):
-        label = "compositionalProperty"  
         
     class hasInterface(compositionalProperty, Component >> Interface, FunctionalProperty):
         label = "hasInterface"  
@@ -268,10 +267,10 @@ with sbol3:
         label = "instanceOf"
     SubComponent.is_a.append(instanceOf.some(Component))
      
-    class sourceLocation(SubComponent >> Location):
+    class sourceLocation(compositionalProperty, SubComponent >> Location):
         label = "sourceLocation"
     
-    class hasLocation(ObjectProperty):
+    class hasLocation(compositionalProperty, ObjectProperty):
         label = "hasLocation"
         domain = [Or([SubComponent, LocalSubComponent, SequenceFeature])]
         range = [Location]
@@ -332,7 +331,7 @@ with sbol3:
     Constraint.is_a.append(object.some(Feature))
     
     #-----Interaction properties-----
-    class hasParticipation(Interaction >> Participation):
+    class hasParticipation(compositionalProperty, Interaction >> Participation):
         label = "hasParticipation"
      
     #-----Participation properties-----
@@ -353,7 +352,7 @@ with sbol3:
         label = "nondirectional"  
     
     #-----CombinatorialDerivation properties-----
-    class strategy(FunctionalProperty):
+    class strategy(ObjectProperty, FunctionalProperty):
         label = "strategy"
         domain = [CombinatorialDerivation]
         range = [Or([enumerate, sample])]
@@ -362,11 +361,11 @@ with sbol3:
         label = "template" 
     CombinatorialDerivation.is_a.append(template.some(Component))
         
-    class hasVariableFeature(CombinatorialDerivation >> VariableFeature):
-        label = "participant"  
+    class hasVariableFeature(compositionalProperty, CombinatorialDerivation >> VariableFeature):
+        label = "hasVariableFeature"  
     
     #-----VariableFeature properties-----
-    class cardinality(FunctionalProperty):
+    class cardinality(ObjectProperty, FunctionalProperty):
         label = "cardinality"
         domain = [VariableFeature]
         range = [Or([zeroOrOne, one, zeroOrMore, oneOrMore])]
