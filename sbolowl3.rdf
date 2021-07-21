@@ -8,7 +8,13 @@
 
 <owl:Ontology rdf:about="http://sbols.org/v3"/>
 
+<owl:ObjectProperty rdf:about="#comprises">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">comprises</rdfs:label>
+</owl:ObjectProperty>
+
 <owl:ObjectProperty rdf:about="#directlyComprises">
+  <rdfs:subPropertyOf rdf:resource="#comprises"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">directlyComprises</rdfs:label>
 </owl:ObjectProperty>
 

@@ -152,8 +152,11 @@ with sbol3:
     '''class testProperty(directlyComprises):
         label = "testProperty"  
     '''
-       
-    class directlyComprises(ObjectProperty):
+
+    class comprises(ObjectProperty, TransitiveProperty):
+        label = "comprises"  
+               
+    class directlyComprises(comprises, ObjectProperty):
         label = "directlyComprises"  
          
     #Identified properties
