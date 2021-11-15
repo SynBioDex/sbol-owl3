@@ -147,6 +147,18 @@ with sbol3:
     #ExternallyDefinedA.equivalent_to.append(orientation.only(Inline | ReverseComplement))
     
     #--------------SBOL properties-------------- 
+   
+        
+    '''class testProperty(directlyComprises):
+        label = "testProperty"  
+    '''
+
+    class comprises(ObjectProperty, TransitiveProperty):
+        label = "comprises"  
+               
+    class directlyComprises(comprises, ObjectProperty):
+        label = "directlyComprises"  
+         
     #Identified properties
     class displayId(DataProperty, FunctionalProperty):
         label = "displayId"
@@ -163,10 +175,10 @@ with sbol3:
         domain = [Identified]
         range = [str]  
         
-    class hasMeasure(DataProperty):
+    class hasMeasure(directlyComprises, Identified >> om.Measure):
         label = "hasMeasure"
-        domain = [Identified]
-        range = [om.Measure]  
+        #domain = [Identified]
+        #range = [om.Measure]  
         
     #-----TopLevel properties-----  
     class hasNamespace(ObjectProperty, FunctionalProperty):
@@ -209,24 +221,38 @@ with sbol3:
         range= [Sequence]
     Location.is_a.append(hasSequence.some(Sequence))
     Location.is_a.append(hasSequence.max(1,Sequence))
-        
+    
+    '''    
     class hasFeature(ObjectProperty):
         label = "hasFeature"
         domain = [Or([Component, ComponentReference])]
         range= [Feature]
     ComponentReference.is_a.append(hasFeature.some(Feature))
     ComponentReference.is_a.append(hasFeature.max(1,Feature))
-         
-    class hasInteraction(Component >> Interaction):
+    '''
+    
+    class hasFeature(directlyComprises, ObjectProperty):
+        label = "hasFeature"
+        domain = [Component]
+        range= [Feature]
+    
+    class refersTo(ObjectProperty, FunctionalProperty):
+        label = "refersTo"
+        domain = [ComponentReference]
+        range= [Feature]    
+    ComponentReference.is_a.append(refersTo.some(Feature))
+    #ComponentReference.is_a.append(refersTo.max(1,Feature))
+             
+    class hasInteraction(directlyComprises, Component >> Interaction):
         label = "hasInteraction"
 
-    class hasConstraint(Component >> Constraint):
+    class hasConstraint(directlyComprises, Component >> Constraint):
         label = "hasConstraint"
 
     class hasModel(Component >> Model):
         label = "hasModel" 
         
-    class hasInterface(Component >> Interface, FunctionalProperty):
+    class hasInterface(directlyComprises, Component >> Interface, FunctionalProperty):
         label = "hasInterface"  
   
     #-----Feature properties-----
@@ -244,10 +270,10 @@ with sbol3:
         label = "instanceOf"
     SubComponent.is_a.append(instanceOf.some(Component))
      
-    class sourceLocation(SubComponent >> Location):
+    class sourceLocation(directlyComprises, SubComponent >> Location):
         label = "sourceLocation"
     
-    class hasLocation(ObjectProperty):
+    class hasLocation(directlyComprises, ObjectProperty):
         label = "hasLocation"
         domain = [Or([SubComponent, LocalSubComponent, SequenceFeature])]
         range = [Location]
@@ -308,7 +334,7 @@ with sbol3:
     Constraint.is_a.append(object.some(Feature))
     
     #-----Interaction properties-----
-    class hasParticipation(Interaction >> Participation):
+    class hasParticipation(directlyComprises, Interaction >> Participation):
         label = "hasParticipation"
      
     #-----Participation properties-----
@@ -329,7 +355,7 @@ with sbol3:
         label = "nondirectional"  
     
     #-----CombinatorialDerivation properties-----
-    class strategy(FunctionalProperty):
+    class strategy(ObjectProperty, FunctionalProperty):
         label = "strategy"
         domain = [CombinatorialDerivation]
         range = [Or([enumerate, sample])]
@@ -338,11 +364,11 @@ with sbol3:
         label = "template" 
     CombinatorialDerivation.is_a.append(template.some(Component))
         
-    class hasVariableFeature(CombinatorialDerivation >> VariableFeature):
-        label = "participant"  
+    class hasVariableFeature(directlyComprises, CombinatorialDerivation >> VariableFeature):
+        label = "hasVariableFeature"  
     
     #-----VariableFeature properties-----
-    class cardinality(FunctionalProperty):
+    class cardinality(ObjectProperty, FunctionalProperty):
         label = "cardinality"
         domain = [VariableFeature]
         range = [Or([zeroOrOne, one, zeroOrMore, oneOrMore])]
@@ -408,6 +434,10 @@ with sbol3:
         label = "hashAlgorithm"  
         domain = [Attachment]
         range= [str]
+        
+   
+        
+       
                  
     #TODO: Incorporate restrictions for sequence.encoding types.
     #TODO: Incorporate restrictions for component.type values.
