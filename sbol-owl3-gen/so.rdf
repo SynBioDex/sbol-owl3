@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xml:base="https://identifiers.org/SO:"
+         xmlns="https://identifiers.org/SO:#">
+
+<owl:Ontology rdf:about="https://identifiers.org/SO:"/>
+
+<owl:Class rdf:about="https://identifiers.org/SO:0000110">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sequence Feature</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="https://identifiers.org/SO:0000167">
+  <rdfs:subClassOf rdf:resource="https://identifiers.org/SO:0000110"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Promoter</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="https://identifiers.org/SO:0000139">
+  <rdfs:subClassOf rdf:resource="https://identifiers.org/SO:0000110"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ribosome Binding Site</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="https://identifiers.org/SO:0000316">
+  <rdfs:subClassOf rdf:resource="https://identifiers.org/SO:0000110"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Coding Sequence</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="https://identifiers.org/SO:0000141">
+  <rdfs:subClassOf rdf:resource="https://identifiers.org/SO:0000110"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Terminator</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="https://identifiers.org/SO:0000704">
+  <rdfs:subClassOf rdf:resource="https://identifiers.org/SO:0000110"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Gene</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="https://identifiers.org/SO:0000057">
+  <rdfs:subClassOf rdf:resource="https://identifiers.org/SO:0000110"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Operator</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="https://identifiers.org/SO:0000804">
+  <rdfs:subClassOf rdf:resource="https://identifiers.org/SO:0000110"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Engineered Region</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="https://identifiers.org/SO:0000234">
+  <rdfs:subClassOf rdf:resource="https://identifiers.org/SO:0000110"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">mRNA</rdfs:label>
+</owl:Class>
+
+
+</rdf:RDF>

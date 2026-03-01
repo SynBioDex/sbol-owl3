@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xml:base="https://identifiers.org/SBO:"
+         xmlns="https://identifiers.org/SBO:#">
+
+<owl:Ontology rdf:about="https://identifiers.org/SBO:"/>
+
+<owl:Class rdf:about="https://identifiers.org/SBO:0000236">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Physical Entity Representation</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="https://identifiers.org/SBO:0000251">
+  <rdfs:subClassOf rdf:resource="https://identifiers.org/SBO:0000236"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DNA</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="https://identifiers.org/SBO:0000252">
+  <rdfs:subClassOf rdf:resource="https://identifiers.org/SBO:0000236"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Protein</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="https://identifiers.org/SBO:0000247">
+  <rdfs:subClassOf rdf:resource="https://identifiers.org/SBO:0000236"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Simple Chemical</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="https://identifiers.org/SBO:0000253">
+  <rdfs:subClassOf rdf:resource="https://identifiers.org/SBO:0000236"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Non-covalent complex</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="https://identifiers.org/SBO:0000241">
+  <rdfs:subClassOf rdf:resource="https://identifiers.org/SBO:0000236"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Functional Entity</rdfs:label>
+</owl:Class>
+
+
+</rdf:RDF>

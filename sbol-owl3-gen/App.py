@@ -4,14 +4,160 @@ Created on 26 May 2021
 @author: gokselmisirli
 '''
 from owlready2 import *
-#import types
+from rdflib import Graph
+from importlib.metadata import version
+import rdflib
+#print ('rdflib: ' + rdflib.__version__)
+print('owlready2: ' + version("owlready2"))
+import sys
+print('Python: ' +  sys.version)
+print('rdflib:' + rdflib.__version__)
+
+import types
 #import re
 #from ctypes.test.test_repr import subclasses
 #from dill.tests.test_nested import cadder
 
-sbol3 = get_ontology("http://sbols.org/v3")
+sbol3 = get_ontology("http://sbols.org/v3#")
 prov = get_ontology("https://www.w3.org/ns/prov#")
 om = get_ontology("http://www.ontology-of-units-of-measure.org/resource/om-2/")
+sbo = get_ontology("https://identifiers.org/SBO:")
+sbo.base_iri = "https://identifiers.org/SBO:"
+so = get_ontology("https://identifiers.org/SO:")
+so.base_iri = "https://identifiers.org/SO:"
+edam = get_ontology("https://identifiers.org/EDAM:")
+edam.base_iri = "https://identifiers.org/EDAM:"
+chebi = get_ontology("https://identifiers.org/CHEBI:")
+chebi.base_iri = "https://identifiers.org/CHEBI:"
+go = get_ontology("https://identifiers.org/GO:")
+go.base_iri = "https://identifiers.org/GO:"
+#identifiers = get_ontology("https://identifiers.org/")
+
+
+with sbo:
+    SBO_0000236 = types.new_class("0000236", (Thing,))
+    SBO_0000236.label = ["Physical Entity Representation"]
+
+    SBO_0000251 = types.new_class("0000251", (SBO_0000236,))
+    SBO_0000251.label = ["DNA"]
+
+    SBO_0000250 = types.new_class("0000252", (SBO_0000236,))
+    SBO_0000250.label = ["RNA"]
+
+    SBO_0000252 = types.new_class("0000252", (SBO_0000236,))
+    SBO_0000252.label = ["Protein"]
+
+    SBO_0000247 = types.new_class("0000247", (SBO_0000236,))
+    SBO_0000247.label = ["Simple Chemical"]
+
+    SBO_0000253 = types.new_class("0000253", (SBO_0000236,))
+    SBO_0000253.label = ["Non-covalent complex"]
+
+    SBO_0000241 = types.new_class("0000241", (SBO_0000236,))
+    SBO_0000241.label = ["Functional Entity"]
+
+with so:
+    SO_0000110 = types.new_class("0000110", (Thing,))
+    SO_0000110.label = ["Sequence Feature"]
+
+    SO_0000167 = types.new_class("0000167", (SO_0000110,))
+    SO_0000167.label = ["Promoter"]
+
+    SO_0000139 = types.new_class("0000139", (SO_0000110,))
+    SO_0000139.label = ["Ribosome Binding Site"]
+
+    SO_0000316 = types.new_class("0000316", (SO_0000110,))
+    SO_0000316.label = ["Coding Sequence"]
+
+    SO_0000141 = types.new_class("0000141", (SO_0000110,))
+    SO_0000141.label = ["Terminator"]
+
+    SO_0000704 = types.new_class("0000704", (SO_0000110,))
+    SO_0000704.label = ["Gene"]
+
+    SO_0000057 = types.new_class("0000057", (SO_0000110,))
+    SO_0000057.label = ["Operator"]
+
+    SO_0000804 = types.new_class("0000804", (SO_0000110,))
+    SO_0000804.label = ["Engineered Region"]
+
+    SO_0000234 = types.new_class("0000234", (SO_0000110,))
+    SO_0000234.label = ["mRNA"]
+
+with chebi:
+    CHEBI_50906 = types.new_class("50906", (Thing,))
+    CHEBI_50906.label = ["Material Entity"]
+
+    CHEBI_35224 = types.new_class("35224", (CHEBI_50906,))
+    CHEBI_35224.label = ["Effector"]
+
+
+with go:
+    GO_0003674 = types.new_class("0003674", (Thing,))
+    GO_0003674.label = ["Molecular Function"]
+    
+    GO_0003700 = types.new_class("0003700", (GO_0003674,))
+    GO_0003700.label = ["Transcription Factor"]
+
+with edam:
+    EDAM_format_1207 = types.new_class("format_1207", (Thing,))
+    EDAM_format_1207.label = ["IUPAC DNA/RNA"]
+
+    EDAM_format_1208 = types.new_class("format_1208", (Thing,))
+    EDAM_format_1208.label = ["IUPAC Protein"]
+
+    EDAM_format_1197 = types.new_class("format_1197", (Thing,))
+    EDAM_format_1197.label = ["InChI"]
+
+    EDAM_format_1196 = types.new_class("format_1196", (Thing,))
+    EDAM_format_1196.label = ["SMILES"]
+
+with sbol3 :
+    class ComponentTypeRestriction (SBO_0000236):
+        label = "Component Type"
+    ComponentTypeRestriction.equivalent_to.append(
+        Or([SBO_0000251, SBO_0000252])
+    )
+
+    class EncodingRestriction (Thing):
+        label = "Encoding"
+    EncodingRestriction.equivalent_to.append(
+        Or([EDAM_format_1207, EDAM_format_1208, EDAM_format_1197, EDAM_format_1196])
+    )
+
+    class DNARoleRestriction (Thing):
+        label = "DNA role"
+    DNARoleRestriction.equivalent_to.append(
+        Or([SO_0000110, SO_0000167, SO_0000139, SO_0000316, SO_0000141, SO_0000704, SO_0000057, SO_0000804])
+    )
+
+    class RNARoleRestriction (Thing):
+        label = "RNA role"
+    RNARoleRestriction.equivalent_to.append(
+        Or([SO_0000110, SO_0000234])
+    )
+
+    class ProteinRoleRestriction (Thing):
+        label = "Protein role"
+    ProteinRoleRestriction.equivalent_to.append(
+        Or([GO_0003674, GO_0003700])
+    )
+
+    class SmallMoleculeRoleRestriction (Thing):
+        label = "Small Molecule role"
+    SmallMoleculeRoleRestriction.equivalent_to.append(
+        Or([CHEBI_50906, CHEBI_35224])
+    )
+
+ 
+
+'''
+  class 0000251(0000236):
+    label = "DNA"
+
+  class 0000252 (0000236):
+    label = "RNA"
+  '''
 
 with om: 
     class Measure(Thing):
@@ -202,13 +348,19 @@ with sbol3:
         domain = [Sequence]
     
     #-----Component properties-----
+
+
+
     class type(ObjectProperty):
         label = "type"
         domain = [Or([Component, LocalSubComponent, ExternallyDefined, Interaction])]
-    Component.is_a.append(type.some(Thing))
+    Component.is_a.append(type.some(Thing))    
+    Component.is_a.append(type.some(ComponentTypeRestriction))
+    Component.is_a.append(type.max(1, ComponentTypeRestriction))
     LocalSubComponent.is_a.append(type.some(Thing))
     ExternallyDefined.is_a.append(type.some(Thing))
     Interaction.is_a.append(type.some(Thing))
+
     
     class role(ObjectProperty):
         label = "role"
@@ -436,18 +588,176 @@ with sbol3:
         range= [str]
         
    
+
         
        
                  
     #TODO: Incorporate restrictions for sequence.encoding types.
-    #TODO: Incorporate restrictions for component.type values.
-    #TODO: Incorporate restrictions for component.role values.
     #TODO: Incorporate restrictions for constraint.restriction types.
     #TODO: Incorporate restrictions for interaction.type values.
     #TODO: Incorporate restrictions for participation.role values.
     #TODO: Incorporate restrictions for model.language and model.framework properties.
+
+    #--------------Named Sequence Subclasses--------------
+    class SequenceWithElements (Sequence):
+        label = "Sequence With Elements"
+    SequenceWithElements.equivalent_to.append(
+        Sequence & elements.some(str) & encoding.some(EncodingRestriction)
+    )
+
+    class DNASequence (SequenceWithElements):
+        label = "DNA Sequence"
+    DNASequence.equivalent_to.append(
+        SequenceWithElements & encoding.some(EDAM_format_1207)
+    )
+
+    class RNASequence (SequenceWithElements):
+        label = "RNA Sequence"
+    RNASequence.equivalent_to.append(
+        SequenceWithElements & encoding.some(EDAM_format_1207)
+    )
+
+    class ProteinSequence (SequenceWithElements):
+        label = "Protein Sequence"
+    ProteinSequence.equivalent_to.append(
+        SequenceWithElements & encoding.some(EDAM_format_1208)
+    )
+
+    class InChISequence (SequenceWithElements):
+        label = "InChI Sequence"
+    InChISequence.equivalent_to.append(
+        SequenceWithElements & encoding.some(EDAM_format_1197)
+    )
+
+    class SMILESSequence (SequenceWithElements):
+        label = "SMILES Sequence"
+    SMILESSequence.equivalent_to.append(
+        SequenceWithElements & encoding.some(EDAM_format_1196)
+    )
+
+    #--------------Named Component Subclasses (by type)--------------
+    class DNAComponent (Component):
+        label = "DNA Component"
+    DNAComponent.equivalent_to.append(
+        Component & type.some(SBO_0000251) & role.some(DNARoleRestriction) & hasSequence.only(DNASequence)
+    )
+
+    class RNAComponent (Component):
+        label = "RNA Component"
+    RNAComponent.equivalent_to.append(
+        Component & type.some(SBO_0000250) & role.some(RNARoleRestriction) & hasSequence.only(RNASequence)
+    )
+
+    class ProteinComponent (Component):
+        label = "Protein Component"
+    ProteinComponent.equivalent_to.append(
+        Component & type.some(SBO_0000252) & role.some(ProteinRoleRestriction) & hasSequence.only(ProteinSequence)
+    )
+
+    class SimpleChemicalComponent (Component):
+        label = "Simple Chemical Component"
+    SimpleChemicalComponent.equivalent_to.append(
+        Component & type.some(SBO_0000247) & role.some(SmallMoleculeRoleRestriction) & hasSequence.only(Or([InChISequence, SMILESSequence]))
+    )
+
+    class NonCovalentComplexComponent (Component):
+        label = "Non-Covalent Complex Component"
+    NonCovalentComplexComponent.equivalent_to.append(
+        Component & type.some(SBO_0000253)  
+    )
+
+    class FunctionalEntityComponent (Component):
+        label = "Functional Entity Component"
+    FunctionalEntityComponent.equivalent_to.append(
+        Component & type.some(SBO_0000241)
+    )
+
+    #--------------Named Component Subclasses (by role, DNAComponent)--------------
+    class GenericDNAComponent (DNAComponent):
+        label = "Generic DNA Component"
+    GenericDNAComponent.equivalent_to.append(
+        DNAComponent & role.some(SO_0000110)
+    )
+    class PromoterDNAComponent (DNAComponent):
+        label = "Promoter DNA Component"
+    PromoterDNAComponent.equivalent_to.append(
+        DNAComponent & role.some(SO_0000167)
+    )
+
+    class RBSDNAComponent (DNAComponent):
+        label = "RBS DNA Component"
+    RBSDNAComponent.equivalent_to.append(
+        DNAComponent & role.some(SO_0000139)
+    )
+
+    class CDSDNAComponent (DNAComponent):
+        label = "CDS DNA Component"
+    CDSDNAComponent.equivalent_to.append(
+        DNAComponent & role.some(SO_0000316)
+    )
+
+    class TerminatorDNAComponent (DNAComponent):
+        label = "Terminator DNA Component"
+    TerminatorDNAComponent.equivalent_to.append(
+        DNAComponent & role.some(SO_0000141)
+    )
+
+    class GeneDNAComponent (DNAComponent):
+        label = "Gene DNA Component"
+    GeneDNAComponent.equivalent_to.append(
+        DNAComponent & role.some(SO_0000704)
+    )
+
+    class OperatorDNAComponent (DNAComponent):
+        label = "Operator DNA Component"
+    OperatorDNAComponent.equivalent_to.append(
+        DNAComponent & role.some(SO_0000057)
+    )
+
+    class EngineeredRegionDNAComponent (DNAComponent):
+        label = "Engineered Region DNA Component"
+    EngineeredRegionDNAComponent.equivalent_to.append(
+        DNAComponent & role.some(SO_0000804)
+    )
+
+    #--------------Named Component Subclasses (by role, SimpleChemicalComponent)--------------
+    class EffectorSimpleChemicalComponent (SimpleChemicalComponent):
+        label = "Effector Simple Chemical Component"
+    EffectorSimpleChemicalComponent.equivalent_to.append(
+        SimpleChemicalComponent & role.some(CHEBI_35224)
+    )
+
+    #--------------Named Component Subclasses (by role, ProteinComponent)--------------
+    class TranscriptionFactorProteinComponent (ProteinComponent):
+        label = "Transcription Factor Protein Component"
+    TranscriptionFactorProteinComponent.equivalent_to.append(
+        ProteinComponent & role.some(GO_0003700)
+    )
+
     
-             
-sbol3.save(file = "../sbolowl3.txt", format = "rdfxml")
-sbol3.save(file = "../sbolowl3.rdf", format = "rdfxml")
+
+sbol3.imported_ontologies.append(sbo)
+sbol3.imported_ontologies.append(so)
+sbol3.imported_ontologies.append(edam)
+sbol3.imported_ontologies.append(om)
+sbol3.imported_ontologies.append(chebi)
+sbol3.imported_ontologies.append(go)
+
+# Save individual ontologies
+
+sbol3.save(file = "sbolowl3.txt", format = "rdfxml")
+sbol3.save(file = "sbolowl3.rdf", format = "rdfxml")
+sbo.save(file = "sbo.rdf", format = "rdfxml")
+so.save(file = "so.rdf", format = "rdfxml")
+edam.save(file = "edam.rdf", format = "rdfxml")
+chebi.save(file = "chebi.rdf", format = "rdfxml")
+go.save(file = "go.rdf", format = "rdfxml")
+
+# Merge all ontologies into a single combined file using rdflib
+combined = Graph()
+for f in ["sbolowl3.rdf", "sbo.rdf", "so.rdf", "edam.rdf", "chebi.rdf", "go.rdf"]:
+    combined.parse(f, format="xml")
+combined.serialize(destination="sbolowl3-combined.rdf", format="xml")
+combined.serialize(destination="sbolowl3-combined.txt", format="xml")
+
 print ("done!")

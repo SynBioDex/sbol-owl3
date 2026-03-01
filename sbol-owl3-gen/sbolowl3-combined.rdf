@@ -1,0 +1,1891 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+   xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+>
+  <rdf:Description rdf:nodeID="N77ccf6c4f79145f6a7224f8a237bf9ea">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://sbols.org/v3#refersTo"/>
+    <owl:someValuesFrom rdf:resource="http://sbols.org/v3#Feature"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#ProteinSequence">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://sbols.org/v3#SequenceWithElements"/>
+    <owl:equivalentClass rdf:nodeID="Nbfcca86185484efea5f17c0099c89e24"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Protein Sequence</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#Experiment">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Collection"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Experiment</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#Attachment">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://sbols.org/v3#TopLevel"/>
+    <rdfs:subClassOf rdf:nodeID="N30f8cc48fdb34a649d2cf5f4fd09a322"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Attachment</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N601e63048ff041249e448024b71f49de">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://sbols.org/v3#definition"/>
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#hasFeature">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://sbols.org/v3#directlyComprises"/>
+    <rdfs:domain rdf:resource="http://sbols.org/v3#Component"/>
+    <rdfs:range rdf:resource="http://sbols.org/v3#Feature"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hasFeature</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N79877c66787a44908b041382d855329a">
+    <rdf:first rdf:resource="http://sbols.org/v3#Feature"/>
+    <rdf:rest rdf:nodeID="N78b19c9481f54a58bff05c6afa6b2e42"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ncc459629f71c45ffb1ce77e23574a8a5">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://sbols.org/v3#source"/>
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#EffectorSimpleChemicalComponent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://sbols.org/v3#SimpleChemicalComponent"/>
+    <owl:equivalentClass rdf:nodeID="Na3c2b4492c4e44e0b85a04d72e4a0563"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Effector Simple Chemical Component</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nf5654b47ee86400fb3a9e52ece0f8409">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://sbols.org/v3#type"/>
+    <owl:someValuesFrom rdf:resource="https://identifiers.org/SBO:0000252"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nf018040e9a834ada8769c5f2e71b32f2">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://sbols.org/v3#encoding"/>
+    <owl:someValuesFrom rdf:resource="https://identifiers.org/EDAM:format_1197"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N1a5a322b6dc645c680e659d612999c02">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:intersectionOf rdf:nodeID="N4418a9a5e82c4d70848bded4df5e32b1"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N96414d0e885141b585e8fa228917b33c">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="Nfb3fca53833642fd974608342415e860"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#LocalSubComponent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Feature"/>
+    <rdfs:subClassOf rdf:nodeID="N3b01d8802c7448b3bfe1ecbecacb40bf"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LocalSubComponent</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#ComponentTypeRestriction">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://identifiers.org/SBO:0000236"/>
+    <owl:equivalentClass rdf:nodeID="Nb99a269efbea4e40bee71a3178868358"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Component Type</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#ExternallyDefined">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Feature"/>
+    <rdfs:subClassOf rdf:nodeID="N64f5206918d1442d8be9382cd0815cd2"/>
+    <rdfs:subClassOf rdf:nodeID="N601e63048ff041249e448024b71f49de"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ExternallyDefined</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#input">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://sbols.org/v3#Interface"/>
+    <rdfs:range rdf:resource="http://sbols.org/v3#Feature"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">input</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nd25098a9f11e46cc8acf3f33f286f6b4">
+    <rdf:first rdf:resource="https://identifiers.org/SO:0000141"/>
+    <rdf:rest rdf:nodeID="Ne613929d4b724f4f8551bbfa1f82ff00"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N41942a5a520941fe8addfc6d3b64ee3f">
+    <rdf:first rdf:resource="http://sbols.org/v3#DNAComponent"/>
+    <rdf:rest rdf:nodeID="N2bc170e298e5438d81eb03f1f29d7a0b"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N8f37f19c2bde41d39e3edc314f823d7a">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="N538b3ac5a9f446ff808ecba5a5e89d5f"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://identifiers.org/EDAM:format_1208">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">IUPAC Protein</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#DNARoleRestriction">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <owl:equivalentClass rdf:nodeID="N86151bd6e5694cc090665ab0ce5b67d0"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DNA role</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N1238241d411c41e4891ee1d19ae04c69">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://sbols.org/v3#role"/>
+    <owl:someValuesFrom rdf:resource="http://sbols.org/v3#DNARoleRestriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N8e28b06ed79e444e8de8f1c3439be2f9">
+    <rdf:first rdf:resource="https://identifiers.org/SO:0000110"/>
+    <rdf:rest rdf:nodeID="Na365be2a6bd24433aae221852f1e7921"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nfe229a07bca546d595089ca8e2551cfd">
+    <rdf:first rdf:resource="https://identifiers.org/SO:0000316"/>
+    <rdf:rest rdf:nodeID="Nd25098a9f11e46cc8acf3f33f286f6b4"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N0bf754aa49ff469a8ce3a34e0c1d6f25">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://sbols.org/v3#role"/>
+    <owl:someValuesFrom rdf:resource="https://identifiers.org/SO:0000704"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N27b43ae299154bec806006ef34098e25">
+    <rdf:first rdf:resource="https://identifiers.org/SO:0000057"/>
+    <rdf:rest rdf:nodeID="Nedb5b2e390d04126be50ff473c6f5082"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nb912ebb25d964285bc9e756ae3d89bd0">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="N3932b71e04494c1eae6b0ab119b4d2db"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N6279e10ce7ee4475b46bb0d8830ea756">
+    <rdf:first rdf:resource="http://sbols.org/v3#sample"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://identifiers.org/SBO:0000252">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://identifiers.org/SBO:0000236"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Protein</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ndc2df3f1f10347ea91fa690da98d1ade">
+    <rdf:first rdf:nodeID="Ndae768eefe6d49aeaac2ce523cb080f2"/>
+    <rdf:rest rdf:nodeID="Ncd1dc66a9f894280bde397df5b97496b"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#SMILESSequence">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://sbols.org/v3#SequenceWithElements"/>
+    <owl:equivalentClass rdf:nodeID="Ndff6047afed249009d4dcc8871c1f9f4"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SMILES Sequence</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#Constraint">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Identified"/>
+    <rdfs:subClassOf rdf:nodeID="Na7a3c656440842ecbf201083f824a85d"/>
+    <rdfs:subClassOf rdf:nodeID="N3eec8654ec314905bd43bc1deb7657ae"/>
+    <rdfs:subClassOf rdf:nodeID="N073fc0f0168745acb5c3bb25929eec20"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Constraint</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N0e5706a5924f4575b53ddb3b625609a3">
+    <rdf:first rdf:nodeID="Nf528aa95fd5b4251af51400fb6479346"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N64f5206918d1442d8be9382cd0815cd2">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://sbols.org/v3#type"/>
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ne86446cce85d452ea36f5b50f65c1ce8">
+    <rdf:first rdf:resource="https://identifiers.org/CHEBI:50906"/>
+    <rdf:rest rdf:nodeID="N06ad26dec92a4e2a80f8f9576074aec3"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N6b45f8631ba44c02b39b2aa12973535b">
+    <rdf:first rdf:resource="https://identifiers.org/EDAM:format_1207"/>
+    <rdf:rest rdf:nodeID="N20c14c73626345adb35d39b6d80479e2"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N333c33d1d0724981ade5d50a0fa6e748">
+    <rdf:first rdf:nodeID="Nf5654b47ee86400fb3a9e52ece0f8409"/>
+    <rdf:rest rdf:nodeID="N60f6d4f874dc4a5da8c67cad3f4d1c6b"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#ComponentReference">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Feature"/>
+    <rdfs:subClassOf rdf:nodeID="N77ccf6c4f79145f6a7224f8a237bf9ea"/>
+    <rdfs:subClassOf rdf:nodeID="N2ff7be7d6b9e4128964f89fd39a84e42"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ComponentReference</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://identifiers.org/GO:0003674">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Molecular Function</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#instanceOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://sbols.org/v3#SubComponent"/>
+    <rdfs:range rdf:resource="http://sbols.org/v3#Component"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">instanceOf</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#cardinality">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://sbols.org/v3#VariableFeature"/>
+    <rdfs:range rdf:nodeID="Nc11f943819cb4fbcb0458212108993a7"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cardinality</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#Orientation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://sbols.org/v3#SBOLTerm"/>
+    <owl:equivalentClass rdf:nodeID="Nafbc20f463934abaacfb44b44b04aeb5"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nbf1fdd8ff1494d13b1565c40202c1086">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="N8e28b06ed79e444e8de8f1c3439be2f9"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#order">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://sbols.org/v3#Location"/>
+    <rdfs:range rdf:nodeID="N1ddf30b306da4a98bf91e503be0a5974"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">order</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nee458852e77d45cb801bed2c7168ec37">
+    <rdf:first rdf:resource="http://sbols.org/v3#DNAComponent"/>
+    <rdf:rest rdf:nodeID="N716f3a481fed48ae8bf15543a9a840d4"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nca828b65486748f4b7a8cf6f90bf06e6">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
+    <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <owl:withRestrictions rdf:nodeID="N521bb1a8e579462ca6a1f5bf84fde82c"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#comprises">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">comprises</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#restriction">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://sbols.org/v3#Constraint"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">restriction</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#Feature">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Identified"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Feature</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N86151bd6e5694cc090665ab0ce5b67d0">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="Nd36692c0edd740719019a446b140d348"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nd748e1d4fca44145b2c620644479f175">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:intersectionOf rdf:nodeID="Ne3697ef038bf486da702dcd89900987d"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://identifiers.org/EDAM:format_1207">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">IUPAC DNA/RNA</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#built">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://sbols.org/v3#Implementation"/>
+    <rdfs:range rdf:resource="http://sbols.org/v3#Component"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">built</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N30f8cc48fdb34a649d2cf5f4fd09a322">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://sbols.org/v3#source"/>
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nffcc8752f76b4f3cba401aef4267ffa1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://sbols.org/v3#encoding"/>
+    <owl:someValuesFrom rdf:resource="https://identifiers.org/EDAM:format_1207"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nb99a269efbea4e40bee71a3178868358">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="Ned4875341f34485b8c0ae905ed0022dd"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#EncodingRestriction">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <owl:equivalentClass rdf:nodeID="Nbe8cf78028f34583b4f67a2a4b16ca6c"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Encoding</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N3b01d8802c7448b3bfe1ecbecacb40bf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://sbols.org/v3#type"/>
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#hasMeasure">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://sbols.org/v3#directlyComprises"/>
+    <rdfs:domain rdf:resource="http://sbols.org/v3#Identified"/>
+    <rdfs:range rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hasMeasure</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#SmallMoleculeRoleRestriction">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <owl:equivalentClass rdf:nodeID="Ne413a6191bf94bb482f5c5779ab7bdf1"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Small Molecule role</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#hasConstraint">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://sbols.org/v3#directlyComprises"/>
+    <rdfs:domain rdf:resource="http://sbols.org/v3#Component"/>
+    <rdfs:range rdf:resource="http://sbols.org/v3#Constraint"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hasConstraint</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N09b3f2df650948f38a3c1ced1d2cbda1">
+    <rdf:first rdf:nodeID="N4ce5656b68144e44a490ca70f99be135"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://identifiers.org/EDAM:format_1197">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">InChI</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#hasVariableFeature">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://sbols.org/v3#directlyComprises"/>
+    <rdfs:domain rdf:resource="http://sbols.org/v3#CombinatorialDerivation"/>
+    <rdfs:range rdf:resource="http://sbols.org/v3#VariableFeature"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hasVariableFeature</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N20c14c73626345adb35d39b6d80479e2">
+    <rdf:first rdf:resource="https://identifiers.org/EDAM:format_1208"/>
+    <rdf:rest rdf:nodeID="N8e13a5bf3a384634a50de1e0fa9e2f49"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#CDSDNAComponent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://sbols.org/v3#DNAComponent"/>
+    <owl:equivalentClass rdf:nodeID="N45c3ba00c47948f3bfc69cb1dbde6dc4"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CDS DNA Component</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#EntireSequence">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Location"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">EntireSequence</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#EngineeredRegionDNAComponent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://sbols.org/v3#DNAComponent"/>
+    <owl:equivalentClass rdf:nodeID="N5876e30fe604469bad7b957e0b76d766"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Engineered Region DNA Component</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#zeroOrMore">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Cardinality"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">zeroOrMore</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#size">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://sbols.org/v3#Attachment"/>
+    <rdfs:range rdf:nodeID="Nca828b65486748f4b7a8cf6f90bf06e6"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">size</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#RNARoleRestriction">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <owl:equivalentClass rdf:nodeID="Nbf1fdd8ff1494d13b1565c40202c1086"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RNA role</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nf43746f029684ee28db46b133d8ed2c0">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="N7dca890a04244a9b946d50966696b36f"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#Participation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Identified"/>
+    <rdfs:subClassOf rdf:nodeID="N62bc0eb8e3974a2cbba1d92b6370727e"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Participation</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#at">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://sbols.org/v3#Cut"/>
+    <rdfs:range rdf:nodeID="N9da98a7c538348fda282c285f8d462b3"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">start</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N68ad0dd610ba413988e69e75dcc62aea">
+    <rdf:first rdf:resource="http://sbols.org/v3#SequenceWithElements"/>
+    <rdf:rest rdf:nodeID="N8dceca5eb83f4f929be004865e904fc9"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#hasInteraction">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://sbols.org/v3#directlyComprises"/>
+    <rdfs:domain rdf:resource="http://sbols.org/v3#Component"/>
+    <rdfs:range rdf:resource="http://sbols.org/v3#Interaction"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hasInteraction</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N94bb1a6541a14973b58981fbe42ff6b8">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://sbols.org/v3#encoding"/>
+    <owl:someValuesFrom rdf:resource="https://identifiers.org/EDAM:format_1196"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nfada4f72e2154851883757bb2768b60f">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://sbols.org/v3#end"/>
+    <owl:someValuesFrom rdf:nodeID="Nd414def0612244669c498aa314eaa8a3"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N56284ff7b80a4daa9cf89e5e5326c216">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://sbols.org/v3#hasSequence"/>
+    <owl:allValuesFrom rdf:resource="http://sbols.org/v3#ProteinSequence"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#template">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://sbols.org/v3#CombinatorialDerivation"/>
+    <rdfs:range rdf:resource="http://sbols.org/v3#Component"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">template</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#Cardinality">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://sbols.org/v3#SBOLTerm"/>
+    <owl:equivalentClass rdf:nodeID="Ncd93e5af03bf47c7ac32d26585f82a1a"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cardinality</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nebf8e0b25728433ca7cfbc554ffffd3d">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://sbols.org/v3#instanceOf"/>
+    <owl:someValuesFrom rdf:resource="http://sbols.org/v3#Component"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N7b4601b4e2244313b9d023b842e4a9e6">
+    <rdf:first rdf:nodeID="N80ab146eefa04622867ec407db8d5da5"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Na5f49b7cbb6144a3b577fdfb9b412ad3">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://sbols.org/v3#hasSequence"/>
+    <owl:someValuesFrom rdf:resource="http://sbols.org/v3#Sequence"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N8190bf71a8af4fba9e56454751281d3a">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://sbols.org/v3#hasLocation"/>
+    <owl:someValuesFrom rdf:resource="http://sbols.org/v3#Location"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Na3c2b4492c4e44e0b85a04d72e4a0563">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:intersectionOf rdf:nodeID="Ndc9cf4ed1cdd4c398612d0ae7d000fe9"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ned1c2769315644d481d9532beaaa8815">
+    <rdf:first rdf:nodeID="N0efe48e5778e42bab4c6f06c61402aca"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#hasSequence">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:nodeID="Nf43746f029684ee28db46b133d8ed2c0"/>
+    <rdfs:range rdf:resource="http://sbols.org/v3#Sequence"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hasSequence</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N33186b82f84846c2a5774d604baef74a">
+    <rdf:first rdf:resource="http://sbols.org/v3#Sequence"/>
+    <rdf:rest rdf:nodeID="Ndc2df3f1f10347ea91fa690da98d1ade"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N8c54e9ba45c5426d89196934d053326e">
+    <rdf:first rdf:nodeID="N952d2e3240d741a2a3abba5e8d65afb0"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N7c2bc03487da41308be2e44809312b66">
+    <rdf:first rdf:resource="http://sbols.org/v3#inline"/>
+    <rdf:rest rdf:nodeID="Nb26469944f00475993d2d9d43a980521"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N45c3ba00c47948f3bfc69cb1dbde6dc4">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:intersectionOf rdf:nodeID="Nee458852e77d45cb801bed2c7168ec37"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nfce155144b7d42afbdf07fa0cda72618">
+    <rdf:first rdf:resource="https://identifiers.org/EDAM:format_1196"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#Sequence">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://sbols.org/v3#TopLevel"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sequence</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#Cut">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Location"/>
+    <rdfs:subClassOf rdf:nodeID="Nc3c683ef243d4ea7895135ebf0ee1a4c"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cut</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#hasLocation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://sbols.org/v3#directlyComprises"/>
+    <rdfs:domain rdf:nodeID="Nb912ebb25d964285bc9e756ae3d89bd0"/>
+    <rdfs:range rdf:resource="http://sbols.org/v3#Location"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hasLocation</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N59323f71e88043a5bd0b0d17e4da2814">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:intersectionOf rdf:nodeID="N33186b82f84846c2a5774d604baef74a"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N83e811d424fd4e419b80e1282512959e">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:intersectionOf rdf:nodeID="N4898165618104a519b1f8758b2fcb3d0"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#Location">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Identified"/>
+    <rdfs:subClassOf rdf:nodeID="Na5f49b7cbb6144a3b577fdfb9b412ad3"/>
+    <rdfs:subClassOf rdf:nodeID="N67aac93dfcd54f618b03cc08e25d93ef"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Location</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#member">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://sbols.org/v3#Collection"/>
+    <rdfs:range rdf:resource="http://sbols.org/v3#TopLevel"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">member</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N1f8a388e118044009f332bd729835567">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://sbols.org/v3#encoding"/>
+    <owl:someValuesFrom rdf:resource="http://sbols.org/v3#EncodingRestriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#DNASequence">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://sbols.org/v3#SequenceWithElements"/>
+    <owl:equivalentClass rdf:nodeID="Ne0f693a282724b1bac253c7fd76af7be"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DNA Sequence</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ndf458f8e00274eeb8c7e4dc2940efda9">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:intersectionOf rdf:nodeID="N2f1bd3fd65c9407196f389ab0a0055bc"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nb9a52b0cf5f446ebaddd4afb82a14ff7">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="N7de1225cfff24f3785d954babfdd6a50"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nd384d3a97398442394332ceee12c0273">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://sbols.org/v3#role"/>
+    <owl:someValuesFrom rdf:resource="http://sbols.org/v3#SmallMoleculeRoleRestriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nd1bac89d650341b19e6a61af4af565ec">
+    <rdf:first rdf:resource="http://sbols.org/v3#zeroOrMore"/>
+    <rdf:rest rdf:nodeID="Nd43ab4185c2548ac98377416e95d313d"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N62bc0eb8e3974a2cbba1d92b6370727e">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://sbols.org/v3#role"/>
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://identifiers.org/SBO:0000253">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://identifiers.org/SBO:0000236"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Non-covalent complex</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#CombinatorialDerivation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://sbols.org/v3#TopLevel"/>
+    <rdfs:subClassOf rdf:nodeID="Nd4b83474b1bd4c1cb92404f45bdb44d6"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CombinatorialDerivation</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N4418a9a5e82c4d70848bded4df5e32b1">
+    <rdf:first rdf:resource="http://sbols.org/v3#Component"/>
+    <rdf:rest rdf:nodeID="N3954df0e97394748b766ae7003c139ae"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N251a8bd9512e49e09541563e917e321b">
+    <rdf:first rdf:resource="http://sbols.org/v3#Component"/>
+    <rdf:rest rdf:nodeID="Nb30cf785f65e46b49ca1698e55bace3d"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://identifiers.org/SO:0000234">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://identifiers.org/SO:0000110"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">mRNA</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nf016beb02d2a483cb0850cce4be5fa45">
+    <rdf:first rdf:nodeID="N56284ff7b80a4daa9cf89e5e5326c216"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#FunctionalEntityComponent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Component"/>
+    <owl:equivalentClass rdf:nodeID="Nbc882bb1ebf7456fa57baea2887a4adb"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Functional Entity Component</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nfb3fca53833642fd974608342415e860">
+    <rdf:first rdf:resource="http://sbols.org/v3#enumerate"/>
+    <rdf:rest rdf:nodeID="N6279e10ce7ee4475b46bb0d8830ea756"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#Model">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://sbols.org/v3#TopLevel"/>
+    <rdfs:subClassOf rdf:nodeID="Ncc459629f71c45ffb1ce77e23574a8a5"/>
+    <rdfs:subClassOf rdf:nodeID="N2d528b9c332c4d5986b5ea9fe4c5ffd5"/>
+    <rdfs:subClassOf rdf:nodeID="N9cb1261c7b8a4ec996158faf91c00dd7"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Model</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#hasNamespace">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://sbols.org/v3#TopLevel"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hasNamespace</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N60f6d4f874dc4a5da8c67cad3f4d1c6b">
+    <rdf:first rdf:nodeID="N34b6d0ec718a4250a905b151d3e6c33b"/>
+    <rdf:rest rdf:nodeID="Nf016beb02d2a483cb0850cce4be5fa45"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N4f38f9a1776c4ec6acf6b557043179c3">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://sbols.org/v3#role"/>
+    <owl:someValuesFrom rdf:resource="https://identifiers.org/SO:0000057"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N51cbbf22c85246e0bad67021ecd97afc">
+    <rdf:first rdf:nodeID="Nd384d3a97398442394332ceee12c0273"/>
+    <rdf:rest rdf:nodeID="Nfe98f5ad966c4a0bad8973eebb69bfdd"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Na9701a3545e84690a8cf185502b588a9">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:intersectionOf rdf:nodeID="Nf4da6cd4795d4bc38cd575a855e83550"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://identifiers.org/SBO:0000251">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://identifiers.org/SBO:0000236"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DNA</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ncd93e5af03bf47c7ac32d26585f82a1a">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="N71d73741d45248b6b145830de476cfbc"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nda203b150a4345ef91026e867145507e">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://sbols.org/v3#hasNamespace"/>
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N2f1bd3fd65c9407196f389ab0a0055bc">
+    <rdf:first rdf:resource="http://sbols.org/v3#SequenceWithElements"/>
+    <rdf:rest rdf:nodeID="N709d2656666c45b39e8dd9e48e81ec0f"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nd9951a9bbeb241a78bc500408d1f78ed">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:intersectionOf rdf:nodeID="N41942a5a520941fe8addfc6d3b64ee3f"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#language">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://sbols.org/v3#Model"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">language</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#variable">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://sbols.org/v3#VariableFeature"/>
+    <rdfs:range rdf:resource="http://sbols.org/v3#Feature"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">variable</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N0a3777c05d694bafb9bf57180393793d">
+    <rdf:first rdf:resource="http://sbols.org/v3#SMILESSequence"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nf4da6cd4795d4bc38cd575a855e83550">
+    <rdf:first rdf:resource="http://sbols.org/v3#DNAComponent"/>
+    <rdf:rest rdf:nodeID="N7b4601b4e2244313b9d023b842e4a9e6"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#encoding">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://sbols.org/v3#Sequence"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">encoding</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#participant">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://sbols.org/v3#Participation"/>
+    <rdfs:range rdf:resource="http://sbols.org/v3#Feature"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">participant</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N716f3a481fed48ae8bf15543a9a840d4">
+    <rdf:first rdf:nodeID="N30f44a68df0b4bd3bb0850f379d22526"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#strategy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://sbols.org/v3#CombinatorialDerivation"/>
+    <rdfs:range rdf:nodeID="N96414d0e885141b585e8fa228917b33c"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">strategy</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N1807f566a0eb449b8f92eae29b10579c">
+    <rdf:first rdf:resource="http://sbols.org/v3#reverseComplement"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N5876e30fe604469bad7b957e0b76d766">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:intersectionOf rdf:nodeID="N5f2c2e59183f456fb4d1fb236d59b644"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N36f401e5fae54b898340a5453458aad2">
+    <rdf:first rdf:nodeID="N081c27d6d79a42c2b9435272e7657aed"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N2ff7be7d6b9e4128964f89fd39a84e42">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://sbols.org/v3#inChildOf"/>
+    <owl:someValuesFrom rdf:resource="http://sbols.org/v3#Component"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nbc984fded0cb40f58f582fb8c5b41a4e">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
+    <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <owl:withRestrictions rdf:nodeID="N63adcffd1939405db61c876c215e9eb4"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nd36692c0edd740719019a446b140d348">
+    <rdf:first rdf:resource="https://identifiers.org/SO:0000110"/>
+    <rdf:rest rdf:nodeID="N0c4c50a8ab1a402184f9e7d3dab23b80"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N629aed1c6e214f29811d603702aab0d3">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://sbols.org/v3#role"/>
+    <owl:someValuesFrom rdf:resource="http://sbols.org/v3#RNARoleRestriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N63adcffd1939405db61c876c215e9eb4">
+    <rdf:first rdf:nodeID="Nd0d7181c490f40adad6a124ee25d63d6"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nafbc20f463934abaacfb44b44b04aeb5">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="Ne4268b9f44364e188e50aada25ac94e6"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ncc191da9ae5a4e35ba417e597f919d50">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="Ne9fa5044d06f460b9628809b48e8fd91"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://identifiers.org/SO:0000167">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://identifiers.org/SO:0000110"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Promoter</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#description">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://sbols.org/v3#Identified"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">description</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N1ddf30b306da4a98bf91e503be0a5974">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
+    <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <owl:withRestrictions rdf:nodeID="Nb719676d48ed4109925c079dc7e13fc0"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://identifiers.org/EDAM:format_1196">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SMILES</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N2db90795e5454a4e9df5555048630f3c">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://sbols.org/v3#hasSequence"/>
+    <owl:allValuesFrom rdf:resource="http://sbols.org/v3#RNASequence"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#NonCovalentComplexComponent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Component"/>
+    <owl:equivalentClass rdf:nodeID="N83963f4e46754c2a8a1704d1ca0de569"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Non-Covalent Complex Component</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Na365be2a6bd24433aae221852f1e7921">
+    <rdf:first rdf:resource="https://identifiers.org/SO:0000234"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Na7a3c656440842ecbf201083f824a85d">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://sbols.org/v3#restriction"/>
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#hasAttachment">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://sbols.org/v3#TopLevel"/>
+    <rdfs:range rdf:resource="http://sbols.org/v3#Attachment"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hasAttachment</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N9cb1261c7b8a4ec996158faf91c00dd7">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://sbols.org/v3#framework"/>
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#one">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Cardinality"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">one</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N06ad26dec92a4e2a80f8f9576074aec3">
+    <rdf:first rdf:resource="https://identifiers.org/CHEBI:35224"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N83963f4e46754c2a8a1704d1ca0de569">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:intersectionOf rdf:nodeID="N251a8bd9512e49e09541563e917e321b"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N80e73c15fa434a6cae1fc76554572c5e">
+    <rdf:first rdf:resource="http://sbols.org/v3#SequenceWithElements"/>
+    <rdf:rest rdf:nodeID="N93dd537f8d834d8d8b35e89c0d59d496"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#elements">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://sbols.org/v3#Sequence"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">elements</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#OperatorDNAComponent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://sbols.org/v3#DNAComponent"/>
+    <owl:equivalentClass rdf:nodeID="Nd9951a9bbeb241a78bc500408d1f78ed"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Operator DNA Component</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N1a7521230eb24cb9842d86f3b880b700">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:intersectionOf rdf:nodeID="Nc19546703ecc497ab3f99b26b1216fd2"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#Interface">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Identified"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Interface</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <owl:imports rdf:resource="https://identifiers.org/SBO:"/>
+    <owl:imports rdf:resource="https://identifiers.org/SO:"/>
+    <owl:imports rdf:resource="https://identifiers.org/EDAM:"/>
+    <owl:imports rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2"/>
+    <owl:imports rdf:resource="https://identifiers.org/CHEBI:"/>
+    <owl:imports rdf:resource="https://identifiers.org/GO:"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N3932b71e04494c1eae6b0ab119b4d2db">
+    <rdf:first rdf:resource="http://sbols.org/v3#SubComponent"/>
+    <rdf:rest rdf:nodeID="N44ca97b0503c443b800d9265f73c286c"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#output">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://sbols.org/v3#Interface"/>
+    <rdfs:range rdf:resource="http://sbols.org/v3#Feature"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">output</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#hashAlgorithm">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://sbols.org/v3#Attachment"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hashAlgorithm</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N60d9417ca02248a592ce7d3ba3bcbb30">
+    <rdf:first rdf:resource="http://sbols.org/v3#DNAComponent"/>
+    <rdf:rest rdf:nodeID="Nb1898271d2174454ae8faa9640666af7"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N631ce9996aa64b02a5d92b5bda6b0fbb">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
+    <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <owl:withRestrictions rdf:nodeID="N9e20e45feea2424680bcb02f515cdca9"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ne190c21cad274a3aaf893607f9eb12f5">
+    <rdf:first rdf:nodeID="N629aed1c6e214f29811d603702aab0d3"/>
+    <rdf:rest rdf:nodeID="Ne63d761c00b94ada810c62fee677932f"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ne20ac5d3f6cc435eb7e27c0f0f3efc5a">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://sbols.org/v3#encoding"/>
+    <owl:someValuesFrom rdf:resource="https://identifiers.org/EDAM:format_1208"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N0650bc63b7dc49f59e6365ffa9b1f974">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:intersectionOf rdf:nodeID="N3b68a01c4c2e4d6897ce93de6a65feb1"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#subject">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://sbols.org/v3#Constraint"/>
+    <rdfs:range rdf:resource="http://sbols.org/v3#Feature"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">subject</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N709d2656666c45b39e8dd9e48e81ec0f">
+    <rdf:first rdf:nodeID="Nffcc8752f76b4f3cba401aef4267ffa1"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N0c4c50a8ab1a402184f9e7d3dab23b80">
+    <rdf:first rdf:resource="https://identifiers.org/SO:0000167"/>
+    <rdf:rest rdf:nodeID="N5ce1e3c88d8e43929ec1ed2483cc1b27"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N2d528b9c332c4d5986b5ea9fe4c5ffd5">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://sbols.org/v3#language"/>
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#Interaction">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Identified"/>
+    <rdfs:subClassOf rdf:nodeID="N479e3f813b9d4ad7bb9469382fa8ab27"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Interaction</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#ProteinRoleRestriction">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <owl:equivalentClass rdf:nodeID="Ncc191da9ae5a4e35ba417e597f919d50"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Protein role</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N7de1225cfff24f3785d954babfdd6a50">
+    <rdf:first rdf:resource="http://sbols.org/v3#Component"/>
+    <rdf:rest rdf:nodeID="N32d9834575b64dba8533c409862bc6c1"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#ProteinComponent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Component"/>
+    <owl:equivalentClass rdf:nodeID="Nd748e1d4fca44145b2c620644479f175"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Protein Component</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N3db6b03b08e84038a31b8c45b2b432d8">
+    <rdf:first rdf:resource="http://sbols.org/v3#zeroOrOne"/>
+    <rdf:rest rdf:nodeID="Nc6cf75da1b3343bc8d8d3abea1676da4"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#RNASequence">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://sbols.org/v3#SequenceWithElements"/>
+    <owl:equivalentClass rdf:nodeID="Ndf458f8e00274eeb8c7e4dc2940efda9"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RNA Sequence</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#hash">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://sbols.org/v3#Attachment"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hash</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#Component">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://sbols.org/v3#TopLevel"/>
+    <rdfs:subClassOf rdf:nodeID="Naacc796dce5e41ac84e68bd3174e245b"/>
+    <rdfs:subClassOf rdf:nodeID="Ne503e5abdb0b4c25adfbf8ccc5d306ae"/>
+    <rdfs:subClassOf rdf:nodeID="N534cb4dba1184b548a0a01599cb5ae44"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Component</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nb719676d48ed4109925c079dc7e13fc0">
+    <rdf:first rdf:nodeID="Na1539e45113c4e3f92a0e8ca35e95665"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#variantCollection">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://sbols.org/v3#VariableFeature"/>
+    <rdfs:range rdf:resource="http://sbols.org/v3#Collection"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">variantCollection</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ne63d761c00b94ada810c62fee677932f">
+    <rdf:first rdf:nodeID="N2db90795e5454a4e9df5555048630f3c"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N063d652d4d5346c48b8a65595c35b4fd">
+    <rdf:first rdf:nodeID="N7eb29b5e8a5044c694c5539e98dba34b"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#role">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:nodeID="Ndb3a7fef087e41bb999185e3955d57bd"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">role</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#enumerate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://sbols.org/v3#CombinatorialDerivationStrategy"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">enumerate</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#SequenceFeature">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Feature"/>
+    <rdfs:subClassOf rdf:nodeID="N8190bf71a8af4fba9e56454751281d3a"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SequenceFeature</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N073fc0f0168745acb5c3bb25929eec20">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://sbols.org/v3#object"/>
+    <owl:someValuesFrom rdf:resource="http://sbols.org/v3#Feature"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ndc62aaad35d6466b9524439061918bed">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://sbols.org/v3#cardinality"/>
+    <owl:someValuesFrom rdf:resource="http://sbols.org/v3#Cardinality"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://identifiers.org/SO:0000804">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://identifiers.org/SO:0000110"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Engineered Region</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ne9fa5044d06f460b9628809b48e8fd91">
+    <rdf:first rdf:resource="https://identifiers.org/GO:0003674"/>
+    <rdf:rest rdf:nodeID="N5811008d933c41908210f681690ada05"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ncd1dc66a9f894280bde397df5b97496b">
+    <rdf:first rdf:nodeID="N1f8a388e118044009f332bd729835567"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#sample">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://sbols.org/v3#CombinatorialDerivationStrategy"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">sample</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Naf3a1e315d724c73bae7d55c04150f0b">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
+    <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <owl:withRestrictions rdf:nodeID="Ne1f9311c43fe42d6956b9f91d99d2942"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N44ca97b0503c443b800d9265f73c286c">
+    <rdf:first rdf:resource="http://sbols.org/v3#LocalSubComponent"/>
+    <rdf:rest rdf:nodeID="N583025bbb83b4712a04eb60357445423"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#orientation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:nodeID="N632e880b63b74c958896c91a1d11292b"/>
+    <rdfs:range rdf:nodeID="N4d44a548af4446dcbfeb51288dd94c63"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">orientation</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N3d65c651b2514766a8517b178b219ad0">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://sbols.org/v3#hasSequence"/>
+    <owl:allValuesFrom rdf:nodeID="N8f37f19c2bde41d39e3edc314f823d7a"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#Range">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Location"/>
+    <rdfs:subClassOf rdf:nodeID="N304b07e53cea4fe98b058a91fbd12c0a"/>
+    <rdfs:subClassOf rdf:nodeID="Nfada4f72e2154851883757bb2768b60f"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Range</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nb92cd8f81a914a429d885d0dd07e8ab9">
+    <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</xsd:minInclusive>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#SimpleChemicalComponent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Component"/>
+    <owl:equivalentClass rdf:nodeID="N83e811d424fd4e419b80e1282512959e"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Simple Chemical Component</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nf47bda0e73d241e2bdca86c5adbf5237">
+    <rdf:first rdf:nodeID="N5e20c82c5df44d72bacba244d3a781bf"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Na03e85eecc7841549f19283a0faec9d9">
+    <rdf:first rdf:resource="http://sbols.org/v3#oneOrMore"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://identifiers.org/SO:0000110">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sequence Feature</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N538b3ac5a9f446ff808ecba5a5e89d5f">
+    <rdf:first rdf:resource="http://sbols.org/v3#InChISequence"/>
+    <rdf:rest rdf:nodeID="N0a3777c05d694bafb9bf57180393793d"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#roleIntegration">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://sbols.org/v3#SubComponent"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">roleIntegration</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ne1f9311c43fe42d6956b9f91d99d2942">
+    <rdf:first rdf:nodeID="N84a45dc1b0f24cce9b0397defff8fc83"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#hasParticipation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://sbols.org/v3#directlyComprises"/>
+    <rdfs:domain rdf:resource="http://sbols.org/v3#Interaction"/>
+    <rdfs:range rdf:resource="http://sbols.org/v3#Participation"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hasParticipation</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N22d61949e78f4729a817550deac4aa64">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://sbols.org/v3#type"/>
+    <owl:someValuesFrom rdf:resource="https://identifiers.org/SBO:0000252"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N67aac93dfcd54f618b03cc08e25d93ef">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://sbols.org/v3#hasSequence"/>
+    <owl:onClass rdf:resource="http://sbols.org/v3#Sequence"/>
+    <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ne613929d4b724f4f8551bbfa1f82ff00">
+    <rdf:first rdf:resource="https://identifiers.org/SO:0000704"/>
+    <rdf:rest rdf:nodeID="N27b43ae299154bec806006ef34098e25"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#CombinatorialDerivationStrategy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://sbols.org/v3#SBOLTerm"/>
+    <owl:equivalentClass rdf:nodeID="N75c28c306f6d45a1bc31e9bb89948240"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CombinatorialDerivationStrategy</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ndff6047afed249009d4dcc8871c1f9f4">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:intersectionOf rdf:nodeID="N68ad0dd610ba413988e69e75dcc62aea"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#InChISequence">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://sbols.org/v3#SequenceWithElements"/>
+    <owl:equivalentClass rdf:nodeID="N1a7521230eb24cb9842d86f3b880b700"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">InChI Sequence</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N751b05c41dee4a4c84d00bcf7872f98a">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://sbols.org/v3#type"/>
+    <owl:someValuesFrom rdf:resource="https://identifiers.org/SBO:0000251"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#framework">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://sbols.org/v3#Model"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">framework</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#refersTo">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://sbols.org/v3#ComponentReference"/>
+    <rdfs:range rdf:resource="http://sbols.org/v3#Feature"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">refersTo</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N6b990a32f50b4d24a9d18c2583e03da4">
+    <rdf:first rdf:resource="http://sbols.org/v3#zeroOrMore"/>
+    <rdf:rest rdf:nodeID="Na03e85eecc7841549f19283a0faec9d9"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#VariableFeature">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Identified"/>
+    <rdfs:subClassOf rdf:nodeID="Ndc62aaad35d6466b9524439061918bed"/>
+    <rdfs:subClassOf rdf:nodeID="N66ee09c8b41d4b8abe46457215d4810a"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">VariableFeature</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N534cb4dba1184b548a0a01599cb5ae44">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://sbols.org/v3#type"/>
+    <owl:onClass rdf:resource="http://sbols.org/v3#ComponentTypeRestriction"/>
+    <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nc19546703ecc497ab3f99b26b1216fd2">
+    <rdf:first rdf:resource="http://sbols.org/v3#SequenceWithElements"/>
+    <rdf:rest rdf:nodeID="N05539a9d6516420fa62e925765965a36"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#GenericDNAComponent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://sbols.org/v3#DNAComponent"/>
+    <owl:equivalentClass rdf:nodeID="N6581e467300c4b59aacdb572ae976fa7"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Generic DNA Component</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#inline">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Orientation"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">inline</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nab2dc47424744336b2dc3d14da18de2c">
+    <rdf:first rdf:resource="http://sbols.org/v3#Location"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N8dceca5eb83f4f929be004865e904fc9">
+    <rdf:first rdf:nodeID="N94bb1a6541a14973b58981fbe42ff6b8"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N6c6307630bc94c07a4e2e8f2288e4c45">
+    <rdf:first rdf:resource="http://sbols.org/v3#Component"/>
+    <rdf:rest rdf:nodeID="N79877c66787a44908b041382d855329a"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://identifiers.org/SO:0000139">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://identifiers.org/SO:0000110"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ribosome Binding Site</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#start">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://sbols.org/v3#Range"/>
+    <rdfs:range rdf:nodeID="Nbc984fded0cb40f58f582fb8c5b41a4e"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">start</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#RBSDNAComponent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://sbols.org/v3#DNAComponent"/>
+    <owl:equivalentClass rdf:nodeID="Na9701a3545e84690a8cf185502b588a9"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RBS DNA Component</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N0e99c65a36e04056a3988e6e066840ba">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://sbols.org/v3#role"/>
+    <owl:someValuesFrom rdf:resource="https://identifiers.org/SO:0000804"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#object">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://sbols.org/v3#Constraint"/>
+    <rdfs:range rdf:resource="http://sbols.org/v3#Feature"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">object</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://identifiers.org/SO:0000141">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://identifiers.org/SO:0000110"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Terminator</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://identifiers.org/SBO:0000241">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://identifiers.org/SBO:0000236"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Functional Entity</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#hasModel">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://sbols.org/v3#Component"/>
+    <rdfs:range rdf:resource="http://sbols.org/v3#Model"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hasModel</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ncdae8735420147639cc66ebb0afebad8">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://sbols.org/v3#role"/>
+    <owl:someValuesFrom rdf:resource="https://identifiers.org/CHEBI:35224"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N4898165618104a519b1f8758b2fcb3d0">
+    <rdf:first rdf:resource="http://sbols.org/v3#Component"/>
+    <rdf:rest rdf:nodeID="N250b5b5c6ca442948c946ff7a77c364c"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N5e20c82c5df44d72bacba244d3a781bf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://sbols.org/v3#role"/>
+    <owl:someValuesFrom rdf:resource="https://identifiers.org/SO:0000167"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#Collection">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://sbols.org/v3#TopLevel"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Collection</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N583025bbb83b4712a04eb60357445423">
+    <rdf:first rdf:resource="http://sbols.org/v3#SequenceFeature"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nd414def0612244669c498aa314eaa8a3">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
+    <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <owl:withRestrictions rdf:nodeID="N09b3f2df650948f38a3c1ced1d2cbda1"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#TopLevel">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Identified"/>
+    <rdfs:subClassOf rdf:nodeID="Nda203b150a4345ef91026e867145507e"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">TopLevel</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N725d1fb3a62040a9885964aa5d130df1">
+    <rdf:first rdf:resource="http://sbols.org/v3#ExternallyDefined"/>
+    <rdf:rest rdf:nodeID="N99428e85f0ac4c3e9302bb8343866783"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#nondirectional">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://sbols.org/v3#Interface"/>
+    <rdfs:range rdf:resource="http://sbols.org/v3#Feature"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">nondirectional</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#sourceLocation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://sbols.org/v3#directlyComprises"/>
+    <rdfs:domain rdf:resource="http://sbols.org/v3#SubComponent"/>
+    <rdfs:range rdf:resource="http://sbols.org/v3#Location"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">sourceLocation</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ne3697ef038bf486da702dcd89900987d">
+    <rdf:first rdf:resource="http://sbols.org/v3#Component"/>
+    <rdf:rest rdf:nodeID="N333c33d1d0724981ade5d50a0fa6e748"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#variant">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://sbols.org/v3#VariableFeature"/>
+    <rdfs:range rdf:resource="http://sbols.org/v3#Component"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">variant</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N0efe48e5778e42bab4c6f06c61402aca">
+    <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</xsd:minInclusive>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#displayId">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://sbols.org/v3#Identified"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">displayId</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#SubComponent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Feature"/>
+    <rdfs:subClassOf rdf:nodeID="Nebf8e0b25728433ca7cfbc554ffffd3d"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SubComponent</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nc6cf75da1b3343bc8d8d3abea1676da4">
+    <rdf:first rdf:resource="http://sbols.org/v3#one"/>
+    <rdf:rest rdf:nodeID="Nd1bac89d650341b19e6a61af4af565ec"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#directlyComprises">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://sbols.org/v3#comprises"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">directlyComprises</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ndae768eefe6d49aeaac2ce523cb080f2">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://sbols.org/v3#elements"/>
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N9f0e341f0d0b4614b33689391bd2c23a">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://sbols.org/v3#type"/>
+    <owl:someValuesFrom rdf:resource="https://identifiers.org/SBO:0000253"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://identifiers.org/SO:0000704">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://identifiers.org/SO:0000110"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Gene</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N4ce5656b68144e44a490ca70f99be135">
+    <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</xsd:minInclusive>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N0c76fe5b25214e10a0b6cc7724763c94">
+    <rdf:first rdf:resource="http://sbols.org/v3#one"/>
+    <rdf:rest rdf:nodeID="N6b990a32f50b4d24a9d18c2583e03da4"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N3954df0e97394748b766ae7003c139ae">
+    <rdf:first rdf:nodeID="N751b05c41dee4a4c84d00bcf7872f98a"/>
+    <rdf:rest rdf:nodeID="N16d32c318cc24ce29ff840e92d0ec3c3"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N304b07e53cea4fe98b058a91fbd12c0a">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://sbols.org/v3#start"/>
+    <owl:someValuesFrom rdf:nodeID="Naf3a1e315d724c73bae7d55c04150f0b"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N2ebcd0cd00bc4c1289062c4ee5d4e517">
+    <rdf:first rdf:resource="http://sbols.org/v3#DNAComponent"/>
+    <rdf:rest rdf:nodeID="Nf47bda0e73d241e2bdca86c5adbf5237"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ne4268b9f44364e188e50aada25ac94e6">
+    <rdf:first rdf:resource="http://sbols.org/v3#inline"/>
+    <rdf:rest rdf:nodeID="N1807f566a0eb449b8f92eae29b10579c"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#reverseComplement">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Orientation"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">reverseComplement</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N7dca890a04244a9b946d50966696b36f">
+    <rdf:first rdf:resource="http://sbols.org/v3#Component"/>
+    <rdf:rest rdf:nodeID="N0f2b034062f445e1b59970ce50cd7c4f"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nf8dd63d5b7294ac2abdb87a25710f450">
+    <rdf:first rdf:nodeID="N22d61949e78f4729a817550deac4aa64"/>
+    <rdf:rest rdf:nodeID="Ne190c21cad274a3aaf893607f9eb12f5"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N34b6d0ec718a4250a905b151d3e6c33b">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://sbols.org/v3#role"/>
+    <owl:someValuesFrom rdf:resource="http://sbols.org/v3#ProteinRoleRestriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ncb88389f5b2942f68611a3592b1a4a70">
+    <rdf:first rdf:resource="http://sbols.org/v3#Component"/>
+    <rdf:rest rdf:nodeID="Nf8dd63d5b7294ac2abdb87a25710f450"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://identifiers.org/CHEBI:">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N19987ac308a249f29ba99cf1b8fab8f7">
+    <rdf:first rdf:resource="http://sbols.org/v3#SequenceWithElements"/>
+    <rdf:rest rdf:nodeID="Nd62731bb15ba46cbba7acbdbaa8801b7"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N16d32c318cc24ce29ff840e92d0ec3c3">
+    <rdf:first rdf:nodeID="N1238241d411c41e4891ee1d19ae04c69"/>
+    <rdf:rest rdf:nodeID="N2a878bcfed5548e1848a967eae2762fa"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N952d2e3240d741a2a3abba5e8d65afb0">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://sbols.org/v3#type"/>
+    <owl:someValuesFrom rdf:resource="https://identifiers.org/SBO:0000241"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nb30cf785f65e46b49ca1698e55bace3d">
+    <rdf:first rdf:nodeID="N9f0e341f0d0b4614b33689391bd2c23a"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nc3c683ef243d4ea7895135ebf0ee1a4c">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://sbols.org/v3#at"/>
+    <owl:someValuesFrom rdf:nodeID="Ne56c2b7c08114cd19fd0661a3d1177bc"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N5f2c2e59183f456fb4d1fb236d59b644">
+    <rdf:first rdf:resource="http://sbols.org/v3#DNAComponent"/>
+    <rdf:rest rdf:nodeID="N318d6ccea48d4907ac15c4ad40c4ddc1"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#format">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://sbols.org/v3#Attachment"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">format</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ne503e5abdb0b4c25adfbf8ccc5d306ae">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://sbols.org/v3#type"/>
+    <owl:someValuesFrom rdf:resource="http://sbols.org/v3#ComponentTypeRestriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#zeroOrOne">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Cardinality"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">zeroOrOne</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N78b19c9481f54a58bff05c6afa6b2e42">
+    <rdf:first rdf:resource="http://sbols.org/v3#Participation"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nfce9b66931ce499e8e1f555c208e7871">
+    <rdf:first rdf:resource="http://sbols.org/v3#Component"/>
+    <rdf:rest rdf:nodeID="N8c54e9ba45c5426d89196934d053326e"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://identifiers.org/GO:0003700">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://identifiers.org/GO:0003674"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Transcription Factor</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N80ab146eefa04622867ec407db8d5da5">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://sbols.org/v3#role"/>
+    <owl:someValuesFrom rdf:resource="https://identifiers.org/SO:0000139"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ned4875341f34485b8c0ae905ed0022dd">
+    <rdf:first rdf:resource="https://identifiers.org/SBO:0000251"/>
+    <rdf:rest rdf:nodeID="N7e6a9b2bded448cd8e1dcc1ae0d8f6ae"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N7e6a9b2bded448cd8e1dcc1ae0d8f6ae">
+    <rdf:first rdf:resource="https://identifiers.org/SBO:0000252"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#type">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:nodeID="Nb9a52b0cf5f446ebaddd4afb82a14ff7"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">type</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N08207ca4a2a6408f944871fb9bc2ba97">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://sbols.org/v3#type"/>
+    <owl:someValuesFrom rdf:resource="https://identifiers.org/SBO:0000247"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nbfcca86185484efea5f17c0099c89e24">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:intersectionOf rdf:nodeID="N80e73c15fa434a6cae1fc76554572c5e"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#variantDerivation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://sbols.org/v3#VariableFeature"/>
+    <rdfs:range rdf:resource="http://sbols.org/v3#CombinatorialDerivation"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">variantDerivation</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#inChildOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://sbols.org/v3#ComponentReference"/>
+    <rdfs:range rdf:resource="http://sbols.org/v3#SubComponent"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">inChildOf</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N24096b7333a94432b22f542ed18b5510">
+    <rdf:first rdf:nodeID="N42160241454b4c78bf719f5a23aecfb2"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nb1898271d2174454ae8faa9640666af7">
+    <rdf:first rdf:nodeID="N0bf754aa49ff469a8ce3a34e0c1d6f25"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N75c28c306f6d45a1bc31e9bb89948240">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="Ne69eeb6ef9c443efa01833e904ae4fa5"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://identifiers.org/SO:">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#source">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:nodeID="N1826ddb99acd46ed87b489c8f7b51772"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">source</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#definition">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://sbols.org/v3#ExternallyDefined"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">definition</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#PromoterDNAComponent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://sbols.org/v3#DNAComponent"/>
+    <owl:equivalentClass rdf:nodeID="Ne32d94c901a64d85a4e62b35a29f595d"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Promoter DNA Component</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nd43ab4185c2548ac98377416e95d313d">
+    <rdf:first rdf:resource="http://sbols.org/v3#oneOrMore"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N8e13a5bf3a384634a50de1e0fa9e2f49">
+    <rdf:first rdf:resource="https://identifiers.org/EDAM:format_1197"/>
+    <rdf:rest rdf:nodeID="Nfce155144b7d42afbdf07fa0cda72618"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N338fb8e3bcce4331b17e16b4fc0af280">
+    <rdf:first rdf:resource="http://sbols.org/v3#Attachment"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ncc51010fe1e44cbea7ecd5fa85994787">
+    <rdf:first rdf:resource="http://sbols.org/v3#DNAComponent"/>
+    <rdf:rest rdf:nodeID="N36f401e5fae54b898340a5453458aad2"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#TranscriptionFactorProteinComponent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://sbols.org/v3#ProteinComponent"/>
+    <owl:equivalentClass rdf:nodeID="N0650bc63b7dc49f59e6365ffa9b1f974"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Transcription Factor Protein Component</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://identifiers.org/SO:0000057">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://identifiers.org/SO:0000110"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Operator</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ne56c2b7c08114cd19fd0661a3d1177bc">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
+    <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <owl:withRestrictions rdf:nodeID="N063d652d4d5346c48b8a65595c35b4fd"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#Identified">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Identified</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nadfd9095b94149aa9bdcdd66809a4742">
+    <rdf:first rdf:resource="http://sbols.org/v3#Feature"/>
+    <rdf:rest rdf:nodeID="Nab2dc47424744336b2dc3d14da18de2c"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N2a878bcfed5548e1848a967eae2762fa">
+    <rdf:first rdf:nodeID="N8c315d48d6fe4fd6926dc34ab107443c"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N93dd537f8d834d8d8b35e89c0d59d496">
+    <rdf:first rdf:nodeID="Ne20ac5d3f6cc435eb7e27c0f0f3efc5a"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N250b5b5c6ca442948c946ff7a77c364c">
+    <rdf:first rdf:nodeID="N08207ca4a2a6408f944871fb9bc2ba97"/>
+    <rdf:rest rdf:nodeID="N51cbbf22c85246e0bad67021ecd97afc"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ne190e4a26db843a3b36bc5b56c3878fc">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:intersectionOf rdf:nodeID="N60d9417ca02248a592ce7d3ba3bcbb30"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#DNAComponent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Component"/>
+    <owl:equivalentClass rdf:nodeID="N1a5a322b6dc645c680e659d612999c02"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DNA Component</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Naacc796dce5e41ac84e68bd3174e245b">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://sbols.org/v3#type"/>
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N479e3f813b9d4ad7bb9469382fa8ab27">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://sbols.org/v3#type"/>
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nb26469944f00475993d2d9d43a980521">
+    <rdf:first rdf:resource="http://sbols.org/v3#reverseComplement"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://identifiers.org/SBO:0000236">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Physical Entity Representation</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N632e880b63b74c958896c91a1d11292b">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="Nadfd9095b94149aa9bdcdd66809a4742"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N4cd4f23bc593434397c837463d4f66c1">
+    <rdf:first rdf:nodeID="Ncdae8735420147639cc66ebb0afebad8"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#GeneDNAComponent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://sbols.org/v3#DNAComponent"/>
+    <owl:equivalentClass rdf:nodeID="Ne190e4a26db843a3b36bc5b56c3878fc"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Gene DNA Component</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#Implementation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://sbols.org/v3#TopLevel"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Implementation</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N0f2b034062f445e1b59970ce50cd7c4f">
+    <rdf:first rdf:resource="http://sbols.org/v3#Location"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://identifiers.org/SBO:0000247">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://identifiers.org/SBO:0000236"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Simple Chemical</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N9da98a7c538348fda282c285f8d462b3">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
+    <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <owl:withRestrictions rdf:nodeID="Ned1c2769315644d481d9532beaaa8815"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nf528aa95fd5b4251af51400fb6479346">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://sbols.org/v3#role"/>
+    <owl:someValuesFrom rdf:resource="https://identifiers.org/GO:0003700"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N71d73741d45248b6b145830de476cfbc">
+    <rdf:first rdf:resource="http://sbols.org/v3#zeroOrOne"/>
+    <rdf:rest rdf:nodeID="N0c76fe5b25214e10a0b6cc7724763c94"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N8c315d48d6fe4fd6926dc34ab107443c">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://sbols.org/v3#hasSequence"/>
+    <owl:allValuesFrom rdf:resource="http://sbols.org/v3#DNASequence"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nd4b83474b1bd4c1cb92404f45bdb44d6">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://sbols.org/v3#template"/>
+    <owl:someValuesFrom rdf:resource="http://sbols.org/v3#Component"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ne0f693a282724b1bac253c7fd76af7be">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:intersectionOf rdf:nodeID="N19987ac308a249f29ba99cf1b8fab8f7"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://identifiers.org/EDAM:">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N3eec8654ec314905bd43bc1deb7657ae">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://sbols.org/v3#subject"/>
+    <owl:someValuesFrom rdf:resource="http://sbols.org/v3#Feature"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ndc9cf4ed1cdd4c398612d0ae7d000fe9">
+    <rdf:first rdf:resource="http://sbols.org/v3#SimpleChemicalComponent"/>
+    <rdf:rest rdf:nodeID="N4cd4f23bc593434397c837463d4f66c1"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#TerminatorDNAComponent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://sbols.org/v3#DNAComponent"/>
+    <owl:equivalentClass rdf:nodeID="N258ce40d6c484f159dc34121da2893b2"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Terminator DNA Component</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nc11f943819cb4fbcb0458212108993a7">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="N3db6b03b08e84038a31b8c45b2b432d8"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N081c27d6d79a42c2b9435272e7657aed">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://sbols.org/v3#role"/>
+    <owl:someValuesFrom rdf:resource="https://identifiers.org/SO:0000110"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#RNAComponent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Component"/>
+    <owl:equivalentClass rdf:nodeID="N98fe7d7d2ef743c79c1ee94aa64d2f27"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RNA Component</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N521bb1a8e579462ca6a1f5bf84fde82c">
+    <rdf:first rdf:nodeID="N23170008d33246ce863db9d5d9547bab"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#hasInterface">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://sbols.org/v3#directlyComprises"/>
+    <rdfs:domain rdf:resource="http://sbols.org/v3#Component"/>
+    <rdfs:range rdf:resource="http://sbols.org/v3#Interface"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hasInterface</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N3b68a01c4c2e4d6897ce93de6a65feb1">
+    <rdf:first rdf:resource="http://sbols.org/v3#ProteinComponent"/>
+    <rdf:rest rdf:nodeID="N0e5706a5924f4575b53ddb3b625609a3"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#higherOrderParticipant">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://sbols.org/v3#Participation"/>
+    <rdfs:range rdf:resource="http://sbols.org/v3#Interaction"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">higherOrderParticipant</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#ExperimentalData">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://sbols.org/v3#TopLevel"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ExperimentalData</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#SequenceWithElements">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Sequence"/>
+    <owl:equivalentClass rdf:nodeID="N59323f71e88043a5bd0b0d17e4da2814"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sequence With Elements</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N258ce40d6c484f159dc34121da2893b2">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:intersectionOf rdf:nodeID="N1f01decd686242db9fd57402c69fb7ce"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nedb5b2e390d04126be50ff473c6f5082">
+    <rdf:first rdf:resource="https://identifiers.org/SO:0000804"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N9e20e45feea2424680bcb02f515cdca9">
+    <rdf:first rdf:nodeID="Nb92cd8f81a914a429d885d0dd07e8ab9"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N98fe7d7d2ef743c79c1ee94aa64d2f27">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:intersectionOf rdf:nodeID="Ncb88389f5b2942f68611a3592b1a4a70"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#oneOrMore">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Cardinality"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OneOrMore</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#name">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://sbols.org/v3#Identified"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">name</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://identifiers.org/GO:">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N84a45dc1b0f24cce9b0397defff8fc83">
+    <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</xsd:minInclusive>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nfe98f5ad966c4a0bad8973eebb69bfdd">
+    <rdf:first rdf:nodeID="N3d65c651b2514766a8517b178b219ad0"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ne32d94c901a64d85a4e62b35a29f595d">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:intersectionOf rdf:nodeID="N2ebcd0cd00bc4c1289062c4ee5d4e517"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#end">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://sbols.org/v3#Range"/>
+    <rdfs:range rdf:nodeID="N631ce9996aa64b02a5d92b5bda6b0fbb"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">end</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#variantMeasure">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://sbols.org/v3#VariableFeature"/>
+    <rdfs:range rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">variantMeasure</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N318d6ccea48d4907ac15c4ad40c4ddc1">
+    <rdf:first rdf:nodeID="N0e99c65a36e04056a3988e6e066840ba"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N30f44a68df0b4bd3bb0850f379d22526">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://sbols.org/v3#role"/>
+    <owl:someValuesFrom rdf:resource="https://identifiers.org/SO:0000316"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://identifiers.org/CHEBI:35224">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://identifiers.org/CHEBI:50906"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Effector</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nbe8cf78028f34583b4f67a2a4b16ca6c">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="N6b45f8631ba44c02b39b2aa12973535b"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N7eb29b5e8a5044c694c5539e98dba34b">
+    <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</xsd:minInclusive>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N42160241454b4c78bf719f5a23aecfb2">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://sbols.org/v3#role"/>
+    <owl:someValuesFrom rdf:resource="https://identifiers.org/SO:0000141"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ndb3a7fef087e41bb999185e3955d57bd">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="N6c6307630bc94c07a4e2e8f2288e4c45"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N32d9834575b64dba8533c409862bc6c1">
+    <rdf:first rdf:resource="http://sbols.org/v3#LocalSubComponent"/>
+    <rdf:rest rdf:nodeID="N725d1fb3a62040a9885964aa5d130df1"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N1826ddb99acd46ed87b489c8f7b51772">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="N9d277b56910a4afc9018013991cb4310"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N9d277b56910a4afc9018013991cb4310">
+    <rdf:first rdf:resource="http://sbols.org/v3#Model"/>
+    <rdf:rest rdf:nodeID="N338fb8e3bcce4331b17e16b4fc0af280"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N4d44a548af4446dcbfeb51288dd94c63">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="N7c2bc03487da41308be2e44809312b66"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N5ce1e3c88d8e43929ec1ed2483cc1b27">
+    <rdf:first rdf:resource="https://identifiers.org/SO:0000139"/>
+    <rdf:rest rdf:nodeID="Nfe229a07bca546d595089ca8e2551cfd"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ne69eeb6ef9c443efa01833e904ae4fa5">
+    <rdf:first rdf:resource="http://sbols.org/v3#enumerate"/>
+    <rdf:rest rdf:nodeID="N542403791ddd49bf88f047d5d6b1ce83"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N66ee09c8b41d4b8abe46457215d4810a">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://sbols.org/v3#variable"/>
+    <owl:someValuesFrom rdf:resource="http://sbols.org/v3#Feature"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://identifiers.org/SO:0000316">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://identifiers.org/SO:0000110"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Coding Sequence</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N2bc170e298e5438d81eb03f1f29d7a0b">
+    <rdf:first rdf:nodeID="N4f38f9a1776c4ec6acf6b557043179c3"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nd62731bb15ba46cbba7acbdbaa8801b7">
+    <rdf:first rdf:nodeID="N40832fffcab9475d9b2c581d6a744a61"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N40832fffcab9475d9b2c581d6a744a61">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://sbols.org/v3#encoding"/>
+    <owl:someValuesFrom rdf:resource="https://identifiers.org/EDAM:format_1207"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N6581e467300c4b59aacdb572ae976fa7">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:intersectionOf rdf:nodeID="Ncc51010fe1e44cbea7ecd5fa85994787"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nbc882bb1ebf7456fa57baea2887a4adb">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:intersectionOf rdf:nodeID="Nfce9b66931ce499e8e1f555c208e7871"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N5811008d933c41908210f681690ada05">
+    <rdf:first rdf:resource="https://identifiers.org/GO:0003700"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbols.org/v3#SBOLTerm">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://identifiers.org/CHEBI:50906">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Material Entity</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N05539a9d6516420fa62e925765965a36">
+    <rdf:first rdf:nodeID="Nf018040e9a834ada8769c5f2e71b32f2"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ne413a6191bf94bb482f5c5779ab7bdf1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="Ne86446cce85d452ea36f5b50f65c1ce8"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N1f01decd686242db9fd57402c69fb7ce">
+    <rdf:first rdf:resource="http://sbols.org/v3#DNAComponent"/>
+    <rdf:rest rdf:nodeID="N24096b7333a94432b22f542ed18b5510"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N99428e85f0ac4c3e9302bb8343866783">
+    <rdf:first rdf:resource="http://sbols.org/v3#Interaction"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nd0d7181c490f40adad6a124ee25d63d6">
+    <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</xsd:minInclusive>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N23170008d33246ce863db9d5d9547bab">
+    <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</xsd:minInclusive>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://identifiers.org/SBO:">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Na1539e45113c4e3f92a0e8ca35e95665">
+    <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</xsd:minInclusive>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N542403791ddd49bf88f047d5d6b1ce83">
+    <rdf:first rdf:resource="http://sbols.org/v3#sample"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+</rdf:RDF>

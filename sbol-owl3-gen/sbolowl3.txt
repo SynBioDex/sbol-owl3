@@ -11,6 +11,8 @@
   <owl:imports rdf:resource="https://identifiers.org/SO:"/>
   <owl:imports rdf:resource="https://identifiers.org/EDAM:"/>
   <owl:imports rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2"/>
+  <owl:imports rdf:resource="https://identifiers.org/CHEBI:"/>
+  <owl:imports rdf:resource="https://identifiers.org/GO:"/>
 </owl:Ontology>
 
 <owl:ObjectProperty rdf:about="#comprises">
@@ -524,6 +526,92 @@
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hashAlgorithm</rdfs:label>
 </owl:DatatypeProperty>
 
+<owl:Class rdf:about="#ComponentTypeRestriction">
+  <rdfs:subClassOf rdf:resource="https://identifiers.org/SBO:0000236"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="https://identifiers.org/SBO:0000251"/>
+        <rdf:Description rdf:about="https://identifiers.org/SBO:0000252"/>
+      </owl:unionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Component Type</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#EncodingRestriction">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="https://identifiers.org/EDAM:format_1207"/>
+        <rdf:Description rdf:about="https://identifiers.org/EDAM:format_1208"/>
+        <rdf:Description rdf:about="https://identifiers.org/EDAM:format_1197"/>
+        <rdf:Description rdf:about="https://identifiers.org/EDAM:format_1196"/>
+      </owl:unionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Encoding</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#DNARoleRestriction">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="https://identifiers.org/SO:0000110"/>
+        <rdf:Description rdf:about="https://identifiers.org/SO:0000167"/>
+        <rdf:Description rdf:about="https://identifiers.org/SO:0000139"/>
+        <rdf:Description rdf:about="https://identifiers.org/SO:0000316"/>
+        <rdf:Description rdf:about="https://identifiers.org/SO:0000141"/>
+        <rdf:Description rdf:about="https://identifiers.org/SO:0000704"/>
+        <rdf:Description rdf:about="https://identifiers.org/SO:0000057"/>
+        <rdf:Description rdf:about="https://identifiers.org/SO:0000804"/>
+      </owl:unionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DNA role</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#RNARoleRestriction">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="https://identifiers.org/SO:0000110"/>
+        <rdf:Description rdf:about="https://identifiers.org/SO:0000234"/>
+      </owl:unionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RNA role</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#ProteinRoleRestriction">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="https://identifiers.org/GO:0003674"/>
+        <rdf:Description rdf:about="https://identifiers.org/GO:0003700"/>
+      </owl:unionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Protein role</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#SmallMoleculeRoleRestriction">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="https://identifiers.org/CHEBI:50906"/>
+        <rdf:Description rdf:about="https://identifiers.org/CHEBI:35224"/>
+      </owl:unionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Small Molecule role</rdfs:label>
+</owl:Class>
+
 <owl:Class rdf:about="#Identified">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Identified</rdfs:label>
@@ -550,13 +638,19 @@
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#type"/>
-      <owl:someValuesFrom rdf:resource="https://identifiers.org/SBO:#0000236"/>
+      <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     </owl:Restriction>
   </rdfs:subClassOf>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#type"/>
-      <owl:onClass rdf:resource="https://identifiers.org/SBO:#0000236"/>
+      <owl:someValuesFrom rdf:resource="#ComponentTypeRestriction"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#type"/>
+      <owl:onClass rdf:resource="#ComponentTypeRestriction"/>
       <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
@@ -942,6 +1036,401 @@
 <owl:Class rdf:about="#oneOrMore">
   <rdfs:subClassOf rdf:resource="#Cardinality"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OneOrMore</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#SequenceWithElements">
+  <rdfs:subClassOf rdf:resource="#Sequence"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Sequence"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#elements"/>
+          <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        </owl:Restriction>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#encoding"/>
+          <owl:someValuesFrom rdf:resource="#EncodingRestriction"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sequence With Elements</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#DNASequence">
+  <rdfs:subClassOf rdf:resource="#SequenceWithElements"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#SequenceWithElements"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#encoding"/>
+          <owl:someValuesFrom rdf:resource="https://identifiers.org/EDAM:format_1207"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DNA Sequence</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#RNASequence">
+  <rdfs:subClassOf rdf:resource="#SequenceWithElements"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#SequenceWithElements"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#encoding"/>
+          <owl:someValuesFrom rdf:resource="https://identifiers.org/EDAM:format_1207"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RNA Sequence</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#ProteinSequence">
+  <rdfs:subClassOf rdf:resource="#SequenceWithElements"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#SequenceWithElements"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#encoding"/>
+          <owl:someValuesFrom rdf:resource="https://identifiers.org/EDAM:format_1208"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Protein Sequence</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#InChISequence">
+  <rdfs:subClassOf rdf:resource="#SequenceWithElements"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#SequenceWithElements"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#encoding"/>
+          <owl:someValuesFrom rdf:resource="https://identifiers.org/EDAM:format_1197"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">InChI Sequence</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#SMILESSequence">
+  <rdfs:subClassOf rdf:resource="#SequenceWithElements"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#SequenceWithElements"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#encoding"/>
+          <owl:someValuesFrom rdf:resource="https://identifiers.org/EDAM:format_1196"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SMILES Sequence</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#DNAComponent">
+  <rdfs:subClassOf rdf:resource="#Component"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Component"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#type"/>
+          <owl:someValuesFrom rdf:resource="https://identifiers.org/SBO:0000251"/>
+        </owl:Restriction>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#role"/>
+          <owl:someValuesFrom rdf:resource="#DNARoleRestriction"/>
+        </owl:Restriction>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasSequence"/>
+          <owl:allValuesFrom rdf:resource="#DNASequence"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DNA Component</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#RNAComponent">
+  <rdfs:subClassOf rdf:resource="#Component"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Component"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#type"/>
+          <owl:someValuesFrom rdf:resource="https://identifiers.org/SBO:0000252"/>
+        </owl:Restriction>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#role"/>
+          <owl:someValuesFrom rdf:resource="#RNARoleRestriction"/>
+        </owl:Restriction>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasSequence"/>
+          <owl:allValuesFrom rdf:resource="#RNASequence"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RNA Component</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#ProteinComponent">
+  <rdfs:subClassOf rdf:resource="#Component"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Component"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#type"/>
+          <owl:someValuesFrom rdf:resource="https://identifiers.org/SBO:0000252"/>
+        </owl:Restriction>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#role"/>
+          <owl:someValuesFrom rdf:resource="#ProteinRoleRestriction"/>
+        </owl:Restriction>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasSequence"/>
+          <owl:allValuesFrom rdf:resource="#ProteinSequence"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Protein Component</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#SimpleChemicalComponent">
+  <rdfs:subClassOf rdf:resource="#Component"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Component"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#type"/>
+          <owl:someValuesFrom rdf:resource="https://identifiers.org/SBO:0000247"/>
+        </owl:Restriction>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#role"/>
+          <owl:someValuesFrom rdf:resource="#SmallMoleculeRoleRestriction"/>
+        </owl:Restriction>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasSequence"/>
+          <owl:allValuesFrom>
+            <owl:Class>
+              <owl:unionOf rdf:parseType="Collection">
+                <rdf:Description rdf:about="#InChISequence"/>
+                <rdf:Description rdf:about="#SMILESSequence"/>
+              </owl:unionOf>
+            </owl:Class>
+          </owl:allValuesFrom>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Simple Chemical Component</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#NonCovalentComplexComponent">
+  <rdfs:subClassOf rdf:resource="#Component"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Component"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#type"/>
+          <owl:someValuesFrom rdf:resource="https://identifiers.org/SBO:0000253"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Non-Covalent Complex Component</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#FunctionalEntityComponent">
+  <rdfs:subClassOf rdf:resource="#Component"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Component"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#type"/>
+          <owl:someValuesFrom rdf:resource="https://identifiers.org/SBO:0000241"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Functional Entity Component</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#GenericDNAComponent">
+  <rdfs:subClassOf rdf:resource="#DNAComponent"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#DNAComponent"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#role"/>
+          <owl:someValuesFrom rdf:resource="https://identifiers.org/SO:0000110"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Generic DNA Component</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#PromoterDNAComponent">
+  <rdfs:subClassOf rdf:resource="#DNAComponent"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#DNAComponent"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#role"/>
+          <owl:someValuesFrom rdf:resource="https://identifiers.org/SO:0000167"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Promoter DNA Component</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#RBSDNAComponent">
+  <rdfs:subClassOf rdf:resource="#DNAComponent"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#DNAComponent"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#role"/>
+          <owl:someValuesFrom rdf:resource="https://identifiers.org/SO:0000139"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RBS DNA Component</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#CDSDNAComponent">
+  <rdfs:subClassOf rdf:resource="#DNAComponent"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#DNAComponent"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#role"/>
+          <owl:someValuesFrom rdf:resource="https://identifiers.org/SO:0000316"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CDS DNA Component</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#TerminatorDNAComponent">
+  <rdfs:subClassOf rdf:resource="#DNAComponent"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#DNAComponent"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#role"/>
+          <owl:someValuesFrom rdf:resource="https://identifiers.org/SO:0000141"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Terminator DNA Component</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#GeneDNAComponent">
+  <rdfs:subClassOf rdf:resource="#DNAComponent"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#DNAComponent"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#role"/>
+          <owl:someValuesFrom rdf:resource="https://identifiers.org/SO:0000704"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Gene DNA Component</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#OperatorDNAComponent">
+  <rdfs:subClassOf rdf:resource="#DNAComponent"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#DNAComponent"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#role"/>
+          <owl:someValuesFrom rdf:resource="https://identifiers.org/SO:0000057"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Operator DNA Component</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#EngineeredRegionDNAComponent">
+  <rdfs:subClassOf rdf:resource="#DNAComponent"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#DNAComponent"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#role"/>
+          <owl:someValuesFrom rdf:resource="https://identifiers.org/SO:0000804"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Engineered Region DNA Component</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#EffectorSimpleChemicalComponent">
+  <rdfs:subClassOf rdf:resource="#SimpleChemicalComponent"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#SimpleChemicalComponent"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#role"/>
+          <owl:someValuesFrom rdf:resource="https://identifiers.org/CHEBI:35224"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Effector Simple Chemical Component</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#TranscriptionFactorProteinComponent">
+  <rdfs:subClassOf rdf:resource="#ProteinComponent"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#ProteinComponent"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#role"/>
+          <owl:someValuesFrom rdf:resource="https://identifiers.org/GO:0003700"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Transcription Factor Protein Component</rdfs:label>
 </owl:Class>
 
 
