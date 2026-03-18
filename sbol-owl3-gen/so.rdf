@@ -11,46 +11,94 @@
 <owl:Class rdf:about="https://identifiers.org/SO:0000110">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sequence Feature</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A general sequence feature</rdfs:comment>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Any extent of continuous biological sequence.</rdfs:comment>
 </owl:Class>
 
 <owl:Class rdf:about="https://identifiers.org/SO:0000167">
   <rdfs:subClassOf rdf:resource="https://identifiers.org/SO:0000110"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Promoter</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A regulatory region that initiates transcription. A regulatory region where transcription is initiated.</rdfs:comment>
 </owl:Class>
 
 <owl:Class rdf:about="https://identifiers.org/SO:0000139">
   <rdfs:subClassOf rdf:resource="https://identifiers.org/SO:0000110"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ribosome Binding Site</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Region of mRNA where the ribosome assembles to begin translation. A sequence where ribosomes bind to initiate translation.</rdfs:comment>
 </owl:Class>
 
 <owl:Class rdf:about="https://identifiers.org/SO:0000316">
   <rdfs:subClassOf rdf:resource="https://identifiers.org/SO:0000110"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Coding Sequence</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Coding DNA Sequence - region that can be translated into protein. Coding sequence; DNA region that codes for protein.</rdfs:comment>
 </owl:Class>
 
 <owl:Class rdf:about="https://identifiers.org/SO:0000141">
   <rdfs:subClassOf rdf:resource="https://identifiers.org/SO:0000110"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Terminator</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sequence that terminates transcription. A sequence signaling the end of transcription.</rdfs:comment>
 </owl:Class>
 
 <owl:Class rdf:about="https://identifiers.org/SO:0000704">
   <rdfs:subClassOf rdf:resource="https://identifiers.org/SO:0000110"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Gene</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A region of genomic sequence encoding a gene product. A region of sequence that encodes functional products.</rdfs:comment>
 </owl:Class>
 
 <owl:Class rdf:about="https://identifiers.org/SO:0000057">
   <rdfs:subClassOf rdf:resource="https://identifiers.org/SO:0000110"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Operator</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A regulatory element controlling gene expression. A DNA regulatory element where a repressor binds to control gene expression.</rdfs:comment>
 </owl:Class>
 
 <owl:Class rdf:about="https://identifiers.org/SO:0000804">
   <rdfs:subClassOf rdf:resource="https://identifiers.org/SO:0000110"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Engineered Region</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A region constructed using genetic engineering. A region constructed using genetic engineering techniques.</rdfs:comment>
 </owl:Class>
 
 <owl:Class rdf:about="https://identifiers.org/SO:0000234">
   <rdfs:subClassOf rdf:resource="https://identifiers.org/SO:0000110"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">mRNA</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="https://identifiers.org/SO:0000400">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Nucleic Acid Topology</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An attribute describing a sequence</rdfs:comment>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An attribute describes a quality of sequence.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="https://identifiers.org/SO:0000987">
+  <rdfs:subClassOf rdf:resource="https://identifiers.org/SO:0000400"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">linear</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="https://identifiers.org/SO:0000988">
+  <rdfs:subClassOf rdf:resource="https://identifiers.org/SO:0000400"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">circular</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="https://identifiers.org/SO:0000984">
+  <rdfs:subClassOf rdf:resource="https://identifiers.org/SO:0000400"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">single-stranded</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="https://identifiers.org/SO:0000985">
+  <rdfs:subClassOf rdf:resource="https://identifiers.org/SO:0000400"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">double-stranded</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="https://identifiers.org/SO:0001030">
+  <rdfs:subClassOf rdf:resource="https://identifiers.org/SO:0000400"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">inline</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Feature located on the forward strand. Orientation corresponding to the forward strand (5' to 3' left to right in standard representations).</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="https://identifiers.org/SO:0001031">
+  <rdfs:subClassOf rdf:resource="https://identifiers.org/SO:0000400"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">reverseComplement</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Feature located on the reverse complement strand. Orientation corresponding to the reverse strand (complementary to the forward strand).</rdfs:comment>
 </owl:Class>
 
 

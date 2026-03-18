@@ -8,23 +8,28 @@
 
 <owl:Ontology rdf:about="https://identifiers.org/EDAM:"/>
 
-<owl:Class rdf:about="https://identifiers.org/EDAM:format_1207">
+<owl:Class rdf:about="https://identifiers.org/EDAM:format_1915">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Format</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="https://identifiers.org/EDAM:format_1207">
+  <rdfs:subClassOf rdf:resource="https://identifiers.org/EDAM:format_1915"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">IUPAC DNA/RNA</rdfs:label>
 </owl:Class>
 
 <owl:Class rdf:about="https://identifiers.org/EDAM:format_1208">
-  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:subClassOf rdf:resource="https://identifiers.org/EDAM:format_1915"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">IUPAC Protein</rdfs:label>
 </owl:Class>
 
 <owl:Class rdf:about="https://identifiers.org/EDAM:format_1197">
-  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:subClassOf rdf:resource="https://identifiers.org/EDAM:format_1915"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">InChI</rdfs:label>
 </owl:Class>
 
 <owl:Class rdf:about="https://identifiers.org/EDAM:format_1196">
-  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:subClassOf rdf:resource="https://identifiers.org/EDAM:format_1915"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SMILES</rdfs:label>
 </owl:Class>
 

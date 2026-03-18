@@ -31,262 +31,58 @@ chebi = get_ontology("https://identifiers.org/CHEBI:")
 chebi.base_iri = "https://identifiers.org/CHEBI:"
 go = get_ontology("https://identifiers.org/GO:")
 go.base_iri = "https://identifiers.org/GO:"
-#Ont to lib
-otol = get_ontology("http://keele.ac.uk/scm/otol#")
-
-
-
-
 #identifiers = get_ontology("https://identifiers.org/")
 
 
-
-
-
-
-
-#Updated by Tolga Medeni, March 05, 2025
-#236 upper class(SBO), 251, 1208,1197, 1196 sub classes
-#based on Table 2
-with otol:
-
-  class constantList(AnnotationProperty):
-      label = "Constant list"
-      comment = "If true, create an enum list."
-
-
-  class vocabulary(AnnotationProperty):
-      label = "Vocabulary"
-      comment = "If true, an object should be created for the container class."
-
 with sbo:
-
-    SBO_0000000 = types.new_class("0000000", (Thing,))
-    SBO_0000000.label = ["systems biology representation"]
-    SBO_0000000.comment = ["Root term for Systems Biology Ontology representing all mathematical or logical terms used in systems biology."]
-
-    SBO_0000236 = types.new_class("0000236", (SBO_0000000,))
+    SBO_0000236 = types.new_class("0000236", (Thing,))
     SBO_0000236.label = ["Physical Entity Representation"]
-    SBO_0000236.comment = ["A material entity such as a molecule, complex, or cell. Representation of a discrete portion of matter that has mass and occupies space."]
-
 
     SBO_0000251 = types.new_class("0000251", (SBO_0000236,))
     SBO_0000251.label = ["DNA"]
-    SBO_0000251.comment = ["DNA molecule", "A polymer consisting of deoxyribonucleotide monomers."]
 
-
-   #Original
-   # SBO_0000250 = types.new_class("0000252", (SBO_0000236,))
-   # SBO_0000250.label = ["RNA"]
-    #Updated by Tolga
-    SBO_0000250 = types.new_class("0000250", (SBO_0000236,))
+    SBO_0000250 = types.new_class("0000252", (SBO_0000236,))
     SBO_0000250.label = ["RNA"]
-    SBO_0000250.comment = ["RNA molecule", "A polymer consisting of ribonucleotide monomers."]
-
 
     SBO_0000252 = types.new_class("0000252", (SBO_0000236,))
     SBO_0000252.label = ["Protein"]
-    SBO_0000252.comment = ["Protein or polypeptide. A polymer consisting of amino acid monomers linked by peptide bonds."]
-
 
     SBO_0000247 = types.new_class("0000247", (SBO_0000236,))
     SBO_0000247.label = ["Simple Chemical"]
-    SBO_0000247.comment = ["A small molecule or ion. A small molecule without specific type classification."]
-
 
     SBO_0000253 = types.new_class("0000253", (SBO_0000236,))
     SBO_0000253.label = ["Non-covalent complex"]
-    SBO_0000253.comment = ["Entity composed of non-covalently bound components. Entity composed of multiple components bound together through non-covalent interactions."]
-
 
     SBO_0000241 = types.new_class("0000241", (SBO_0000236,))
     SBO_0000241.label = ["Functional Entity"]
-    SBO_0000241.comment = ["An abstract entity with function but no physical form"]
-
-    # Occurring Entity Representation (parent for interactions)
-    SBO_0000231 = types.new_class("0000231", (SBO_0000000,))
-    SBO_0000231.label = ["occurring entity representation"]
-    SBO_0000231.comment = ["Representation of an entity that develops or occurs over time, such as events, interactions, or reactions."]
-
-    # Biochemical or transport reaction
-    SBO_0000167 = types.new_class("0000167", (SBO_0000231,))
-    SBO_0000167.label = ["biochemical or transport reaction"]
-    SBO_0000167.comment = ["An event involving physical entities that results in modification of structure, location, or free energy."]
-
-    # Biochemical reaction
-    SBO_0000176 = types.new_class("0000176", (SBO_0000167,))
-    SBO_0000176.label = ["biochemical_reaction", "biochemical reaction"]
-    SBO_0000176.comment = ["A chemical reaction involving biomolecules",
-                          "An event involving one or more chemical entities that alters their electrochemical structure."]
-
-    # Non-covalent binding / Dissociation
-    SBO_0000177 = types.new_class("0000177", (SBO_0000176,))
-    SBO_0000177.label = ["non_covalent_binding", "dissociation"]
-    SBO_0000177.comment = ["Association without covalent bonds",
-                          "Biochemical reaction where a molecular complex breaks into smaller components."]
-
-    # Degradation
-    SBO_0000179 = types.new_class("0000179", (SBO_0000176,))
-    SBO_0000179.label = ["degradation"]
-    SBO_0000179.comment = ["Breakdown of a molecule", "Breakdown of a molecule, usually into simpler components."]
-
-    # Control
-    SBO_0000168 = types.new_class("0000168", (SBO_0000231,))
-    SBO_0000168.label = ["control"]
-    SBO_0000168.comment = ["Modulation of activity", "Modification of the execution of an event or process. Also known as regulation."]
-
-    # Inhibition
-    SBO_0000169 = types.new_class("0000169", (SBO_0000168,))
-    SBO_0000169.label = ["inhibition"]
-    SBO_0000169.comment = ["Negative modulation of activity", "Negative modulation of activity; decreasing the rate or probability of an event."]
-
-    # Stimulation
-    SBO_0000170 = types.new_class("0000170", (SBO_0000168,))
-    SBO_0000170.label = ["stimulation"]
-    SBO_0000170.comment = ["Positive modulation of activity", "Positive modulation of activity; increasing the rate or probability of an event."]
-
-    # Genetic production
-    SBO_0000589 = types.new_class("0000589", (SBO_0000231,))
-    SBO_0000589.label = ["genetic_production", "genetic production"]
-    SBO_0000589.comment = ["Production of a gene product",
-                          "Composite biochemical process through which a gene sequence is converted into mature gene products."]
-
-    # Participant roles
-    SBO_0000003 = types.new_class("0000003", (SBO_0000000,))
-    SBO_0000003.label = ["participant role"]
-    SBO_0000003.comment = ["The function of a physical entity or process (participant) in a process or event."]
-
-    # Modifier
-    SBO_0000019 = types.new_class("0000019", (SBO_0000003,))
-    SBO_0000019.label = ["modifier"]
-    SBO_0000019.comment = ["Entity that changes the velocity of a process without being consumed or transformed."]
-
-    # Inhibitor
-    SBO_0000020 = types.new_class("0000020", (SBO_0000019,))
-    SBO_0000020.label = ["inhibitor"]
-    SBO_0000020.comment = ["Substance that decreases the probability of a chemical reaction without being consumed or transformed."]
-
-    # Stimulator
-    SBO_0000459 = types.new_class("0000459", (SBO_0000019,))
-    SBO_0000459.label = ["stimulator"]
-    SBO_0000459.comment = ["Substance that increases the probability of a chemical reaction without being consumed or transformed."]
-
-    # Inhibited
-    SBO_0000642 = types.new_class("0000642", (SBO_0000003,))
-    SBO_0000642.label = ["inhibited"]
-    SBO_0000642.comment = ["Entity that is inhibited",
-                          "Conceptual or material entity that is the object of an inhibition process, acted upon by an inhibitor."]
-
-    # Stimulated
-    SBO_0000643 = types.new_class("0000643", (SBO_0000003,))
-    SBO_0000643.label = ["stimulated"]
-    SBO_0000643.comment = ["Conceptual or material entity that is the object of a stimulation process, acted upon by a stimulator."]
-
-    # Modified
-    SBO_0000644 = types.new_class("0000644", (SBO_0000003,))
-    SBO_0000644.label = ["modified"]
-    SBO_0000644.comment = ["Entity that has been modified. Conceptual or material entity that is the object of a modification process, acted upon by a modifier."]
-
-    # Template
-    SBO_0000645 = types.new_class("0000645", (SBO_0000003,))
-    SBO_0000645.label = ["template"]
-    SBO_0000645.comment = ["Entity used as a template",
-                          "Entity that acts as the template or starting material for genetic production."]
-
-    # Functional entity / Functional compartment
-    SBO_0000289 = types.new_class("0000289", (SBO_0000003,))
-    SBO_0000289.label = ["functional_entity", "functional compartment"]
-    SBO_0000289.comment = ["An abstract entity with function but no physical form. A logical or physical subdivision of an event space containing pools of participants considered identical for the events."]
-
-    SBO_0000011 = types.new_class("0000011", (SBO_0000003,))
-    SBO_0000011.label = ["Product"]
-
-    SBO_0000010 = types.new_class("0000010", (SBO_0000003,))
-    SBO_0000010.label = ["Reactant"]
-
-    SBO_0000598 = types.new_class("0000598", (SBO_0000003,))
-    SBO_0000598.label = ["Promoter"]
-
 
 with so:
-    #Updated by Tolga Medeni, March 05, 2025
-    #110 upper class(SO); 167, 139, 316,141,704,057,804,234 sub classes(SO)
-    #35224 sub class (CHEBI)
-    #3700 sub class (GO)
-    #based on Table 3
-
     SO_0000110 = types.new_class("0000110", (Thing,))
     SO_0000110.label = ["Sequence Feature"]
-    SO_0000110.comment = ["A general sequence feature", "Any extent of continuous biological sequence."]
 
     SO_0000167 = types.new_class("0000167", (SO_0000110,))
     SO_0000167.label = ["Promoter"]
-    SO_0000167.comment = ["A regulatory region that initiates transcription. A regulatory region where transcription is initiated."]
 
     SO_0000139 = types.new_class("0000139", (SO_0000110,))
     SO_0000139.label = ["Ribosome Binding Site"]
-    SO_0000139.comment = ["Region of mRNA where the ribosome assembles to begin translation. A sequence where ribosomes bind to initiate translation."]
-
 
     SO_0000316 = types.new_class("0000316", (SO_0000110,))
     SO_0000316.label = ["Coding Sequence"]
-    SO_0000316.comment = ["Coding DNA Sequence - region that can be translated into protein. Coding sequence; DNA region that codes for protein."]
-
 
     SO_0000141 = types.new_class("0000141", (SO_0000110,))
     SO_0000141.label = ["Terminator"]
-    SO_0000141.comment = ["Sequence that terminates transcription. A sequence signaling the end of transcription."]
-
 
     SO_0000704 = types.new_class("0000704", (SO_0000110,))
     SO_0000704.label = ["Gene"]
-    SO_0000704.comment = ["A region of genomic sequence encoding a gene product. A region of sequence that encodes functional products."]
-
 
     SO_0000057 = types.new_class("0000057", (SO_0000110,))
     SO_0000057.label = ["Operator"]
-    SO_0000057.comment = ["A regulatory element controlling gene expression. A DNA regulatory element where a repressor binds to control gene expression."]
-
 
     SO_0000804 = types.new_class("0000804", (SO_0000110,))
     SO_0000804.label = ["Engineered Region"]
-    SO_0000804.comment = ["A region constructed using genetic engineering. A region constructed using genetic engineering techniques."]
 
     SO_0000234 = types.new_class("0000234", (SO_0000110,))
     SO_0000234.label = ["mRNA"]
-
-
-    #Updated by Tolga Medeni, March 05, 2025
-    #400 upper class(SO), 987, 988,984 sub classes
-    #based on Table 3
-
-    SO_0000400 = types.new_class("0000400", (Thing,))
-    SO_0000400.label = ["Nucleic Acid Topology"]
-    SO_0000400.comment = ["An attribute describing a sequence", "An attribute describes a quality of sequence."]
-
-
-    SO_0000987 = types.new_class("0000987", (SO_0000400,))
-    SO_0000987.label = ["linear"]
-
-    SO_0000988 = types.new_class("0000988", (SO_0000400,))
-    SO_0000988.label = ["circular"]
-
-    SO_0000984 = types.new_class("0000984", (SO_0000400,))
-    SO_0000984.label = ["single-stranded"]
-
-    SO_0000985 = types.new_class("0000985", (SO_0000400,))
-    SO_0000985.label = ["double-stranded"]
-
-    # Orientation terms
-    SO_0001030 = types.new_class("0001030", (SO_0000400,))
-    SO_0001030.label = ["inline"]
-    SO_0001030.comment = ["Feature located on the forward strand. Orientation corresponding to the forward strand (5' to 3' left to right in standard representations)."]
-
-    SO_0001031 = types.new_class("0001031", (SO_0000400,))
-    SO_0001031.label = ["reverseComplement"]
-    SO_0001031.comment = ["Feature located on the reverse complement strand. Orientation corresponding to the reverse strand (complementary to the forward strand)."]
-
-
 
 with chebi:
     CHEBI_50906 = types.new_class("50906", (Thing,))
@@ -302,9 +98,7 @@ with go:
 
     GO_0003700 = types.new_class("0003700", (GO_0003674,))
     GO_0003700.label = ["Transcription Factor"]
-#Updated by Tolga Medeni, March 05, 2025
-#1915 upper class(EDAM), 1207, 1208,1197, 1196 sub classes
-#based on Table 1
+
 with edam:
     EDAM_format_1915 = types.new_class("format_1915", (Thing,))
     EDAM_format_1915.label = ["Format"]
@@ -323,56 +117,38 @@ with edam:
     EDAM_format_1196.label = ["SMILES"]
 
 with sbol3 :
-
-
     class ComponentType (SBO_0000236):
         label = "Component Type"
-        otol:constantList = "true"
     ComponentType.equivalent_to.append(
-        Or([SBO_0000241, SBO_0000247, SBO_0000250, SBO_0000251, SBO_0000252, SBO_0000253])
+        Or([SBO_0000251, SBO_0000252])
     )
-
-
-    class DNARNAComponentType (ComponentType):
-        label = "DNA or RNA Component Type"
-        otol:constantList = "true"
-    ComponentType.equivalent_to.append(
-        Or([ComponentType, SO_0000987, SO_0000988, SO_0000984, SO_0000985 ])
-    )
-
 
     class Encoding (Thing):
         label = "Encoding"
-        otol:constantList = "true"
     Encoding.equivalent_to.append(
         Or([EDAM_format_1207, EDAM_format_1208, EDAM_format_1197, EDAM_format_1196])
     )
 
     class DNARole (Thing):
         label = "DNA role"
-        otol:constantList = "true"
-
     DNARole.equivalent_to.append(
         Or([SO_0000110, SO_0000167, SO_0000139, SO_0000316, SO_0000141, SO_0000704, SO_0000057, SO_0000804])
     )
 
     class RNARole (Thing):
         label = "RNA role"
-        otol:constantList = "true"
     RNARole.equivalent_to.append(
         Or([SO_0000110, SO_0000234])
     )
 
     class ProteinRole (Thing):
         label = "Protein role"
-        otol:constantList = "true"
     ProteinRole.equivalent_to.append(
         Or([GO_0003674, GO_0003700])
     )
 
     class SmallMoleculeRole (Thing):
         label = "Small Molecule role"
-        otol:constantList = "true"
     SmallMoleculeRole.equivalent_to.append(
         Or([CHEBI_50906, CHEBI_35224])
     )
@@ -390,23 +166,6 @@ with sbol3 :
 with om:
     class Measure(Thing):
         label = "Measure"
-
-# TODOTolga: Figure 27
-with prov:
-    class Activity(Thing):
-      label = "Activity"
-
-    class Association(Thing):
-      label = "Association"
-
-    class Agent(Thing):
-      label = "Association"
-
-    class Plan(Thing):
-      label = "Association"
-
-    class Usage(Thing):
-      label = "Association"
 
 with sbol3:
     #--------------SBOL Entities--------------
@@ -488,20 +247,11 @@ with sbol3:
     class VariableFeature (Identified):
         label = "VariableFeature"
 
-    #TODO: ResultingEntity should not be SBOLActivity, it should be prov:Activity
-    class SBOLActivity(TopLevel):
-      label = "SBOLActivity"
-      #GMGM SBOLActivity.subClassOf(prov:Activity)
-
     #--------------SBOL Vocabulary--------------
-    class SBOLTerm (Thing):
-      otol:vocabulary = "true" # Do not create an object
-
+    class SBOLTerm (Thing): pass
 
     # Orientation terms
-    class Orientation (SBOLTerm):
-      label = "Orientation"
-      otol:constantList = "true"
+    class Orientation (SBOLTerm):pass
 
     class inline (Orientation):
         label = "inline"
@@ -514,7 +264,6 @@ with sbol3:
     #-----CombinatorialDerivationStrategy terms-----
     class CombinatorialDerivationStrategy  (SBOLTerm):
         label = "CombinatorialDerivationStrategy"
-        otol:constantList = "true"
 
     class enumerate (CombinatorialDerivationStrategy):
         label = "enumerate"
@@ -527,7 +276,6 @@ with sbol3:
     #-----Cardinality terms-----
     class Cardinality  (SBOLTerm):
         label = "Cardinality"
-        otol:constantList = "true"
 
     class zeroOrOne (Cardinality):
         label = "zeroOrOne"
@@ -543,138 +291,10 @@ with sbol3:
 
     Cardinality.equivalent_to.append(zeroOrOne | one | zeroOrMore | oneOrMore)
 
-
-    class overrideRoles (SBOLTerm):
-        label = "overrideRoles"
-
-    class mergeRoles (SBOLTerm):
-        label = "mergeRoles"
-
-    class RoleIntegration (SBOLTerm):
-        label = "RoleIntegration"
-        otol:constantList = "true"
-    RoleIntegration.equivalent_to.append(overrideRoles | mergeRoles)
-
-    class NucleicAcidTopology (SBOLTerm):
-        label = "NucleicAcidTopology"
-        otol:constantList = "true"
-    NucleicAcidTopology.equivalent_to.append(SO_0000987 | SO_0000988 | SO_0000984 | SO_0000985)
-
     #Orientation.equivalent_to =   [Inline, ReverseComplement]
     #Orientation.equivalent_to.append(OneOf([Inline, ReverseComplement]))
     #class ExternallyDefinedA (Thing):pass
     #ExternallyDefinedA.equivalent_to.append(orientation.only(Inline | ReverseComplement))
-
-    # ----ConstraintRestriction vocabulary----
-    class ConstraintRestriction(SBOLTerm):
-        label = "ConstraintRestriction"
-        comment = "Controlled vocabulary for the types of relationships that can be expressed in Constraints."
-        otol:constantList = "true"
-
-    # Identity relations
-    class verifyIdentical(ConstraintRestriction):
-        label = "verifyIdentical"
-        comment = "Subject and object must both be SubComponents with the same instanceOf or ExternallyDefined with the same definition."
-
-    class differentFrom(ConstraintRestriction):
-        label = "differentFrom"
-        comment = "Subject and object must NOT refer to the same Component/definition."
-
-    class replaces(ConstraintRestriction):
-        label = "replaces"
-        comment = "The definition of subject is to replace the definition of object during design resolution."
-
-    # Topological relations
-    class contains(ConstraintRestriction):
-        label = "contains"
-        comment = "Subject contains object; they might or might not share a boundary."
-
-    class strictlyContains(ConstraintRestriction):
-        label = "strictlyContains"
-        comment = "Subject entirely contains object without sharing any boundary."
-
-    class equals(ConstraintRestriction):
-        label = "equals"
-        comment = "Subject and object occupy the same location in space or sequence."
-
-    class covers(ConstraintRestriction):
-        label = "covers"
-        comment = "Subject covers object."
-
-    class overlaps(ConstraintRestriction):
-        label = "overlaps"
-        comment = "Subject and object overlap but portions of each are outside the other."
-
-    class meets(ConstraintRestriction):
-        label = "meets"
-        comment = "Subject and object are connected at a shared boundary."
-
-    class isDisjointFrom(ConstraintRestriction):
-        label = "isDisjointFrom"
-        comment = "Subject and object do not overlap in space."
-
-
-    class precedes(ConstraintRestriction):
-        label = "precedes"
-        comment = "Start of subject location is less than start of object location."
-
-    class strictlyPrecedes(ConstraintRestriction):
-        label = "strictlyPrecedes"
-        comment = "End of subject location is less than start of object location."
-
-    class starts(ConstraintRestriction):
-        label = "starts"
-        comment = "Start positions are equal; subject ends before object ends."
-
-    class finishes(ConstraintRestriction):
-        label = "finishes"
-        comment = "Subject starts after object starts; end positions are equal."
-
-    # Sequential relations
-    class SequentialRestriction(ConstraintRestriction):
-        label = "SequentialRestriction"
-        otol:constantList = "true"
-    SequentialRestriction.equivalent_to.append(precedes| strictlyPrecedes | meets | overlaps | contains | strictlyContains | equals | starts |finishes)
-
-
-    class IdentityRestriction(ConstraintRestriction):
-        label = "IdentityRestriction"
-        otol:constantList = "true"
-    IdentityRestriction.equivalent_to.append(verifyIdentical | differentFrom | replaces)
-
-
-    class TopologyRestriction(ConstraintRestriction):
-        label = "TopologyRestriction"
-        otol:constantList = "true"
-    TopologyRestriction.equivalent_to.append(isDisjointFrom | strictlyContains | contains | equals | meets | covers | overlaps)
-
-
-    class OrientationRestriction(ConstraintRestriction):
-        label = "OrientationRestriction"
-        otol:constantList = "true"
-
-    class sameOrientationAs(OrientationRestriction):
-        label = "sameOrientationAs"
-        comment = "Subject and object have the same strand orientation."
-
-    class oppositeOrientationAs(OrientationRestriction):
-        label = "oppositeOrientationAs"
-        comment = "Subject and object have opposite strand orientations."
-
-    OrientationRestriction.equivalent_to.append (sameOrientationAs | oppositeOrientationAs )
-
-    class InteractionType(SBOLTerm):
-        label = "InteractionType"
-        otol:constantList = "true"
-
-    InteractionType.equivalent_to.append(SBO_0000169 | SBO_0000170 | SBO_0000176 | SBO_0000177 | SBO_0000179 | SBO_0000589 | SBO_0000168)
-
-    class ParticipationType(SBOLTerm):
-        label = "ParticipationType"
-        otol:constantList = "true"
-
-    ParticipationType.equivalent_to.append(SBO_0000020 | SBO_0000642 | SBO_0000459 | SBO_0000643 | SBO_0000010 | SBO_0000011 | SBO_0000598 | SBO_0000019 | SBO_0000645)
-
 
     #--------------SBOL properties--------------
 
@@ -1117,130 +737,6 @@ with sbol3:
     TranscriptionFactorProteinComponent.equivalent_to.append(
         ProteinComponent & role.some(GO_0003700)
     )
-
-    class InhibitorParticipation (Participation):
-        label = "InhibitorParticipant"
-    InhibitorParticipation.equivalent_to.append(
-        Participation & role.some(SBO_0000020)
-    )
-
-    class InhibitedParticipation (Participation):
-        label = "InhibitedParticipation"
-    InhibitedParticipation.equivalent_to.append(
-        Participation & role.some(SBO_0000642)
-    )
-    class StimulatorParticipation (Participation):
-        label = "StimulatorParticipation"
-    StimulatorParticipation.equivalent_to.append(
-        Participation & role.some(SBO_0000459)
-    )
-
-    class StimulatedParticipation (Participation):
-        label = "StimulatedParticipation"
-    StimulatedParticipation.equivalent_to.append(
-        Participation & role.some(SBO_0000643)
-    )
-
-
-    class ReactantParticipation (Participation):
-        label = "ReactantParticipation"
-    ReactantParticipation.equivalent_to.append(
-        Participation & role.some(SBO_0000010)
-    )
-
-    class ProductParticipation (Participation):
-        label = "ProductParticipation"
-    ProductParticipation.equivalent_to.append(
-        Participation & role.some(SBO_0000011)
-    )
-
-    class PromoterParticipation (Participation):
-        label = "PromoterParticipation"
-    PromoterParticipation.equivalent_to.append(
-        Participation & role.some(SBO_0000598)
-    )
-
-
-    class ModifierParticipation (Participation):
-        label = "ModifierParticipation"
-    ModifierParticipation.equivalent_to.append(
-        Participation & role.some(SBO_0000019)
-    )
-
-    class ModifiedParticipation (Participation):
-        label = "ModifiedParticipation"
-    ModifiedParticipation.equivalent_to.append(
-        Participation & role.some(SBO_0000644)
-    )
-
-    class TemplateParticipation (Participation):
-        label = "TemplateParticipation"
-    TemplateParticipation.equivalent_to.append(
-        Participation & role.some(SBO_0000645)
-    )
-
-
-
-
-
-    class InhibitionInteraction (Interaction):
-        label = "InhibitionInteraction"
-    InhibitionInteraction.equivalent_to.append(
-        Interaction & type.some(SBO_0000169) & participant.some(InhibitorParticipation) &  participant.some(InhibitedParticipation)
-    )
-
-
-    class StimulationInteraction (Interaction):
-        label = "StimulationInteraction"
-    StimulationInteraction.equivalent_to.append(
-        Interaction & type.some(SBO_0000170) & participant.some(StimulatedParticipation) &  participant.some(StimulatedParticipation)
-    )
-
-    class DegradationInteraction (Interaction):
-        label = "DegradationInteraction"
-    DegradationInteraction.equivalent_to.append(
-        Interaction & type.some(SBO_0000179) &  participant.some(ReactantParticipation)
-    )
-
-    #TODO
-    class BiochemicalReactionInteraction (Interaction):
-        label = "BiochemicalReactionInteraction"
-    BiochemicalReactionInteraction.equivalent_to.append(
-        Interaction & type.some(SBO_0000176)
-    )
-
-    #TODO
-    class NonCovalentBindingInteraction (Interaction):
-        label = "NonCovalentBindingInteraction"
-    NonCovalentBindingInteraction.equivalent_to.append(
-        Interaction & type.some(SBO_0000177)
-    )
-
-    #TODO
-    class GeneticProductionInteraction (Interaction):
-        label = "GeneticProductionInteraction"
-    GeneticProductionInteraction.equivalent_to.append(
-        Interaction & type.some(SBO_0000589)
-    )
-
-    #TODO
-    class ControlInteraction (Interaction):
-        label = "DegradationInteraction"
-    DegradationInteraction.equivalent_to.append(
-        Interaction & type.some(SBO_0000168)
-    )
-
-
-
-
-
-
-
-    AllDisjoint([SubComponent, ComponentReference, LocalSubComponent, ExternallyDefined, SequenceFeature])
-    AllDisjoint([Range,Cut, EntireSequence])
-    #TODO
-    AllDisjoint([Component, Sequence])
-
 
 
 

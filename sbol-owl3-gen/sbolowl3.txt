@@ -526,20 +526,40 @@
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hashAlgorithm</rdfs:label>
 </owl:DatatypeProperty>
 
-<owl:Class rdf:about="#ComponentTypeRestriction">
+<owl:Class rdf:about="#ComponentType">
   <rdfs:subClassOf rdf:resource="https://identifiers.org/SBO:0000236"/>
   <owl:equivalentClass>
     <owl:Class>
       <owl:unionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="https://identifiers.org/SBO:0000241"/>
+        <rdf:Description rdf:about="https://identifiers.org/SBO:0000247"/>
+        <rdf:Description rdf:about="https://identifiers.org/SBO:0000250"/>
         <rdf:Description rdf:about="https://identifiers.org/SBO:0000251"/>
         <rdf:Description rdf:about="https://identifiers.org/SBO:0000252"/>
+        <rdf:Description rdf:about="https://identifiers.org/SBO:0000253"/>
+      </owl:unionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#ComponentType"/>
+        <rdf:Description rdf:about="https://identifiers.org/SO:0000987"/>
+        <rdf:Description rdf:about="https://identifiers.org/SO:0000988"/>
+        <rdf:Description rdf:about="https://identifiers.org/SO:0000984"/>
+        <rdf:Description rdf:about="https://identifiers.org/SO:0000985"/>
       </owl:unionOf>
     </owl:Class>
   </owl:equivalentClass>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Component Type</rdfs:label>
 </owl:Class>
 
-<owl:Class rdf:about="#EncodingRestriction">
+<owl:Class rdf:about="#DNARNAComponentType">
+  <rdfs:subClassOf rdf:resource="#ComponentType"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DNA or RNA Component Type</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#Encoding">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
   <owl:equivalentClass>
     <owl:Class>
@@ -554,7 +574,7 @@
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Encoding</rdfs:label>
 </owl:Class>
 
-<owl:Class rdf:about="#DNARoleRestriction">
+<owl:Class rdf:about="#DNARole">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
   <owl:equivalentClass>
     <owl:Class>
@@ -573,7 +593,7 @@
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DNA role</rdfs:label>
 </owl:Class>
 
-<owl:Class rdf:about="#RNARoleRestriction">
+<owl:Class rdf:about="#RNARole">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
   <owl:equivalentClass>
     <owl:Class>
@@ -586,7 +606,7 @@
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RNA role</rdfs:label>
 </owl:Class>
 
-<owl:Class rdf:about="#ProteinRoleRestriction">
+<owl:Class rdf:about="#ProteinRole">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
   <owl:equivalentClass>
     <owl:Class>
@@ -599,7 +619,7 @@
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Protein role</rdfs:label>
 </owl:Class>
 
-<owl:Class rdf:about="#SmallMoleculeRoleRestriction">
+<owl:Class rdf:about="#SmallMoleculeRole">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
   <owl:equivalentClass>
     <owl:Class>
@@ -644,16 +664,17 @@
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#type"/>
-      <owl:someValuesFrom rdf:resource="#ComponentTypeRestriction"/>
+      <owl:someValuesFrom rdf:resource="#ComponentType"/>
     </owl:Restriction>
   </rdfs:subClassOf>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#type"/>
-      <owl:onClass rdf:resource="#ComponentTypeRestriction"/>
+      <owl:onClass rdf:resource="#ComponentType"/>
       <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <owl:disjointWith rdf:resource="#Sequence"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Component</rdfs:label>
 </owl:Class>
 
@@ -954,6 +975,11 @@
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">VariableFeature</rdfs:label>
 </owl:Class>
 
+<owl:Class rdf:about="#SBOLActivity">
+  <rdfs:subClassOf rdf:resource="#TopLevel"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SBOLActivity</rdfs:label>
+</owl:Class>
+
 <owl:Class rdf:about="#SBOLTerm">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
 </owl:Class>
@@ -968,6 +994,7 @@
       </owl:unionOf>
     </owl:Class>
   </owl:equivalentClass>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Orientation</rdfs:label>
 </owl:Class>
 
 <owl:Class rdf:about="#inline">
@@ -1038,6 +1065,249 @@
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OneOrMore</rdfs:label>
 </owl:Class>
 
+<owl:Class rdf:about="#overrideRoles">
+  <rdfs:subClassOf rdf:resource="#SBOLTerm"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">overrideRoles</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#mergeRoles">
+  <rdfs:subClassOf rdf:resource="#SBOLTerm"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">mergeRoles</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#RoleIntegration">
+  <rdfs:subClassOf rdf:resource="#SBOLTerm"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#overrideRoles"/>
+        <rdf:Description rdf:about="#mergeRoles"/>
+      </owl:unionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RoleIntegration</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#NucleicAcidTopology">
+  <rdfs:subClassOf rdf:resource="#SBOLTerm"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="https://identifiers.org/SO:0000987"/>
+        <rdf:Description rdf:about="https://identifiers.org/SO:0000988"/>
+        <rdf:Description rdf:about="https://identifiers.org/SO:0000984"/>
+        <rdf:Description rdf:about="https://identifiers.org/SO:0000985"/>
+      </owl:unionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NucleicAcidTopology</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#ConstraintRestriction">
+  <rdfs:subClassOf rdf:resource="#SBOLTerm"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ConstraintRestriction</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Controlled vocabulary for the types of relationships that can be expressed in Constraints.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#verifyIdentical">
+  <rdfs:subClassOf rdf:resource="#ConstraintRestriction"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">verifyIdentical</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Subject and object must both be SubComponents with the same instanceOf or ExternallyDefined with the same definition.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#differentFrom">
+  <rdfs:subClassOf rdf:resource="#ConstraintRestriction"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">differentFrom</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Subject and object must NOT refer to the same Component/definition.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#replaces">
+  <rdfs:subClassOf rdf:resource="#ConstraintRestriction"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">replaces</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The definition of subject is to replace the definition of object during design resolution.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#contains">
+  <rdfs:subClassOf rdf:resource="#ConstraintRestriction"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">contains</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Subject contains object; they might or might not share a boundary.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#strictlyContains">
+  <rdfs:subClassOf rdf:resource="#ConstraintRestriction"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">strictlyContains</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Subject entirely contains object without sharing any boundary.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#equals">
+  <rdfs:subClassOf rdf:resource="#ConstraintRestriction"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">equals</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Subject and object occupy the same location in space or sequence.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#covers">
+  <rdfs:subClassOf rdf:resource="#ConstraintRestriction"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">covers</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Subject covers object.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#overlaps">
+  <rdfs:subClassOf rdf:resource="#ConstraintRestriction"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">overlaps</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Subject and object overlap but portions of each are outside the other.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#meets">
+  <rdfs:subClassOf rdf:resource="#ConstraintRestriction"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">meets</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Subject and object are connected at a shared boundary.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#isDisjointFrom">
+  <rdfs:subClassOf rdf:resource="#ConstraintRestriction"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">isDisjointFrom</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Subject and object do not overlap in space.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#precedes">
+  <rdfs:subClassOf rdf:resource="#ConstraintRestriction"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">precedes</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Start of subject location is less than start of object location.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#strictlyPrecedes">
+  <rdfs:subClassOf rdf:resource="#ConstraintRestriction"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">strictlyPrecedes</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">End of subject location is less than start of object location.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#starts">
+  <rdfs:subClassOf rdf:resource="#ConstraintRestriction"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">starts</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Start positions are equal; subject ends before object ends.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#finishes">
+  <rdfs:subClassOf rdf:resource="#ConstraintRestriction"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">finishes</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Subject starts after object starts; end positions are equal.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#SequentialRestriction">
+  <rdfs:subClassOf rdf:resource="#ConstraintRestriction"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#precedes"/>
+        <rdf:Description rdf:about="#strictlyPrecedes"/>
+        <rdf:Description rdf:about="#meets"/>
+        <rdf:Description rdf:about="#overlaps"/>
+        <rdf:Description rdf:about="#contains"/>
+        <rdf:Description rdf:about="#strictlyContains"/>
+        <rdf:Description rdf:about="#equals"/>
+        <rdf:Description rdf:about="#starts"/>
+        <rdf:Description rdf:about="#finishes"/>
+      </owl:unionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SequentialRestriction</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#IdentityRestriction">
+  <rdfs:subClassOf rdf:resource="#ConstraintRestriction"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#verifyIdentical"/>
+        <rdf:Description rdf:about="#differentFrom"/>
+        <rdf:Description rdf:about="#replaces"/>
+      </owl:unionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">IdentityRestriction</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#TopologyRestriction">
+  <rdfs:subClassOf rdf:resource="#ConstraintRestriction"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#isDisjointFrom"/>
+        <rdf:Description rdf:about="#strictlyContains"/>
+        <rdf:Description rdf:about="#contains"/>
+        <rdf:Description rdf:about="#equals"/>
+        <rdf:Description rdf:about="#meets"/>
+        <rdf:Description rdf:about="#covers"/>
+        <rdf:Description rdf:about="#overlaps"/>
+      </owl:unionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">TopologyRestriction</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#OrientationRestriction">
+  <rdfs:subClassOf rdf:resource="#ConstraintRestriction"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#sameOrientationAs"/>
+        <rdf:Description rdf:about="#oppositeOrientationAs"/>
+      </owl:unionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OrientationRestriction</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#sameOrientationAs">
+  <rdfs:subClassOf rdf:resource="#OrientationRestriction"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">sameOrientationAs</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Subject and object have the same strand orientation.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#oppositeOrientationAs">
+  <rdfs:subClassOf rdf:resource="#OrientationRestriction"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">oppositeOrientationAs</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Subject and object have opposite strand orientations.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#InteractionType">
+  <rdfs:subClassOf rdf:resource="#SBOLTerm"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="https://identifiers.org/SBO:0000169"/>
+        <rdf:Description rdf:about="https://identifiers.org/SBO:0000170"/>
+        <rdf:Description rdf:about="https://identifiers.org/SBO:0000176"/>
+        <rdf:Description rdf:about="https://identifiers.org/SBO:0000177"/>
+        <rdf:Description rdf:about="https://identifiers.org/SBO:0000179"/>
+        <rdf:Description rdf:about="https://identifiers.org/SBO:0000589"/>
+        <rdf:Description rdf:about="https://identifiers.org/SBO:0000168"/>
+      </owl:unionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">InteractionType</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#ParticipationType">
+  <rdfs:subClassOf rdf:resource="#SBOLTerm"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="https://identifiers.org/SBO:0000020"/>
+        <rdf:Description rdf:about="https://identifiers.org/SBO:0000642"/>
+        <rdf:Description rdf:about="https://identifiers.org/SBO:0000459"/>
+        <rdf:Description rdf:about="https://identifiers.org/SBO:0000643"/>
+        <rdf:Description rdf:about="https://identifiers.org/SBO:0000010"/>
+        <rdf:Description rdf:about="https://identifiers.org/SBO:0000011"/>
+        <rdf:Description rdf:about="https://identifiers.org/SBO:0000598"/>
+        <rdf:Description rdf:about="https://identifiers.org/SBO:0000019"/>
+        <rdf:Description rdf:about="https://identifiers.org/SBO:0000645"/>
+      </owl:unionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ParticipationType</rdfs:label>
+</owl:Class>
+
 <owl:Class rdf:about="#SequenceWithElements">
   <rdfs:subClassOf rdf:resource="#Sequence"/>
   <owl:equivalentClass>
@@ -1050,7 +1320,7 @@
         </owl:Restriction>
         <owl:Restriction>
           <owl:onProperty rdf:resource="#encoding"/>
-          <owl:someValuesFrom rdf:resource="#EncodingRestriction"/>
+          <owl:someValuesFrom rdf:resource="#Encoding"/>
         </owl:Restriction>
       </owl:intersectionOf>
     </owl:Class>
@@ -1150,7 +1420,7 @@
         </owl:Restriction>
         <owl:Restriction>
           <owl:onProperty rdf:resource="#role"/>
-          <owl:someValuesFrom rdf:resource="#DNARoleRestriction"/>
+          <owl:someValuesFrom rdf:resource="#DNARole"/>
         </owl:Restriction>
         <owl:Restriction>
           <owl:onProperty rdf:resource="#hasSequence"/>
@@ -1170,11 +1440,11 @@
         <rdf:Description rdf:about="#Component"/>
         <owl:Restriction>
           <owl:onProperty rdf:resource="#type"/>
-          <owl:someValuesFrom rdf:resource="https://identifiers.org/SBO:0000252"/>
+          <owl:someValuesFrom rdf:resource="https://identifiers.org/SBO:0000250"/>
         </owl:Restriction>
         <owl:Restriction>
           <owl:onProperty rdf:resource="#role"/>
-          <owl:someValuesFrom rdf:resource="#RNARoleRestriction"/>
+          <owl:someValuesFrom rdf:resource="#RNARole"/>
         </owl:Restriction>
         <owl:Restriction>
           <owl:onProperty rdf:resource="#hasSequence"/>
@@ -1198,7 +1468,7 @@
         </owl:Restriction>
         <owl:Restriction>
           <owl:onProperty rdf:resource="#role"/>
-          <owl:someValuesFrom rdf:resource="#ProteinRoleRestriction"/>
+          <owl:someValuesFrom rdf:resource="#ProteinRole"/>
         </owl:Restriction>
         <owl:Restriction>
           <owl:onProperty rdf:resource="#hasSequence"/>
@@ -1222,7 +1492,7 @@
         </owl:Restriction>
         <owl:Restriction>
           <owl:onProperty rdf:resource="#role"/>
-          <owl:someValuesFrom rdf:resource="#SmallMoleculeRoleRestriction"/>
+          <owl:someValuesFrom rdf:resource="#SmallMoleculeRole"/>
         </owl:Restriction>
         <owl:Restriction>
           <owl:onProperty rdf:resource="#hasSequence"/>
@@ -1432,6 +1702,316 @@
   </owl:equivalentClass>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Transcription Factor Protein Component</rdfs:label>
 </owl:Class>
+
+<owl:Class rdf:about="#InhibitorParticipation">
+  <rdfs:subClassOf rdf:resource="#Participation"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Participation"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#role"/>
+          <owl:someValuesFrom rdf:resource="https://identifiers.org/SBO:0000020"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">InhibitorParticipant</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#InhibitedParticipation">
+  <rdfs:subClassOf rdf:resource="#Participation"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Participation"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#role"/>
+          <owl:someValuesFrom rdf:resource="https://identifiers.org/SBO:0000642"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">InhibitedParticipation</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#StimulatorParticipation">
+  <rdfs:subClassOf rdf:resource="#Participation"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Participation"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#role"/>
+          <owl:someValuesFrom rdf:resource="https://identifiers.org/SBO:0000459"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">StimulatorParticipation</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#StimulatedParticipation">
+  <rdfs:subClassOf rdf:resource="#Participation"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Participation"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#role"/>
+          <owl:someValuesFrom rdf:resource="https://identifiers.org/SBO:0000643"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">StimulatedParticipation</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#ReactantParticipation">
+  <rdfs:subClassOf rdf:resource="#Participation"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Participation"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#role"/>
+          <owl:someValuesFrom rdf:resource="https://identifiers.org/SBO:0000010"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ReactantParticipation</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#ProductParticipation">
+  <rdfs:subClassOf rdf:resource="#Participation"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Participation"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#role"/>
+          <owl:someValuesFrom rdf:resource="https://identifiers.org/SBO:0000011"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ProductParticipation</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#PromoterParticipation">
+  <rdfs:subClassOf rdf:resource="#Participation"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Participation"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#role"/>
+          <owl:someValuesFrom rdf:resource="https://identifiers.org/SBO:0000598"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PromoterParticipation</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#ModifierParticipation">
+  <rdfs:subClassOf rdf:resource="#Participation"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Participation"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#role"/>
+          <owl:someValuesFrom rdf:resource="https://identifiers.org/SBO:0000019"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ModifierParticipation</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#ModifiedParticipation">
+  <rdfs:subClassOf rdf:resource="#Participation"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Participation"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#role"/>
+          <owl:someValuesFrom rdf:resource="https://identifiers.org/SBO:0000644"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ModifiedParticipation</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#TemplateParticipation">
+  <rdfs:subClassOf rdf:resource="#Participation"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Participation"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#role"/>
+          <owl:someValuesFrom rdf:resource="https://identifiers.org/SBO:0000645"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">TemplateParticipation</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#InhibitionInteraction">
+  <rdfs:subClassOf rdf:resource="#Interaction"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Interaction"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#type"/>
+          <owl:someValuesFrom rdf:resource="https://identifiers.org/SBO:0000169"/>
+        </owl:Restriction>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#participant"/>
+          <owl:someValuesFrom rdf:resource="#InhibitorParticipation"/>
+        </owl:Restriction>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#participant"/>
+          <owl:someValuesFrom rdf:resource="#InhibitedParticipation"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">InhibitionInteraction</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#StimulationInteraction">
+  <rdfs:subClassOf rdf:resource="#Interaction"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Interaction"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#type"/>
+          <owl:someValuesFrom rdf:resource="https://identifiers.org/SBO:0000170"/>
+        </owl:Restriction>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#participant"/>
+          <owl:someValuesFrom rdf:resource="#StimulatedParticipation"/>
+        </owl:Restriction>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#participant"/>
+          <owl:someValuesFrom rdf:resource="#StimulatedParticipation"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">StimulationInteraction</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#DegradationInteraction">
+  <rdfs:subClassOf rdf:resource="#Interaction"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Interaction"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#type"/>
+          <owl:someValuesFrom rdf:resource="https://identifiers.org/SBO:0000179"/>
+        </owl:Restriction>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#participant"/>
+          <owl:someValuesFrom rdf:resource="#ReactantParticipation"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Interaction"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#type"/>
+          <owl:someValuesFrom rdf:resource="https://identifiers.org/SBO:0000168"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DegradationInteraction</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#BiochemicalReactionInteraction">
+  <rdfs:subClassOf rdf:resource="#Interaction"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Interaction"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#type"/>
+          <owl:someValuesFrom rdf:resource="https://identifiers.org/SBO:0000176"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">BiochemicalReactionInteraction</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#NonCovalentBindingInteraction">
+  <rdfs:subClassOf rdf:resource="#Interaction"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Interaction"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#type"/>
+          <owl:someValuesFrom rdf:resource="https://identifiers.org/SBO:0000177"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NonCovalentBindingInteraction</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#GeneticProductionInteraction">
+  <rdfs:subClassOf rdf:resource="#Interaction"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Interaction"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#type"/>
+          <owl:someValuesFrom rdf:resource="https://identifiers.org/SBO:0000589"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">GeneticProductionInteraction</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#ControlInteraction">
+  <rdfs:subClassOf rdf:resource="#Interaction"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DegradationInteraction</rdfs:label>
+</owl:Class>
+
+<owl:AllDisjointClasses>
+  <owl:members rdf:parseType="Collection">
+    <rdf:Description rdf:about="#Range"/>
+    <rdf:Description rdf:about="#Cut"/>
+    <rdf:Description rdf:about="#EntireSequence"/>
+  </owl:members>
+</owl:AllDisjointClasses>
+
+<owl:AllDisjointClasses>
+  <owl:members rdf:parseType="Collection">
+    <rdf:Description rdf:about="#SubComponent"/>
+    <rdf:Description rdf:about="#ComponentReference"/>
+    <rdf:Description rdf:about="#LocalSubComponent"/>
+    <rdf:Description rdf:about="#ExternallyDefined"/>
+    <rdf:Description rdf:about="#SequenceFeature"/>
+  </owl:members>
+</owl:AllDisjointClasses>
 
 
 </rdf:RDF>
