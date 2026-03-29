@@ -498,127 +498,33 @@ with sbol3:
     class SBOLActivity(TopLevel):
       label = "SBOLActivity"
       otol.replacementOf = prov.Activity
-    SBOLActivity.is_a.append(prov.Activity)
-
+    SBOLActivity.is_a.append(prov.Activity)         
+    
     class SBOLPlan(TopLevel):
       label = "SBOLPlan"
       otol.replacementOf = prov.Plan
     SBOLPlan.is_a.append(prov.Plan)
-
+    
     class SBOLAgent(TopLevel):
       label = "SBOLAgent"
       otol.replacementOf = prov.Agent
     SBOLAgent.is_a.append(prov.Agent)
-
+        
     class SBOLUsage(Identified):
       label = "SBOLUsage"
       otol.replacementOf = prov.Usage
-    SBOLUsage.is_a.append(prov.Usage)
+    SBOLUsage.is_a.append(prov.Usage)  
 
     class SBOLAssociation(Identified):
       label = "SBOLAssociation"
       otol.replacementOf = prov.Association
-    SBOLAssociation.is_a.append(prov.Association)
-
-
-
-with om:
-    class Measure(Thing):
-        label = "Measure"
-
-    class Unit(Thing):
-        label = "Unit"
-
-    class SingularUnit(Unit):
-        label = "SingularUnit"
-
-    class CompoundUnit(Unit):
-        label = "CompoundUnit"
-
-    class PrefixedUnit(Unit):
-        label = "PrefixedUnit"
-
-    class UnitMultiplication(Unit):
-        label = "UnitMultiplication"
-
-    class UnitDivision(Unit):
-        label = "UnitDivision"
-
-    class UnitExponentiation(Unit):
-        label = "UnitExponentiation"
-
-    class Prefix(Thing):
-        label = "Prefix"
-
-    class SIPrefix(Prefix):
-        label = "SIPrefix"
-
-    class BinaryPrefix(Prefix):
-        label = "BinaryPrefix"
-
-with sbol3:
-    class SBOLMeasure(TopLevel):
-        label = "Measure"
-        otol.replacementOf = om.Measure
-    SBOLMeasure.is_a.append(om.Measure)
-
-    class SBOLUnit(TopLevel):
-        label = "Unit"
-        otol.replacementOf = om.Unit
-    SBOLUnit.is_a.append(om.Unit)
-    SBOLUnit.is_a.append(rdfs.label.some(str))
-    SBOLUnit.is_a.append(rdfs.comment.max(1, str))
-
-
-    class SBOLSingularUnit(Unit):
-        label = "SingularUnit"
-        otol.replacementOf = om.SingularUnit
-    SBOLSingularUnit.is_a.append(om.SingularUnit)
-
-    class SBOLCompoundUnit(Unit):
-        label = "CompoundUnit"
-        otol.replacementOf = om.CompoundUnit
-    SBOLCompoundUnit.is_a.append(om.CompoundUnit)
-
-    class SBOLPrefixedUnit(Unit):
-        label = "PrefixedUnit"
-        otol.replacementOf = om.PrefixedUnit
-    SBOLPrefixedUnit.is_a.append(om.PrefixedUnit)
-
-    class SBOLUnitMultiplication(Unit):
-        label = "UnitMultiplication"
-        otol.replacementOf = om.UnitMultiplication
-    SBOLUnitMultiplication.is_a.append(om.UnitMultiplication)
-
-    class SBOLUnitDivision(Unit):
-        label = "UnitDivision"
-        otol.replacementOf = om.UnitDivision
-    SBOLUnitDivision.is_a.append(om.UnitDivision)
-
-    class SBOLUnitExponentiation(Unit):
-        label = "UnitExponentiation"
-        otol.replacementOf = om.UnitExponentiation
-    SBOLUnitExponentiation.is_a.append(om.UnitExponentiation)
-
-    class SBOLPrefix(Thing):
-        label = "Prefix"
-        otol.replacementOf = om.Prefix
-    SBOLPrefix.is_a.append(om.Prefix)
-    SBOLPrefix.is_a.append(rdfs.label.some(str))
-    SBOLUnit.is_a.append(rdfs.comment.max(1, str))
-
-
-    class SBOLSIPrefix(Prefix):
-        label = "SIPrefix"
-        otol.replacementOf = om.SIPrefix
-    SBOLSIPrefix.is_a.append(om.SIPrefix)
-
-    class SBOLBinaryPrefix(Prefix):
-        label = "BinaryPrefix"
-        otol.replacementOf = om.BinaryPrefix
-    SBOLBinaryPrefix.is_a.append(om.BinaryPrefix)
-
+    SBOLAssociation.is_a.append(prov.Association)  
     
+    
+
+
+      #GMGM SBOLActivity.subClassOf(prov:Activity)
+
     #--------------SBOL Vocabulary--------------
     class SBOLTerm (Thing):
       otol:vocabulary = "true" # Do not create an object
@@ -1367,10 +1273,10 @@ with sbol3:
     AllDisjoint([Component, Sequence])
 
 
-
+  
 with prov:
   # -----sbol3:Identified prov properties-----
-
+    
   class wasDerivedFrom(ObjectProperty):
       label = "wasDerivedFrom"
       domain = [sbol3.Identified]
@@ -1381,9 +1287,9 @@ with prov:
       label = "wasInformedBy"
       domain = [sbol3.SBOLActivity]
       range = [sbol3.SBOLActivity]
-
+  
   # -----prov:Activity properties-----
-
+  
   # wasGeneratedBy [0..*]: Identified -> Activity
   class wasGeneratedBy(ObjectProperty):
       label = "wasGeneratedBy"
@@ -1441,38 +1347,147 @@ with prov:
   SBOLAssociation.is_a.append(agent.some(SBOLAgent))
 
 
+#TODOTolga: Figure 29: Do exactly the same similar to prov:Activity snd sbol3:SBOLAtivity classes
+
+
+
+
+ #######################################################################
+    # OM (Units of Measure) Integration (Diagram 2)
+    # Hybrid: OM classes inherit Identified + TopLevel as in UML
+    #######################################################################
+with om:
+  class Measure(Thing):
+    label = "Measure"    
+
+  class Unit(Thing):
+    label = "Unit"
+
+  class SingularUnit(Unit):
+    label = "SingularUnit"
+
+  class CompoundUnit(Unit):
+    label = "CompoundUnit"
+
+  class PrefixedUnit(Unit):
+    label = "PrefixedUnit"
+
+  class UnitMultiplication(Unit):
+    label = "UnitMultiplication"
+
+  class UnitDivision(Unit):
+    label = "UnitDivision"
+
+  class UnitExponentiation(Unit):
+      label = "UnitExponentiation"
+
+  class Prefix(Thing):
+      label = "Prefix"
+
+  class SIPrefix(Prefix):
+      label = "SIPrefix"
+
+  class BinaryPrefix(Prefix):
+      label = "BinaryPrefix"
+
+with sbol3:
+  class SBOLMeasure(TopLevel):
+    label = "Measure"
+    otol.replacementOf = om.Measure
+  SBOLMeasure.is_a.append(om.Measure)         
+   
+  class SBOLUnit(TopLevel):
+    label = "Unit"
+    otol.replacementOf = om.Unit
+  SBOLUnit.is_a.append(om.Unit)         
+  SBOLUnit.is_a.append(rdfs.label.some(str))
+  SBOLUnit.is_a.append(rdfs.comment.max(1, str))
+
+
+  class SBOLSingularUnit(Unit):
+    label = "SingularUnit"
+    otol.replacementOf = om.SingularUnit
+  SBOLSingularUnit.is_a.append(om.SingularUnit)         
+  
+  class SBOLCompoundUnit(Unit):
+    label = "CompoundUnit"
+    otol.replacementOf = om.CompoundUnit
+  SBOLCompoundUnit.is_a.append(om.CompoundUnit)         
+  
+  class SBOLPrefixedUnit(Unit):
+    label = "PrefixedUnit"
+    otol.replacementOf = om.PrefixedUnit
+  SBOLPrefixedUnit.is_a.append(om.PrefixedUnit)         
+  
+  class SBOLUnitMultiplication(Unit):
+    label = "UnitMultiplication"
+    otol.replacementOf = om.UnitMultiplication
+  SBOLUnitMultiplication.is_a.append(om.UnitMultiplication)         
+  
+  class SBOLUnitDivision(Unit):
+    label = "UnitDivision"
+    otol.replacementOf = om.UnitDivision
+  SBOLUnitDivision.is_a.append(om.UnitDivision)         
+  
+  class SBOLUnitExponentiation(Unit):
+    label = "UnitExponentiation"
+    otol.replacementOf = om.UnitExponentiation
+  SBOLUnitExponentiation.is_a.append(om.UnitExponentiation)         
+  
+  class SBOLPrefix(Thing):
+    label = "Prefix"
+    otol.replacementOf = om.Prefix
+  SBOLPrefix.is_a.append(om.Prefix)  
+  SBOLPrefix.is_a.append(rdfs.label.some(str))
+  SBOLUnit.is_a.append(rdfs.comment.max(1, str))
+       
+  
+  class SBOLSIPrefix(Prefix):
+    label = "SIPrefix"
+    otol.replacementOf = om.SIPrefix
+  SBOLSIPrefix.is_a.append(om.SIPrefix)         
+  
+  class SBOLBinaryPrefix(Prefix):
+    label = "BinaryPrefix"  
+    otol.replacementOf = om.BinaryPrefix
+  SBOLBinaryPrefix.is_a.append(om.BinaryPrefix)         
+  
+
+    #######################################################################
+    # OM Object Properties (from UML)
+    #######################################################################
 with sbol3:
   class hasNumericalValue(ObjectProperty, FunctionalProperty):
     label = ["hasNumericalValue"]
-    domain = [SBOLMeasure]
+    domain = [SBOLMeasure]    
     range  = [float]
   SBOLMeasure.is_a.append(hasNumericalValue.some(float))
 
   class hasUnit(ObjectProperty):
     label = ["hasUnit"]
-    domain = [SBOLMeasure, SBOLUnit]
+    domain = [SBOLMeasure, SBOLUnit]     
     range  = [SBOLUnit]
 
   class symbol(DataProperty, FunctionalProperty):
     label = ["symbol"]
-    domain = [SBOLUnit, SBOLPrefix]
+    domain = [SBOLUnit, SBOLPrefix]     
     range  = [str]
   SBOLUnit.is_a.append(symbol.some(float))
   SBOLPrefix.is_a.append(symbol.some(float))
 
   class alternativeSymbol(DataProperty):
     label = ["alternativeSymbol"]
-    domain = [SBOLUnit, SBOLPrefix]
+    domain = [SBOLUnit, SBOLPrefix]     
     range  = [str]
-
+  
   class alternativeLabel(DataProperty):
     label = ["alternativeSymbol"]
-    domain = [SBOLUnit]
+    domain = [SBOLUnit]     
     range  = [str]
-
+  
   class longComment(DataProperty, FunctionalProperty):
     label = ["longComment"]
-    domain = [SBOLUnit,SBOLPrefix]
+    domain = [SBOLUnit,SBOLPrefix]     
     range  = [str]
 
 
@@ -1481,40 +1496,40 @@ with sbol3:
     domain = [SBOLSingularUnit, SBOLPrefix]   # per UML: appears in both
     range  = [float]
   SBOLPrefix.is_a.append(hasFactor.some(float))
-
+    
 
   class hasTerm1(ObjectProperty, FunctionalProperty):
     domain = [SBOLUnitMultiplication]
     range  = [SBOLUnit]
   SBOLUnitMultiplication.is_a.append(hasTerm1.some(SBOLUnit))
-
+   
   class hasTerm2(ObjectProperty, FunctionalProperty):
     domain = [SBOLUnitMultiplication]
     range  = [SBOLUnit]
   SBOLUnitMultiplication.is_a.append(hasTerm2.some(SBOLUnit))
-
+ 
   class hasNumerator(ObjectProperty,FunctionalProperty):
     domain = [SBOLUnitDivision]
     range  = [SBOLUnit]
   SBOLUnitDivision.is_a.append(hasNumerator.some(SBOLUnit))
-
+ 
 
   class hasDenominator(ObjectProperty,FunctionalProperty):
     domain = [SBOLUnitDivision]
     range  = [SBOLUnit]
   SBOLUnitDivision.is_a.append(hasDenominator.some(SBOLUnit))
-
+ 
 
   class hasBase1(ObjectProperty,FunctionalProperty):
     domain = [SBOLUnitExponentiation]
     range  = [SBOLUnit]
   SBOLUnitExponentiation.is_a.append(hasBase1.some(SBOLUnit))
-
+ 
   class hasExponent(DataProperty,FunctionalProperty):
     domain = [SBOLUnitExponentiation]
     range  = [int]
   SBOLUnitExponentiation.is_a.append(hasExponent.some(int))
-
+ 
   class hasPrefix(ObjectProperty,FunctionalProperty):
     domain = [SBOLPrefixedUnit]
     range  = [SBOLPrefix]

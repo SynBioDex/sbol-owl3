@@ -58,6 +58,8 @@
         <rdf:Description rdf:about="#LocalSubComponent"/>
         <rdf:Description rdf:about="#ExternallyDefined"/>
         <rdf:Description rdf:about="#Interaction"/>
+        <rdf:Description rdf:about="#SBOLActivity"/>
+        <rdf:Description rdf:about="#SBOLMeasure"/>
       </owl:unionOf>
     </owl:Class>
   </rdfs:domain>
@@ -379,6 +381,56 @@
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">format</rdfs:label>
 </owl:ObjectProperty>
 
+<owl:ObjectProperty rdf:about="#hasNumericalValue">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#SBOLMeasure"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hasNumericalValue</rdfs:label>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#hasUnit">
+  <rdfs:domain rdf:resource="#SBOLUnit"/>
+  <rdfs:domain rdf:resource="#SBOLMeasure"/>
+  <rdfs:range rdf:resource="#SBOLUnit"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hasUnit</rdfs:label>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#hasTerm1">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#SBOLUnitMultiplication"/>
+  <rdfs:range rdf:resource="#SBOLUnit"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#hasTerm2">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#SBOLUnitMultiplication"/>
+  <rdfs:range rdf:resource="#SBOLUnit"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#hasNumerator">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#SBOLUnitDivision"/>
+  <rdfs:range rdf:resource="#SBOLUnit"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#hasDenominator">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#SBOLUnitDivision"/>
+  <rdfs:range rdf:resource="#SBOLUnit"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#hasBase1">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#SBOLUnitExponentiation"/>
+  <rdfs:range rdf:resource="#SBOLUnit"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#hasPrefix">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#SBOLPrefixedUnit"/>
+  <rdfs:range rdf:resource="#SBOLPrefix"/>
+</owl:ObjectProperty>
+
 <owl:DatatypeProperty rdf:about="#displayId">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
   <rdfs:domain rdf:resource="#Identified"/>
@@ -524,6 +576,48 @@
   <rdfs:domain rdf:resource="#Attachment"/>
   <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hashAlgorithm</rdfs:label>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#symbol">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#SBOLUnit"/>
+  <rdfs:domain rdf:resource="#SBOLPrefix"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">symbol</rdfs:label>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#alternativeSymbol">
+  <rdfs:domain rdf:resource="#SBOLUnit"/>
+  <rdfs:domain rdf:resource="#SBOLPrefix"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">alternativeSymbol</rdfs:label>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#alternativeLabel">
+  <rdfs:domain rdf:resource="#SBOLUnit"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">alternativeSymbol</rdfs:label>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#longComment">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#SBOLUnit"/>
+  <rdfs:domain rdf:resource="#SBOLPrefix"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">longComment</rdfs:label>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasFactor">
+  <rdfs:domain rdf:resource="#SBOLSingularUnit"/>
+  <rdfs:domain rdf:resource="#SBOLPrefix"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hasFactor</rdfs:label>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasExponent">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#SBOLUnitExponentiation"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
 </owl:DatatypeProperty>
 
 <owl:Class rdf:about="#ComponentType">
@@ -977,7 +1071,183 @@
 
 <owl:Class rdf:about="#SBOLActivity">
   <rdfs:subClassOf rdf:resource="#TopLevel"/>
+  <rdfs:subClassOf rdf:resource="https://www.w3.org/ns/prov#Activity"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SBOLActivity</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#SBOLPlan">
+  <rdfs:subClassOf rdf:resource="#TopLevel"/>
+  <rdfs:subClassOf rdf:resource="https://www.w3.org/ns/prov#Plan"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SBOLPlan</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#SBOLAgent">
+  <rdfs:subClassOf rdf:resource="#TopLevel"/>
+  <rdfs:subClassOf rdf:resource="https://www.w3.org/ns/prov#Agent"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SBOLAgent</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#SBOLUsage">
+  <rdfs:subClassOf rdf:resource="#Identified"/>
+  <rdfs:subClassOf rdf:resource="https://www.w3.org/ns/prov#Usage"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SBOLUsage</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#SBOLAssociation">
+  <rdfs:subClassOf rdf:resource="#Identified"/>
+  <rdfs:subClassOf rdf:resource="https://www.w3.org/ns/prov#Association"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SBOLAssociation</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#SBOLMeasure">
+  <rdfs:subClassOf rdf:resource="#TopLevel"/>
+  <rdfs:subClassOf rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasNumericalValue"/>
+      <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Measure</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#SBOLUnit">
+  <rdfs:subClassOf rdf:resource="#TopLevel"/>
+  <rdfs:subClassOf rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Unit"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>
+      <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#comment"/>
+      <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+      <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#symbol"/>
+      <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Unit</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#SBOLSingularUnit">
+  <rdfs:subClassOf rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Unit"/>
+  <rdfs:subClassOf rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/SingularUnit"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SingularUnit</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#SBOLCompoundUnit">
+  <rdfs:subClassOf rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Unit"/>
+  <rdfs:subClassOf rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/CompoundUnit"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CompoundUnit</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#SBOLPrefixedUnit">
+  <rdfs:subClassOf rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Unit"/>
+  <rdfs:subClassOf rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/PrefixedUnit"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasPrefix"/>
+      <owl:someValuesFrom rdf:resource="#SBOLPrefix"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PrefixedUnit</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#SBOLUnitMultiplication">
+  <rdfs:subClassOf rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Unit"/>
+  <rdfs:subClassOf rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/UnitMultiplication"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasTerm1"/>
+      <owl:someValuesFrom rdf:resource="#SBOLUnit"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasTerm2"/>
+      <owl:someValuesFrom rdf:resource="#SBOLUnit"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">UnitMultiplication</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#SBOLUnitDivision">
+  <rdfs:subClassOf rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Unit"/>
+  <rdfs:subClassOf rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/UnitDivision"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasNumerator"/>
+      <owl:someValuesFrom rdf:resource="#SBOLUnit"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasDenominator"/>
+      <owl:someValuesFrom rdf:resource="#SBOLUnit"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">UnitDivision</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#SBOLUnitExponentiation">
+  <rdfs:subClassOf rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Unit"/>
+  <rdfs:subClassOf rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/UnitExponentiation"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasBase1"/>
+      <owl:someValuesFrom rdf:resource="#SBOLUnit"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasExponent"/>
+      <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">UnitExponentiation</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#SBOLPrefix">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:subClassOf rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Prefix"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>
+      <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#symbol"/>
+      <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasFactor"/>
+      <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Prefix</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#SBOLSIPrefix">
+  <rdfs:subClassOf rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Prefix"/>
+  <rdfs:subClassOf rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/SIPrefix"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SIPrefix</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#SBOLBinaryPrefix">
+  <rdfs:subClassOf rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Prefix"/>
+  <rdfs:subClassOf rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/BinaryPrefix"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">BinaryPrefix</rdfs:label>
 </owl:Class>
 
 <owl:Class rdf:about="#SBOLTerm">

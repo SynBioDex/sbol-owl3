@@ -23,8 +23,8 @@
 <owl:Class rdf:about="https://identifiers.org/SBO:0000251">
   <rdfs:subClassOf rdf:resource="https://identifiers.org/SBO:0000236"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DNA</rdfs:label>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A polymer consisting of deoxyribonucleotide monomers.</rdfs:comment>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DNA molecule</rdfs:comment>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A polymer consisting of deoxyribonucleotide monomers.</rdfs:comment>
 </owl:Class>
 
 <owl:Class rdf:about="https://identifiers.org/SBO:0000250">
@@ -72,18 +72,18 @@
 
 <owl:Class rdf:about="https://identifiers.org/SBO:0000176">
   <rdfs:subClassOf rdf:resource="https://identifiers.org/SBO:0000167"/>
-  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">biochemical_reaction</rdfs:label>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">biochemical reaction</rdfs:label>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">biochemical_reaction</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A chemical reaction involving biomolecules</rdfs:comment>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An event involving one or more chemical entities that alters their electrochemical structure.</rdfs:comment>
 </owl:Class>
 
 <owl:Class rdf:about="https://identifiers.org/SBO:0000177">
   <rdfs:subClassOf rdf:resource="https://identifiers.org/SBO:0000176"/>
-  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">non_covalent_binding</rdfs:label>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">dissociation</rdfs:label>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Biochemical reaction where a molecular complex breaks into smaller components.</rdfs:comment>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">non_covalent_binding</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Association without covalent bonds</rdfs:comment>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Biochemical reaction where a molecular complex breaks into smaller components.</rdfs:comment>
 </owl:Class>
 
 <owl:Class rdf:about="https://identifiers.org/SBO:0000179">
@@ -116,8 +116,8 @@
 
 <owl:Class rdf:about="https://identifiers.org/SBO:0000589">
   <rdfs:subClassOf rdf:resource="https://identifiers.org/SBO:0000231"/>
-  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">genetic production</rdfs:label>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">genetic_production</rdfs:label>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">genetic production</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Composite biochemical process through which a gene sequence is converted into mature gene products.</rdfs:comment>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Production of a gene product</rdfs:comment>
 </owl:Class>
@@ -168,8 +168,8 @@
 <owl:Class rdf:about="https://identifiers.org/SBO:0000645">
   <rdfs:subClassOf rdf:resource="https://identifiers.org/SBO:0000003"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">template</rdfs:label>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Entity that acts as the template or starting material for genetic production.</rdfs:comment>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Entity used as a template</rdfs:comment>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Entity that acts as the template or starting material for genetic production.</rdfs:comment>
 </owl:Class>
 
 <owl:Class rdf:about="https://identifiers.org/SBO:0000289">
