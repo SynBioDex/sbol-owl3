@@ -55,6 +55,7 @@ with otol:
       label = "Constant list"
       comment = "If true, create an enum list."
 
+
   class vocabulary(AnnotationProperty):
       label = "Vocabulary"
       comment = "If true, an object should be created for the container class."
@@ -63,9 +64,6 @@ with otol:
       label = "replacementOf"
       comment = "If specified, create the entity name according to the value of this property. E.g. for sbol3:SBOLActivity otol:replacementOf prov:Activity, create the entities using the Activity name only."
 
-  class domainEntity (AnnotationProperty):
-      label = "domainEntity"
-      comment = "If true, indicates that the term corresponds to a domain entity. Software automation tools should create a specific entity."
 
 with sbo:
 
@@ -385,6 +383,8 @@ with sbol3 :
         Or([CHEBI_50906, CHEBI_35224])
     )
 
+
+
 '''
   class 0000251(0000236):
     label = "DNA"
@@ -396,6 +396,7 @@ with sbol3 :
 with om:
     class Measure(Thing):
         label = "Measure"
+
 
 with prov:
     class Activity(Thing):
@@ -423,141 +424,201 @@ with sbol3:
 
     class Sequence (TopLevel):
         label = "Sequence"
-        otol:domainEntity = "true"
 
     class Component (TopLevel):
         label = "Component"
-        otol:domainEntity = "true"
 
     class Model (TopLevel):
         label = "Model"
-        otol:domainEntity = "true"
 
     class Implementation (TopLevel):
         label = "Implementation"
-        otol:domainEntity = "true"
 
     class Attachment (TopLevel):
         label = "Attachment"
-        otol:domainEntity = "true"
 
     class Collection (TopLevel):
         label = "Collection"
-        otol:domainEntity = "true"
 
     class Experiment(Collection):
         label = "Experiment"
-        otol:domainEntity = "true"
 
     class ExperimentalData (TopLevel):
         label = "ExperimentalData"
-        otol:domainEntity = "true"
 
     class CombinatorialDerivation (TopLevel):
         label = "CombinatorialDerivation"
-        otol:domainEntity = "true"
 
     class Interaction (Identified):
         label = "Interaction"
-        otol:domainEntity = "true"
 
     class Constraint (Identified):
         label = "Constraint"
-        otol:domainEntity = "true"
 
     class Interface (Identified):
         label = "Interface"
-        otol:domainEntity = "true"
 
     class Feature (Identified):
         label = "Feature"
-        otol:domainEntity = "true"
 
     class SubComponent (Feature):
         label = "SubComponent"
-        otol:domainEntity = "true"
 
     class ComponentReference (Feature):
         label = "ComponentReference"
-        otol:domainEntity = "true"
 
     class ExternallyDefined (Feature):
         label = "ExternallyDefined"
-        otol:domainEntity = "true"
 
     class LocalSubComponent (Feature):
         label = "LocalSubComponent"
-        otol:domainEntity = "true"
 
     class SequenceFeature (Feature):
         label = "SequenceFeature"
-        otol:domainEntity = "true"
 
     class Location (Identified):
         label = "Location"
-        otol:domainEntity = "true"
 
     class Range (Location):
         label = "Range"
-        otol:domainEntity = "true"
 
     class Cut (Location):
         label = "Cut"
-        otol:domainEntity = "true"
 
     class EntireSequence (Location):
         label = "EntireSequence"
-        otol:domainEntity = "true"
 
     class Participation (Identified):
         label = "Participation"
-        otol:domainEntity = "true"
 
     class VariableFeature (Identified):
         label = "VariableFeature"
-        otol:domainEntity = "true"
 
 #--------------Provenance Entities--------------
     class SBOLActivity(TopLevel):
       label = "SBOLActivity"
       otol.replacementOf = prov.Activity
-      otol:domainEntity = "true"
     SBOLActivity.is_a.append(prov.Activity)
 
     class SBOLPlan(TopLevel):
       label = "SBOLPlan"
       otol.replacementOf = prov.Plan
-      otol:domainEntity = "true"
     SBOLPlan.is_a.append(prov.Plan)
 
     class SBOLAgent(TopLevel):
       label = "SBOLAgent"
       otol.replacementOf = prov.Agent
-      otol:domainEntity = "true"
     SBOLAgent.is_a.append(prov.Agent)
 
     class SBOLUsage(Identified):
       label = "SBOLUsage"
       otol.replacementOf = prov.Usage
-      otol:domainEntity = "true"
-
     SBOLUsage.is_a.append(prov.Usage)
 
     class SBOLAssociation(Identified):
       label = "SBOLAssociation"
       otol.replacementOf = prov.Association
-      otol:domainEntity = "true"
     SBOLAssociation.is_a.append(prov.Association)
 
 
+
+with om:
+    class Measure(Thing):
+        label = "Measure"
+
+    class Unit(Thing):
+        label = "Unit"
+
+    class SingularUnit(Unit):
+        label = "SingularUnit"
+
+    class CompoundUnit(Unit):
+        label = "CompoundUnit"
+
+    class PrefixedUnit(Unit):
+        label = "PrefixedUnit"
+
+    class UnitMultiplication(Unit):
+        label = "UnitMultiplication"
+
+    class UnitDivision(Unit):
+        label = "UnitDivision"
+
+    class UnitExponentiation(Unit):
+        label = "UnitExponentiation"
+
+    class Prefix(Thing):
+        label = "Prefix"
+
+    class SIPrefix(Prefix):
+        label = "SIPrefix"
+
+    class BinaryPrefix(Prefix):
+        label = "BinaryPrefix"
+
+with sbol3:
     class SBOLMeasure(TopLevel):
-      label = "Measure"
-      otol.replacementOf = om.Measure
-      otol:domainEntity = "true"
-
+        label = "Measure"
+        otol.replacementOf = om.Measure
     SBOLMeasure.is_a.append(om.Measure)
-      #GMGM SBOLActivity.subClassOf(prov:Activity)
 
+    class SBOLUnit(TopLevel):
+        label = "Unit"
+        otol.replacementOf = om.Unit
+    SBOLUnit.is_a.append(om.Unit)
+    SBOLUnit.is_a.append(rdfs.label.some(str))
+    SBOLUnit.is_a.append(rdfs.comment.max(1, str))
+
+
+    class SBOLSingularUnit(Unit):
+        label = "SingularUnit"
+        otol.replacementOf = om.SingularUnit
+    SBOLSingularUnit.is_a.append(om.SingularUnit)
+
+    class SBOLCompoundUnit(Unit):
+        label = "CompoundUnit"
+        otol.replacementOf = om.CompoundUnit
+    SBOLCompoundUnit.is_a.append(om.CompoundUnit)
+
+    class SBOLPrefixedUnit(Unit):
+        label = "PrefixedUnit"
+        otol.replacementOf = om.PrefixedUnit
+    SBOLPrefixedUnit.is_a.append(om.PrefixedUnit)
+
+    class SBOLUnitMultiplication(Unit):
+        label = "UnitMultiplication"
+        otol.replacementOf = om.UnitMultiplication
+    SBOLUnitMultiplication.is_a.append(om.UnitMultiplication)
+
+    class SBOLUnitDivision(Unit):
+        label = "UnitDivision"
+        otol.replacementOf = om.UnitDivision
+    SBOLUnitDivision.is_a.append(om.UnitDivision)
+
+    class SBOLUnitExponentiation(Unit):
+        label = "UnitExponentiation"
+        otol.replacementOf = om.UnitExponentiation
+    SBOLUnitExponentiation.is_a.append(om.UnitExponentiation)
+
+    class SBOLPrefix(Thing):
+        label = "Prefix"
+        otol.replacementOf = om.Prefix
+    SBOLPrefix.is_a.append(om.Prefix)
+    SBOLPrefix.is_a.append(rdfs.label.some(str))
+    SBOLUnit.is_a.append(rdfs.comment.max(1, str))
+
+
+    class SBOLSIPrefix(Prefix):
+        label = "SIPrefix"
+        otol.replacementOf = om.SIPrefix
+    SBOLSIPrefix.is_a.append(om.SIPrefix)
+
+    class SBOLBinaryPrefix(Prefix):
+        label = "BinaryPrefix"
+        otol.replacementOf = om.BinaryPrefix
+    SBOLBinaryPrefix.is_a.append(om.BinaryPrefix)
+
+    
     #--------------SBOL Vocabulary--------------
     class SBOLTerm (Thing):
       otol:vocabulary = "true" # Do not create an object
@@ -1249,6 +1310,10 @@ with sbol3:
         Participation & role.some(SBO_0000645)
     )
 
+
+
+
+
     class InhibitionInteraction (Interaction):
         label = "InhibitionInteraction"
     InhibitionInteraction.equivalent_to.append(
@@ -1376,116 +1441,6 @@ with prov:
   SBOLAssociation.is_a.append(agent.some(SBOLAgent))
 
 
-#TODOTolga: Figure 29: Do exactly the same similar to prov:Activity snd sbol3:SBOLAtivity classes
-
-
-
-
- #######################################################################
-    # OM (Units of Measure) Integration (Diagram 2)
-    # Hybrid: OM classes inherit Identified + TopLevel as in UML
-    #######################################################################
-with om:
-  class Unit(Thing):
-    label = "Unit"
-
-  class SingularUnit(Unit):
-    label = "SingularUnit"
-
-  class CompoundUnit(Unit):
-    label = "CompoundUnit"
-
-  class PrefixedUnit(Unit):
-    label = "PrefixedUnit"
-
-  class UnitMultiplication(Unit):
-    label = "UnitMultiplication"
-
-  class UnitDivision(Unit):
-    label = "UnitDivision"
-
-  class UnitExponentiation(Unit):
-      label = "UnitExponentiation"
-
-  class Prefix(Thing):
-      label = "Prefix"
-
-  class SIPrefix(Prefix):
-      label = "SIPrefix"
-
-  class BinaryPrefix(Prefix):
-      label = "BinaryPrefix"
-
-  class SBOLUnit(TopLevel):
-    label = "Unit"
-    otol.replacementOf = om.Unit
-    otol:domainEntity = "true"
-  SBOLUnit.is_a.append(om.Unit)
-  SBOLUnit.is_a.append(rdfs.label.some(str))
-  SBOLUnit.is_a.append(rdfs.comment.max(1, str))
-
-
-  class SBOLSingularUnit(Unit):
-    label = "SingularUnit"
-    otol.replacementOf = om.SingularUnit
-    otol:domainEntity = "true"
-  SBOLSingularUnit.is_a.append(om.SingularUnit)
-
-  class SBOLCompoundUnit(Unit):
-    label = "CompoundUnit"
-    otol.replacementOf = om.CompoundUnit
-    otol:domainEntity = "true"
-  SBOLCompoundUnit.is_a.append(om.CompoundUnit)
-
-  class SBOLPrefixedUnit(Unit):
-    label = "PrefixedUnit"
-    otol.replacementOf = om.PrefixedUnit
-    otol:domainEntity = "true"
-  SBOLPrefixedUnit.is_a.append(om.PrefixedUnit)
-
-  class SBOLUnitMultiplication(Unit):
-    label = "UnitMultiplication"
-    otol.replacementOf = om.UnitMultiplication
-    otol:domainEntity = "true"
-  SBOLUnitMultiplication.is_a.append(om.UnitMultiplication)
-
-  class SBOLUnitDivision(Unit):
-    label = "UnitDivision"
-    otol.replacementOf = om.UnitDivision
-    otol:domainEntity = "true"
-  SBOLUnitDivision.is_a.append(om.UnitDivision)
-
-  class SBOLUnitExponentiation(Unit):
-    label = "UnitExponentiation"
-    otol.replacementOf = om.UnitExponentiation
-    otol:domainEntity = "true"
-  SBOLUnitExponentiation.is_a.append(om.UnitExponentiation)
-
-  class SBOLPrefix(Thing):
-    label = "Prefix"
-    otol.replacementOf = om.Prefix
-    otol:domainEntity = "true"
-  SBOLPrefix.is_a.append(om.Prefix)
-  SBOLPrefix.is_a.append(rdfs.label.some(str))
-  SBOLUnit.is_a.append(rdfs.comment.max(1, str))
-
-
-  class SBOLSIPrefix(Prefix):
-    label = "SIPrefix"
-    otol.replacementOf = om.SIPrefix
-    otol:domainEntity = "true"
-  SBOLSIPrefix.is_a.append(om.SIPrefix)
-
-  class SBOLBinaryPrefix(Prefix):
-    label = "BinaryPrefix"
-    otol.replacementOf = om.BinaryPrefix
-    otol:domainEntity = "true"
-  SBOLBinaryPrefix.is_a.append(om.BinaryPrefix)
-
-
-    #######################################################################
-    # OM Object Properties (from UML)
-    #######################################################################
 with sbol3:
   class hasNumericalValue(ObjectProperty, FunctionalProperty):
     label = ["hasNumericalValue"]
@@ -1520,11 +1475,13 @@ with sbol3:
     domain = [SBOLUnit,SBOLPrefix]
     range  = [str]
 
+
   class hasFactor(DataProperty):
     label = ["hasFactor"]
     domain = [SBOLSingularUnit, SBOLPrefix]   # per UML: appears in both
     range  = [float]
   SBOLPrefix.is_a.append(hasFactor.some(float))
+
 
   class hasTerm1(ObjectProperty, FunctionalProperty):
     domain = [SBOLUnitMultiplication]
@@ -1541,10 +1498,12 @@ with sbol3:
     range  = [SBOLUnit]
   SBOLUnitDivision.is_a.append(hasNumerator.some(SBOLUnit))
 
+
   class hasDenominator(ObjectProperty,FunctionalProperty):
     domain = [SBOLUnitDivision]
     range  = [SBOLUnit]
   SBOLUnitDivision.is_a.append(hasDenominator.some(SBOLUnit))
+
 
   class hasBase1(ObjectProperty,FunctionalProperty):
     domain = [SBOLUnitExponentiation]
@@ -1560,6 +1519,9 @@ with sbol3:
     domain = [SBOLPrefixedUnit]
     range  = [SBOLPrefix]
   SBOLPrefixedUnit.is_a.append(hasPrefix.some(SBOLPrefix))
+
+
+
 
 
 sbol3.imported_ontologies.append(sbo)
