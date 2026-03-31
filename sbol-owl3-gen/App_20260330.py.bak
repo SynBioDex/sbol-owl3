@@ -7,6 +7,7 @@ from owlready2 import *
 from rdflib import Graph
 from importlib.metadata import version
 import rdflib
+#print ('rdflib: ' + rdflib.__version__)
 print('owlready2: ' + version("owlready2"))
 import sys
 print('Python: ' +  sys.version)
@@ -14,6 +15,9 @@ print('rdflib:' + rdflib.__version__)
 
 import types
 import datetime
+#import re
+#from ctypes.test.test_repr import subclasses
+#from dill.tests.test_nested import cadder
 
 sbol3 = get_ontology("http://sbols.org/v3#")
 prov = get_ontology("https://www.w3.org/ns/prov#")
@@ -28,9 +32,23 @@ chebi = get_ontology("https://identifiers.org/CHEBI:")
 chebi.base_iri = "https://identifiers.org/CHEBI:"
 go = get_ontology("https://identifiers.org/GO:")
 go.base_iri = "https://identifiers.org/GO:"
-#Ontology-to-library mapping ontology
+#Ont to lib
 otol = get_ontology("http://keele.ac.uk/scm/otol#")
 
+
+
+
+#identifiers = get_ontology("https://identifiers.org/")
+
+
+
+
+
+
+
+#Updated by Tolga Medeni, March 05, 2025
+#236 upper class(SBO), 251, 1208,1197, 1196 sub classes
+#based on Table 2
 with otol:
 
   class constantList(AnnotationProperty):
@@ -52,32 +70,42 @@ with otol:
 with sbo:
 
     SBO_0000000 = types.new_class("0000000", (Thing,))
-    SBO_0000000.label = ["Systems Biology Representation"]
+    SBO_0000000.label = ["systems biology representation"]
     SBO_0000000.comment = ["Root term for Systems Biology Ontology representing all mathematical or logical terms used in systems biology."]
 
     SBO_0000236 = types.new_class("0000236", (SBO_0000000,))
     SBO_0000236.label = ["Physical Entity Representation"]
     SBO_0000236.comment = ["A material entity such as a molecule, complex, or cell. Representation of a discrete portion of matter that has mass and occupies space."]
 
+
     SBO_0000251 = types.new_class("0000251", (SBO_0000236,))
     SBO_0000251.label = ["DNA"]
     SBO_0000251.comment = ["DNA molecule", "A polymer consisting of deoxyribonucleotide monomers."]
 
+
+   #Original
+   # SBO_0000250 = types.new_class("0000252", (SBO_0000236,))
+   # SBO_0000250.label = ["RNA"]
+    #Updated by Tolga
     SBO_0000250 = types.new_class("0000250", (SBO_0000236,))
     SBO_0000250.label = ["RNA"]
     SBO_0000250.comment = ["RNA molecule", "A polymer consisting of ribonucleotide monomers."]
+
 
     SBO_0000252 = types.new_class("0000252", (SBO_0000236,))
     SBO_0000252.label = ["Protein"]
     SBO_0000252.comment = ["Protein or polypeptide. A polymer consisting of amino acid monomers linked by peptide bonds."]
 
+
     SBO_0000247 = types.new_class("0000247", (SBO_0000236,))
     SBO_0000247.label = ["Simple Chemical"]
     SBO_0000247.comment = ["A small molecule or ion. A small molecule without specific type classification."]
 
+
     SBO_0000253 = types.new_class("0000253", (SBO_0000236,))
-    SBO_0000253.label = ["Non-covalent Complex"]
+    SBO_0000253.label = ["Non-covalent complex"]
     SBO_0000253.comment = ["Entity composed of non-covalently bound components. Entity composed of multiple components bound together through non-covalent interactions."]
+
 
     SBO_0000241 = types.new_class("0000241", (SBO_0000236,))
     SBO_0000241.label = ["Functional Entity"]
@@ -85,92 +113,97 @@ with sbo:
 
     # Occurring Entity Representation (parent for interactions)
     SBO_0000231 = types.new_class("0000231", (SBO_0000000,))
-    SBO_0000231.label = ["Occurring Entity Representation"]
+    SBO_0000231.label = ["occurring entity representation"]
     SBO_0000231.comment = ["Representation of an entity that develops or occurs over time, such as events, interactions, or reactions."]
 
     # Biochemical or transport reaction
     SBO_0000167 = types.new_class("0000167", (SBO_0000231,))
-    SBO_0000167.label = ["Biochemical or Transport Reaction"]
+    SBO_0000167.label = ["biochemical or transport reaction"]
     SBO_0000167.comment = ["An event involving physical entities that results in modification of structure, location, or free energy."]
 
     # Biochemical reaction
     SBO_0000176 = types.new_class("0000176", (SBO_0000167,))
-    SBO_0000176.label = ["Biochemical Reaction"]
-    SBO_0000176.comment = ["An event involving one or more chemical entities that alters their electrochemical structure."]
+    SBO_0000176.label = ["biochemical_reaction", "biochemical reaction"]
+    SBO_0000176.comment = ["A chemical reaction involving biomolecules",
+                          "An event involving one or more chemical entities that alters their electrochemical structure."]
 
-    # Non-covalent binding or Dissociation
+    # Non-covalent binding / Dissociation
     SBO_0000177 = types.new_class("0000177", (SBO_0000176,))
-    SBO_0000177.label = ["Non-covalent Binding"]
-    SBO_0000177.comment = ["Association without covalent bonds. Biochemical reaction where a molecular complex breaks into smaller components."]
+    SBO_0000177.label = ["non_covalent_binding", "dissociation"]
+    SBO_0000177.comment = ["Association without covalent bonds",
+                          "Biochemical reaction where a molecular complex breaks into smaller components."]
 
     # Degradation
     SBO_0000179 = types.new_class("0000179", (SBO_0000176,))
-    SBO_0000179.label = ["Degradation"]
-    SBO_0000179.comment = ["Breakdown of a molecule, usually into simpler components."]
+    SBO_0000179.label = ["degradation"]
+    SBO_0000179.comment = ["Breakdown of a molecule", "Breakdown of a molecule, usually into simpler components."]
 
     # Control
     SBO_0000168 = types.new_class("0000168", (SBO_0000231,))
-    SBO_0000168.label = ["Control"]
-    SBO_0000168.comment = ["Modulation of activity. Modification of the execution of an event or process. Also known as regulation."]
+    SBO_0000168.label = ["control"]
+    SBO_0000168.comment = ["Modulation of activity", "Modification of the execution of an event or process. Also known as regulation."]
 
     # Inhibition
     SBO_0000169 = types.new_class("0000169", (SBO_0000168,))
-    SBO_0000169.label = ["Inhibition"]
-    SBO_0000169.comment = ["Negative modulation of activity; decreasing the rate or probability of an event."]
+    SBO_0000169.label = ["inhibition"]
+    SBO_0000169.comment = ["Negative modulation of activity", "Negative modulation of activity; decreasing the rate or probability of an event."]
 
     # Stimulation
     SBO_0000170 = types.new_class("0000170", (SBO_0000168,))
-    SBO_0000170.label = ["Stimulation"]
-    SBO_0000170.comment = ["Positive modulation of activity; increasing the rate or probability of an event."]
+    SBO_0000170.label = ["stimulation"]
+    SBO_0000170.comment = ["Positive modulation of activity", "Positive modulation of activity; increasing the rate or probability of an event."]
 
     # Genetic production
     SBO_0000589 = types.new_class("0000589", (SBO_0000231,))
-    SBO_0000589.label = ["Genetic Production"]
-    SBO_0000589.comment = ["Production of a gene product. Composite biochemical process through which a gene sequence is converted into mature gene products."]
+    SBO_0000589.label = ["genetic_production", "genetic production"]
+    SBO_0000589.comment = ["Production of a gene product",
+                          "Composite biochemical process through which a gene sequence is converted into mature gene products."]
 
     # Participant roles
     SBO_0000003 = types.new_class("0000003", (SBO_0000000,))
-    SBO_0000003.label = ["Participant Role"]
+    SBO_0000003.label = ["participant role"]
     SBO_0000003.comment = ["The function of a physical entity or process (participant) in a process or event."]
 
     # Modifier
     SBO_0000019 = types.new_class("0000019", (SBO_0000003,))
-    SBO_0000019.label = ["Modifier"]
+    SBO_0000019.label = ["modifier"]
     SBO_0000019.comment = ["Entity that changes the velocity of a process without being consumed or transformed."]
 
     # Inhibitor
     SBO_0000020 = types.new_class("0000020", (SBO_0000019,))
-    SBO_0000020.label = ["Inhibitor"]
+    SBO_0000020.label = ["inhibitor"]
     SBO_0000020.comment = ["Substance that decreases the probability of a chemical reaction without being consumed or transformed."]
 
     # Stimulator
     SBO_0000459 = types.new_class("0000459", (SBO_0000019,))
-    SBO_0000459.label = ["Stimulator"]
+    SBO_0000459.label = ["stimulator"]
     SBO_0000459.comment = ["Substance that increases the probability of a chemical reaction without being consumed or transformed."]
 
     # Inhibited
     SBO_0000642 = types.new_class("0000642", (SBO_0000003,))
-    SBO_0000642.label = ["Inhibited"]
-    SBO_0000642.comment = ["Entity that is inhibited. Conceptual or material entity that is the object of an inhibition process, acted upon by an inhibitor."]
+    SBO_0000642.label = ["inhibited"]
+    SBO_0000642.comment = ["Entity that is inhibited",
+                          "Conceptual or material entity that is the object of an inhibition process, acted upon by an inhibitor."]
 
     # Stimulated
     SBO_0000643 = types.new_class("0000643", (SBO_0000003,))
-    SBO_0000643.label = ["Stimulated"]
-    SBO_0000643.comment = ["Entity that is stimulated. Conceptual or material entity that is the object of a stimulation process, acted upon by a stimulator."]
+    SBO_0000643.label = ["stimulated"]
+    SBO_0000643.comment = ["Conceptual or material entity that is the object of a stimulation process, acted upon by a stimulator."]
 
     # Modified
     SBO_0000644 = types.new_class("0000644", (SBO_0000003,))
-    SBO_0000644.label = ["Modified"]
+    SBO_0000644.label = ["modified"]
     SBO_0000644.comment = ["Entity that has been modified. Conceptual or material entity that is the object of a modification process, acted upon by a modifier."]
 
     # Template
     SBO_0000645 = types.new_class("0000645", (SBO_0000003,))
-    SBO_0000645.label = ["Template"]
-    SBO_0000645.comment = ["Entity that acts as the template or starting material for genetic production."]
+    SBO_0000645.label = ["template"]
+    SBO_0000645.comment = ["Entity used as a template",
+                          "Entity that acts as the template or starting material for genetic production."]
 
-    # Functional compartment
+    # Functional entity / Functional compartment
     SBO_0000289 = types.new_class("0000289", (SBO_0000003,))
-    SBO_0000289.label = ["Functional Compartment"]
+    SBO_0000289.label = ["functional_entity", "functional compartment"]
     SBO_0000289.comment = ["An abstract entity with function but no physical form. A logical or physical subdivision of an event space containing pools of participants considered identical for the events."]
 
     SBO_0000011 = types.new_class("0000011", (SBO_0000003,))
@@ -182,28 +215,14 @@ with sbo:
     SBO_0000598 = types.new_class("0000598", (SBO_0000003,))
     SBO_0000598.label = ["Promoter"]
 
-    # Modelling Framework
-    SBO_0000004 = types.new_class("0000004", (SBO_0000000,))
-    SBO_0000004.label = ["modelling framework"]
-    SBO_0000004.comment = ["Set of assumptions that underlay a mathematical description."]
-
-    SBO_0000062 = types.new_class("0000062", (SBO_0000004,))
-    SBO_0000062.label = ["continuous"]
-  
-    SBO_0000063 = types.new_class("0000063", (SBO_0000004,))
-    SBO_0000063.label = ["discrete"]
-  
-    SBO_0000693 = types.new_class("0000693", (SBO_0000004,))
-    SBO_0000693.label = ["constraint-based"]
-  
-    SBO_0000234 = types.new_class("0000234", (SBO_0000004,))
-    SBO_0000234.label = ["logical"]
-
-    SBO_0000681 = types.new_class("0000681", (SBO_0000004,))
-    SBO_0000681.label = ["hybrid"]
-    
 
 with so:
+    #Updated by Tolga Medeni, March 05, 2025
+    #110 upper class(SO); 167, 139, 316,141,704,057,804,234 sub classes(SO)
+    #35224 sub class (CHEBI)
+    #3700 sub class (GO)
+    #based on Table 3
+
     SO_0000110 = types.new_class("0000110", (Thing,))
     SO_0000110.label = ["Sequence Feature"]
     SO_0000110.comment = ["A general sequence feature", "Any extent of continuous biological sequence."]
@@ -298,6 +317,7 @@ with edam:
     EDAM_format_1915 = types.new_class("format_1915", (Thing,))
     EDAM_format_1915.label = ["Format"]
 
+
     EDAM_format_1207 = types.new_class("format_1207", (EDAM_format_1915,))
     EDAM_format_1207.label = ["IUPAC DNA/RNA"]
 
@@ -310,20 +330,8 @@ with edam:
     EDAM_format_1196 = types.new_class("format_1196", (EDAM_format_1915,))
     EDAM_format_1196.label = ["SMILES"]
 
-    # Model languages
-    EDAM_format_2585 = types.new_class("format_2585", (EDAM_format_1915,))
-    EDAM_format_2585.label = ["SBML"]
-    EDAM_format_2585.comment = ["Systems Biology Markup Language (SBML) format."]
-
-    EDAM_format_3240 = types.new_class("format_3240", (EDAM_format_1915,))
-    EDAM_format_3240.label = ["CellML"]
-    EDAM_format_3240.comment = ["CellML model language format."]
-
-    EDAM_format_3156 = types.new_class("format_3156", (EDAM_format_1915,))
-    EDAM_format_3156.label = ["BioPAX"]
-    EDAM_format_3156.comment = ["Biological Pathway Exchange (BioPAX) format."]
-
 with sbol3 :
+
 
     class ComponentType (SBO_0000236):
         label = "Component Type"
@@ -349,7 +357,7 @@ with sbol3 :
     )
 
     class DNARole (Thing):
-        label = "DNA Role"
+        label = "DNA role"
         otol:constantList = "true"
 
     DNARole.equivalent_to.append(
@@ -364,14 +372,14 @@ with sbol3 :
     )
 
     class ProteinRole (Thing):
-        label = "Protein Role"
+        label = "Protein role"
         otol:constantList = "true"
     ProteinRole.equivalent_to.append(
         Or([GO_0003674, GO_0003700])
     )
 
     class SmallMoleculeRole (Thing):
-        label = "Small Molecule Role"
+        label = "Small Molecule role"
         otol:constantList = "true"
     SmallMoleculeRole.equivalent_to.append(
         Or([CHEBI_50906, CHEBI_35224])
@@ -726,26 +734,20 @@ with sbol3:
 
     InteractionType.equivalent_to.append(SBO_0000169 | SBO_0000170 | SBO_0000176 | SBO_0000177 | SBO_0000179 | SBO_0000589 | SBO_0000168)
 
-    class ParticipationRole(SBOLTerm):
-        label = "ParticipationRole"
+    class ParticipationType(SBOLTerm):
+        label = "ParticipationType"
         otol:constantList = "true"
 
-    ParticipationRole.equivalent_to.append(SBO_0000020 | SBO_0000642 | SBO_0000459 | SBO_0000643 | SBO_0000010 | SBO_0000011 | SBO_0000598 | SBO_0000019 | SBO_0000645)
-
-    class ModelFramework(SBOLTerm):
-        label = "ModelFramework"
-        otol:constantList = "true"
-
-    ModelFramework.equivalent_to.append(SBO_0000062 | SBO_0000063 | SBO_0000693 | SBO_0000234 | SBO_0000681)
-
-    class ModelLanguage(SBOLTerm):
-        label = "ModelLanguage"
-        otol:constantList = "true"
-
-    ModelLanguage.equivalent_to.append(EDAM_format_2585 | EDAM_format_3240 | EDAM_format_3156)
+    ParticipationType.equivalent_to.append(SBO_0000020 | SBO_0000642 | SBO_0000459 | SBO_0000643 | SBO_0000010 | SBO_0000011 | SBO_0000598 | SBO_0000019 | SBO_0000645)
 
 
     #--------------SBOL properties--------------
+
+
+    '''class testProperty(directlyComprises):
+        label = "testProperty"
+    '''
+
     class comprises(ObjectProperty, TransitiveProperty):
         label = "comprises"
 
@@ -795,6 +797,8 @@ with sbol3:
         domain = [Sequence]
 
     #-----Component properties-----
+
+
 
     class type(ObjectProperty):
         label = "type"
@@ -1042,6 +1046,10 @@ with sbol3:
 
 
 
+    #TODO: Incorporate restrictions for sequence.encoding types.
+    #TODO: Incorporate restrictions for constraint.restriction types.
+    #TODO: Incorporate restrictions for interaction.type values.
+    #TODO: Incorporate restrictions for participation.role values.
     #TODO: Incorporate restrictions for model.language and model.framework properties.
 
     #--------------Named Sequence Subclasses--------------
@@ -1053,35 +1061,30 @@ with sbol3:
 
     class DNASequence (SequenceWithElements):
         label = "DNA Sequence"
-        otol:domainEntity = "true"
     DNASequence.equivalent_to.append(
         SequenceWithElements & encoding.some(EDAM_format_1207)
     )
 
     class RNASequence (SequenceWithElements):
         label = "RNA Sequence"
-        otol:domainEntity = "true"
     RNASequence.equivalent_to.append(
         SequenceWithElements & encoding.some(EDAM_format_1207)
     )
 
     class ProteinSequence (SequenceWithElements):
         label = "Protein Sequence"
-        otol:domainEntity = "true"
     ProteinSequence.equivalent_to.append(
         SequenceWithElements & encoding.some(EDAM_format_1208)
     )
 
     class InChISequence (SequenceWithElements):
         label = "InChI Sequence"
-        otol:domainEntity = "true"
     InChISequence.equivalent_to.append(
         SequenceWithElements & encoding.some(EDAM_format_1197)
     )
 
     class SMILESSequence (SequenceWithElements):
         label = "SMILES Sequence"
-        otol:domainEntity = "true"
     SMILESSequence.equivalent_to.append(
         SequenceWithElements & encoding.some(EDAM_format_1196)
     )
@@ -1089,42 +1092,36 @@ with sbol3:
     #--------------Named Component Subclasses (by type)--------------
     class DNAComponent (Component):
         label = "DNA Component"
-        otol:domainEntity = "true"
     DNAComponent.equivalent_to.append(
         Component & type.some(SBO_0000251) & role.some(DNARole) & hasSequence.only(DNASequence)
     )
 
     class RNAComponent (Component):
         label = "RNA Component"
-        otol:domainEntity = "true"
     RNAComponent.equivalent_to.append(
         Component & type.some(SBO_0000250) & role.some(RNARole) & hasSequence.only(RNASequence)
     )
 
     class ProteinComponent (Component):
         label = "Protein Component"
-        otol:domainEntity = "true"
     ProteinComponent.equivalent_to.append(
         Component & type.some(SBO_0000252) & role.some(ProteinRole) & hasSequence.only(ProteinSequence)
     )
 
     class SimpleChemicalComponent (Component):
         label = "Simple Chemical Component"
-        otol:domainEntity = "true"
     SimpleChemicalComponent.equivalent_to.append(
         Component & type.some(SBO_0000247) & role.some(SmallMoleculeRole) & hasSequence.only(Or([InChISequence, SMILESSequence]))
     )
 
     class NonCovalentComplexComponent (Component):
         label = "Non-Covalent Complex Component"
-        otol:domainEntity = "true"
     NonCovalentComplexComponent.equivalent_to.append(
         Component & type.some(SBO_0000253)
     )
 
     class FunctionalEntityComponent (Component):
         label = "Functional Entity Component"
-        otol:domainEntity = "true"
     FunctionalEntityComponent.equivalent_to.append(
         Component & type.some(SBO_0000241)
     )
@@ -1132,55 +1129,47 @@ with sbol3:
     #--------------Named Component Subclasses (by role, DNAComponent)--------------
     class GenericDNAComponent (DNAComponent):
         label = "Generic DNA Component"
-        otol:domainEntity = "true"
     GenericDNAComponent.equivalent_to.append(
         DNAComponent & role.some(SO_0000110)
     )
     class PromoterDNAComponent (DNAComponent):
         label = "Promoter DNA Component"
-        otol:domainEntity = "true"
     PromoterDNAComponent.equivalent_to.append(
         DNAComponent & role.some(SO_0000167)
     )
 
     class RBSDNAComponent (DNAComponent):
         label = "RBS DNA Component"
-        otol:domainEntity = "true"
     RBSDNAComponent.equivalent_to.append(
         DNAComponent & role.some(SO_0000139)
     )
 
     class CDSDNAComponent (DNAComponent):
         label = "CDS DNA Component"
-        otol:domainEntity = "true"
     CDSDNAComponent.equivalent_to.append(
         DNAComponent & role.some(SO_0000316)
     )
 
     class TerminatorDNAComponent (DNAComponent):
         label = "Terminator DNA Component"
-        otol:domainEntity = "true"
     TerminatorDNAComponent.equivalent_to.append(
         DNAComponent & role.some(SO_0000141)
     )
 
     class GeneDNAComponent (DNAComponent):
         label = "Gene DNA Component"
-        otol:domainEntity = "true"
     GeneDNAComponent.equivalent_to.append(
         DNAComponent & role.some(SO_0000704)
     )
 
     class OperatorDNAComponent (DNAComponent):
         label = "Operator DNA Component"
-        otol:domainEntity = "true"
     OperatorDNAComponent.equivalent_to.append(
         DNAComponent & role.some(SO_0000057)
     )
 
     class EngineeredRegionDNAComponent (DNAComponent):
         label = "Engineered Region DNA Component"
-        otol:domainEntity = "true"
     EngineeredRegionDNAComponent.equivalent_to.append(
         DNAComponent & role.some(SO_0000804)
     )
@@ -1188,7 +1177,6 @@ with sbol3:
     #--------------Named Component Subclasses (by role, SimpleChemicalComponent)--------------
     class EffectorSimpleChemicalComponent (SimpleChemicalComponent):
         label = "Effector Simple Chemical Component"
-        otol:domainEntity = "true"
     EffectorSimpleChemicalComponent.equivalent_to.append(
         SimpleChemicalComponent & role.some(CHEBI_35224)
     )
@@ -1196,34 +1184,29 @@ with sbol3:
     #--------------Named Component Subclasses (by role, ProteinComponent)--------------
     class TranscriptionFactorProteinComponent (ProteinComponent):
         label = "Transcription Factor Protein Component"
-        otol:domainEntity = "true"
     TranscriptionFactorProteinComponent.equivalent_to.append(
         ProteinComponent & role.some(GO_0003700)
     )
 
     class InhibitorParticipation (Participation):
         label = "InhibitorParticipant"
-        otol:domainEntity = "true"
     InhibitorParticipation.equivalent_to.append(
         Participation & role.some(SBO_0000020)
     )
 
     class InhibitedParticipation (Participation):
         label = "InhibitedParticipation"
-        otol:domainEntity = "true"
     InhibitedParticipation.equivalent_to.append(
         Participation & role.some(SBO_0000642)
     )
     class StimulatorParticipation (Participation):
         label = "StimulatorParticipation"
-        otol:domainEntity = "true"
     StimulatorParticipation.equivalent_to.append(
         Participation & role.some(SBO_0000459)
     )
 
     class StimulatedParticipation (Participation):
         label = "StimulatedParticipation"
-        otol:domainEntity = "true"
     StimulatedParticipation.equivalent_to.append(
         Participation & role.some(SBO_0000643)
     )
@@ -1231,94 +1214,94 @@ with sbol3:
 
     class ReactantParticipation (Participation):
         label = "ReactantParticipation"
-        otol:domainEntity = "true"
     ReactantParticipation.equivalent_to.append(
         Participation & role.some(SBO_0000010)
     )
 
     class ProductParticipation (Participation):
         label = "ProductParticipation"
-        otol:domainEntity = "true"
     ProductParticipation.equivalent_to.append(
         Participation & role.some(SBO_0000011)
     )
 
     class PromoterParticipation (Participation):
         label = "PromoterParticipation"
-        otol:domainEntity = "true"
     PromoterParticipation.equivalent_to.append(
         Participation & role.some(SBO_0000598)
     )
 
+
     class ModifierParticipation (Participation):
         label = "ModifierParticipation"
-        otol:domainEntity = "true"
     ModifierParticipation.equivalent_to.append(
         Participation & role.some(SBO_0000019)
     )
 
     class ModifiedParticipation (Participation):
         label = "ModifiedParticipation"
-        otol:domainEntity = "true"
     ModifiedParticipation.equivalent_to.append(
         Participation & role.some(SBO_0000644)
     )
 
     class TemplateParticipation (Participation):
         label = "TemplateParticipation"
-        otol:domainEntity = "true"
     TemplateParticipation.equivalent_to.append(
         Participation & role.some(SBO_0000645)
     )
 
     class InhibitionInteraction (Interaction):
         label = "InhibitionInteraction"
-        otol:domainEntity = "true"
     InhibitionInteraction.equivalent_to.append(
         Interaction & type.some(SBO_0000169) & participant.some(InhibitorParticipation) &  participant.some(InhibitedParticipation)
     )
 
+
     class StimulationInteraction (Interaction):
         label = "StimulationInteraction"
-        otol:domainEntity = "true"
     StimulationInteraction.equivalent_to.append(
         Interaction & type.some(SBO_0000170) & participant.some(StimulatedParticipation) &  participant.some(StimulatedParticipation)
     )
 
     class DegradationInteraction (Interaction):
         label = "DegradationInteraction"
-        otol:domainEntity = "true"
     DegradationInteraction.equivalent_to.append(
         Interaction & type.some(SBO_0000179) &  participant.some(ReactantParticipation)
     )
-    
+
+    #TODO
     class BiochemicalReactionInteraction (Interaction):
         label = "BiochemicalReactionInteraction"
-        otol:domainEntity = "true"
     BiochemicalReactionInteraction.equivalent_to.append(
-        Interaction & type.some(SBO_0000176) & participant.min(0, ModifierParticipation) & participant.min(0, ModifiedParticipation) & participant.min(0, ProductParticipation) & participant.min(0, ReactantParticipation) 
+        Interaction & type.some(SBO_0000176)
     )
 
+    #TODO
     class NonCovalentBindingInteraction (Interaction):
         label = "NonCovalentBindingInteraction"
-        otol:domainEntity = "true"
     NonCovalentBindingInteraction.equivalent_to.append(
-        Interaction & type.some(SBO_0000177) & participant.some(ReactantParticipation) & participant.some(ProductParticipation)
+        Interaction & type.some(SBO_0000177)
     )
-    
+
+    #TODO
     class GeneticProductionInteraction (Interaction):
         label = "GeneticProductionInteraction"
-        otol:domainEntity = "true"
     GeneticProductionInteraction.equivalent_to.append(
-        Interaction & type.some(SBO_0000589) & participant.some(TemplateParticipation) & participant.exactly(1, ProductParticipation)
+        Interaction & type.some(SBO_0000589)
     )
-    
+
+    #TODO
     class ControlInteraction (Interaction):
         label = "DegradationInteraction"
-        otol:domainEntity = "true"
     DegradationInteraction.equivalent_to.append(
         Interaction & type.some(SBO_0000168)
     )
+
+    AllDisjoint([SubComponent, ComponentReference, LocalSubComponent, ExternallyDefined, SequenceFeature])
+    AllDisjoint([Range,Cut, EntireSequence])
+    #TODO
+    AllDisjoint([Component, Sequence])
+
+
 
 with prov:
   # -----sbol3:Identified prov properties-----
@@ -1393,7 +1376,15 @@ with prov:
   SBOLAssociation.is_a.append(agent.some(SBOLAgent))
 
 
-# OM (Units of Measure) classes
+#TODOTolga: Figure 29: Do exactly the same similar to prov:Activity snd sbol3:SBOLAtivity classes
+
+
+
+
+ #######################################################################
+    # OM (Units of Measure) Integration (Diagram 2)
+    # Hybrid: OM classes inherit Identified + TopLevel as in UML
+    #######################################################################
 with om:
   class Unit(Thing):
     label = "Unit"
@@ -1432,6 +1423,7 @@ with om:
   SBOLUnit.is_a.append(om.Unit)
   SBOLUnit.is_a.append(rdfs.label.some(str))
   SBOLUnit.is_a.append(rdfs.comment.max(1, str))
+
 
   class SBOLSingularUnit(Unit):
     label = "SingularUnit"
@@ -1490,13 +1482,10 @@ with om:
     otol:domainEntity = "true"
   SBOLBinaryPrefix.is_a.append(om.BinaryPrefix)
 
-    #Disjoint classes
-  AllDisjoint([SubComponent, ComponentReference, LocalSubComponent, ExternallyDefined, SequenceFeature])
-  AllDisjoint([Range,Cut, EntireSequence])
-  AllDisjoint([Component, Sequence, Model, Implementation, Attachment, Collection, ExperimentalData, CombinatorialDerivation, SBOLActivity, SBOLPlan, SBOLAgent, SBOLMeasure, SBOLBinaryPrefix, SBOLSIPrefix, SBOLUnitMultiplication, SBOLUnitDivision, SBOLUnitExponentiation, SBOLPrefixedUnit, SBOLCompoundUnit, SBOLSingularUnit])
 
-
-# OM Object Properties
+    #######################################################################
+    # OM Object Properties (from UML)
+    #######################################################################
 with sbol3:
   class hasNumericalValue(ObjectProperty, FunctionalProperty):
     label = ["hasNumericalValue"]
@@ -1533,7 +1522,7 @@ with sbol3:
 
   class hasFactor(DataProperty):
     label = ["hasFactor"]
-    domain = [SBOLSingularUnit, SBOLPrefix]
+    domain = [SBOLSingularUnit, SBOLPrefix]   # per UML: appears in both
     range  = [float]
   SBOLPrefix.is_a.append(hasFactor.some(float))
 
@@ -1581,6 +1570,7 @@ sbol3.imported_ontologies.append(chebi)
 sbol3.imported_ontologies.append(go)
 
 # Save individual ontologies
+
 sbol3.save(file = "sbolowl3.txt", format = "rdfxml")
 sbol3.save(file = "sbolowl3.rdf", format = "rdfxml")
 sbo.save(file = "sbo.rdf", format = "rdfxml")

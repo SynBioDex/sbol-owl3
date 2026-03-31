@@ -33,5 +33,23 @@
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SMILES</rdfs:label>
 </owl:Class>
 
+<owl:Class rdf:about="https://identifiers.org/EDAM:format_2585">
+  <rdfs:subClassOf rdf:resource="https://identifiers.org/EDAM:format_1915"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SBML</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Systems Biology Markup Language (SBML) format.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="https://identifiers.org/EDAM:format_3240">
+  <rdfs:subClassOf rdf:resource="https://identifiers.org/EDAM:format_1915"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CellML</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CellML model language format.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="https://identifiers.org/EDAM:format_3156">
+  <rdfs:subClassOf rdf:resource="https://identifiers.org/EDAM:format_1915"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">BioPAX</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Biological Pathway Exchange (BioPAX) format.</rdfs:comment>
+</owl:Class>
+
 
 </rdf:RDF>

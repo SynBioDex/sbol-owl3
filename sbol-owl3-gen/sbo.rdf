@@ -10,7 +10,7 @@
 
 <owl:Class rdf:about="https://identifiers.org/SBO:0000000">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">systems biology representation</rdfs:label>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Systems Biology Representation</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Root term for Systems Biology Ontology representing all mathematical or logical terms used in systems biology.</rdfs:comment>
 </owl:Class>
 
@@ -30,8 +30,8 @@
 <owl:Class rdf:about="https://identifiers.org/SBO:0000250">
   <rdfs:subClassOf rdf:resource="https://identifiers.org/SBO:0000236"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RNA</rdfs:label>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A polymer consisting of ribonucleotide monomers.</rdfs:comment>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RNA molecule</rdfs:comment>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A polymer consisting of ribonucleotide monomers.</rdfs:comment>
 </owl:Class>
 
 <owl:Class rdf:about="https://identifiers.org/SBO:0000252">
@@ -48,7 +48,7 @@
 
 <owl:Class rdf:about="https://identifiers.org/SBO:0000253">
   <rdfs:subClassOf rdf:resource="https://identifiers.org/SBO:0000236"/>
-  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Non-covalent complex</rdfs:label>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Non-covalent Complex</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Entity composed of non-covalently bound components. Entity composed of multiple components bound together through non-covalent interactions.</rdfs:comment>
 </owl:Class>
 
@@ -60,122 +60,109 @@
 
 <owl:Class rdf:about="https://identifiers.org/SBO:0000231">
   <rdfs:subClassOf rdf:resource="https://identifiers.org/SBO:0000000"/>
-  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">occurring entity representation</rdfs:label>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Occurring Entity Representation</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Representation of an entity that develops or occurs over time, such as events, interactions, or reactions.</rdfs:comment>
 </owl:Class>
 
 <owl:Class rdf:about="https://identifiers.org/SBO:0000167">
   <rdfs:subClassOf rdf:resource="https://identifiers.org/SBO:0000231"/>
-  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">biochemical or transport reaction</rdfs:label>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Biochemical or Transport Reaction</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An event involving physical entities that results in modification of structure, location, or free energy.</rdfs:comment>
 </owl:Class>
 
 <owl:Class rdf:about="https://identifiers.org/SBO:0000176">
   <rdfs:subClassOf rdf:resource="https://identifiers.org/SBO:0000167"/>
-  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">biochemical reaction</rdfs:label>
-  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">biochemical_reaction</rdfs:label>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Biochemical Reaction</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An event involving one or more chemical entities that alters their electrochemical structure.</rdfs:comment>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A chemical reaction involving biomolecules</rdfs:comment>
 </owl:Class>
 
 <owl:Class rdf:about="https://identifiers.org/SBO:0000177">
   <rdfs:subClassOf rdf:resource="https://identifiers.org/SBO:0000176"/>
-  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">dissociation</rdfs:label>
-  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">non_covalent_binding</rdfs:label>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Biochemical reaction where a molecular complex breaks into smaller components.</rdfs:comment>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Association without covalent bonds</rdfs:comment>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Non-covalent Binding</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Association without covalent bonds. Biochemical reaction where a molecular complex breaks into smaller components.</rdfs:comment>
 </owl:Class>
 
 <owl:Class rdf:about="https://identifiers.org/SBO:0000179">
   <rdfs:subClassOf rdf:resource="https://identifiers.org/SBO:0000176"/>
-  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">degradation</rdfs:label>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Breakdown of a molecule</rdfs:comment>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Degradation</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Breakdown of a molecule, usually into simpler components.</rdfs:comment>
 </owl:Class>
 
 <owl:Class rdf:about="https://identifiers.org/SBO:0000168">
   <rdfs:subClassOf rdf:resource="https://identifiers.org/SBO:0000231"/>
-  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">control</rdfs:label>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Modulation of activity</rdfs:comment>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Modification of the execution of an event or process. Also known as regulation.</rdfs:comment>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Control</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Modulation of activity. Modification of the execution of an event or process. Also known as regulation.</rdfs:comment>
 </owl:Class>
 
 <owl:Class rdf:about="https://identifiers.org/SBO:0000169">
   <rdfs:subClassOf rdf:resource="https://identifiers.org/SBO:0000168"/>
-  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">inhibition</rdfs:label>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Inhibition</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Negative modulation of activity; decreasing the rate or probability of an event.</rdfs:comment>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Negative modulation of activity</rdfs:comment>
 </owl:Class>
 
 <owl:Class rdf:about="https://identifiers.org/SBO:0000170">
   <rdfs:subClassOf rdf:resource="https://identifiers.org/SBO:0000168"/>
-  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stimulation</rdfs:label>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Stimulation</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Positive modulation of activity; increasing the rate or probability of an event.</rdfs:comment>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Positive modulation of activity</rdfs:comment>
 </owl:Class>
 
 <owl:Class rdf:about="https://identifiers.org/SBO:0000589">
   <rdfs:subClassOf rdf:resource="https://identifiers.org/SBO:0000231"/>
-  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">genetic production</rdfs:label>
-  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">genetic_production</rdfs:label>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Production of a gene product</rdfs:comment>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Composite biochemical process through which a gene sequence is converted into mature gene products.</rdfs:comment>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Genetic Production</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Production of a gene product. Composite biochemical process through which a gene sequence is converted into mature gene products.</rdfs:comment>
 </owl:Class>
 
 <owl:Class rdf:about="https://identifiers.org/SBO:0000003">
   <rdfs:subClassOf rdf:resource="https://identifiers.org/SBO:0000000"/>
-  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">participant role</rdfs:label>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Participant Role</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The function of a physical entity or process (participant) in a process or event.</rdfs:comment>
 </owl:Class>
 
 <owl:Class rdf:about="https://identifiers.org/SBO:0000019">
   <rdfs:subClassOf rdf:resource="https://identifiers.org/SBO:0000003"/>
-  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">modifier</rdfs:label>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Modifier</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Entity that changes the velocity of a process without being consumed or transformed.</rdfs:comment>
 </owl:Class>
 
 <owl:Class rdf:about="https://identifiers.org/SBO:0000020">
   <rdfs:subClassOf rdf:resource="https://identifiers.org/SBO:0000019"/>
-  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">inhibitor</rdfs:label>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Inhibitor</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Substance that decreases the probability of a chemical reaction without being consumed or transformed.</rdfs:comment>
 </owl:Class>
 
 <owl:Class rdf:about="https://identifiers.org/SBO:0000459">
   <rdfs:subClassOf rdf:resource="https://identifiers.org/SBO:0000019"/>
-  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stimulator</rdfs:label>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Stimulator</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Substance that increases the probability of a chemical reaction without being consumed or transformed.</rdfs:comment>
 </owl:Class>
 
 <owl:Class rdf:about="https://identifiers.org/SBO:0000642">
   <rdfs:subClassOf rdf:resource="https://identifiers.org/SBO:0000003"/>
-  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">inhibited</rdfs:label>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Entity that is inhibited</rdfs:comment>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Conceptual or material entity that is the object of an inhibition process, acted upon by an inhibitor.</rdfs:comment>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Inhibited</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Entity that is inhibited. Conceptual or material entity that is the object of an inhibition process, acted upon by an inhibitor.</rdfs:comment>
 </owl:Class>
 
 <owl:Class rdf:about="https://identifiers.org/SBO:0000643">
   <rdfs:subClassOf rdf:resource="https://identifiers.org/SBO:0000003"/>
-  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stimulated</rdfs:label>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Conceptual or material entity that is the object of a stimulation process, acted upon by a stimulator.</rdfs:comment>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Stimulated</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Entity that is stimulated. Conceptual or material entity that is the object of a stimulation process, acted upon by a stimulator.</rdfs:comment>
 </owl:Class>
 
 <owl:Class rdf:about="https://identifiers.org/SBO:0000644">
   <rdfs:subClassOf rdf:resource="https://identifiers.org/SBO:0000003"/>
-  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">modified</rdfs:label>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Modified</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Entity that has been modified. Conceptual or material entity that is the object of a modification process, acted upon by a modifier.</rdfs:comment>
 </owl:Class>
 
 <owl:Class rdf:about="https://identifiers.org/SBO:0000645">
   <rdfs:subClassOf rdf:resource="https://identifiers.org/SBO:0000003"/>
-  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">template</rdfs:label>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Template</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Entity that acts as the template or starting material for genetic production.</rdfs:comment>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Entity used as a template</rdfs:comment>
 </owl:Class>
 
 <owl:Class rdf:about="https://identifiers.org/SBO:0000289">
   <rdfs:subClassOf rdf:resource="https://identifiers.org/SBO:0000003"/>
-  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">functional compartment</rdfs:label>
-  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">functional_entity</rdfs:label>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Functional Compartment</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An abstract entity with function but no physical form. A logical or physical subdivision of an event space containing pools of participants considered identical for the events.</rdfs:comment>
 </owl:Class>
 
@@ -192,6 +179,37 @@
 <owl:Class rdf:about="https://identifiers.org/SBO:0000598">
   <rdfs:subClassOf rdf:resource="https://identifiers.org/SBO:0000003"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Promoter</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="https://identifiers.org/SBO:0000004">
+  <rdfs:subClassOf rdf:resource="https://identifiers.org/SBO:0000000"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">modelling framework</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Set of assumptions that underlay a mathematical description.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="https://identifiers.org/SBO:0000062">
+  <rdfs:subClassOf rdf:resource="https://identifiers.org/SBO:0000004"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">continuous</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="https://identifiers.org/SBO:0000063">
+  <rdfs:subClassOf rdf:resource="https://identifiers.org/SBO:0000004"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">discrete</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="https://identifiers.org/SBO:0000693">
+  <rdfs:subClassOf rdf:resource="https://identifiers.org/SBO:0000004"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">constraint-based</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="https://identifiers.org/SBO:0000234">
+  <rdfs:subClassOf rdf:resource="https://identifiers.org/SBO:0000004"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">logical</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="https://identifiers.org/SBO:0000681">
+  <rdfs:subClassOf rdf:resource="https://identifiers.org/SBO:0000004"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hybrid</rdfs:label>
 </owl:Class>
 
 

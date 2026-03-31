@@ -684,7 +684,7 @@
       </owl:unionOf>
     </owl:Class>
   </owl:equivalentClass>
-  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DNA role</rdfs:label>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DNA Role</rdfs:label>
 </owl:Class>
 
 <owl:Class rdf:about="#RNARole">
@@ -710,7 +710,7 @@
       </owl:unionOf>
     </owl:Class>
   </owl:equivalentClass>
-  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Protein role</rdfs:label>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Protein Role</rdfs:label>
 </owl:Class>
 
 <owl:Class rdf:about="#SmallMoleculeRole">
@@ -723,7 +723,7 @@
       </owl:unionOf>
     </owl:Class>
   </owl:equivalentClass>
-  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Small Molecule role</rdfs:label>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Small Molecule Role</rdfs:label>
 </owl:Class>
 
 <owl:Class rdf:about="#Identified">
@@ -768,7 +768,6 @@
       <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
-  <owl:disjointWith rdf:resource="#Sequence"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Component</rdfs:label>
 </owl:Class>
 
@@ -1419,7 +1418,7 @@
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">InteractionType</rdfs:label>
 </owl:Class>
 
-<owl:Class rdf:about="#ParticipationType">
+<owl:Class rdf:about="#ParticipationRole">
   <rdfs:subClassOf rdf:resource="#SBOLTerm"/>
   <owl:equivalentClass>
     <owl:Class>
@@ -1436,7 +1435,37 @@
       </owl:unionOf>
     </owl:Class>
   </owl:equivalentClass>
-  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ParticipationType</rdfs:label>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ParticipationRole</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#ModelFramework">
+  <rdfs:subClassOf rdf:resource="#SBOLTerm"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="https://identifiers.org/SBO:0000062"/>
+        <rdf:Description rdf:about="https://identifiers.org/SBO:0000063"/>
+        <rdf:Description rdf:about="https://identifiers.org/SBO:0000693"/>
+        <rdf:Description rdf:about="https://identifiers.org/SBO:0000234"/>
+        <rdf:Description rdf:about="https://identifiers.org/SBO:0000681"/>
+      </owl:unionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ModelFramework</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#ModelLanguage">
+  <rdfs:subClassOf rdf:resource="#SBOLTerm"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="https://identifiers.org/EDAM:format_2585"/>
+        <rdf:Description rdf:about="https://identifiers.org/EDAM:format_3240"/>
+        <rdf:Description rdf:about="https://identifiers.org/EDAM:format_3156"/>
+      </owl:unionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ModelLanguage</rdfs:label>
 </owl:Class>
 
 <owl:Class rdf:about="#SequenceWithElements">
@@ -2083,6 +2112,26 @@
           <owl:onProperty rdf:resource="#type"/>
           <owl:someValuesFrom rdf:resource="https://identifiers.org/SBO:0000176"/>
         </owl:Restriction>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#participant"/>
+          <owl:onClass rdf:resource="#ModifierParticipation"/>
+          <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+        </owl:Restriction>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#participant"/>
+          <owl:onClass rdf:resource="#ModifiedParticipation"/>
+          <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+        </owl:Restriction>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#participant"/>
+          <owl:onClass rdf:resource="#ProductParticipation"/>
+          <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+        </owl:Restriction>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#participant"/>
+          <owl:onClass rdf:resource="#ReactantParticipation"/>
+          <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+        </owl:Restriction>
       </owl:intersectionOf>
     </owl:Class>
   </owl:equivalentClass>
@@ -2099,6 +2148,14 @@
           <owl:onProperty rdf:resource="#type"/>
           <owl:someValuesFrom rdf:resource="https://identifiers.org/SBO:0000177"/>
         </owl:Restriction>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#participant"/>
+          <owl:someValuesFrom rdf:resource="#ReactantParticipation"/>
+        </owl:Restriction>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#participant"/>
+          <owl:someValuesFrom rdf:resource="#ProductParticipation"/>
+        </owl:Restriction>
       </owl:intersectionOf>
     </owl:Class>
   </owl:equivalentClass>
@@ -2114,6 +2171,15 @@
         <owl:Restriction>
           <owl:onProperty rdf:resource="#type"/>
           <owl:someValuesFrom rdf:resource="https://identifiers.org/SBO:0000589"/>
+        </owl:Restriction>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#participant"/>
+          <owl:someValuesFrom rdf:resource="#TemplateParticipation"/>
+        </owl:Restriction>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#participant"/>
+          <owl:onClass rdf:resource="#ProductParticipation"/>
+          <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
         </owl:Restriction>
       </owl:intersectionOf>
     </owl:Class>
@@ -2203,24 +2269,6 @@
     </owl:Restriction>
   </rdfs:subClassOf>
 </rdf:Description>
-
-<owl:AllDisjointClasses>
-  <owl:members rdf:parseType="Collection">
-    <rdf:Description rdf:about="#Range"/>
-    <rdf:Description rdf:about="#Cut"/>
-    <rdf:Description rdf:about="#EntireSequence"/>
-  </owl:members>
-</owl:AllDisjointClasses>
-
-<owl:AllDisjointClasses>
-  <owl:members rdf:parseType="Collection">
-    <rdf:Description rdf:about="#SubComponent"/>
-    <rdf:Description rdf:about="#ComponentReference"/>
-    <rdf:Description rdf:about="#LocalSubComponent"/>
-    <rdf:Description rdf:about="#ExternallyDefined"/>
-    <rdf:Description rdf:about="#SequenceFeature"/>
-  </owl:members>
-</owl:AllDisjointClasses>
 
 
 </rdf:RDF>
