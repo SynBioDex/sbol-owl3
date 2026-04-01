@@ -28,6 +28,17 @@ chebi = get_ontology("https://identifiers.org/CHEBI:")
 chebi.base_iri = "https://identifiers.org/CHEBI:"
 go = get_ontology("https://identifiers.org/GO:")
 go.base_iri = "https://identifiers.org/GO:"
+rdfNS = get_ontology("http://www.w3.org/1999/02/22-rdf-syntax-ns#")
+owlNS = get_ontology("http://www.w3.org/2002/07/owl#")
+
+with rdfNS:
+    class type(ObjectProperty):
+        pass
+
+with owlNS:
+    class topObjectProperty(ObjectProperty):
+        pass
+
 #Ontology-to-library mapping ontology
 otol = get_ontology("http://keele.ac.uk/scm/otol#")
 
@@ -508,6 +519,18 @@ with sbol3:
     class VariableFeature (Identified):
         label = "VariableFeature"
         otol:domainEntity = "true"
+    
+    class Metadata (Identified):
+        label = "Metadata"
+        otol:domainEntity = "true"
+    Metadata.is_a.append(rdfNS.type.some(Thing))#Metadata must have another RDF.type    
+    Identified.is_a.append(owlNS.topObjectProperty.min(0,Metadata)) #Identified may have zero or more Metadata annotations, but Metadata must be attached to at least one Identified entity
+
+    class GenericTopLevel (TopLevel):
+        label = "GenericTopLevel"
+        otol:domainEntity = "true"
+    GenericTopLevel.is_a.append(rdfNS.type.some(Thing))    #GenericTopLevel must have another RDF.type
+    
 
 #--------------Provenance Entities--------------
     class SBOLActivity(TopLevel):
@@ -542,7 +565,7 @@ with sbol3:
     SBOLAssociation.is_a.append(prov.Association)
 
 
-    class SBOLMeasure(TopLevel):
+    class SBOLMeasure(Identified):
       label = "Measure"
       otol.replacementOf = om.Measure
       otol:domainEntity = "true"
@@ -1425,66 +1448,67 @@ with om:
   class BinaryPrefix(Prefix):
       label = "BinaryPrefix"
 
+with sbol3:
   class SBOLUnit(TopLevel):
     label = "Unit"
     otol.replacementOf = om.Unit
     otol:domainEntity = "true"
   SBOLUnit.is_a.append(om.Unit)
   SBOLUnit.is_a.append(rdfs.label.some(str))
-  SBOLUnit.is_a.append(rdfs.comment.max(1, str))
+  #TODO:Open again later: SBOLUnit.is_a.append(rdfs.comment.max(1, str))
 
-  class SBOLSingularUnit(Unit):
+  class SBOLSingularUnit(SBOLUnit):
     label = "SingularUnit"
     otol.replacementOf = om.SingularUnit
     otol:domainEntity = "true"
   SBOLSingularUnit.is_a.append(om.SingularUnit)
 
-  class SBOLCompoundUnit(Unit):
+  class SBOLCompoundUnit(SBOLUnit):
     label = "CompoundUnit"
     otol.replacementOf = om.CompoundUnit
     otol:domainEntity = "true"
   SBOLCompoundUnit.is_a.append(om.CompoundUnit)
 
-  class SBOLPrefixedUnit(Unit):
+  class SBOLPrefixedUnit(SBOLUnit):
     label = "PrefixedUnit"
     otol.replacementOf = om.PrefixedUnit
     otol:domainEntity = "true"
   SBOLPrefixedUnit.is_a.append(om.PrefixedUnit)
 
-  class SBOLUnitMultiplication(Unit):
+  class SBOLUnitMultiplication(SBOLUnit):
     label = "UnitMultiplication"
     otol.replacementOf = om.UnitMultiplication
     otol:domainEntity = "true"
   SBOLUnitMultiplication.is_a.append(om.UnitMultiplication)
 
-  class SBOLUnitDivision(Unit):
+  class SBOLUnitDivision(SBOLUnit):
     label = "UnitDivision"
     otol.replacementOf = om.UnitDivision
     otol:domainEntity = "true"
   SBOLUnitDivision.is_a.append(om.UnitDivision)
 
-  class SBOLUnitExponentiation(Unit):
+  class SBOLUnitExponentiation(SBOLUnit):
     label = "UnitExponentiation"
     otol.replacementOf = om.UnitExponentiation
     otol:domainEntity = "true"
   SBOLUnitExponentiation.is_a.append(om.UnitExponentiation)
 
-  class SBOLPrefix(Thing):
+  class SBOLPrefix(TopLevel):
     label = "Prefix"
     otol.replacementOf = om.Prefix
     otol:domainEntity = "true"
   SBOLPrefix.is_a.append(om.Prefix)
   SBOLPrefix.is_a.append(rdfs.label.some(str))
-  SBOLUnit.is_a.append(rdfs.comment.max(1, str))
+  #TODO:Open again later: SBOLPrefix.is_a.append(rdfs.comment.max(1, str))
 
 
-  class SBOLSIPrefix(Prefix):
+  class SBOLSIPrefix(SBOLPrefix):
     label = "SIPrefix"
     otol.replacementOf = om.SIPrefix
     otol:domainEntity = "true"
   SBOLSIPrefix.is_a.append(om.SIPrefix)
 
-  class SBOLBinaryPrefix(Prefix):
+  class SBOLBinaryPrefix(SBOLPrefix):
     label = "BinaryPrefix"
     otol.replacementOf = om.BinaryPrefix
     otol:domainEntity = "true"
