@@ -11,8 +11,8 @@
 <owl:Class rdf:about="https://identifiers.org/SO:0000110">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sequence Feature</rdfs:label>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Any extent of continuous biological sequence.</rdfs:comment>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A general sequence feature</rdfs:comment>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Any extent of continuous biological sequence.</rdfs:comment>
 </owl:Class>
 
 <owl:Class rdf:about="https://identifiers.org/SO:0000167">
@@ -65,8 +65,8 @@
 <owl:Class rdf:about="https://identifiers.org/SO:0000400">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Nucleic Acid Topology</rdfs:label>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An attribute describing a sequence</rdfs:comment>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An attribute describes a quality of sequence.</rdfs:comment>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An attribute describing a sequence</rdfs:comment>
 </owl:Class>
 
 <owl:Class rdf:about="https://identifiers.org/SO:0000987">

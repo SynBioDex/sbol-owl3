@@ -9,7 +9,7 @@
 <owl:Ontology rdf:about="http://sbols.org/v3">
   <owl:imports rdf:resource="https://identifiers.org/SBO:"/>
   <owl:imports rdf:resource="https://identifiers.org/SO:"/>
-  <owl:imports rdf:resource="https://identifiers.org/EDAM:"/>
+  <owl:imports rdf:resource="https://identifiers.org/edam:"/>
   <owl:imports rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2"/>
   <owl:imports rdf:resource="https://identifiers.org/CHEBI:"/>
   <owl:imports rdf:resource="https://identifiers.org/GO:"/>
@@ -389,8 +389,8 @@
 </owl:ObjectProperty>
 
 <owl:ObjectProperty rdf:about="#hasUnit">
-  <rdfs:domain rdf:resource="#SBOLMeasure"/>
   <rdfs:domain rdf:resource="#SBOLUnit"/>
+  <rdfs:domain rdf:resource="#SBOLMeasure"/>
   <rdfs:range rdf:resource="#SBOLUnit"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hasUnit</rdfs:label>
 </owl:ObjectProperty>
@@ -580,15 +580,15 @@
 
 <owl:DatatypeProperty rdf:about="#symbol">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-  <rdfs:domain rdf:resource="#SBOLPrefix"/>
   <rdfs:domain rdf:resource="#SBOLUnit"/>
+  <rdfs:domain rdf:resource="#SBOLPrefix"/>
   <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">symbol</rdfs:label>
 </owl:DatatypeProperty>
 
 <owl:DatatypeProperty rdf:about="#alternativeSymbol">
-  <rdfs:domain rdf:resource="#SBOLPrefix"/>
   <rdfs:domain rdf:resource="#SBOLUnit"/>
+  <rdfs:domain rdf:resource="#SBOLPrefix"/>
   <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">alternativeSymbol</rdfs:label>
 </owl:DatatypeProperty>
@@ -601,15 +601,15 @@
 
 <owl:DatatypeProperty rdf:about="#longComment">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-  <rdfs:domain rdf:resource="#SBOLPrefix"/>
   <rdfs:domain rdf:resource="#SBOLUnit"/>
+  <rdfs:domain rdf:resource="#SBOLPrefix"/>
   <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">longComment</rdfs:label>
 </owl:DatatypeProperty>
 
 <owl:DatatypeProperty rdf:about="#hasFactor">
-  <rdfs:domain rdf:resource="#SBOLPrefix"/>
   <rdfs:domain rdf:resource="#SBOLSingularUnit"/>
+  <rdfs:domain rdf:resource="#SBOLPrefix"/>
   <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hasFactor</rdfs:label>
 </owl:DatatypeProperty>
@@ -658,10 +658,10 @@
   <owl:equivalentClass>
     <owl:Class>
       <owl:unionOf rdf:parseType="Collection">
-        <rdf:Description rdf:about="https://identifiers.org/EDAM:format_1207"/>
-        <rdf:Description rdf:about="https://identifiers.org/EDAM:format_1208"/>
-        <rdf:Description rdf:about="https://identifiers.org/EDAM:format_1197"/>
-        <rdf:Description rdf:about="https://identifiers.org/EDAM:format_1196"/>
+        <rdf:Description rdf:about="https://identifiers.org/edam:format_1207"/>
+        <rdf:Description rdf:about="https://identifiers.org/edam:format_1208"/>
+        <rdf:Description rdf:about="https://identifiers.org/edam:format_1197"/>
+        <rdf:Description rdf:about="https://identifiers.org/edam:format_1196"/>
       </owl:unionOf>
     </owl:Class>
   </owl:equivalentClass>
@@ -1488,9 +1488,9 @@
   <owl:equivalentClass>
     <owl:Class>
       <owl:unionOf rdf:parseType="Collection">
-        <rdf:Description rdf:about="https://identifiers.org/EDAM:format_2585"/>
-        <rdf:Description rdf:about="https://identifiers.org/EDAM:format_3240"/>
-        <rdf:Description rdf:about="https://identifiers.org/EDAM:format_3156"/>
+        <rdf:Description rdf:about="https://identifiers.org/edam:format_2585"/>
+        <rdf:Description rdf:about="https://identifiers.org/edam:format_3240"/>
+        <rdf:Description rdf:about="https://identifiers.org/edam:format_3156"/>
       </owl:unionOf>
     </owl:Class>
   </owl:equivalentClass>
@@ -1525,7 +1525,7 @@
         <rdf:Description rdf:about="#SequenceWithElements"/>
         <owl:Restriction>
           <owl:onProperty rdf:resource="#encoding"/>
-          <owl:someValuesFrom rdf:resource="https://identifiers.org/EDAM:format_1207"/>
+          <owl:someValuesFrom rdf:resource="https://identifiers.org/edam:format_1207"/>
         </owl:Restriction>
       </owl:intersectionOf>
     </owl:Class>
@@ -1541,7 +1541,7 @@
         <rdf:Description rdf:about="#SequenceWithElements"/>
         <owl:Restriction>
           <owl:onProperty rdf:resource="#encoding"/>
-          <owl:someValuesFrom rdf:resource="https://identifiers.org/EDAM:format_1207"/>
+          <owl:someValuesFrom rdf:resource="https://identifiers.org/edam:format_1207"/>
         </owl:Restriction>
       </owl:intersectionOf>
     </owl:Class>
@@ -1557,7 +1557,7 @@
         <rdf:Description rdf:about="#SequenceWithElements"/>
         <owl:Restriction>
           <owl:onProperty rdf:resource="#encoding"/>
-          <owl:someValuesFrom rdf:resource="https://identifiers.org/EDAM:format_1208"/>
+          <owl:someValuesFrom rdf:resource="https://identifiers.org/edam:format_1208"/>
         </owl:Restriction>
       </owl:intersectionOf>
     </owl:Class>
@@ -1573,7 +1573,7 @@
         <rdf:Description rdf:about="#SequenceWithElements"/>
         <owl:Restriction>
           <owl:onProperty rdf:resource="#encoding"/>
-          <owl:someValuesFrom rdf:resource="https://identifiers.org/EDAM:format_1197"/>
+          <owl:someValuesFrom rdf:resource="https://identifiers.org/edam:format_1197"/>
         </owl:Restriction>
       </owl:intersectionOf>
     </owl:Class>
@@ -1589,7 +1589,7 @@
         <rdf:Description rdf:about="#SequenceWithElements"/>
         <owl:Restriction>
           <owl:onProperty rdf:resource="#encoding"/>
-          <owl:someValuesFrom rdf:resource="https://identifiers.org/EDAM:format_1196"/>
+          <owl:someValuesFrom rdf:resource="https://identifiers.org/edam:format_1196"/>
         </owl:Restriction>
       </owl:intersectionOf>
     </owl:Class>
