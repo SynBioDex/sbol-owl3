@@ -1448,7 +1448,7 @@ with om:
   class BinaryPrefix(Prefix):
       label = "BinaryPrefix"
 
-with sbol3:
+with om:
   class SBOLUnit(TopLevel):
     label = "Unit"
     otol.replacementOf = om.Unit
@@ -1547,11 +1547,11 @@ with sbol3:
 
   class alternativeLabel(DataProperty):
     label = ["alternativeSymbol"]
-    domain = [SBOLUnit]
+    domain = [SBOLUnit, SBOLPrefix]
     range  = [str]
 
   class longComment(DataProperty, FunctionalProperty):
-    label = ["longComment"]
+    label = ["longcomment"]
     domain = [SBOLUnit,SBOLPrefix]
     range  = [str]
 
@@ -1581,10 +1581,10 @@ with sbol3:
     range  = [SBOLUnit]
   SBOLUnitDivision.is_a.append(hasDenominator.some(SBOLUnit))
 
-  class hasBase1(ObjectProperty,FunctionalProperty):
+  class hasBase(ObjectProperty,FunctionalProperty):
     domain = [SBOLUnitExponentiation]
     range  = [SBOLUnit]
-  SBOLUnitExponentiation.is_a.append(hasBase1.some(SBOLUnit))
+  SBOLUnitExponentiation.is_a.append(hasBase.some(SBOLUnit))
 
   class hasExponent(DataProperty,FunctionalProperty):
     domain = [SBOLUnitExponentiation]
