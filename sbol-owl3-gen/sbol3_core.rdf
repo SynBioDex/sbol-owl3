@@ -4,16 +4,10 @@
          xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
          xmlns:owl="http://www.w3.org/2002/07/owl#"
          xml:base="http://sbols.org/v3"
-         xmlns="http://sbols.org/v3#">
+         xmlns="http://sbols.org/v3#"
+         xmlns:otol="http://keele.ac.uk/scm/otol#">
 
-<owl:Ontology rdf:about="http://sbols.org/v3">
-  <owl:imports rdf:resource="https://identifiers.org/SBO:"/>
-  <owl:imports rdf:resource="https://identifiers.org/SO:"/>
-  <owl:imports rdf:resource="https://identifiers.org/edam:"/>
-  <owl:imports rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2"/>
-  <owl:imports rdf:resource="https://identifiers.org/CHEBI:"/>
-  <owl:imports rdf:resource="https://identifiers.org/GO:"/>
-</owl:Ontology>
+<owl:Ontology rdf:about="http://sbols.org/v3"/>
 
 <owl:ObjectProperty rdf:about="#comprises">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
@@ -144,14 +138,7 @@
       </owl:unionOf>
     </owl:Class>
   </rdfs:domain>
-  <rdfs:range>
-    <owl:Class>
-      <owl:unionOf rdf:parseType="Collection">
-        <rdf:Description rdf:about="#inline"/>
-        <rdf:Description rdf:about="#reverseComplement"/>
-      </owl:unionOf>
-    </owl:Class>
-  </rdfs:range>
+  <rdfs:range rdf:resource="#Orientation"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">orientation</rdfs:label>
 </owl:ObjectProperty>
 
@@ -381,56 +368,6 @@
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">format</rdfs:label>
 </owl:ObjectProperty>
 
-<owl:ObjectProperty rdf:about="#hasNumericalValue">
-  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-  <rdfs:domain rdf:resource="#SBOLMeasure"/>
-  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
-  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hasNumericalValue</rdfs:label>
-</owl:ObjectProperty>
-
-<owl:ObjectProperty rdf:about="#hasUnit">
-  <rdfs:domain rdf:resource="#SBOLMeasure"/>
-  <rdfs:domain rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/SBOLUnit"/>
-  <rdfs:range rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/SBOLUnit"/>
-  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hasUnit</rdfs:label>
-</owl:ObjectProperty>
-
-<owl:ObjectProperty rdf:about="#hasTerm1">
-  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-  <rdfs:domain rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/SBOLUnitMultiplication"/>
-  <rdfs:range rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/SBOLUnit"/>
-</owl:ObjectProperty>
-
-<owl:ObjectProperty rdf:about="#hasTerm2">
-  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-  <rdfs:domain rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/SBOLUnitMultiplication"/>
-  <rdfs:range rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/SBOLUnit"/>
-</owl:ObjectProperty>
-
-<owl:ObjectProperty rdf:about="#hasNumerator">
-  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-  <rdfs:domain rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/SBOLUnitDivision"/>
-  <rdfs:range rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/SBOLUnit"/>
-</owl:ObjectProperty>
-
-<owl:ObjectProperty rdf:about="#hasDenominator">
-  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-  <rdfs:domain rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/SBOLUnitDivision"/>
-  <rdfs:range rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/SBOLUnit"/>
-</owl:ObjectProperty>
-
-<owl:ObjectProperty rdf:about="#hasBase1">
-  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-  <rdfs:domain rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/SBOLUnitExponentiation"/>
-  <rdfs:range rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/SBOLUnit"/>
-</owl:ObjectProperty>
-
-<owl:ObjectProperty rdf:about="#hasPrefix">
-  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-  <rdfs:domain rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/SBOLPrefixedUnit"/>
-  <rdfs:range rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/SBOLPrefix"/>
-</owl:ObjectProperty>
-
 <owl:DatatypeProperty rdf:about="#displayId">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
   <rdfs:domain rdf:resource="#Identified"/>
@@ -540,7 +477,7 @@
       </owl:withRestrictions>
     </rdfs:Datatype>
   </rdfs:range>
-  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">start</rdfs:label>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">at</rdfs:label>
 </owl:DatatypeProperty>
 
 <owl:DatatypeProperty rdf:about="#size">
@@ -578,50 +515,14 @@
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hashAlgorithm</rdfs:label>
 </owl:DatatypeProperty>
 
-<owl:DatatypeProperty rdf:about="#symbol">
-  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-  <rdfs:domain rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/SBOLPrefix"/>
-  <rdfs:domain rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/SBOLUnit"/>
-  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">symbol</rdfs:label>
-</owl:DatatypeProperty>
-
-<owl:DatatypeProperty rdf:about="#alternativeSymbol">
-  <rdfs:domain rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/SBOLPrefix"/>
-  <rdfs:domain rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/SBOLUnit"/>
-  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">alternativeSymbol</rdfs:label>
-</owl:DatatypeProperty>
-
-<owl:DatatypeProperty rdf:about="#alternativeLabel">
-  <rdfs:domain rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/SBOLUnit"/>
-  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">alternativeSymbol</rdfs:label>
-</owl:DatatypeProperty>
-
-<owl:DatatypeProperty rdf:about="#longComment">
-  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-  <rdfs:domain rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/SBOLPrefix"/>
-  <rdfs:domain rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/SBOLUnit"/>
-  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">longComment</rdfs:label>
-</owl:DatatypeProperty>
-
-<owl:DatatypeProperty rdf:about="#hasFactor">
-  <rdfs:domain rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/SBOLPrefix"/>
-  <rdfs:domain rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/SBOLSingularUnit"/>
-  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
-  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hasFactor</rdfs:label>
-</owl:DatatypeProperty>
-
-<owl:DatatypeProperty rdf:about="#hasExponent">
-  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-  <rdfs:domain rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/SBOLUnitExponentiation"/>
-  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
-</owl:DatatypeProperty>
+<owl:Class rdf:about="#SBOLValue">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <otol:vocabulary rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:vocabulary>
+</owl:Class>
 
 <owl:Class rdf:about="#ComponentType">
   <rdfs:subClassOf rdf:resource="https://identifiers.org/SBO:0000236"/>
+  <rdfs:subClassOf rdf:resource="#SBOLValue"/>
   <owl:equivalentClass>
     <owl:Class>
       <owl:unionOf rdf:parseType="Collection">
@@ -646,15 +547,17 @@
     </owl:Class>
   </owl:equivalentClass>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Component Type</rdfs:label>
+  <otol:constantList rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:constantList>
 </owl:Class>
 
 <owl:Class rdf:about="#DNARNAComponentType">
   <rdfs:subClassOf rdf:resource="#ComponentType"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DNA or RNA Component Type</rdfs:label>
+  <otol:constantList rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:constantList>
 </owl:Class>
 
 <owl:Class rdf:about="#Encoding">
-  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:subClassOf rdf:resource="#SBOLValue"/>
   <owl:equivalentClass>
     <owl:Class>
       <owl:unionOf rdf:parseType="Collection">
@@ -666,10 +569,16 @@
     </owl:Class>
   </owl:equivalentClass>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Encoding</rdfs:label>
+  <otol:constantList rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:constantList>
+</owl:Class>
+
+<owl:Class rdf:about="#ComponentRole">
+  <rdfs:subClassOf rdf:resource="#SBOLValue"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Component Role</rdfs:label>
 </owl:Class>
 
 <owl:Class rdf:about="#DNARole">
-  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:subClassOf rdf:resource="#ComponentRole"/>
   <owl:equivalentClass>
     <owl:Class>
       <owl:unionOf rdf:parseType="Collection">
@@ -685,10 +594,11 @@
     </owl:Class>
   </owl:equivalentClass>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DNA Role</rdfs:label>
+  <otol:constantList rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:constantList>
 </owl:Class>
 
 <owl:Class rdf:about="#RNARole">
-  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:subClassOf rdf:resource="#ComponentRole"/>
   <owl:equivalentClass>
     <owl:Class>
       <owl:unionOf rdf:parseType="Collection">
@@ -698,10 +608,11 @@
     </owl:Class>
   </owl:equivalentClass>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RNA role</rdfs:label>
+  <otol:constantList rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:constantList>
 </owl:Class>
 
 <owl:Class rdf:about="#ProteinRole">
-  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:subClassOf rdf:resource="#ComponentRole"/>
   <owl:equivalentClass>
     <owl:Class>
       <owl:unionOf rdf:parseType="Collection">
@@ -711,10 +622,11 @@
     </owl:Class>
   </owl:equivalentClass>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Protein Role</rdfs:label>
+  <otol:constantList rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:constantList>
 </owl:Class>
 
 <owl:Class rdf:about="#SmallMoleculeRole">
-  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:subClassOf rdf:resource="#ComponentRole"/>
   <owl:equivalentClass>
     <owl:Class>
       <owl:unionOf rdf:parseType="Collection">
@@ -724,6 +636,7 @@
     </owl:Class>
   </owl:equivalentClass>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Small Molecule Role</rdfs:label>
+  <otol:constantList rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:constantList>
 </owl:Class>
 
 <owl:Class rdf:about="#Identified">
@@ -752,6 +665,7 @@
 <owl:Class rdf:about="#Sequence">
   <rdfs:subClassOf rdf:resource="#TopLevel"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sequence</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
 </owl:Class>
 
 <owl:Class rdf:about="#Component">
@@ -776,6 +690,7 @@
     </owl:Restriction>
   </rdfs:subClassOf>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Component</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
 </owl:Class>
 
 <owl:Class rdf:about="#Model">
@@ -799,11 +714,13 @@
     </owl:Restriction>
   </rdfs:subClassOf>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Model</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
 </owl:Class>
 
 <owl:Class rdf:about="#Implementation">
   <rdfs:subClassOf rdf:resource="#TopLevel"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Implementation</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
 </owl:Class>
 
 <owl:Class rdf:about="#Attachment">
@@ -815,21 +732,25 @@
     </owl:Restriction>
   </rdfs:subClassOf>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Attachment</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
 </owl:Class>
 
 <owl:Class rdf:about="#Collection">
   <rdfs:subClassOf rdf:resource="#TopLevel"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Collection</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
 </owl:Class>
 
 <owl:Class rdf:about="#Experiment">
   <rdfs:subClassOf rdf:resource="#Collection"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Experiment</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
 </owl:Class>
 
 <owl:Class rdf:about="#ExperimentalData">
   <rdfs:subClassOf rdf:resource="#TopLevel"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ExperimentalData</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
 </owl:Class>
 
 <owl:Class rdf:about="#CombinatorialDerivation">
@@ -841,6 +762,7 @@
     </owl:Restriction>
   </rdfs:subClassOf>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CombinatorialDerivation</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
 </owl:Class>
 
 <owl:Class rdf:about="#Interaction">
@@ -852,6 +774,7 @@
     </owl:Restriction>
   </rdfs:subClassOf>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Interaction</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
 </owl:Class>
 
 <owl:Class rdf:about="#Constraint">
@@ -875,16 +798,19 @@
     </owl:Restriction>
   </rdfs:subClassOf>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Constraint</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
 </owl:Class>
 
 <owl:Class rdf:about="#Interface">
   <rdfs:subClassOf rdf:resource="#Identified"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Interface</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
 </owl:Class>
 
 <owl:Class rdf:about="#Feature">
   <rdfs:subClassOf rdf:resource="#Identified"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Feature</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
 </owl:Class>
 
 <owl:Class rdf:about="#SubComponent">
@@ -896,6 +822,7 @@
     </owl:Restriction>
   </rdfs:subClassOf>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SubComponent</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
 </owl:Class>
 
 <owl:Class rdf:about="#ComponentReference">
@@ -913,6 +840,7 @@
     </owl:Restriction>
   </rdfs:subClassOf>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ComponentReference</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
 </owl:Class>
 
 <owl:Class rdf:about="#ExternallyDefined">
@@ -930,6 +858,7 @@
     </owl:Restriction>
   </rdfs:subClassOf>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ExternallyDefined</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
 </owl:Class>
 
 <owl:Class rdf:about="#LocalSubComponent">
@@ -941,6 +870,7 @@
     </owl:Restriction>
   </rdfs:subClassOf>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LocalSubComponent</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
 </owl:Class>
 
 <owl:Class rdf:about="#SequenceFeature">
@@ -952,6 +882,7 @@
     </owl:Restriction>
   </rdfs:subClassOf>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SequenceFeature</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
 </owl:Class>
 
 <owl:Class rdf:about="#Location">
@@ -970,6 +901,7 @@
     </owl:Restriction>
   </rdfs:subClassOf>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Location</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
 </owl:Class>
 
 <owl:Class rdf:about="#Range">
@@ -1015,6 +947,7 @@
     </owl:Restriction>
   </rdfs:subClassOf>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Range</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
 </owl:Class>
 
 <owl:Class rdf:about="#Cut">
@@ -1040,11 +973,13 @@
     </owl:Restriction>
   </rdfs:subClassOf>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cut</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
 </owl:Class>
 
 <owl:Class rdf:about="#EntireSequence">
   <rdfs:subClassOf rdf:resource="#Location"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">EntireSequence</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
 </owl:Class>
 
 <owl:Class rdf:about="#Participation">
@@ -1056,6 +991,7 @@
     </owl:Restriction>
   </rdfs:subClassOf>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Participation</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
 </owl:Class>
 
 <owl:Class rdf:about="#VariableFeature">
@@ -1073,6 +1009,7 @@
     </owl:Restriction>
   </rdfs:subClassOf>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">VariableFeature</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
 </owl:Class>
 
 <owl:Class rdf:about="#Metadata">
@@ -1084,6 +1021,7 @@
     </owl:Restriction>
   </rdfs:subClassOf>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Metadata</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
 </owl:Class>
 
 <owl:Class rdf:about="#GenericTopLevel">
@@ -1095,52 +1033,61 @@
     </owl:Restriction>
   </rdfs:subClassOf>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">GenericTopLevel</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
 </owl:Class>
 
 <owl:Class rdf:about="#SBOLActivity">
   <rdfs:subClassOf rdf:resource="#TopLevel"/>
+  <otol:replacementOf rdf:resource="https://www.w3.org/ns/prov#Activity"/>
   <rdfs:subClassOf rdf:resource="https://www.w3.org/ns/prov#Activity"/>
-  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SBOLActivity</rdfs:label>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SBOL Activity</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
 </owl:Class>
 
 <owl:Class rdf:about="#SBOLPlan">
   <rdfs:subClassOf rdf:resource="#TopLevel"/>
+  <otol:replacementOf rdf:resource="https://www.w3.org/ns/prov#Plan"/>
   <rdfs:subClassOf rdf:resource="https://www.w3.org/ns/prov#Plan"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SBOLPlan</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
 </owl:Class>
 
 <owl:Class rdf:about="#SBOLAgent">
   <rdfs:subClassOf rdf:resource="#TopLevel"/>
+  <otol:replacementOf rdf:resource="https://www.w3.org/ns/prov#Agent"/>
   <rdfs:subClassOf rdf:resource="https://www.w3.org/ns/prov#Agent"/>
-  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SBOLAgent</rdfs:label>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SBOL Agent</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
 </owl:Class>
 
 <owl:Class rdf:about="#SBOLUsage">
   <rdfs:subClassOf rdf:resource="#Identified"/>
+  <otol:replacementOf rdf:resource="https://www.w3.org/ns/prov#Usage"/>
   <rdfs:subClassOf rdf:resource="https://www.w3.org/ns/prov#Usage"/>
-  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SBOLUsage</rdfs:label>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SBOL Usage</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
 </owl:Class>
 
 <owl:Class rdf:about="#SBOLAssociation">
   <rdfs:subClassOf rdf:resource="#Identified"/>
+  <otol:replacementOf rdf:resource="https://www.w3.org/ns/prov#Association"/>
   <rdfs:subClassOf rdf:resource="https://www.w3.org/ns/prov#Association"/>
-  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SBOLAssociation</rdfs:label>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SBOL Association</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
 </owl:Class>
 
 <owl:Class rdf:about="#SBOLMeasure">
   <rdfs:subClassOf rdf:resource="#Identified"/>
+  <otol:replacementOf rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
   <rdfs:subClassOf rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
-  <rdfs:subClassOf>
-    <owl:Restriction>
-      <owl:onProperty rdf:resource="#hasNumericalValue"/>
-      <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
-    </owl:Restriction>
-  </rdfs:subClassOf>
-  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Measure</rdfs:label>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SBOL Measure</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
 </owl:Class>
 
 <owl:Class rdf:about="#SBOLTerm">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SBOL Term</rdfs:label>
+  <otol:vocabulary rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:vocabulary>
 </owl:Class>
 
 <owl:Class rdf:about="#Orientation">
@@ -1154,6 +1101,7 @@
     </owl:Class>
   </owl:equivalentClass>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Orientation</rdfs:label>
+  <otol:constantList rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:constantList>
 </owl:Class>
 
 <owl:Class rdf:about="#inline">
@@ -1177,6 +1125,7 @@
     </owl:Class>
   </owl:equivalentClass>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CombinatorialDerivationStrategy</rdfs:label>
+  <otol:constantList rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:constantList>
 </owl:Class>
 
 <owl:Class rdf:about="#enumerate">
@@ -1202,6 +1151,7 @@
     </owl:Class>
   </owl:equivalentClass>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cardinality</rdfs:label>
+  <otol:constantList rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:constantList>
 </owl:Class>
 
 <owl:Class rdf:about="#zeroOrOne">
@@ -1224,16 +1174,6 @@
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OneOrMore</rdfs:label>
 </owl:Class>
 
-<owl:Class rdf:about="#overrideRoles">
-  <rdfs:subClassOf rdf:resource="#SBOLTerm"/>
-  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">overrideRoles</rdfs:label>
-</owl:Class>
-
-<owl:Class rdf:about="#mergeRoles">
-  <rdfs:subClassOf rdf:resource="#SBOLTerm"/>
-  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">mergeRoles</rdfs:label>
-</owl:Class>
-
 <owl:Class rdf:about="#RoleIntegration">
   <rdfs:subClassOf rdf:resource="#SBOLTerm"/>
   <owl:equivalentClass>
@@ -1245,10 +1185,21 @@
     </owl:Class>
   </owl:equivalentClass>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RoleIntegration</rdfs:label>
+  <otol:constantList rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:constantList>
+</owl:Class>
+
+<owl:Class rdf:about="#overrideRoles">
+  <rdfs:subClassOf rdf:resource="#RoleIntegration"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">overrideRoles</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#mergeRoles">
+  <rdfs:subClassOf rdf:resource="#RoleIntegration"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">mergeRoles</rdfs:label>
 </owl:Class>
 
 <owl:Class rdf:about="#NucleicAcidTopology">
-  <rdfs:subClassOf rdf:resource="#SBOLTerm"/>
+  <rdfs:subClassOf rdf:resource="#SBOLValue"/>
   <owl:equivalentClass>
     <owl:Class>
       <owl:unionOf rdf:parseType="Collection">
@@ -1260,12 +1211,14 @@
     </owl:Class>
   </owl:equivalentClass>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NucleicAcidTopology</rdfs:label>
+  <otol:constantList rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:constantList>
 </owl:Class>
 
 <owl:Class rdf:about="#ConstraintRestriction">
   <rdfs:subClassOf rdf:resource="#SBOLTerm"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ConstraintRestriction</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Controlled vocabulary for the types of relationships that can be expressed in Constraints.</rdfs:comment>
+  <otol:constantList rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:constantList>
 </owl:Class>
 
 <owl:Class rdf:about="#verifyIdentical">
@@ -1370,6 +1323,7 @@
     </owl:Class>
   </owl:equivalentClass>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SequentialRestriction</rdfs:label>
+  <otol:constantList rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:constantList>
 </owl:Class>
 
 <owl:Class rdf:about="#IdentityRestriction">
@@ -1384,6 +1338,7 @@
     </owl:Class>
   </owl:equivalentClass>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">IdentityRestriction</rdfs:label>
+  <otol:constantList rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:constantList>
 </owl:Class>
 
 <owl:Class rdf:about="#TopologyRestriction">
@@ -1402,6 +1357,7 @@
     </owl:Class>
   </owl:equivalentClass>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">TopologyRestriction</rdfs:label>
+  <otol:constantList rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:constantList>
 </owl:Class>
 
 <owl:Class rdf:about="#OrientationRestriction">
@@ -1415,6 +1371,7 @@
     </owl:Class>
   </owl:equivalentClass>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OrientationRestriction</rdfs:label>
+  <otol:constantList rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:constantList>
 </owl:Class>
 
 <owl:Class rdf:about="#sameOrientationAs">
@@ -1430,7 +1387,7 @@
 </owl:Class>
 
 <owl:Class rdf:about="#InteractionType">
-  <rdfs:subClassOf rdf:resource="#SBOLTerm"/>
+  <rdfs:subClassOf rdf:resource="#SBOLValue"/>
   <owl:equivalentClass>
     <owl:Class>
       <owl:unionOf rdf:parseType="Collection">
@@ -1445,10 +1402,11 @@
     </owl:Class>
   </owl:equivalentClass>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">InteractionType</rdfs:label>
+  <otol:constantList rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:constantList>
 </owl:Class>
 
 <owl:Class rdf:about="#ParticipationRole">
-  <rdfs:subClassOf rdf:resource="#SBOLTerm"/>
+  <rdfs:subClassOf rdf:resource="#SBOLValue"/>
   <owl:equivalentClass>
     <owl:Class>
       <owl:unionOf rdf:parseType="Collection">
@@ -1465,10 +1423,11 @@
     </owl:Class>
   </owl:equivalentClass>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ParticipationRole</rdfs:label>
+  <otol:constantList rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:constantList>
 </owl:Class>
 
 <owl:Class rdf:about="#ModelFramework">
-  <rdfs:subClassOf rdf:resource="#SBOLTerm"/>
+  <rdfs:subClassOf rdf:resource="#SBOLValue"/>
   <owl:equivalentClass>
     <owl:Class>
       <owl:unionOf rdf:parseType="Collection">
@@ -1481,10 +1440,11 @@
     </owl:Class>
   </owl:equivalentClass>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ModelFramework</rdfs:label>
+  <otol:constantList rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:constantList>
 </owl:Class>
 
 <owl:Class rdf:about="#ModelLanguage">
-  <rdfs:subClassOf rdf:resource="#SBOLTerm"/>
+  <rdfs:subClassOf rdf:resource="#SBOLValue"/>
   <owl:equivalentClass>
     <owl:Class>
       <owl:unionOf rdf:parseType="Collection">
@@ -1495,6 +1455,7 @@
     </owl:Class>
   </owl:equivalentClass>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ModelLanguage</rdfs:label>
+  <otol:constantList rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:constantList>
 </owl:Class>
 
 <owl:Class rdf:about="#SequenceWithElements">
@@ -1531,6 +1492,7 @@
     </owl:Class>
   </owl:equivalentClass>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DNA Sequence</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
 </owl:Class>
 
 <owl:Class rdf:about="#RNASequence">
@@ -1547,6 +1509,7 @@
     </owl:Class>
   </owl:equivalentClass>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RNA Sequence</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
 </owl:Class>
 
 <owl:Class rdf:about="#ProteinSequence">
@@ -1563,6 +1526,7 @@
     </owl:Class>
   </owl:equivalentClass>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Protein Sequence</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
 </owl:Class>
 
 <owl:Class rdf:about="#InChISequence">
@@ -1579,6 +1543,7 @@
     </owl:Class>
   </owl:equivalentClass>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">InChI Sequence</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
 </owl:Class>
 
 <owl:Class rdf:about="#SMILESSequence">
@@ -1595,6 +1560,7 @@
     </owl:Class>
   </owl:equivalentClass>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SMILES Sequence</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
 </owl:Class>
 
 <owl:Class rdf:about="#DNAComponent">
@@ -1619,6 +1585,7 @@
     </owl:Class>
   </owl:equivalentClass>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DNA Component</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
 </owl:Class>
 
 <owl:Class rdf:about="#RNAComponent">
@@ -1643,6 +1610,7 @@
     </owl:Class>
   </owl:equivalentClass>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RNA Component</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
 </owl:Class>
 
 <owl:Class rdf:about="#ProteinComponent">
@@ -1667,6 +1635,7 @@
     </owl:Class>
   </owl:equivalentClass>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Protein Component</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
 </owl:Class>
 
 <owl:Class rdf:about="#SimpleChemicalComponent">
@@ -1698,6 +1667,7 @@
     </owl:Class>
   </owl:equivalentClass>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Simple Chemical Component</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
 </owl:Class>
 
 <owl:Class rdf:about="#NonCovalentComplexComponent">
@@ -1714,6 +1684,7 @@
     </owl:Class>
   </owl:equivalentClass>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Non-Covalent Complex Component</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
 </owl:Class>
 
 <owl:Class rdf:about="#FunctionalEntityComponent">
@@ -1730,6 +1701,7 @@
     </owl:Class>
   </owl:equivalentClass>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Functional Entity Component</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
 </owl:Class>
 
 <owl:Class rdf:about="#GenericDNAComponent">
@@ -1746,6 +1718,7 @@
     </owl:Class>
   </owl:equivalentClass>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Generic DNA Component</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
 </owl:Class>
 
 <owl:Class rdf:about="#PromoterDNAComponent">
@@ -1762,6 +1735,7 @@
     </owl:Class>
   </owl:equivalentClass>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Promoter DNA Component</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
 </owl:Class>
 
 <owl:Class rdf:about="#RBSDNAComponent">
@@ -1778,6 +1752,7 @@
     </owl:Class>
   </owl:equivalentClass>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RBS DNA Component</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
 </owl:Class>
 
 <owl:Class rdf:about="#CDSDNAComponent">
@@ -1794,6 +1769,7 @@
     </owl:Class>
   </owl:equivalentClass>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CDS DNA Component</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
 </owl:Class>
 
 <owl:Class rdf:about="#TerminatorDNAComponent">
@@ -1810,6 +1786,7 @@
     </owl:Class>
   </owl:equivalentClass>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Terminator DNA Component</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
 </owl:Class>
 
 <owl:Class rdf:about="#GeneDNAComponent">
@@ -1826,6 +1803,7 @@
     </owl:Class>
   </owl:equivalentClass>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Gene DNA Component</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
 </owl:Class>
 
 <owl:Class rdf:about="#OperatorDNAComponent">
@@ -1842,6 +1820,7 @@
     </owl:Class>
   </owl:equivalentClass>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Operator DNA Component</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
 </owl:Class>
 
 <owl:Class rdf:about="#EngineeredRegionDNAComponent">
@@ -1858,6 +1837,7 @@
     </owl:Class>
   </owl:equivalentClass>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Engineered Region DNA Component</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
 </owl:Class>
 
 <owl:Class rdf:about="#EffectorSimpleChemicalComponent">
@@ -1874,6 +1854,7 @@
     </owl:Class>
   </owl:equivalentClass>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Effector Simple Chemical Component</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
 </owl:Class>
 
 <owl:Class rdf:about="#TranscriptionFactorProteinComponent">
@@ -1890,6 +1871,7 @@
     </owl:Class>
   </owl:equivalentClass>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Transcription Factor Protein Component</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
 </owl:Class>
 
 <owl:Class rdf:about="#InhibitorParticipation">
@@ -1906,6 +1888,7 @@
     </owl:Class>
   </owl:equivalentClass>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">InhibitorParticipant</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
 </owl:Class>
 
 <owl:Class rdf:about="#InhibitedParticipation">
@@ -1922,6 +1905,7 @@
     </owl:Class>
   </owl:equivalentClass>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">InhibitedParticipation</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
 </owl:Class>
 
 <owl:Class rdf:about="#StimulatorParticipation">
@@ -1938,6 +1922,7 @@
     </owl:Class>
   </owl:equivalentClass>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">StimulatorParticipation</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
 </owl:Class>
 
 <owl:Class rdf:about="#StimulatedParticipation">
@@ -1954,6 +1939,7 @@
     </owl:Class>
   </owl:equivalentClass>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">StimulatedParticipation</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
 </owl:Class>
 
 <owl:Class rdf:about="#ReactantParticipation">
@@ -1970,6 +1956,7 @@
     </owl:Class>
   </owl:equivalentClass>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ReactantParticipation</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
 </owl:Class>
 
 <owl:Class rdf:about="#ProductParticipation">
@@ -1986,6 +1973,7 @@
     </owl:Class>
   </owl:equivalentClass>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ProductParticipation</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
 </owl:Class>
 
 <owl:Class rdf:about="#PromoterParticipation">
@@ -2002,6 +1990,7 @@
     </owl:Class>
   </owl:equivalentClass>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PromoterParticipation</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
 </owl:Class>
 
 <owl:Class rdf:about="#ModifierParticipation">
@@ -2018,6 +2007,7 @@
     </owl:Class>
   </owl:equivalentClass>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ModifierParticipation</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
 </owl:Class>
 
 <owl:Class rdf:about="#ModifiedParticipation">
@@ -2034,6 +2024,7 @@
     </owl:Class>
   </owl:equivalentClass>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ModifiedParticipation</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
 </owl:Class>
 
 <owl:Class rdf:about="#TemplateParticipation">
@@ -2050,6 +2041,7 @@
     </owl:Class>
   </owl:equivalentClass>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">TemplateParticipation</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
 </owl:Class>
 
 <owl:Class rdf:about="#InhibitionInteraction">
@@ -2074,6 +2066,7 @@
     </owl:Class>
   </owl:equivalentClass>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">InhibitionInteraction</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
 </owl:Class>
 
 <owl:Class rdf:about="#StimulationInteraction">
@@ -2092,12 +2085,13 @@
         </owl:Restriction>
         <owl:Restriction>
           <owl:onProperty rdf:resource="#participant"/>
-          <owl:someValuesFrom rdf:resource="#StimulatedParticipation"/>
+          <owl:someValuesFrom rdf:resource="#StimulatorParticipation"/>
         </owl:Restriction>
       </owl:intersectionOf>
     </owl:Class>
   </owl:equivalentClass>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">StimulationInteraction</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
 </owl:Class>
 
 <owl:Class rdf:about="#DegradationInteraction">
@@ -2117,18 +2111,8 @@
       </owl:intersectionOf>
     </owl:Class>
   </owl:equivalentClass>
-  <owl:equivalentClass>
-    <owl:Class>
-      <owl:intersectionOf rdf:parseType="Collection">
-        <rdf:Description rdf:about="#Interaction"/>
-        <owl:Restriction>
-          <owl:onProperty rdf:resource="#type"/>
-          <owl:someValuesFrom rdf:resource="https://identifiers.org/SBO:0000168"/>
-        </owl:Restriction>
-      </owl:intersectionOf>
-    </owl:Class>
-  </owl:equivalentClass>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DegradationInteraction</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
 </owl:Class>
 
 <owl:Class rdf:about="#BiochemicalReactionInteraction">
@@ -2165,6 +2149,7 @@
     </owl:Class>
   </owl:equivalentClass>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">BiochemicalReactionInteraction</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
 </owl:Class>
 
 <owl:Class rdf:about="#NonCovalentBindingInteraction">
@@ -2189,6 +2174,7 @@
     </owl:Class>
   </owl:equivalentClass>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NonCovalentBindingInteraction</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
 </owl:Class>
 
 <owl:Class rdf:about="#GeneticProductionInteraction">
@@ -2214,90 +2200,156 @@
     </owl:Class>
   </owl:equivalentClass>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">GeneticProductionInteraction</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
 </owl:Class>
 
 <owl:Class rdf:about="#ControlInteraction">
   <rdfs:subClassOf rdf:resource="#Interaction"/>
-  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DegradationInteraction</rdfs:label>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Interaction"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#type"/>
+          <owl:someValuesFrom rdf:resource="https://identifiers.org/SBO:0000168"/>
+        </owl:Restriction>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#participant"/>
+          <owl:someValuesFrom rdf:resource="#ModifierParticipation"/>
+        </owl:Restriction>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#participant"/>
+          <owl:someValuesFrom rdf:resource="#ModifiedParticipation"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ControlInteraction</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
 </owl:Class>
 
-<rdf:Description rdf:about="http://www.ontology-of-units-of-measure.org/resource/om-2/SBOLUnit">
-  <rdfs:subClassOf>
-    <owl:Restriction>
-      <owl:onProperty rdf:resource="#symbol"/>
-      <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
-    </owl:Restriction>
-  </rdfs:subClassOf>
-</rdf:Description>
+<owl:Class rdf:about="#SBOLUnit">
+  <rdfs:subClassOf rdf:resource="#TopLevel"/>
+  <otol:replacementOf rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Unit"/>
+  <rdfs:subClassOf rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Unit"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Unit</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
+</owl:Class>
 
-<rdf:Description rdf:about="http://www.ontology-of-units-of-measure.org/resource/om-2/SBOLPrefixedUnit">
-  <rdfs:subClassOf>
-    <owl:Restriction>
-      <owl:onProperty rdf:resource="#hasPrefix"/>
-      <owl:someValuesFrom rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/SBOLPrefix"/>
-    </owl:Restriction>
-  </rdfs:subClassOf>
-</rdf:Description>
+<owl:Class rdf:about="#SBOLSingularUnit">
+  <rdfs:subClassOf rdf:resource="#SBOLUnit"/>
+  <otol:replacementOf rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/SingularUnit"/>
+  <rdfs:subClassOf rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/SingularUnit"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SingularUnit</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
+</owl:Class>
 
-<rdf:Description rdf:about="http://www.ontology-of-units-of-measure.org/resource/om-2/SBOLUnitMultiplication">
-  <rdfs:subClassOf>
-    <owl:Restriction>
-      <owl:onProperty rdf:resource="#hasTerm1"/>
-      <owl:someValuesFrom rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/SBOLUnit"/>
-    </owl:Restriction>
-  </rdfs:subClassOf>
-  <rdfs:subClassOf>
-    <owl:Restriction>
-      <owl:onProperty rdf:resource="#hasTerm2"/>
-      <owl:someValuesFrom rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/SBOLUnit"/>
-    </owl:Restriction>
-  </rdfs:subClassOf>
-</rdf:Description>
+<owl:Class rdf:about="#SBOLCompoundUnit">
+  <rdfs:subClassOf rdf:resource="#SBOLUnit"/>
+  <otol:replacementOf rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/CompoundUnit"/>
+  <rdfs:subClassOf rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/CompoundUnit"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CompoundUnit</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
+</owl:Class>
 
-<rdf:Description rdf:about="http://www.ontology-of-units-of-measure.org/resource/om-2/SBOLUnitDivision">
-  <rdfs:subClassOf>
-    <owl:Restriction>
-      <owl:onProperty rdf:resource="#hasNumerator"/>
-      <owl:someValuesFrom rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/SBOLUnit"/>
-    </owl:Restriction>
-  </rdfs:subClassOf>
-  <rdfs:subClassOf>
-    <owl:Restriction>
-      <owl:onProperty rdf:resource="#hasDenominator"/>
-      <owl:someValuesFrom rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/SBOLUnit"/>
-    </owl:Restriction>
-  </rdfs:subClassOf>
-</rdf:Description>
+<owl:Class rdf:about="#SBOLPrefixedUnit">
+  <rdfs:subClassOf rdf:resource="#SBOLUnit"/>
+  <otol:replacementOf rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/PrefixedUnit"/>
+  <rdfs:subClassOf rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/PrefixedUnit"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PrefixedUnit</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
+</owl:Class>
 
-<rdf:Description rdf:about="http://www.ontology-of-units-of-measure.org/resource/om-2/SBOLUnitExponentiation">
-  <rdfs:subClassOf>
-    <owl:Restriction>
-      <owl:onProperty rdf:resource="#hasBase1"/>
-      <owl:someValuesFrom rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/SBOLUnit"/>
-    </owl:Restriction>
-  </rdfs:subClassOf>
-  <rdfs:subClassOf>
-    <owl:Restriction>
-      <owl:onProperty rdf:resource="#hasExponent"/>
-      <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
-    </owl:Restriction>
-  </rdfs:subClassOf>
-</rdf:Description>
+<owl:Class rdf:about="#SBOLUnitMultiplication">
+  <rdfs:subClassOf rdf:resource="#SBOLUnit"/>
+  <otol:replacementOf rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/UnitMultiplication"/>
+  <rdfs:subClassOf rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/UnitMultiplication"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">UnitMultiplication</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
+</owl:Class>
 
-<rdf:Description rdf:about="http://www.ontology-of-units-of-measure.org/resource/om-2/SBOLPrefix">
-  <rdfs:subClassOf>
-    <owl:Restriction>
-      <owl:onProperty rdf:resource="#symbol"/>
-      <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
-    </owl:Restriction>
-  </rdfs:subClassOf>
-  <rdfs:subClassOf>
-    <owl:Restriction>
-      <owl:onProperty rdf:resource="#hasFactor"/>
-      <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
-    </owl:Restriction>
-  </rdfs:subClassOf>
-</rdf:Description>
+<owl:Class rdf:about="#SBOLUnitDivision">
+  <rdfs:subClassOf rdf:resource="#SBOLUnit"/>
+  <otol:replacementOf rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/UnitDivision"/>
+  <rdfs:subClassOf rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/UnitDivision"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">UnitDivision</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
+</owl:Class>
+
+<owl:Class rdf:about="#SBOLUnitExponentiation">
+  <rdfs:subClassOf rdf:resource="#SBOLUnit"/>
+  <otol:replacementOf rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/UnitExponentiation"/>
+  <rdfs:subClassOf rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/UnitExponentiation"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">UnitExponentiation</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
+</owl:Class>
+
+<owl:Class rdf:about="#SBOLPrefix">
+  <rdfs:subClassOf rdf:resource="#TopLevel"/>
+  <otol:replacementOf rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Prefix"/>
+  <rdfs:subClassOf rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Prefix"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Prefix</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
+</owl:Class>
+
+<owl:Class rdf:about="#SBOLSIPrefix">
+  <rdfs:subClassOf rdf:resource="#SBOLPrefix"/>
+  <otol:replacementOf rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/SIPrefix"/>
+  <rdfs:subClassOf rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/SIPrefix"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SIPrefix</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
+</owl:Class>
+
+<owl:Class rdf:about="#SBOLBinaryPrefix">
+  <rdfs:subClassOf rdf:resource="#SBOLPrefix"/>
+  <otol:replacementOf rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/BinaryPrefix"/>
+  <rdfs:subClassOf rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/BinaryPrefix"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">BinaryPrefix</rdfs:label>
+  <otol:domainEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</otol:domainEntity>
+</owl:Class>
+
+<owl:AllDisjointClasses>
+  <owl:members rdf:parseType="Collection">
+    <rdf:Description rdf:about="#Component"/>
+    <rdf:Description rdf:about="#Sequence"/>
+    <rdf:Description rdf:about="#Model"/>
+    <rdf:Description rdf:about="#Implementation"/>
+    <rdf:Description rdf:about="#Attachment"/>
+    <rdf:Description rdf:about="#Collection"/>
+    <rdf:Description rdf:about="#ExperimentalData"/>
+    <rdf:Description rdf:about="#CombinatorialDerivation"/>
+    <rdf:Description rdf:about="#SBOLActivity"/>
+    <rdf:Description rdf:about="#SBOLPlan"/>
+    <rdf:Description rdf:about="#SBOLAgent"/>
+    <rdf:Description rdf:about="#SBOLMeasure"/>
+    <rdf:Description rdf:about="#SBOLBinaryPrefix"/>
+    <rdf:Description rdf:about="#SBOLSIPrefix"/>
+    <rdf:Description rdf:about="#SBOLUnitMultiplication"/>
+    <rdf:Description rdf:about="#SBOLUnitDivision"/>
+    <rdf:Description rdf:about="#SBOLUnitExponentiation"/>
+    <rdf:Description rdf:about="#SBOLPrefixedUnit"/>
+    <rdf:Description rdf:about="#SBOLCompoundUnit"/>
+    <rdf:Description rdf:about="#SBOLSingularUnit"/>
+  </owl:members>
+</owl:AllDisjointClasses>
+
+<owl:AllDisjointClasses>
+  <owl:members rdf:parseType="Collection">
+    <rdf:Description rdf:about="#Range"/>
+    <rdf:Description rdf:about="#Cut"/>
+    <rdf:Description rdf:about="#EntireSequence"/>
+  </owl:members>
+</owl:AllDisjointClasses>
+
+<owl:AllDisjointClasses>
+  <owl:members rdf:parseType="Collection">
+    <rdf:Description rdf:about="#SubComponent"/>
+    <rdf:Description rdf:about="#ComponentReference"/>
+    <rdf:Description rdf:about="#LocalSubComponent"/>
+    <rdf:Description rdf:about="#ExternallyDefined"/>
+    <rdf:Description rdf:about="#SequenceFeature"/>
+  </owl:members>
+</owl:AllDisjointClasses>
 
 
 </rdf:RDF>

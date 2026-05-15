@@ -3,17 +3,22 @@ Created on 26 May 2021
 
 @author: gokselmisirli
 '''
+
+# Dependencies: owlready2, rdflib, pylode --> pip install owlready2 rdflib pylode)
 from owlready2 import *
 from rdflib import Graph
 from importlib.metadata import version
 import rdflib
-print('owlready2: ' + version("owlready2"))
+from rdflib.namespace import OWL, RDF
 import sys
-print('Python: ' +  sys.version)
-print('rdflib:' + rdflib.__version__)
-
+import re
+from pathlib import Path
 import types
 import datetime
+
+print('Python: ' +  sys.version)
+print('owlready2: ' + version("owlready2"))
+print('rdflib:' + rdflib.__version__)
 
 sbol3 = get_ontology("http://sbols.org/v3#")
 prov = get_ontology("https://www.w3.org/ns/prov#")
@@ -72,11 +77,11 @@ with sbo:
 
     SBO_0000251 = types.new_class("0000251", (SBO_0000236,))
     SBO_0000251.label = ["DNA"]
-    SBO_0000251.comment = ["DNA molecule", "A polymer consisting of deoxyribonucleotide monomers."]
+    SBO_0000251.comment = ["DNA molecule, a polymer consisting of deoxyribonucleotide monomers."]
 
     SBO_0000250 = types.new_class("0000250", (SBO_0000236,))
     SBO_0000250.label = ["RNA"]
-    SBO_0000250.comment = ["RNA molecule", "A polymer consisting of ribonucleotide monomers."]
+    SBO_0000250.comment = ["RNA molecule, a polymer consisting of ribonucleotide monomers."]
 
     SBO_0000252 = types.new_class("0000252", (SBO_0000236,))
     SBO_0000252.label = ["Protein"]
@@ -109,7 +114,7 @@ with sbo:
     SBO_0000176.label = ["Biochemical Reaction"]
     SBO_0000176.comment = ["An event involving one or more chemical entities that alters their electrochemical structure."]
 
-    # Non-covalent binding or Dissociation
+    # Non-covalent binding or dissociation
     SBO_0000177 = types.new_class("0000177", (SBO_0000176,))
     SBO_0000177.label = ["Non-covalent Binding"]
     SBO_0000177.comment = ["Association without covalent bonds. Biochemical reaction where a molecular complex breaks into smaller components."]
@@ -193,7 +198,7 @@ with sbo:
     SBO_0000598 = types.new_class("0000598", (SBO_0000003,))
     SBO_0000598.label = ["Promoter"]
 
-    # Modelling Framework
+    # Modelling framework
     SBO_0000004 = types.new_class("0000004", (SBO_0000000,))
     SBO_0000004.label = ["modelling framework"]
     SBO_0000004.comment = ["Set of assumptions that underlay a mathematical description."]
@@ -213,7 +218,6 @@ with sbo:
     SBO_0000681 = types.new_class("0000681", (SBO_0000004,))
     SBO_0000681.label = ["hybrid"]
     
-
 with so:
     SO_0000110 = types.new_class("0000110", (Thing,))
     SO_0000110.label = ["Sequence Feature"]
@@ -227,26 +231,21 @@ with so:
     SO_0000139.label = ["Ribosome Binding Site"]
     SO_0000139.comment = ["Region of mRNA where the ribosome assembles to begin translation. A sequence where ribosomes bind to initiate translation."]
 
-
     SO_0000316 = types.new_class("0000316", (SO_0000110,))
     SO_0000316.label = ["Coding Sequence"]
     SO_0000316.comment = ["Coding DNA Sequence - region that can be translated into protein. Coding sequence; DNA region that codes for protein."]
-
 
     SO_0000141 = types.new_class("0000141", (SO_0000110,))
     SO_0000141.label = ["Terminator"]
     SO_0000141.comment = ["Sequence that terminates transcription. A sequence signaling the end of transcription."]
 
-
     SO_0000704 = types.new_class("0000704", (SO_0000110,))
     SO_0000704.label = ["Gene"]
     SO_0000704.comment = ["A region of genomic sequence encoding a gene product. A region of sequence that encodes functional products."]
 
-
     SO_0000057 = types.new_class("0000057", (SO_0000110,))
     SO_0000057.label = ["Operator"]
     SO_0000057.comment = ["A regulatory element controlling gene expression. A DNA regulatory element where a repressor binds to control gene expression."]
-
 
     SO_0000804 = types.new_class("0000804", (SO_0000110,))
     SO_0000804.label = ["Engineered Region"]
@@ -255,15 +254,9 @@ with so:
     SO_0000234 = types.new_class("0000234", (SO_0000110,))
     SO_0000234.label = ["mRNA"]
 
-
-    #Updated by Tolga Medeni, March 05, 2025
-    #400 upper class(SO), 987, 988,984 sub classes
-    #based on Table 3
-
     SO_0000400 = types.new_class("0000400", (Thing,))
     SO_0000400.label = ["Nucleic Acid Topology"]
     SO_0000400.comment = ["An attribute describing a sequence", "An attribute describes a quality of sequence."]
-
 
     SO_0000987 = types.new_class("0000987", (SO_0000400,))
     SO_0000987.label = ["linear"]
@@ -286,8 +279,6 @@ with so:
     SO_0001031.label = ["reverseComplement"]
     SO_0001031.comment = ["Feature located on the reverse complement strand. Orientation corresponding to the reverse strand (complementary to the forward strand)."]
 
-
-
 with chebi:
     CHEBI_50906 = types.new_class("50906", (Thing,))
     CHEBI_50906.label = ["Material Entity"]
@@ -295,16 +286,13 @@ with chebi:
     CHEBI_35224 = types.new_class("35224", (CHEBI_50906,))
     CHEBI_35224.label = ["Effector"]
 
-
 with go:
     GO_0003674 = types.new_class("0003674", (Thing,))
     GO_0003674.label = ["Molecular Function"]
 
     GO_0003700 = types.new_class("0003700", (GO_0003674,))
     GO_0003700.label = ["Transcription Factor"]
-#Updated by Tolga Medeni, March 05, 2025
-#1915 upper class(EDAM), 1207, 1208,1197, 1196 sub classes
-#based on Table 1
+
 with edam:
     EDAM_format_1915 = types.new_class("format_1915", (Thing,))
     EDAM_format_1915.label = ["Format"]
@@ -335,66 +323,48 @@ with edam:
     EDAM_format_3156.comment = ["Biological Pathway Exchange (BioPAX) format."]
 
 with sbol3 :
+    class SBOLValue (Thing):
+      pass
+    SBOLValue.vocabulary = ["true"] # Do not create an object
 
     class ComponentType (SBO_0000236):
         label = "Component Type"
-        otol:constantList = "true"
-    ComponentType.equivalent_to.append(
-        Or([SBO_0000241, SBO_0000247, SBO_0000250, SBO_0000251, SBO_0000252, SBO_0000253])
-    )
-
+    ComponentType.constantList = ["true"]
+    ComponentType.is_a.append(SBOLValue)
+    ComponentType.equivalent_to.append(SBO_0000241 | SBO_0000247 | SBO_0000250 | SBO_0000251 | SBO_0000252 | SBO_0000253)
 
     class DNARNAComponentType (ComponentType):
         label = "DNA or RNA Component Type"
-        otol:constantList = "true"
-    ComponentType.equivalent_to.append(
-        Or([ComponentType, SO_0000987, SO_0000988, SO_0000984, SO_0000985 ])
-    )
+    DNARNAComponentType.constantList = ["true"]
+    ComponentType.equivalent_to.append(ComponentType | SO_0000987 | SO_0000988 | SO_0000984 | SO_0000985)
 
-
-    class Encoding (Thing):
+    class Encoding (SBOLValue):
         label = "Encoding"
-        otol:constantList = "true"
-    Encoding.equivalent_to.append(
-        Or([EDAM_format_1207, EDAM_format_1208, EDAM_format_1197, EDAM_format_1196])
-    )
+    Encoding.constantList = ["true"]
+    Encoding.equivalent_to.append(EDAM_format_1207 | EDAM_format_1208 | EDAM_format_1197 | EDAM_format_1196)
 
-    class DNARole (Thing):
+    class ComponentRole (SBOLValue):
+        label = "Component Role";        
+    
+    class DNARole (ComponentRole):
         label = "DNA Role"
-        otol:constantList = "true"
+    DNARole.constantList = ["true"]
+    DNARole.equivalent_to.append(SO_0000110 | SO_0000167 | SO_0000139 | SO_0000316 | SO_0000141 | SO_0000704 | SO_0000057 | SO_0000804)
 
-    DNARole.equivalent_to.append(
-        Or([SO_0000110, SO_0000167, SO_0000139, SO_0000316, SO_0000141, SO_0000704, SO_0000057, SO_0000804])
-    )
-
-    class RNARole (Thing):
+    class RNARole (ComponentRole):
         label = "RNA role"
-        otol:constantList = "true"
-    RNARole.equivalent_to.append(
-        Or([SO_0000110, SO_0000234])
-    )
+    RNARole.constantList = ["true"]
+    RNARole.equivalent_to.append(SO_0000110 | SO_0000234)
 
-    class ProteinRole (Thing):
+    class ProteinRole (ComponentRole):
         label = "Protein Role"
-        otol:constantList = "true"
-    ProteinRole.equivalent_to.append(
-        Or([GO_0003674, GO_0003700])
-    )
+    ProteinRole.constantList = ["true"]
+    ProteinRole.equivalent_to.append(GO_0003674 | GO_0003700)
 
-    class SmallMoleculeRole (Thing):
+    class SmallMoleculeRole (ComponentRole):
         label = "Small Molecule Role"
-        otol:constantList = "true"
-    SmallMoleculeRole.equivalent_to.append(
-        Or([CHEBI_50906, CHEBI_35224])
-    )
-
-'''
-  class 0000251(0000236):
-    label = "DNA"
-
-  class 0000252 (0000236):
-    label = "RNA"
-  '''
+    SmallMoleculeRole.constantList = ["true"]
+    SmallMoleculeRole.equivalent_to.append(CHEBI_50906 | CHEBI_35224)
 
 with om:
     class Measure(Thing):
@@ -417,7 +387,7 @@ with prov:
         label = "Usage"
 
 with sbol3:
-    #--------------SBOL Entities--------------
+    # ---------SBOL Entities--------------
     class Identified(Thing):
         label = "Identified"
 
@@ -426,162 +396,157 @@ with sbol3:
 
     class Sequence (TopLevel):
         label = "Sequence"
-        otol:domainEntity = "true"
+    Sequence.domainEntity = ["true"]
 
     class Component (TopLevel):
         label = "Component"
-        otol:domainEntity = "true"
+    Component.domainEntity = ["true"]
 
     class Model (TopLevel):
         label = "Model"
-        otol:domainEntity = "true"
+    Model.domainEntity = ["true"]
 
     class Implementation (TopLevel):
         label = "Implementation"
-        otol:domainEntity = "true"
+    Implementation.domainEntity = ["true"]
 
     class Attachment (TopLevel):
         label = "Attachment"
-        otol:domainEntity = "true"
+    Attachment.domainEntity = ["true"]
 
     class Collection (TopLevel):
         label = "Collection"
-        otol:domainEntity = "true"
+    Collection.domainEntity = ["true"]
 
     class Experiment(Collection):
         label = "Experiment"
-        otol:domainEntity = "true"
+    Experiment.domainEntity = ["true"]
 
     class ExperimentalData (TopLevel):
         label = "ExperimentalData"
-        otol:domainEntity = "true"
+    ExperimentalData.domainEntity = ["true"]
 
     class CombinatorialDerivation (TopLevel):
         label = "CombinatorialDerivation"
-        otol:domainEntity = "true"
+    CombinatorialDerivation.domainEntity = ["true"]
 
     class Interaction (Identified):
         label = "Interaction"
-        otol:domainEntity = "true"
+    Interaction.domainEntity = ["true"]
 
     class Constraint (Identified):
         label = "Constraint"
-        otol:domainEntity = "true"
+    Constraint.domainEntity = ["true"]
 
     class Interface (Identified):
         label = "Interface"
-        otol:domainEntity = "true"
+    Interface.domainEntity = ["true"]
 
     class Feature (Identified):
         label = "Feature"
-        otol:domainEntity = "true"
+    Feature.domainEntity = ["true"]
 
     class SubComponent (Feature):
         label = "SubComponent"
-        otol:domainEntity = "true"
+    SubComponent.domainEntity = ["true"]
 
     class ComponentReference (Feature):
         label = "ComponentReference"
-        otol:domainEntity = "true"
+    ComponentReference.domainEntity = ["true"]
 
     class ExternallyDefined (Feature):
         label = "ExternallyDefined"
-        otol:domainEntity = "true"
+    ExternallyDefined.domainEntity = ["true"]
 
     class LocalSubComponent (Feature):
         label = "LocalSubComponent"
-        otol:domainEntity = "true"
+    LocalSubComponent.domainEntity = ["true"]
 
     class SequenceFeature (Feature):
         label = "SequenceFeature"
-        otol:domainEntity = "true"
+    SequenceFeature.domainEntity = ["true"]
 
     class Location (Identified):
         label = "Location"
-        otol:domainEntity = "true"
+    Location.domainEntity = ["true"]
 
     class Range (Location):
         label = "Range"
-        otol:domainEntity = "true"
+    Range.domainEntity = ["true"]
 
     class Cut (Location):
         label = "Cut"
-        otol:domainEntity = "true"
+    Cut.domainEntity = ["true"]
 
     class EntireSequence (Location):
         label = "EntireSequence"
-        otol:domainEntity = "true"
+    EntireSequence.domainEntity = ["true"]
 
     class Participation (Identified):
         label = "Participation"
-        otol:domainEntity = "true"
+    Participation.domainEntity = ["true"]
 
     class VariableFeature (Identified):
         label = "VariableFeature"
-        otol:domainEntity = "true"
+    VariableFeature.domainEntity = ["true"]
     
     class Metadata (Identified):
         label = "Metadata"
-        otol:domainEntity = "true"
+    Metadata.domainEntity = ["true"]
     Metadata.is_a.append(rdfNS.type.some(Thing))#Metadata must have another RDF.type    
     Identified.is_a.append(owlNS.topObjectProperty.min(0,Metadata)) #Identified may have zero or more Metadata annotations, but Metadata must be attached to at least one Identified entity
 
     class GenericTopLevel (TopLevel):
         label = "GenericTopLevel"
-        otol:domainEntity = "true"
+    GenericTopLevel.domainEntity = ["true"]
     GenericTopLevel.is_a.append(rdfNS.type.some(Thing))    #GenericTopLevel must have another RDF.type
     
-
-#--------------Provenance Entities--------------
+# ---------Provenance Entities--------------
     class SBOLActivity(TopLevel):
-      label = "SBOLActivity"
-      otol.replacementOf = prov.Activity
-      otol:domainEntity = "true"
+      label = "SBOL Activity"
+    SBOLActivity.domainEntity = ["true"]
+    SBOLActivity.replacementOf = [prov.Activity]
     SBOLActivity.is_a.append(prov.Activity)
 
     class SBOLPlan(TopLevel):
       label = "SBOLPlan"
-      otol.replacementOf = prov.Plan
-      otol:domainEntity = "true"
+    SBOLPlan.domainEntity = ["true"]
+    SBOLPlan.replacementOf = [prov.Plan]
     SBOLPlan.is_a.append(prov.Plan)
 
     class SBOLAgent(TopLevel):
-      label = "SBOLAgent"
-      otol.replacementOf = prov.Agent
-      otol:domainEntity = "true"
+      label = "SBOL Agent"
+    SBOLAgent.domainEntity = ["true"]
+    SBOLAgent.replacementOf = [prov.Agent]
     SBOLAgent.is_a.append(prov.Agent)
 
     class SBOLUsage(Identified):
-      label = "SBOLUsage"
-      otol.replacementOf = prov.Usage
-      otol:domainEntity = "true"
-
+      label = "SBOL Usage"
+    SBOLUsage.domainEntity = ["true"]
+    SBOLUsage.replacementOf = [prov.Usage]
     SBOLUsage.is_a.append(prov.Usage)
 
     class SBOLAssociation(Identified):
-      label = "SBOLAssociation"
-      otol.replacementOf = prov.Association
-      otol:domainEntity = "true"
+      label = "SBOL Association"
+    SBOLAssociation.domainEntity = ["true"]
+    SBOLAssociation.replacementOf = [prov.Association]
     SBOLAssociation.is_a.append(prov.Association)
 
-
     class SBOLMeasure(Identified):
-      label = "Measure"
-      otol.replacementOf = om.Measure
-      otol:domainEntity = "true"
-
+      label = "SBOL Measure"
+    SBOLMeasure.domainEntity = ["true"]
+    SBOLMeasure.replacementOf = [om.Measure]
     SBOLMeasure.is_a.append(om.Measure)
-      #GMGM SBOLActivity.subClassOf(prov:Activity)
 
-    #--------------SBOL Vocabulary--------------
+    # ---------SBOL Vocabulary--------------
     class SBOLTerm (Thing):
-      otol:vocabulary = "true" # Do not create an object
-
-
+      label = "SBOL Term"
+    SBOLTerm.vocabulary = ["true"] # Do not create an object
+    
     # Orientation terms
     class Orientation (SBOLTerm):
       label = "Orientation"
-      otol:constantList = "true"
+    Orientation.constantList = ["true"]
 
     class inline (Orientation):
         label = "inline"
@@ -591,10 +556,10 @@ with sbol3:
 
     Orientation.equivalent_to.append(inline | reverseComplement)
 
-    #-----CombinatorialDerivationStrategy terms-----
+    # CombinatorialDerivationStrategy terms
     class CombinatorialDerivationStrategy  (SBOLTerm):
         label = "CombinatorialDerivationStrategy"
-        otol:constantList = "true"
+    CombinatorialDerivationStrategy.constantList = ["true"]
 
     class enumerate (CombinatorialDerivationStrategy):
         label = "enumerate"
@@ -604,10 +569,10 @@ with sbol3:
 
     CombinatorialDerivationStrategy.equivalent_to.append(enumerate | sample)
 
-    #-----Cardinality terms-----
+    # Cardinality terms
     class Cardinality  (SBOLTerm):
         label = "Cardinality"
-        otol:constantList = "true"
+    Cardinality.constantList = ["true"]
 
     class zeroOrOne (Cardinality):
         label = "zeroOrOne"
@@ -623,33 +588,30 @@ with sbol3:
 
     Cardinality.equivalent_to.append(zeroOrOne | one | zeroOrMore | oneOrMore)
 
-
-    class overrideRoles (SBOLTerm):
-        label = "overrideRoles"
-
-    class mergeRoles (SBOLTerm):
-        label = "mergeRoles"
-
+    # RoleIntegration terms
     class RoleIntegration (SBOLTerm):
         label = "RoleIntegration"
-        otol:constantList = "true"
+    RoleIntegration.constantList = ["true"]
+
+    class overrideRoles (RoleIntegration):
+        label = "overrideRoles"
+
+    class mergeRoles (RoleIntegration):
+        label = "mergeRoles"
+
     RoleIntegration.equivalent_to.append(overrideRoles | mergeRoles)
 
-    class NucleicAcidTopology (SBOLTerm):
+    # NucleicAcidTopology terms
+    class NucleicAcidTopology (SBOLValue):
         label = "NucleicAcidTopology"
-        otol:constantList = "true"
+    NucleicAcidTopology.constantList = ["true"]
     NucleicAcidTopology.equivalent_to.append(SO_0000987 | SO_0000988 | SO_0000984 | SO_0000985)
 
-    #Orientation.equivalent_to =   [Inline, ReverseComplement]
-    #Orientation.equivalent_to.append(OneOf([Inline, ReverseComplement]))
-    #class ExternallyDefinedA (Thing):pass
-    #ExternallyDefinedA.equivalent_to.append(orientation.only(Inline | ReverseComplement))
-
-    # ----ConstraintRestriction vocabulary----
+    # ConstraintRestriction terms
     class ConstraintRestriction(SBOLTerm):
         label = "ConstraintRestriction"
         comment = "Controlled vocabulary for the types of relationships that can be expressed in Constraints."
-        otol:constantList = "true"
+    ConstraintRestriction.constantList = ["true"]
 
     # Identity relations
     class verifyIdentical(ConstraintRestriction):
@@ -693,7 +655,6 @@ with sbol3:
         label = "isDisjointFrom"
         comment = "Subject and object do not overlap in space."
 
-
     class precedes(ConstraintRestriction):
         label = "precedes"
         comment = "Start of subject location is less than start of object location."
@@ -710,28 +671,28 @@ with sbol3:
         label = "finishes"
         comment = "Subject starts after object starts; end positions are equal."
 
-    # Sequential relations
+    # Sequential restrictions
     class SequentialRestriction(ConstraintRestriction):
         label = "SequentialRestriction"
-        otol:constantList = "true"
+    SequentialRestriction.constantList = ["true"]
     SequentialRestriction.equivalent_to.append(precedes| strictlyPrecedes | meets | overlaps | contains | strictlyContains | equals | starts |finishes)
 
-
+    # Identity restrictions    
     class IdentityRestriction(ConstraintRestriction):
         label = "IdentityRestriction"
-        otol:constantList = "true"
+    IdentityRestriction.constantList = ["true"]
     IdentityRestriction.equivalent_to.append(verifyIdentical | differentFrom | replaces)
 
-
+    # Topology restrictions        
     class TopologyRestriction(ConstraintRestriction):
         label = "TopologyRestriction"
-        otol:constantList = "true"
+    TopologyRestriction.constantList = ["true"]
     TopologyRestriction.equivalent_to.append(isDisjointFrom | strictlyContains | contains | equals | meets | covers | overlaps)
 
-
+    # Orientation restrictions
     class OrientationRestriction(ConstraintRestriction):
         label = "OrientationRestriction"
-        otol:constantList = "true"
+    OrientationRestriction.constantList = ["true"]
 
     class sameOrientationAs(OrientationRestriction):
         label = "sameOrientationAs"
@@ -743,32 +704,31 @@ with sbol3:
 
     OrientationRestriction.equivalent_to.append (sameOrientationAs | oppositeOrientationAs )
 
-    class InteractionType(SBOLTerm):
-        label = "InteractionType"
-        otol:constantList = "true"
-
+    # Interaction types
+    class InteractionType(SBOLValue):
+        label = "InteractionType"    
+    InteractionType.constantList = ["true"]    
     InteractionType.equivalent_to.append(SBO_0000169 | SBO_0000170 | SBO_0000176 | SBO_0000177 | SBO_0000179 | SBO_0000589 | SBO_0000168)
 
-    class ParticipationRole(SBOLTerm):
-        label = "ParticipationRole"
-        otol:constantList = "true"
-
+    # Participant roles
+    class ParticipationRole(SBOLValue):
+        label = "ParticipationRole"    
+    ParticipationRole.constantList = ["true"]
     ParticipationRole.equivalent_to.append(SBO_0000020 | SBO_0000642 | SBO_0000459 | SBO_0000643 | SBO_0000010 | SBO_0000011 | SBO_0000598 | SBO_0000019 | SBO_0000645)
 
-    class ModelFramework(SBOLTerm):
+    # Model framework terms
+    class ModelFramework(SBOLValue):
         label = "ModelFramework"
-        otol:constantList = "true"
-
+    ModelFramework.constantList = ["true"]
     ModelFramework.equivalent_to.append(SBO_0000062 | SBO_0000063 | SBO_0000693 | SBO_0000234 | SBO_0000681)
 
-    class ModelLanguage(SBOLTerm):
-        label = "ModelLanguage"
-        otol:constantList = "true"
-
+    # Model language terms
+    class ModelLanguage(SBOLValue):
+        label = "ModelLanguage"   
+    ModelLanguage.constantList = ["true"]
     ModelLanguage.equivalent_to.append(EDAM_format_2585 | EDAM_format_3240 | EDAM_format_3156)
 
-
-    #--------------SBOL properties--------------
+    # ---------SBOL properties---------
     class comprises(ObjectProperty, TransitiveProperty):
         label = "comprises"
 
@@ -796,17 +756,16 @@ with sbol3:
         #domain = [Identified]
         #range = [om.Measure]
 
-    #-----TopLevel properties-----
+    # TopLevel properties
     class hasNamespace(ObjectProperty, FunctionalProperty):
         label = "hasNamespace"
         domain = [TopLevel]
-        #class_property_type=["value"]
     TopLevel.is_a.append(hasNamespace.some(Thing))
 
     class hasAttachment(TopLevel >> Attachment):
         label = "hasAttachment"
 
-    #-----Sequence properties-----
+    # Sequence properties
     class elements(DataProperty, FunctionalProperty):
         label = "elements"
         domain = [Sequence]
@@ -817,11 +776,11 @@ with sbol3:
         label = "encoding"
         domain = [Sequence]
 
-    #-----Component properties-----
-
+    # Component properties
+    #Some of these properties are used also for entities.
     class type(ObjectProperty):
         label = "type"
-        domain = [Or([Component, LocalSubComponent, ExternallyDefined, Interaction, SBOLActivity, SBOLMeasure])]
+        domain = [Component | LocalSubComponent | ExternallyDefined | Interaction | SBOLActivity | SBOLMeasure]
     Component.is_a.append(type.some(Thing))
     Component.is_a.append(type.some(ComponentType))
     Component.is_a.append(type.max(1, ComponentType))
@@ -829,28 +788,18 @@ with sbol3:
     ExternallyDefined.is_a.append(type.some(Thing))
     Interaction.is_a.append(type.some(Thing))
 
-
     class role(ObjectProperty):
         label = "role"
-        domain = [Or([Component, Feature, Participation])]
+        domain = [Component | Feature | Participation]
     Participation.is_a.append(role.some(Thing))
 
     class hasSequence(ObjectProperty):
         label = "hasSequence"
-        domain = [Or([Component, Location])]
+        domain = [Component | Location]
         range= [Sequence]
     Location.is_a.append(hasSequence.some(Sequence))
     Location.is_a.append(hasSequence.max(1,Sequence))
-
-    '''
-    class hasFeature(ObjectProperty):
-        label = "hasFeature"
-        domain = [Or([Component, ComponentReference])]
-        range= [Feature]
-    ComponentReference.is_a.append(hasFeature.some(Feature))
-    ComponentReference.is_a.append(hasFeature.max(1,Feature))
-    '''
-
+    
     class hasFeature(directlyComprises, ObjectProperty):
         label = "hasFeature"
         domain = [Component]
@@ -861,7 +810,7 @@ with sbol3:
         domain = [ComponentReference]
         range= [Feature]
     ComponentReference.is_a.append(refersTo.some(Feature))
-    #ComponentReference.is_a.append(refersTo.max(1,Feature))
+    #ComponentReference.is_a.append(refersTo.max(1,Feature)) #Alternative modelling approach. This would also work. Left it as an example for now.
 
     class hasInteraction(directlyComprises, Component >> Interaction):
         label = "hasInteraction"
@@ -875,13 +824,13 @@ with sbol3:
     class hasInterface(directlyComprises, Component >> Interface, FunctionalProperty):
         label = "hasInterface"
 
-    #-----Feature properties-----
+    # Feature properties
     class orientation(ObjectProperty, FunctionalProperty):
         label = "orientation"
-        domain = [Or([Feature, Location])]
-        range = [Or([inline, reverseComplement])]
+        domain = [Feature | Location]
+        range = [Orientation]
 
-    #-----SubComponent properties-----
+    # SubComponent properties
     class roleIntegration(ObjectProperty, FunctionalProperty):
         label = "roleIntegration"
         domain = [SubComponent]
@@ -895,29 +844,29 @@ with sbol3:
 
     class hasLocation(directlyComprises, ObjectProperty):
         label = "hasLocation"
-        domain = [Or([SubComponent, LocalSubComponent, SequenceFeature])]
+        domain = [SubComponent | LocalSubComponent | SequenceFeature]
         range = [Location]
     SequenceFeature.is_a.append(hasLocation.some(Location))
 
-    #-----ComponentReference properties-----
+    # ComponentReference properties
     class inChildOf(ComponentReference >> SubComponent, FunctionalProperty):
         label = "inChildOf"
     ComponentReference.is_a.append(inChildOf.some(Component))
 
-    #-----ExternallyDefined properties-----
+    # ExternallyDefined properties
     class definition(ObjectProperty, FunctionalProperty):
         label = "definition"
         domain = [ExternallyDefined]
     ExternallyDefined.is_a.append(definition.some(Thing))
 
-    #-----Location properties-----
+    # Location properties
     class order(DataProperty, FunctionalProperty):
         label = "order"
         domain = [Location]
         #range = [int]
         range= [ConstrainedDatatype(int, min_inclusive = 1)]
 
-    #-----Range properties-----
+    # Range properties
     class start(DataProperty, FunctionalProperty):
         label = "start"
         domain = [Range]
@@ -930,14 +879,14 @@ with sbol3:
         range= [ConstrainedDatatype(int, min_inclusive = 1)]
     Range.is_a.append(end.some(ConstrainedDatatype(int, min_inclusive = 1)))
 
-    #-----Cut properties-----
+    # Cut properties
     class at(DataProperty, FunctionalProperty):
-        label = "start"
+        label = "at"
         domain = [Cut]
         range= [ConstrainedDatatype(int, min_inclusive = 0)]
     Cut.is_a.append(at.some(ConstrainedDatatype(int, min_inclusive = 0)))
 
-    #-----Constraint properties-----
+    # Constraint properties
     class restriction(ObjectProperty, FunctionalProperty):
         label = "restriction"
         domain = [Constraint]
@@ -947,24 +896,22 @@ with sbol3:
         label = "subject"
     Constraint.is_a.append(subject.some(Feature))
 
-    #objectProperty = types.new_class('object', (ObjectProperty,FunctionalProperty))
-    #objectProperty.python_name = 'constraintobject'
     class object(Constraint >> Feature, FunctionalProperty):
         label = "object"
     Constraint.is_a.append(object.some(Feature))
 
-    #-----Interaction properties-----
+    # Interaction properties
     class hasParticipation(directlyComprises, Interaction >> Participation):
         label = "hasParticipation"
 
-    #-----Participation properties-----
+    # Participation properties
     class participant(Participation >> Feature, FunctionalProperty):
         label = "participant"
 
     class higherOrderParticipant(Participation >> Interaction, FunctionalProperty):
         label = "higherOrderParticipant"
 
-    #-----Interface properties-----
+    # Interface properties
     class input(Interface >> Feature):
         label = "input"
 
@@ -974,11 +921,11 @@ with sbol3:
     class nondirectional(Interface >> Feature):
         label = "nondirectional"
 
-    #-----CombinatorialDerivation properties-----
+    #CombinatorialDerivation properties
     class strategy(ObjectProperty, FunctionalProperty):
         label = "strategy"
         domain = [CombinatorialDerivation]
-        range = [Or([enumerate, sample])]
+        range = [enumerate | sample]
 
     class template(CombinatorialDerivation >> Component, FunctionalProperty):
         label = "template"
@@ -987,11 +934,11 @@ with sbol3:
     class hasVariableFeature(directlyComprises, CombinatorialDerivation >> VariableFeature):
         label = "hasVariableFeature"
 
-    #-----VariableFeature properties-----
+    #VariableFeature properties
     class cardinality(ObjectProperty, FunctionalProperty):
         label = "cardinality"
         domain = [VariableFeature]
-        range = [Or([zeroOrOne, one, zeroOrMore, oneOrMore])]
+        range = [zeroOrOne | one | zeroOrMore | oneOrMore]
     VariableFeature.is_a.append(cardinality.some(Cardinality))
 
     class variable(VariableFeature >> Feature, FunctionalProperty):
@@ -1010,14 +957,14 @@ with sbol3:
     class variant(VariableFeature >> Component):
         label = "variant"
 
-    #-----Implementation properties-----
+    #Implementation properties
     class built(Implementation>> Component, FunctionalProperty):
         label = "built"
 
-    #-----Model properties-----
+    # Model properties
     class source(ObjectProperty, FunctionalProperty):
         label = "source"
-        domain = [Or([Model, Attachment])]
+        domain = [Model | Attachment]
     Model.is_a.append(source.some(Thing))
     Attachment.is_a.append(source.some(Thing))
 
@@ -1031,11 +978,11 @@ with sbol3:
         domain = [Model]
     Model.is_a.append(framework.some(Thing))
 
-    #-----Collection properties-----
+    #Collection properties
     class member(Collection >> TopLevel):
         label = "member"
 
-    #-----Attachment properties-----
+    #Attachment properties
     class format(ObjectProperty, FunctionalProperty):
         label = "format"
         domain = [Attachment]
@@ -1055,297 +1002,208 @@ with sbol3:
         domain = [Attachment]
         range= [str]
 
-
-  #SBOActivity properties
-  #  class prov.wasDerivedFrom(ObjectProperty):
-  #      label = "wasDerivedFrom"
-  #      domain = [sbol.Identified]
-        # range: IRI (any Thing) — [0..*], no functional, no some restriction
-
-
-
-
-    #TODO: Incorporate restrictions for model.language and model.framework properties.
-
-    #--------------Named Sequence Subclasses--------------
+    #Sequence related subclasses
     class SequenceWithElements (Sequence):
         label = "Sequence With Elements"
-    SequenceWithElements.equivalent_to.append(
-        Sequence & elements.some(str) & encoding.some(Encoding)
-    )
+    SequenceWithElements.equivalent_to.append(Sequence & elements.some(str) & encoding.some(Encoding))
 
     class DNASequence (SequenceWithElements):
         label = "DNA Sequence"
-        otol:domainEntity = "true"
-    DNASequence.equivalent_to.append(
-        SequenceWithElements & encoding.some(EDAM_format_1207)
-    )
+    DNASequence.domainEntity = ["true"]
+    DNASequence.equivalent_to.append(SequenceWithElements & encoding.some(EDAM_format_1207))
 
     class RNASequence (SequenceWithElements):
         label = "RNA Sequence"
-        otol:domainEntity = "true"
-    RNASequence.equivalent_to.append(
-        SequenceWithElements & encoding.some(EDAM_format_1207)
-    )
+    RNASequence.domainEntity = ["true"]
+    RNASequence.equivalent_to.append(SequenceWithElements & encoding.some(EDAM_format_1207))
 
     class ProteinSequence (SequenceWithElements):
         label = "Protein Sequence"
-        otol:domainEntity = "true"
-    ProteinSequence.equivalent_to.append(
-        SequenceWithElements & encoding.some(EDAM_format_1208)
-    )
+    ProteinSequence.domainEntity = ["true"]
+    ProteinSequence.equivalent_to.append(SequenceWithElements & encoding.some(EDAM_format_1208))
 
     class InChISequence (SequenceWithElements):
         label = "InChI Sequence"
-        otol:domainEntity = "true"
-    InChISequence.equivalent_to.append(
-        SequenceWithElements & encoding.some(EDAM_format_1197)
-    )
+    InChISequence.domainEntity = ["true"]
+    InChISequence.equivalent_to.append(SequenceWithElements & encoding.some(EDAM_format_1197))
 
     class SMILESSequence (SequenceWithElements):
         label = "SMILES Sequence"
-        otol:domainEntity = "true"
-    SMILESSequence.equivalent_to.append(
-        SequenceWithElements & encoding.some(EDAM_format_1196)
-    )
+    SMILESSequence.domainEntity = ["true"]
+    SMILESSequence.equivalent_to.append(SequenceWithElements & encoding.some(EDAM_format_1196))
 
-    #--------------Named Component Subclasses (by type)--------------
+    #Component related subclasses
     class DNAComponent (Component):
         label = "DNA Component"
-        otol:domainEntity = "true"
-    DNAComponent.equivalent_to.append(
-        Component & type.some(SBO_0000251) & role.some(DNARole) & hasSequence.only(DNASequence)
-    )
+    DNAComponent.domainEntity = ["true"]
+    DNAComponent.equivalent_to.append(Component & type.some(SBO_0000251) & role.some(DNARole) & hasSequence.only(DNASequence))
 
     class RNAComponent (Component):
         label = "RNA Component"
-        otol:domainEntity = "true"
-    RNAComponent.equivalent_to.append(
-        Component & type.some(SBO_0000250) & role.some(RNARole) & hasSequence.only(RNASequence)
-    )
+    RNAComponent.domainEntity = ["true"]
+    RNAComponent.equivalent_to.append(Component & type.some(SBO_0000250) & role.some(RNARole) & hasSequence.only(RNASequence))
 
     class ProteinComponent (Component):
         label = "Protein Component"
-        otol:domainEntity = "true"
-    ProteinComponent.equivalent_to.append(
-        Component & type.some(SBO_0000252) & role.some(ProteinRole) & hasSequence.only(ProteinSequence)
-    )
+    ProteinComponent.domainEntity = ["true"]
+    ProteinComponent.equivalent_to.append(Component & type.some(SBO_0000252) & role.some(ProteinRole) & hasSequence.only(ProteinSequence))
 
     class SimpleChemicalComponent (Component):
         label = "Simple Chemical Component"
-        otol:domainEntity = "true"
-    SimpleChemicalComponent.equivalent_to.append(
-        Component & type.some(SBO_0000247) & role.some(SmallMoleculeRole) & hasSequence.only(Or([InChISequence, SMILESSequence]))
-    )
+    SimpleChemicalComponent.domainEntity = ["true"]
+    SimpleChemicalComponent.equivalent_to.append(Component & type.some(SBO_0000247) & role.some(SmallMoleculeRole) & hasSequence.only(InChISequence | SMILESSequence))
 
     class NonCovalentComplexComponent (Component):
         label = "Non-Covalent Complex Component"
-        otol:domainEntity = "true"
-    NonCovalentComplexComponent.equivalent_to.append(
-        Component & type.some(SBO_0000253)
-    )
+    NonCovalentComplexComponent.domainEntity = ["true"]
+    NonCovalentComplexComponent.equivalent_to.append(Component & type.some(SBO_0000253))
 
     class FunctionalEntityComponent (Component):
         label = "Functional Entity Component"
-        otol:domainEntity = "true"
-    FunctionalEntityComponent.equivalent_to.append(
-        Component & type.some(SBO_0000241)
-    )
+    FunctionalEntityComponent.domainEntity = ["true"]
+    FunctionalEntityComponent.equivalent_to.append(Component & type.some(SBO_0000241))
 
-    #--------------Named Component Subclasses (by role, DNAComponent)--------------
+    #DNA Component subclasses
     class GenericDNAComponent (DNAComponent):
         label = "Generic DNA Component"
-        otol:domainEntity = "true"
-    GenericDNAComponent.equivalent_to.append(
-        DNAComponent & role.some(SO_0000110)
-    )
+    GenericDNAComponent.domainEntity = ["true"]
+    GenericDNAComponent.equivalent_to.append(DNAComponent & role.some(SO_0000110))
+    
     class PromoterDNAComponent (DNAComponent):
         label = "Promoter DNA Component"
-        otol:domainEntity = "true"
-    PromoterDNAComponent.equivalent_to.append(
-        DNAComponent & role.some(SO_0000167)
-    )
+    PromoterDNAComponent.domainEntity = ["true"]
+    PromoterDNAComponent.equivalent_to.append(DNAComponent & role.some(SO_0000167))
 
     class RBSDNAComponent (DNAComponent):
         label = "RBS DNA Component"
-        otol:domainEntity = "true"
-    RBSDNAComponent.equivalent_to.append(
-        DNAComponent & role.some(SO_0000139)
-    )
+    RBSDNAComponent.domainEntity = ["true"]
+    RBSDNAComponent.equivalent_to.append(DNAComponent & role.some(SO_0000139))
 
     class CDSDNAComponent (DNAComponent):
         label = "CDS DNA Component"
-        otol:domainEntity = "true"
-    CDSDNAComponent.equivalent_to.append(
-        DNAComponent & role.some(SO_0000316)
-    )
+    CDSDNAComponent.domainEntity = ["true"]
+    CDSDNAComponent.equivalent_to.append(DNAComponent & role.some(SO_0000316))
 
     class TerminatorDNAComponent (DNAComponent):
         label = "Terminator DNA Component"
-        otol:domainEntity = "true"
-    TerminatorDNAComponent.equivalent_to.append(
-        DNAComponent & role.some(SO_0000141)
-    )
+    TerminatorDNAComponent.domainEntity = ["true"]
+    TerminatorDNAComponent.equivalent_to.append(DNAComponent & role.some(SO_0000141))
 
     class GeneDNAComponent (DNAComponent):
         label = "Gene DNA Component"
-        otol:domainEntity = "true"
-    GeneDNAComponent.equivalent_to.append(
-        DNAComponent & role.some(SO_0000704)
-    )
+    GeneDNAComponent.domainEntity = ["true"]
+    GeneDNAComponent.equivalent_to.append(DNAComponent & role.some(SO_0000704))
 
     class OperatorDNAComponent (DNAComponent):
         label = "Operator DNA Component"
-        otol:domainEntity = "true"
-    OperatorDNAComponent.equivalent_to.append(
-        DNAComponent & role.some(SO_0000057)
-    )
+    OperatorDNAComponent.domainEntity = ["true"]
+    OperatorDNAComponent.equivalent_to.append(DNAComponent & role.some(SO_0000057))
 
     class EngineeredRegionDNAComponent (DNAComponent):
         label = "Engineered Region DNA Component"
-        otol:domainEntity = "true"
-    EngineeredRegionDNAComponent.equivalent_to.append(
-        DNAComponent & role.some(SO_0000804)
-    )
+    EngineeredRegionDNAComponent.domainEntity = ["true"]
+    EngineeredRegionDNAComponent.equivalent_to.append(DNAComponent & role.some(SO_0000804))
 
-    #--------------Named Component Subclasses (by role, SimpleChemicalComponent)--------------
+    #SimpleChemicalComponent subclasses
     class EffectorSimpleChemicalComponent (SimpleChemicalComponent):
         label = "Effector Simple Chemical Component"
-        otol:domainEntity = "true"
-    EffectorSimpleChemicalComponent.equivalent_to.append(
-        SimpleChemicalComponent & role.some(CHEBI_35224)
-    )
+    EffectorSimpleChemicalComponent.domainEntity = ["true"]
+    EffectorSimpleChemicalComponent.equivalent_to.append(SimpleChemicalComponent & role.some(CHEBI_35224))
 
-    #--------------Named Component Subclasses (by role, ProteinComponent)--------------
+    #ProteinComponent subclasses
     class TranscriptionFactorProteinComponent (ProteinComponent):
         label = "Transcription Factor Protein Component"
-        otol:domainEntity = "true"
-    TranscriptionFactorProteinComponent.equivalent_to.append(
-        ProteinComponent & role.some(GO_0003700)
-    )
+    TranscriptionFactorProteinComponent.domainEntity = ["true"]
+    TranscriptionFactorProteinComponent.equivalent_to.append(ProteinComponent & role.some(GO_0003700))
 
+    # Participation subclasses
     class InhibitorParticipation (Participation):
         label = "InhibitorParticipant"
-        otol:domainEntity = "true"
-    InhibitorParticipation.equivalent_to.append(
-        Participation & role.some(SBO_0000020)
-    )
+    InhibitorParticipation.domainEntity = ["true"]
+    InhibitorParticipation.equivalent_to.append(Participation & role.some(SBO_0000020))
 
     class InhibitedParticipation (Participation):
         label = "InhibitedParticipation"
-        otol:domainEntity = "true"
-    InhibitedParticipation.equivalent_to.append(
-        Participation & role.some(SBO_0000642)
-    )
+    InhibitedParticipation.domainEntity = ["true"]
+    InhibitedParticipation.equivalent_to.append(Participation & role.some(SBO_0000642))
+
     class StimulatorParticipation (Participation):
         label = "StimulatorParticipation"
-        otol:domainEntity = "true"
-    StimulatorParticipation.equivalent_to.append(
-        Participation & role.some(SBO_0000459)
-    )
+    StimulatorParticipation.domainEntity = ["true"]
+    StimulatorParticipation.equivalent_to.append(Participation & role.some(SBO_0000459))
 
     class StimulatedParticipation (Participation):
         label = "StimulatedParticipation"
-        otol:domainEntity = "true"
-    StimulatedParticipation.equivalent_to.append(
-        Participation & role.some(SBO_0000643)
-    )
-
+    StimulatedParticipation.domainEntity = ["true"]
+    StimulatedParticipation.equivalent_to.append(Participation & role.some(SBO_0000643))
 
     class ReactantParticipation (Participation):
         label = "ReactantParticipation"
-        otol:domainEntity = "true"
-    ReactantParticipation.equivalent_to.append(
-        Participation & role.some(SBO_0000010)
-    )
+    ReactantParticipation.domainEntity = ["true"]
+    ReactantParticipation.equivalent_to.append(Participation & role.some(SBO_0000010))
 
     class ProductParticipation (Participation):
         label = "ProductParticipation"
-        otol:domainEntity = "true"
-    ProductParticipation.equivalent_to.append(
-        Participation & role.some(SBO_0000011)
-    )
+    ProductParticipation.domainEntity = ["true"]
+    ProductParticipation.equivalent_to.append(Participation & role.some(SBO_0000011))
 
     class PromoterParticipation (Participation):
         label = "PromoterParticipation"
-        otol:domainEntity = "true"
-    PromoterParticipation.equivalent_to.append(
-        Participation & role.some(SBO_0000598)
-    )
+    PromoterParticipation.domainEntity = ["true"]
+    PromoterParticipation.equivalent_to.append(Participation & role.some(SBO_0000598))
 
     class ModifierParticipation (Participation):
         label = "ModifierParticipation"
-        otol:domainEntity = "true"
-    ModifierParticipation.equivalent_to.append(
-        Participation & role.some(SBO_0000019)
-    )
+    ModifierParticipation.domainEntity = ["true"]
+    ModifierParticipation.equivalent_to.append(Participation & role.some(SBO_0000019))
 
     class ModifiedParticipation (Participation):
         label = "ModifiedParticipation"
-        otol:domainEntity = "true"
-    ModifiedParticipation.equivalent_to.append(
-        Participation & role.some(SBO_0000644)
-    )
+    ModifiedParticipation.domainEntity = ["true"]
+    ModifiedParticipation.equivalent_to.append(Participation & role.some(SBO_0000644))
 
     class TemplateParticipation (Participation):
         label = "TemplateParticipation"
-        otol:domainEntity = "true"
-    TemplateParticipation.equivalent_to.append(
-        Participation & role.some(SBO_0000645)
-    )
+    TemplateParticipation.domainEntity = ["true"]
+    TemplateParticipation.equivalent_to.append(Participation & role.some(SBO_0000645))
 
     class InhibitionInteraction (Interaction):
         label = "InhibitionInteraction"
-        otol:domainEntity = "true"
-    InhibitionInteraction.equivalent_to.append(
-        Interaction & type.some(SBO_0000169) & participant.some(InhibitorParticipation) &  participant.some(InhibitedParticipation)
-    )
+    InhibitionInteraction.domainEntity = ["true"]
+    InhibitionInteraction.equivalent_to.append(Interaction & type.some(SBO_0000169) & participant.some(InhibitorParticipation) &  participant.some(InhibitedParticipation))
 
     class StimulationInteraction (Interaction):
         label = "StimulationInteraction"
-        otol:domainEntity = "true"
-    StimulationInteraction.equivalent_to.append(
-        Interaction & type.some(SBO_0000170) & participant.some(StimulatedParticipation) &  participant.some(StimulatedParticipation)
-    )
+    StimulationInteraction.domainEntity = ["true"]
+    StimulationInteraction.equivalent_to.append(Interaction & type.some(SBO_0000170) & participant.some(StimulatedParticipation) &  participant.some(StimulatorParticipation))
 
     class DegradationInteraction (Interaction):
         label = "DegradationInteraction"
-        otol:domainEntity = "true"
-    DegradationInteraction.equivalent_to.append(
-        Interaction & type.some(SBO_0000179) &  participant.some(ReactantParticipation)
-    )
+    DegradationInteraction.domainEntity = ["true"]
+    DegradationInteraction.equivalent_to.append(Interaction & type.some(SBO_0000179) &  participant.some(ReactantParticipation))
     
     class BiochemicalReactionInteraction (Interaction):
         label = "BiochemicalReactionInteraction"
-        otol:domainEntity = "true"
-    BiochemicalReactionInteraction.equivalent_to.append(
-        Interaction & type.some(SBO_0000176) & participant.min(0, ModifierParticipation) & participant.min(0, ModifiedParticipation) & participant.min(0, ProductParticipation) & participant.min(0, ReactantParticipation) 
-    )
+    BiochemicalReactionInteraction.domainEntity = ["true"]
+    BiochemicalReactionInteraction.equivalent_to.append(Interaction & type.some(SBO_0000176) & participant.min(0, ModifierParticipation) & participant.min(0, ModifiedParticipation) & participant.min(0, ProductParticipation) & participant.min(0, ReactantParticipation) )
 
     class NonCovalentBindingInteraction (Interaction):
         label = "NonCovalentBindingInteraction"
-        otol:domainEntity = "true"
-    NonCovalentBindingInteraction.equivalent_to.append(
-        Interaction & type.some(SBO_0000177) & participant.some(ReactantParticipation) & participant.some(ProductParticipation)
-    )
+    NonCovalentBindingInteraction.domainEntity = ["true"]
+    NonCovalentBindingInteraction.equivalent_to.append(Interaction & type.some(SBO_0000177) & participant.some(ReactantParticipation) & participant.some(ProductParticipation))
     
     class GeneticProductionInteraction (Interaction):
         label = "GeneticProductionInteraction"
-        otol:domainEntity = "true"
-    GeneticProductionInteraction.equivalent_to.append(
-        Interaction & type.some(SBO_0000589) & participant.some(TemplateParticipation) & participant.exactly(1, ProductParticipation)
-    )
+    GeneticProductionInteraction.domainEntity = ["true"]
+    GeneticProductionInteraction.equivalent_to.append(Interaction & type.some(SBO_0000589) & participant.some(TemplateParticipation) & participant.exactly(1, ProductParticipation))
     
     class ControlInteraction (Interaction):
-        label = "DegradationInteraction"
-        otol:domainEntity = "true"
-    DegradationInteraction.equivalent_to.append(
-        Interaction & type.some(SBO_0000168)
-    )
+        label = "ControlInteraction"
+    ControlInteraction.domainEntity = ["true"]
+    ControlInteraction.equivalent_to.append(Interaction & type.some(SBO_0000168) & participant.some(ModifierParticipation) & participant.some(ModifiedParticipation))
 
 with prov:
-  # -----sbol3:Identified prov properties-----
-
+  # sbol3:Identified prov properties
   class wasDerivedFrom(ObjectProperty):
       label = "wasDerivedFrom"
       domain = [sbol3.Identified]
@@ -1354,72 +1212,72 @@ with prov:
    # wasInformedBy [0..*]: Activity -> TopLevel
   class wasInformedBy(ObjectProperty):
       label = "wasInformedBy"
-      domain = [sbol3.SBOLActivity]
-      range = [sbol3.SBOLActivity]
+      domain = [Activity]
+      range = [Activity]
 
-  # -----prov:Activity properties-----
-
-  # wasGeneratedBy [0..*]: Identified -> Activity
+  # prov:Activity properties
+  # Identified -> Activity - [0..*]
   class wasGeneratedBy(ObjectProperty):
       label = "wasGeneratedBy"
       domain = [sbol3.Identified]
       range = [sbol3.SBOLActivity]
 
-  # startedAtTime [0..1]: DateTime — FunctionalProperty (zero or one)
+  # [0..1]
   class startedAtTime(DataProperty, FunctionalProperty):
       label = "startedAtTime"
-      domain = [SBOLActivity]
+      domain = [Activity]
       range = [datetime.datetime]
 
-  # endedAtTime [0..1]: DateTime — FunctionalProperty (zero or one)
+  # [0..1]
   class endedAtTime(DataProperty, FunctionalProperty):
     label = "endedAtTime"
-    domain = [SBOLActivity]
+    domain = [Activity]
     range = [datetime.datetime]
 
-  # qualifiedUsage [0..*]: Activity -> Usage (composition)
+  # Activity -> Usage - [0..*]
   class qualifiedUsage(ObjectProperty):
     label = "qualifiedUsage"
-    domain = [SBOLActivity]
-    range = [SBOLUsage]
+    domain = [Activity]
+    range = [Usage]
 
-  # qualifiedAssociation [0..*]: Activity -> Association (composition)
+  # Activity -> Association - [0..*]
   class qualifiedAssociation(ObjectProperty):
     label = "qualifiedAssociation"
-    domain = [SBOLActivity]
-    range = [SBOLAssociation]
+    domain = [Activity]
+    range = [Association]
 
-    # -----prov:Usage properties-----
-    # entity [1]: IRI — FunctionalProperty + some restriction (exactly one)
+  # prov:Usage properties
+  # [1..1]
   class entity(ObjectProperty, FunctionalProperty):
     label = "entity"
-    domain = [SBOLUsage]
+    domain = [Usage]
   SBOLUsage.is_a.append(entity.some(Thing))
 
-  # hadRole [0..*]: IRI — shared by Usage and Association
+  # [0..*]
   class hadRole(ObjectProperty):
     label = "hadRole"
-    domain = [Or([SBOLUsage, SBOLAssociation])]
+    domain = [Usage | Association]
 
-  # -----prov:Association properties-----
-  # hadPlan [0..1]: Association -> Plan — FunctionalProperty (zero or one)
+  # prov:Association properties
+  # Association -> Plan - [0..1]
   class hadPlan(ObjectProperty, FunctionalProperty):
       label = "hadPlan"
-      domain = [SBOLAssociation]
-      range = [SBOLPlan]
+      domain = [Association]
+      range = [Plan]
 
-  # agent [1]: Association -> Agent — FunctionalProperty + some restriction (exactly one)
+  # Association -> Agent - [1..1]
   class agent(ObjectProperty, FunctionalProperty):
     label = "agent"
-    domain = [SBOLAssociation]
-    range = [SBOLAgent]
-  SBOLAssociation.is_a.append(agent.some(SBOLAgent))
-
+    domain = [Association]
+    range = [Agent]
+  Association.is_a.append(agent.some(Agent))
 
 # OM (Units of Measure) classes
 with om:
   class Unit(Thing):
     label = "Unit"
+  Unit.is_a.append(rdfs.label.some(str))
+  #TODO:Open again later: SBOLUnit.is_a.append(rdfs.comment.max(1, str)). This needs to be checked with the commnunity.
 
   class SingularUnit(Unit):
     label = "SingularUnit"
@@ -1441,6 +1299,8 @@ with om:
 
   class Prefix(Thing):
       label = "Prefix"
+  Prefix.is_a.append(rdfs.label.some(str))
+  #TODO:Open again later: SBOLPrefix.is_a.append(rdfs.comment.max(1, str)). This should also be checked with the community.
 
   class SIPrefix(Prefix):
       label = "SIPrefix"
@@ -1448,176 +1308,267 @@ with om:
   class BinaryPrefix(Prefix):
       label = "BinaryPrefix"
 
-with om:
+with sbol3:
   class SBOLUnit(TopLevel):
     label = "Unit"
-    otol.replacementOf = om.Unit
-    otol:domainEntity = "true"
+  SBOLUnit.domainEntity = ["true"]
+  SBOLUnit.replacementOf = [om.Unit]
   SBOLUnit.is_a.append(om.Unit)
-  SBOLUnit.is_a.append(rdfs.label.some(str))
-  #TODO:Open again later: SBOLUnit.is_a.append(rdfs.comment.max(1, str))
-
+  
   class SBOLSingularUnit(SBOLUnit):
     label = "SingularUnit"
-    otol.replacementOf = om.SingularUnit
-    otol:domainEntity = "true"
+  SBOLSingularUnit.domainEntity = ["true"]
+  SBOLSingularUnit.replacementOf = [om.SingularUnit]
   SBOLSingularUnit.is_a.append(om.SingularUnit)
 
   class SBOLCompoundUnit(SBOLUnit):
     label = "CompoundUnit"
-    otol.replacementOf = om.CompoundUnit
-    otol:domainEntity = "true"
+  SBOLCompoundUnit.domainEntity = ["true"]
+  SBOLCompoundUnit.replacementOf = [om.CompoundUnit]
   SBOLCompoundUnit.is_a.append(om.CompoundUnit)
 
   class SBOLPrefixedUnit(SBOLUnit):
     label = "PrefixedUnit"
-    otol.replacementOf = om.PrefixedUnit
-    otol:domainEntity = "true"
+  SBOLPrefixedUnit.domainEntity = ["true"]
+  SBOLPrefixedUnit.replacementOf = [om.PrefixedUnit]
   SBOLPrefixedUnit.is_a.append(om.PrefixedUnit)
 
   class SBOLUnitMultiplication(SBOLUnit):
     label = "UnitMultiplication"
-    otol.replacementOf = om.UnitMultiplication
-    otol:domainEntity = "true"
+  SBOLUnitMultiplication.domainEntity = ["true"]
+  SBOLUnitMultiplication.replacementOf = [om.UnitMultiplication]
   SBOLUnitMultiplication.is_a.append(om.UnitMultiplication)
 
   class SBOLUnitDivision(SBOLUnit):
     label = "UnitDivision"
-    otol.replacementOf = om.UnitDivision
-    otol:domainEntity = "true"
+  SBOLUnitDivision.domainEntity = ["true"]
+  SBOLUnitDivision.replacementOf = [om.UnitDivision]
   SBOLUnitDivision.is_a.append(om.UnitDivision)
 
   class SBOLUnitExponentiation(SBOLUnit):
     label = "UnitExponentiation"
-    otol.replacementOf = om.UnitExponentiation
-    otol:domainEntity = "true"
+  SBOLUnitExponentiation.domainEntity = ["true"]
+  SBOLUnitExponentiation.replacementOf = [om.UnitExponentiation]
   SBOLUnitExponentiation.is_a.append(om.UnitExponentiation)
 
   class SBOLPrefix(TopLevel):
     label = "Prefix"
-    otol.replacementOf = om.Prefix
-    otol:domainEntity = "true"
+  SBOLPrefix.domainEntity = ["true"]
+  SBOLPrefix.replacementOf = [om.Prefix]
   SBOLPrefix.is_a.append(om.Prefix)
-  SBOLPrefix.is_a.append(rdfs.label.some(str))
-  #TODO:Open again later: SBOLPrefix.is_a.append(rdfs.comment.max(1, str))
-
+  
 
   class SBOLSIPrefix(SBOLPrefix):
     label = "SIPrefix"
-    otol.replacementOf = om.SIPrefix
-    otol:domainEntity = "true"
+  SBOLSIPrefix.domainEntity = ["true"]
+  SBOLSIPrefix.replacementOf = [om.SIPrefix]
   SBOLSIPrefix.is_a.append(om.SIPrefix)
 
   class SBOLBinaryPrefix(SBOLPrefix):
     label = "BinaryPrefix"
-    otol.replacementOf = om.BinaryPrefix
-    otol:domainEntity = "true"
+  SBOLBinaryPrefix.domainEntity = ["true"]
+  SBOLBinaryPrefix.replacementOf = [om.BinaryPrefix]
   SBOLBinaryPrefix.is_a.append(om.BinaryPrefix)
 
-    #Disjoint classes
+  #Disjoint classes
   AllDisjoint([SubComponent, ComponentReference, LocalSubComponent, ExternallyDefined, SequenceFeature])
   AllDisjoint([Range,Cut, EntireSequence])
   AllDisjoint([Component, Sequence, Model, Implementation, Attachment, Collection, ExperimentalData, CombinatorialDerivation, SBOLActivity, SBOLPlan, SBOLAgent, SBOLMeasure, SBOLBinaryPrefix, SBOLSIPrefix, SBOLUnitMultiplication, SBOLUnitDivision, SBOLUnitExponentiation, SBOLPrefixedUnit, SBOLCompoundUnit, SBOLSingularUnit])
 
 
 # OM Object Properties
-with sbol3:
-  class hasNumericalValue(ObjectProperty, FunctionalProperty):
+with om:
+  #[1-1]
+  class hasNumericalValue(DataProperty, FunctionalProperty):
     label = ["hasNumericalValue"]
-    domain = [SBOLMeasure]
+    domain = [Measure]
     range  = [float]
-  SBOLMeasure.is_a.append(hasNumericalValue.some(float))
-
-  class hasUnit(ObjectProperty):
+  Measure.is_a.append(hasNumericalValue.some(float))
+  
+  class hasUnit(ObjectProperty, FunctionalProperty):
     label = ["hasUnit"]
-    domain = [SBOLMeasure, SBOLUnit]
-    range  = [SBOLUnit]
+    domain = [Measure | SingularUnit |PrefixedUnit] #[1..0]
+    range  = [Unit]
+  Measure.is_a.append(hasUnit.some(Unit)) #[1..1]
+  PrefixedUnit.is_a.append(hasUnit.some(Unit)) #[1..1]
 
   class symbol(DataProperty, FunctionalProperty):
     label = ["symbol"]
-    domain = [SBOLUnit, SBOLPrefix]
-    range  = [str]
-  SBOLUnit.is_a.append(symbol.some(float))
-  SBOLPrefix.is_a.append(symbol.some(float))
+    domain = [Unit | Prefix]
+    range  = [float]
+  Unit.is_a.append(symbol.some(float)) # [1..]
+  Prefix.is_a.append(symbol.some(float)) # [1..]
 
+  #[1..0]
   class alternativeSymbol(DataProperty):
     label = ["alternativeSymbol"]
-    domain = [SBOLUnit, SBOLPrefix]
+    domain = [Unit | Prefix]
     range  = [str]
 
+  #[1..0]
   class alternativeLabel(DataProperty):
     label = ["alternativeSymbol"]
-    domain = [SBOLUnit, SBOLPrefix]
+    domain = [Unit | Prefix]
     range  = [str]
 
+  #[1..0]
   class longComment(DataProperty, FunctionalProperty):
     label = ["longcomment"]
-    domain = [SBOLUnit,SBOLPrefix]
+    domain = [Unit | Prefix]
     range  = [str]
 
   class hasFactor(DataProperty):
     label = ["hasFactor"]
-    domain = [SBOLSingularUnit, SBOLPrefix]
+    domain = [SingularUnit | Prefix] #[1..0]
     range  = [float]
-  SBOLPrefix.is_a.append(hasFactor.some(float))
+  Prefix.is_a.append(hasFactor.some(float)) #[1..1]
 
+  #[1..1]
   class hasTerm1(ObjectProperty, FunctionalProperty):
-    domain = [SBOLUnitMultiplication]
-    range  = [SBOLUnit]
-  SBOLUnitMultiplication.is_a.append(hasTerm1.some(SBOLUnit))
+    domain = [UnitMultiplication]
+    range  = [Unit]
+  UnitMultiplication.is_a.append(hasTerm1.some(Unit))
 
+  #[1..1]
   class hasTerm2(ObjectProperty, FunctionalProperty):
-    domain = [SBOLUnitMultiplication]
-    range  = [SBOLUnit]
-  SBOLUnitMultiplication.is_a.append(hasTerm2.some(SBOLUnit))
+    domain = [UnitMultiplication]
+    range  = [Unit]
+  UnitMultiplication.is_a.append(hasTerm2.some(Unit))
 
+  #[1..1]
   class hasNumerator(ObjectProperty,FunctionalProperty):
-    domain = [SBOLUnitDivision]
-    range  = [SBOLUnit]
-  SBOLUnitDivision.is_a.append(hasNumerator.some(SBOLUnit))
+    domain = [UnitDivision]
+    range  = [Unit]
+  UnitDivision.is_a.append(hasNumerator.some(Unit))
 
+  #[1..1]
   class hasDenominator(ObjectProperty,FunctionalProperty):
-    domain = [SBOLUnitDivision]
-    range  = [SBOLUnit]
-  SBOLUnitDivision.is_a.append(hasDenominator.some(SBOLUnit))
+    domain = [UnitDivision]
+    range  = [Unit]
+  UnitDivision.is_a.append(hasDenominator.some(Unit))
 
+  #[1..1]
   class hasBase(ObjectProperty,FunctionalProperty):
-    domain = [SBOLUnitExponentiation]
-    range  = [SBOLUnit]
-  SBOLUnitExponentiation.is_a.append(hasBase.some(SBOLUnit))
+    domain = [UnitExponentiation]
+    range  = [Unit]
+  UnitExponentiation.is_a.append(hasBase.some(Unit))
 
+  #[1..1]
   class hasExponent(DataProperty,FunctionalProperty):
-    domain = [SBOLUnitExponentiation]
+    domain = [UnitExponentiation]
     range  = [int]
-  SBOLUnitExponentiation.is_a.append(hasExponent.some(int))
-
+  UnitExponentiation.is_a.append(hasExponent.some(int))
+  
+  #[1..1]
   class hasPrefix(ObjectProperty,FunctionalProperty):
-    domain = [SBOLPrefixedUnit]
-    range  = [SBOLPrefix]
-  SBOLPrefixedUnit.is_a.append(hasPrefix.some(SBOLPrefix))
+    domain = [PrefixedUnit]
+    range  = [Prefix]
+  PrefixedUnit.is_a.append(hasPrefix.some(Prefix))
 
 
-sbol3.imported_ontologies.append(sbo)
-sbol3.imported_ontologies.append(so)
-sbol3.imported_ontologies.append(edam)
-sbol3.imported_ontologies.append(om)
-sbol3.imported_ontologies.append(chebi)
-sbol3.imported_ontologies.append(go)
-
-# Save individual ontologies
-sbol3.save(file = "sbolowl3.txt", format = "rdfxml")
-sbol3.save(file = "sbolowl3.rdf", format = "rdfxml")
+# Save individual ontologies (with owl:imports intact for standalone validity)
+sbol3.save(file = "sbol3_core.txt", format = "rdfxml")
+sbol3.save(file = "sbol3_core.rdf", format = "rdfxml")
 sbo.save(file = "sbo.rdf", format = "rdfxml")
 so.save(file = "so.rdf", format = "rdfxml")
 edam.save(file = "edam.rdf", format = "rdfxml")
 chebi.save(file = "chebi.rdf", format = "rdfxml")
 go.save(file = "go.rdf", format = "rdfxml")
+om.save(file = "om.rdf", format = "rdfxml")
+prov.save(file = "prov.rdf", format = "rdfxml")
+otol.save(file = "otol.rdf", format = "rdfxml")
 
-# Merge all ontologies into a single combined file using rdflib
-combined = Graph()
-for f in ["sbolowl3.rdf", "sbo.rdf", "so.rdf", "edam.rdf", "chebi.rdf", "go.rdf"]:
-    combined.parse(f, format="xml")
-combined.serialize(destination="sbolowl3-combined.rdf", format="xml")
-combined.serialize(destination="sbolowl3-combined.txt", format="xml")
+from rdflib import URIRef
 
-print ("done!")
+# Merges  ontologies into a single combined rdf file
+def mergeOntologies(inputFiles, outputName):
+    combined = Graph()
+    for f in inputFiles:
+        combined.parse(f, format="xml")
+    # Keep only the sbol3 owl:Ontology declaration — remove all others so the OWL API does not randomly choose one of the other ontlogies (SBO, SO, CHEBI, GO, PROV, OM)
+    sbol3IRI = URIRef(sbol3.base_iri)
+    for ontology in list(combined.subjects(RDF.type, OWL.Ontology)):
+        if ontology != sbol3IRI:
+            combined.remove((ontology, RDF.type, OWL.Ontology))
+    combined.add((sbol3IRI, RDF.type, OWL.Ontology))
+    combined.serialize(destination=f"{outputName}.rdf", format="xml")
+    combined.serialize(destination=f"{outputName}.txt", format="xml")
+
+mergeOntologies(["sbol3_core.rdf", "sbo.rdf", "so.rdf", "edam.rdf", "chebi.rdf", "go.rdf", "om.rdf", "prov.rdf", "otol.rdf"], "sbol3")
+mergeOntologies(["sbol3_core.rdf", "om.rdf", "prov.rdf"], "sbol_om_prov")
+
+# Convert to OWL, OWL Functional, and Manchester Syntax
+import subprocess, os
+def createOWL(robotJar, inputFile, outputFiles, prefixes):
+    if not os.path.isfile(robotJar):
+        print("robot.jar could not be found on the current folder. Could not create the ontology files!")
+        return
+    for outputFile in outputFiles:
+        cliCmd = ["java", "-jar", robotJar, "convert"]
+        for prefix, namespace in prefixes:
+            cliCmd += ["--add-prefix", f"{prefix}: {namespace}"]
+        cliCmd += ["-i", inputFile, "-o", outputFile]
+        cliResult = subprocess.run(cliCmd, capture_output=True, text=True)
+        if cliResult.returncode != 0:
+            print(f"{outputFile} conversion failed:", cliResult.stderr.strip())
+        else:
+            print(f"{outputFile} created!")
+    
+    # Replace identifiers.org URIs with identifiers:localname. This is due to the OWL-API behaviour. It does not shorten local names with colons or starting with digits.
+    identifiersPattern = re.compile(r'<https://identifiers\.org/([^>]+)>')
+    for fileName in outputFiles:
+        file = Path(fileName)
+        if not file.is_file() or file.suffix not in (".omn", ".ofn"):
+            continue
+        file.write_text(identifiersPattern.sub(r'identifiers:\1', file.read_text(encoding="utf-8")), encoding="utf-8")
+        print(f"{fileName} - identifiers prefix applied!")
+
+robotJarFile = os.path.join(os.path.dirname(os.path.abspath(__file__)), "robot.jar")
+owlPrefixes = [
+    ("sbol", sbol3.base_iri),
+    ("om", om.base_iri),
+    ("identifiers", "https://identifiers.org/"),
+    ("prov", prov.base_iri),
+    ("otol", otol.base_iri)]
+
+createOWL(robotJarFile, "sbol3.rdf", ["sbol3.owl", "sbol3.ofn", "sbol3.omn"], owlPrefixes)
+createOWL(robotJarFile, "sbol_om_prov.rdf", ["sbol_om_prov.owl", "sbol_om_prov.ofn", "sbol_om_prov.omn"], owlPrefixes)
+
+#Expects a set of tuples for: rdf input file, html output file, and the ontology title
+#prefixes: list of (prefix, namespace) pairs
+def createHTML(ontologies, prefixes=None):
+    try:
+        # Workaround for the pyLODE.pyproject.toml file issue. The following code creates a minimal pyproject.toml in the site-packages folder if it doesn't already exist. If the distribution does not include this file, then the pyLODE fails!
+        import site
+        tomlFile = Path(site.getsitepackages()[0]) / "pyproject.toml"
+        if not tomlFile.exists():
+            tomlFile.write_text(f'[project]\nversion = "{version("pylode")}"\n', encoding="utf-8")
+
+        import logging
+        import pylode
+        from pylode import OntPub
+        from rdflib import Literal, Graph, URIRef
+        from rdflib.namespace import DCTERMS
+        # Set the logger level to avoid pylode debug and info messages
+        logging.getLogger("root").setLevel(logging.WARNING)
+        logging.getLogger("asyncio").setLevel(logging.WARNING)
+        print(f"Python version\t: {sys.version}")
+        print(f"pyLODE version\t: {pylode.__version__}")
+        print(f"pyLODE file\t: {pylode.__file__}")
+        for ontFile, htmlFile, title in ontologies:
+            graph = Graph()
+            graph.parse(ontFile, format="xml")
+            sbolIRI = URIRef(sbol3.base_iri)
+            if prefixes:
+                for prefix, namespace in prefixes:
+                    graph.bind(prefix, namespace, override=True, replace=True)
+            graph.add((sbolIRI, DCTERMS.title, Literal(title)))
+            OntPub(ontology=graph).make_html(destination=htmlFile)
+            print(f"{htmlFile} created!")
+    except Exception as e:
+        print(f"{htmlFile} could not be created: {e}")
+
+print("\nCreating the HTML files:")      
+createHTML([("sbol3.rdf", "sbol3.html", "SBOL3 Ontology"), ("sbol_om_prov.rdf", "sbol_om_prov.html", "SBOL3 Core Ontology")], owlPrefixes)
+
+print ("\ndone!")

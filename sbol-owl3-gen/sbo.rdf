@@ -23,15 +23,13 @@
 <owl:Class rdf:about="https://identifiers.org/SBO:0000251">
   <rdfs:subClassOf rdf:resource="https://identifiers.org/SBO:0000236"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DNA</rdfs:label>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DNA molecule</rdfs:comment>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A polymer consisting of deoxyribonucleotide monomers.</rdfs:comment>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DNA molecule, a polymer consisting of deoxyribonucleotide monomers.</rdfs:comment>
 </owl:Class>
 
 <owl:Class rdf:about="https://identifiers.org/SBO:0000250">
   <rdfs:subClassOf rdf:resource="https://identifiers.org/SBO:0000236"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RNA</rdfs:label>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RNA molecule</rdfs:comment>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A polymer consisting of ribonucleotide monomers.</rdfs:comment>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RNA molecule, a polymer consisting of ribonucleotide monomers.</rdfs:comment>
 </owl:Class>
 
 <owl:Class rdf:about="https://identifiers.org/SBO:0000252">
