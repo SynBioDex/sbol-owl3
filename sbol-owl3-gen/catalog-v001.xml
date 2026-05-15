@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
+        <uri id="Automatically generated entry, Timestamp=1775037705563" name="http://sbols.org/v3" uri="sbolowl3.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1775037705563" name="https://identifiers.org/CHEBI:" uri="chebi.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1775037705563" name="https://identifiers.org/EDAM:" uri="edam.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1775037705563" name="https://identifiers.org/edam:" uri="edam.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1775037705563" name="https://identifiers.org/GO:" uri="go.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1775037705563" name="https://identifiers.org/go:" uri="go.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1775037705563" name="https://identifiers.org/SBO:" uri="sbo.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1775037705563" name="https://identifiers.org/sbo:" uri="sbo.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1775037705563" name="https://identifiers.org/SO:" uri="so.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1775037705563" name="https://identifiers.org/so:" uri="so.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1775037705563" name="https://identifiers.org/chebi:" uri="chebi.rdf"/>
+    </group>
+</catalog>
