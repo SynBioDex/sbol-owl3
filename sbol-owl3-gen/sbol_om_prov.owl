@@ -1,0 +1,4038 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://sbols.org/v3#"
+     xml:base="http://sbols.org/v3"
+     xmlns:om="http://www.ontology-of-units-of-measure.org/resource/om-2/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:otol="http://keele.ac.uk/scm/otol#"
+     xmlns:prov="https://www.w3.org/ns/prov#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:sbol="http://sbols.org/v3#"
+     xmlns:identifiers="https://identifiers.org/">
+    <owl:Ontology rdf:about="http://sbols.org/v3#"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://keele.ac.uk/scm/otol#constantList -->
+
+    <owl:AnnotationProperty rdf:about="http://keele.ac.uk/scm/otol#constantList"/>
+    
+
+
+    <!-- http://keele.ac.uk/scm/otol#domainEntity -->
+
+    <owl:AnnotationProperty rdf:about="http://keele.ac.uk/scm/otol#domainEntity"/>
+    
+
+
+    <!-- http://keele.ac.uk/scm/otol#replacementOf -->
+
+    <owl:AnnotationProperty rdf:about="http://keele.ac.uk/scm/otol#replacementOf"/>
+    
+
+
+    <!-- http://keele.ac.uk/scm/otol#vocabulary -->
+
+    <owl:AnnotationProperty rdf:about="http://keele.ac.uk/scm/otol#vocabulary"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://sbols.org/v3#built -->
+
+    <owl:ObjectProperty rdf:about="http://sbols.org/v3#built">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://sbols.org/v3#Implementation"/>
+        <rdfs:range rdf:resource="http://sbols.org/v3#Component"/>
+        <rdfs:label>built</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sbols.org/v3#cardinality -->
+
+    <owl:ObjectProperty rdf:about="http://sbols.org/v3#cardinality">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://sbols.org/v3#VariableFeature"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sbols.org/v3#one"/>
+                    <rdf:Description rdf:about="http://sbols.org/v3#oneOrMore"/>
+                    <rdf:Description rdf:about="http://sbols.org/v3#zeroOrMore"/>
+                    <rdf:Description rdf:about="http://sbols.org/v3#zeroOrOne"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+        <rdfs:label>cardinality</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sbols.org/v3#comprises -->
+
+    <owl:ObjectProperty rdf:about="http://sbols.org/v3#comprises">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:label>comprises</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sbols.org/v3#definition -->
+
+    <owl:ObjectProperty rdf:about="http://sbols.org/v3#definition">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://sbols.org/v3#ExternallyDefined"/>
+        <rdfs:label>definition</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sbols.org/v3#directlyComprises -->
+
+    <owl:ObjectProperty rdf:about="http://sbols.org/v3#directlyComprises">
+        <rdfs:subPropertyOf rdf:resource="http://sbols.org/v3#comprises"/>
+        <rdfs:label>directlyComprises</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sbols.org/v3#encoding -->
+
+    <owl:ObjectProperty rdf:about="http://sbols.org/v3#encoding">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://sbols.org/v3#Sequence"/>
+        <rdfs:label>encoding</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sbols.org/v3#format -->
+
+    <owl:ObjectProperty rdf:about="http://sbols.org/v3#format">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://sbols.org/v3#Attachment"/>
+        <rdfs:label>format</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sbols.org/v3#framework -->
+
+    <owl:ObjectProperty rdf:about="http://sbols.org/v3#framework">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://sbols.org/v3#Model"/>
+        <rdfs:label>framework</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sbols.org/v3#hasAttachment -->
+
+    <owl:ObjectProperty rdf:about="http://sbols.org/v3#hasAttachment">
+        <rdfs:domain rdf:resource="http://sbols.org/v3#TopLevel"/>
+        <rdfs:range rdf:resource="http://sbols.org/v3#Attachment"/>
+        <rdfs:label>hasAttachment</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sbols.org/v3#hasConstraint -->
+
+    <owl:ObjectProperty rdf:about="http://sbols.org/v3#hasConstraint">
+        <rdfs:subPropertyOf rdf:resource="http://sbols.org/v3#directlyComprises"/>
+        <rdfs:domain rdf:resource="http://sbols.org/v3#Component"/>
+        <rdfs:range rdf:resource="http://sbols.org/v3#Constraint"/>
+        <rdfs:label>hasConstraint</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sbols.org/v3#hasFeature -->
+
+    <owl:ObjectProperty rdf:about="http://sbols.org/v3#hasFeature">
+        <rdfs:subPropertyOf rdf:resource="http://sbols.org/v3#directlyComprises"/>
+        <rdfs:domain rdf:resource="http://sbols.org/v3#Component"/>
+        <rdfs:range rdf:resource="http://sbols.org/v3#Feature"/>
+        <rdfs:label>hasFeature</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sbols.org/v3#hasInteraction -->
+
+    <owl:ObjectProperty rdf:about="http://sbols.org/v3#hasInteraction">
+        <rdfs:subPropertyOf rdf:resource="http://sbols.org/v3#directlyComprises"/>
+        <rdfs:domain rdf:resource="http://sbols.org/v3#Component"/>
+        <rdfs:range rdf:resource="http://sbols.org/v3#Interaction"/>
+        <rdfs:label>hasInteraction</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sbols.org/v3#hasInterface -->
+
+    <owl:ObjectProperty rdf:about="http://sbols.org/v3#hasInterface">
+        <rdfs:subPropertyOf rdf:resource="http://sbols.org/v3#directlyComprises"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://sbols.org/v3#Component"/>
+        <rdfs:range rdf:resource="http://sbols.org/v3#Interface"/>
+        <rdfs:label>hasInterface</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sbols.org/v3#hasLocation -->
+
+    <owl:ObjectProperty rdf:about="http://sbols.org/v3#hasLocation">
+        <rdfs:subPropertyOf rdf:resource="http://sbols.org/v3#directlyComprises"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sbols.org/v3#LocalSubComponent"/>
+                    <rdf:Description rdf:about="http://sbols.org/v3#SequenceFeature"/>
+                    <rdf:Description rdf:about="http://sbols.org/v3#SubComponent"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://sbols.org/v3#Location"/>
+        <rdfs:label>hasLocation</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sbols.org/v3#hasMeasure -->
+
+    <owl:ObjectProperty rdf:about="http://sbols.org/v3#hasMeasure">
+        <rdfs:subPropertyOf rdf:resource="http://sbols.org/v3#directlyComprises"/>
+        <rdfs:domain rdf:resource="http://sbols.org/v3#Identified"/>
+        <rdfs:range rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+        <rdfs:label>hasMeasure</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sbols.org/v3#hasModel -->
+
+    <owl:ObjectProperty rdf:about="http://sbols.org/v3#hasModel">
+        <rdfs:domain rdf:resource="http://sbols.org/v3#Component"/>
+        <rdfs:range rdf:resource="http://sbols.org/v3#Model"/>
+        <rdfs:label>hasModel</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sbols.org/v3#hasNamespace -->
+
+    <owl:ObjectProperty rdf:about="http://sbols.org/v3#hasNamespace">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://sbols.org/v3#TopLevel"/>
+        <rdfs:label>hasNamespace</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sbols.org/v3#hasParticipation -->
+
+    <owl:ObjectProperty rdf:about="http://sbols.org/v3#hasParticipation">
+        <rdfs:subPropertyOf rdf:resource="http://sbols.org/v3#directlyComprises"/>
+        <rdfs:domain rdf:resource="http://sbols.org/v3#Interaction"/>
+        <rdfs:range rdf:resource="http://sbols.org/v3#Participation"/>
+        <rdfs:label>hasParticipation</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sbols.org/v3#hasSequence -->
+
+    <owl:ObjectProperty rdf:about="http://sbols.org/v3#hasSequence">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sbols.org/v3#Component"/>
+                    <rdf:Description rdf:about="http://sbols.org/v3#Location"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://sbols.org/v3#Sequence"/>
+        <rdfs:label>hasSequence</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sbols.org/v3#hasVariableFeature -->
+
+    <owl:ObjectProperty rdf:about="http://sbols.org/v3#hasVariableFeature">
+        <rdfs:subPropertyOf rdf:resource="http://sbols.org/v3#directlyComprises"/>
+        <rdfs:domain rdf:resource="http://sbols.org/v3#CombinatorialDerivation"/>
+        <rdfs:range rdf:resource="http://sbols.org/v3#VariableFeature"/>
+        <rdfs:label>hasVariableFeature</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sbols.org/v3#higherOrderParticipant -->
+
+    <owl:ObjectProperty rdf:about="http://sbols.org/v3#higherOrderParticipant">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://sbols.org/v3#Participation"/>
+        <rdfs:range rdf:resource="http://sbols.org/v3#Interaction"/>
+        <rdfs:label>higherOrderParticipant</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sbols.org/v3#inChildOf -->
+
+    <owl:ObjectProperty rdf:about="http://sbols.org/v3#inChildOf">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://sbols.org/v3#ComponentReference"/>
+        <rdfs:range rdf:resource="http://sbols.org/v3#SubComponent"/>
+        <rdfs:label>inChildOf</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sbols.org/v3#input -->
+
+    <owl:ObjectProperty rdf:about="http://sbols.org/v3#input">
+        <rdfs:domain rdf:resource="http://sbols.org/v3#Interface"/>
+        <rdfs:range rdf:resource="http://sbols.org/v3#Feature"/>
+        <rdfs:label>input</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sbols.org/v3#instanceOf -->
+
+    <owl:ObjectProperty rdf:about="http://sbols.org/v3#instanceOf">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://sbols.org/v3#SubComponent"/>
+        <rdfs:range rdf:resource="http://sbols.org/v3#Component"/>
+        <rdfs:label>instanceOf</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sbols.org/v3#language -->
+
+    <owl:ObjectProperty rdf:about="http://sbols.org/v3#language">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://sbols.org/v3#Model"/>
+        <rdfs:label>language</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sbols.org/v3#member -->
+
+    <owl:ObjectProperty rdf:about="http://sbols.org/v3#member">
+        <rdfs:domain rdf:resource="http://sbols.org/v3#Collection"/>
+        <rdfs:range rdf:resource="http://sbols.org/v3#TopLevel"/>
+        <rdfs:label>member</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sbols.org/v3#nondirectional -->
+
+    <owl:ObjectProperty rdf:about="http://sbols.org/v3#nondirectional">
+        <rdfs:domain rdf:resource="http://sbols.org/v3#Interface"/>
+        <rdfs:range rdf:resource="http://sbols.org/v3#Feature"/>
+        <rdfs:label>nondirectional</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sbols.org/v3#object -->
+
+    <owl:ObjectProperty rdf:about="http://sbols.org/v3#object">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://sbols.org/v3#Constraint"/>
+        <rdfs:range rdf:resource="http://sbols.org/v3#Feature"/>
+        <rdfs:label>object</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sbols.org/v3#orientation -->
+
+    <owl:ObjectProperty rdf:about="http://sbols.org/v3#orientation">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sbols.org/v3#Feature"/>
+                    <rdf:Description rdf:about="http://sbols.org/v3#Location"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://sbols.org/v3#Orientation"/>
+        <rdfs:label>orientation</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sbols.org/v3#output -->
+
+    <owl:ObjectProperty rdf:about="http://sbols.org/v3#output">
+        <rdfs:domain rdf:resource="http://sbols.org/v3#Interface"/>
+        <rdfs:range rdf:resource="http://sbols.org/v3#Feature"/>
+        <rdfs:label>output</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sbols.org/v3#participant -->
+
+    <owl:ObjectProperty rdf:about="http://sbols.org/v3#participant">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://sbols.org/v3#Participation"/>
+        <rdfs:range rdf:resource="http://sbols.org/v3#Feature"/>
+        <rdfs:label>participant</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sbols.org/v3#refersTo -->
+
+    <owl:ObjectProperty rdf:about="http://sbols.org/v3#refersTo">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://sbols.org/v3#ComponentReference"/>
+        <rdfs:range rdf:resource="http://sbols.org/v3#Feature"/>
+        <rdfs:label>refersTo</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sbols.org/v3#restriction -->
+
+    <owl:ObjectProperty rdf:about="http://sbols.org/v3#restriction">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://sbols.org/v3#Constraint"/>
+        <rdfs:label>restriction</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sbols.org/v3#role -->
+
+    <owl:ObjectProperty rdf:about="http://sbols.org/v3#role">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sbols.org/v3#Component"/>
+                    <rdf:Description rdf:about="http://sbols.org/v3#Feature"/>
+                    <rdf:Description rdf:about="http://sbols.org/v3#Participation"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:label>role</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sbols.org/v3#roleIntegration -->
+
+    <owl:ObjectProperty rdf:about="http://sbols.org/v3#roleIntegration">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://sbols.org/v3#SubComponent"/>
+        <rdfs:label>roleIntegration</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sbols.org/v3#source -->
+
+    <owl:ObjectProperty rdf:about="http://sbols.org/v3#source">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sbols.org/v3#Attachment"/>
+                    <rdf:Description rdf:about="http://sbols.org/v3#Model"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:label>source</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sbols.org/v3#sourceLocation -->
+
+    <owl:ObjectProperty rdf:about="http://sbols.org/v3#sourceLocation">
+        <rdfs:subPropertyOf rdf:resource="http://sbols.org/v3#directlyComprises"/>
+        <rdfs:domain rdf:resource="http://sbols.org/v3#SubComponent"/>
+        <rdfs:range rdf:resource="http://sbols.org/v3#Location"/>
+        <rdfs:label>sourceLocation</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sbols.org/v3#strategy -->
+
+    <owl:ObjectProperty rdf:about="http://sbols.org/v3#strategy">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://sbols.org/v3#CombinatorialDerivation"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sbols.org/v3#enumerate"/>
+                    <rdf:Description rdf:about="http://sbols.org/v3#sample"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+        <rdfs:label>strategy</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sbols.org/v3#subject -->
+
+    <owl:ObjectProperty rdf:about="http://sbols.org/v3#subject">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://sbols.org/v3#Constraint"/>
+        <rdfs:range rdf:resource="http://sbols.org/v3#Feature"/>
+        <rdfs:label>subject</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sbols.org/v3#template -->
+
+    <owl:ObjectProperty rdf:about="http://sbols.org/v3#template">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://sbols.org/v3#CombinatorialDerivation"/>
+        <rdfs:range rdf:resource="http://sbols.org/v3#Component"/>
+        <rdfs:label>template</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sbols.org/v3#type -->
+
+    <owl:ObjectProperty rdf:about="http://sbols.org/v3#type">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sbols.org/v3#Component"/>
+                    <rdf:Description rdf:about="http://sbols.org/v3#ExternallyDefined"/>
+                    <rdf:Description rdf:about="http://sbols.org/v3#Interaction"/>
+                    <rdf:Description rdf:about="http://sbols.org/v3#LocalSubComponent"/>
+                    <rdf:Description rdf:about="http://sbols.org/v3#SBOLActivity"/>
+                    <rdf:Description rdf:about="http://sbols.org/v3#SBOLMeasure"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:label>type</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sbols.org/v3#variable -->
+
+    <owl:ObjectProperty rdf:about="http://sbols.org/v3#variable">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://sbols.org/v3#VariableFeature"/>
+        <rdfs:range rdf:resource="http://sbols.org/v3#Feature"/>
+        <rdfs:label>variable</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sbols.org/v3#variant -->
+
+    <owl:ObjectProperty rdf:about="http://sbols.org/v3#variant">
+        <rdfs:domain rdf:resource="http://sbols.org/v3#VariableFeature"/>
+        <rdfs:range rdf:resource="http://sbols.org/v3#Component"/>
+        <rdfs:label>variant</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sbols.org/v3#variantCollection -->
+
+    <owl:ObjectProperty rdf:about="http://sbols.org/v3#variantCollection">
+        <rdfs:domain rdf:resource="http://sbols.org/v3#VariableFeature"/>
+        <rdfs:range rdf:resource="http://sbols.org/v3#Collection"/>
+        <rdfs:label>variantCollection</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sbols.org/v3#variantDerivation -->
+
+    <owl:ObjectProperty rdf:about="http://sbols.org/v3#variantDerivation">
+        <rdfs:domain rdf:resource="http://sbols.org/v3#VariableFeature"/>
+        <rdfs:range rdf:resource="http://sbols.org/v3#CombinatorialDerivation"/>
+        <rdfs:label>variantDerivation</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sbols.org/v3#variantMeasure -->
+
+    <owl:ObjectProperty rdf:about="http://sbols.org/v3#variantMeasure">
+        <rdfs:domain rdf:resource="http://sbols.org/v3#VariableFeature"/>
+        <rdfs:range rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+        <rdfs:label>variantMeasure</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontology-of-units-of-measure.org/resource/om-2/hasBase -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontology-of-units-of-measure.org/resource/om-2/hasBase">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/UnitExponentiation"/>
+        <rdfs:range rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Unit"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontology-of-units-of-measure.org/resource/om-2/hasDenominator -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontology-of-units-of-measure.org/resource/om-2/hasDenominator">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/UnitDivision"/>
+        <rdfs:range rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Unit"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontology-of-units-of-measure.org/resource/om-2/hasNumerator -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontology-of-units-of-measure.org/resource/om-2/hasNumerator">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/UnitDivision"/>
+        <rdfs:range rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Unit"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontology-of-units-of-measure.org/resource/om-2/hasPrefix -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontology-of-units-of-measure.org/resource/om-2/hasPrefix">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/PrefixedUnit"/>
+        <rdfs:range rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Prefix"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontology-of-units-of-measure.org/resource/om-2/hasTerm1 -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontology-of-units-of-measure.org/resource/om-2/hasTerm1">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/UnitMultiplication"/>
+        <rdfs:range rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Unit"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontology-of-units-of-measure.org/resource/om-2/hasTerm2 -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontology-of-units-of-measure.org/resource/om-2/hasTerm2">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/UnitMultiplication"/>
+        <rdfs:range rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Unit"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontology-of-units-of-measure.org/resource/om-2/hasUnit -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontology-of-units-of-measure.org/resource/om-2/hasUnit">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+                    <rdf:Description rdf:about="http://www.ontology-of-units-of-measure.org/resource/om-2/PrefixedUnit"/>
+                    <rdf:Description rdf:about="http://www.ontology-of-units-of-measure.org/resource/om-2/SingularUnit"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Unit"/>
+        <rdfs:label>hasUnit</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/1999/02/22-rdf-syntax-ns#type -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+    
+
+
+    <!-- https://www.w3.org/ns/prov#agent -->
+
+    <owl:ObjectProperty rdf:about="https://www.w3.org/ns/prov#agent">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://www.w3.org/ns/prov#Association"/>
+        <rdfs:range rdf:resource="https://www.w3.org/ns/prov#Agent"/>
+        <rdfs:label>agent</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://www.w3.org/ns/prov#entity -->
+
+    <owl:ObjectProperty rdf:about="https://www.w3.org/ns/prov#entity">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://www.w3.org/ns/prov#Usage"/>
+        <rdfs:label>entity</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://www.w3.org/ns/prov#hadPlan -->
+
+    <owl:ObjectProperty rdf:about="https://www.w3.org/ns/prov#hadPlan">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://www.w3.org/ns/prov#Association"/>
+        <rdfs:range rdf:resource="https://www.w3.org/ns/prov#Plan"/>
+        <rdfs:label>hadPlan</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://www.w3.org/ns/prov#hadRole -->
+
+    <owl:ObjectProperty rdf:about="https://www.w3.org/ns/prov#hadRole">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://www.w3.org/ns/prov#Association"/>
+                    <rdf:Description rdf:about="https://www.w3.org/ns/prov#Usage"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:label>hadRole</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://www.w3.org/ns/prov#qualifiedAssociation -->
+
+    <owl:ObjectProperty rdf:about="https://www.w3.org/ns/prov#qualifiedAssociation">
+        <rdfs:domain rdf:resource="https://www.w3.org/ns/prov#Activity"/>
+        <rdfs:range rdf:resource="https://www.w3.org/ns/prov#Association"/>
+        <rdfs:label>qualifiedAssociation</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://www.w3.org/ns/prov#qualifiedUsage -->
+
+    <owl:ObjectProperty rdf:about="https://www.w3.org/ns/prov#qualifiedUsage">
+        <rdfs:domain rdf:resource="https://www.w3.org/ns/prov#Activity"/>
+        <rdfs:range rdf:resource="https://www.w3.org/ns/prov#Usage"/>
+        <rdfs:label>qualifiedUsage</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://www.w3.org/ns/prov#wasDerivedFrom -->
+
+    <owl:ObjectProperty rdf:about="https://www.w3.org/ns/prov#wasDerivedFrom">
+        <rdfs:domain rdf:resource="http://sbols.org/v3#Identified"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:label>wasDerivedFrom</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://www.w3.org/ns/prov#wasGeneratedBy -->
+
+    <owl:ObjectProperty rdf:about="https://www.w3.org/ns/prov#wasGeneratedBy">
+        <rdfs:domain rdf:resource="http://sbols.org/v3#Identified"/>
+        <rdfs:range rdf:resource="http://sbols.org/v3#SBOLActivity"/>
+        <rdfs:label>wasGeneratedBy</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://www.w3.org/ns/prov#wasInformedBy -->
+
+    <owl:ObjectProperty rdf:about="https://www.w3.org/ns/prov#wasInformedBy">
+        <rdfs:domain rdf:resource="https://www.w3.org/ns/prov#Activity"/>
+        <rdfs:range rdf:resource="https://www.w3.org/ns/prov#Activity"/>
+        <rdfs:label>wasInformedBy</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://sbols.org/v3#at -->
+
+    <owl:DatatypeProperty rdf:about="http://sbols.org/v3#at">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://sbols.org/v3#Cut"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+                <owl:withRestrictions rdf:parseType="Collection">
+                    <rdf:Description>
+                        <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</xsd:minInclusive>
+                    </rdf:Description>
+                </owl:withRestrictions>
+            </rdfs:Datatype>
+        </rdfs:range>
+        <rdfs:label>at</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://sbols.org/v3#description -->
+
+    <owl:DatatypeProperty rdf:about="http://sbols.org/v3#description">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://sbols.org/v3#Identified"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label>description</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://sbols.org/v3#displayId -->
+
+    <owl:DatatypeProperty rdf:about="http://sbols.org/v3#displayId">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://sbols.org/v3#Identified"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label>displayId</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://sbols.org/v3#elements -->
+
+    <owl:DatatypeProperty rdf:about="http://sbols.org/v3#elements">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://sbols.org/v3#Sequence"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label>elements</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://sbols.org/v3#end -->
+
+    <owl:DatatypeProperty rdf:about="http://sbols.org/v3#end">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://sbols.org/v3#Range"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+                <owl:withRestrictions rdf:parseType="Collection">
+                    <rdf:Description>
+                        <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</xsd:minInclusive>
+                    </rdf:Description>
+                </owl:withRestrictions>
+            </rdfs:Datatype>
+        </rdfs:range>
+        <rdfs:label>end</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://sbols.org/v3#hash -->
+
+    <owl:DatatypeProperty rdf:about="http://sbols.org/v3#hash">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://sbols.org/v3#Attachment"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label>hash</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://sbols.org/v3#hashAlgorithm -->
+
+    <owl:DatatypeProperty rdf:about="http://sbols.org/v3#hashAlgorithm">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://sbols.org/v3#Attachment"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label>hashAlgorithm</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://sbols.org/v3#name -->
+
+    <owl:DatatypeProperty rdf:about="http://sbols.org/v3#name">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://sbols.org/v3#Identified"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label>name</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://sbols.org/v3#order -->
+
+    <owl:DatatypeProperty rdf:about="http://sbols.org/v3#order">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://sbols.org/v3#Location"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+                <owl:withRestrictions rdf:parseType="Collection">
+                    <rdf:Description>
+                        <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</xsd:minInclusive>
+                    </rdf:Description>
+                </owl:withRestrictions>
+            </rdfs:Datatype>
+        </rdfs:range>
+        <rdfs:label>order</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://sbols.org/v3#size -->
+
+    <owl:DatatypeProperty rdf:about="http://sbols.org/v3#size">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://sbols.org/v3#Attachment"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+                <owl:withRestrictions rdf:parseType="Collection">
+                    <rdf:Description>
+                        <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</xsd:minInclusive>
+                    </rdf:Description>
+                </owl:withRestrictions>
+            </rdfs:Datatype>
+        </rdfs:range>
+        <rdfs:label>size</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://sbols.org/v3#start -->
+
+    <owl:DatatypeProperty rdf:about="http://sbols.org/v3#start">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://sbols.org/v3#Range"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+                <owl:withRestrictions rdf:parseType="Collection">
+                    <rdf:Description>
+                        <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</xsd:minInclusive>
+                    </rdf:Description>
+                </owl:withRestrictions>
+            </rdfs:Datatype>
+        </rdfs:range>
+        <rdfs:label>start</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.ontology-of-units-of-measure.org/resource/om-2/alternativeLabel -->
+
+    <owl:DatatypeProperty rdf:about="http://www.ontology-of-units-of-measure.org/resource/om-2/alternativeLabel">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.ontology-of-units-of-measure.org/resource/om-2/Prefix"/>
+                    <rdf:Description rdf:about="http://www.ontology-of-units-of-measure.org/resource/om-2/Unit"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label>alternativeSymbol</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.ontology-of-units-of-measure.org/resource/om-2/alternativeSymbol -->
+
+    <owl:DatatypeProperty rdf:about="http://www.ontology-of-units-of-measure.org/resource/om-2/alternativeSymbol">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.ontology-of-units-of-measure.org/resource/om-2/Prefix"/>
+                    <rdf:Description rdf:about="http://www.ontology-of-units-of-measure.org/resource/om-2/Unit"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label>alternativeSymbol</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.ontology-of-units-of-measure.org/resource/om-2/hasExponent -->
+
+    <owl:DatatypeProperty rdf:about="http://www.ontology-of-units-of-measure.org/resource/om-2/hasExponent">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/UnitExponentiation"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.ontology-of-units-of-measure.org/resource/om-2/hasFactor -->
+
+    <owl:DatatypeProperty rdf:about="http://www.ontology-of-units-of-measure.org/resource/om-2/hasFactor">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.ontology-of-units-of-measure.org/resource/om-2/Prefix"/>
+                    <rdf:Description rdf:about="http://www.ontology-of-units-of-measure.org/resource/om-2/SingularUnit"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+        <rdfs:label>hasFactor</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.ontology-of-units-of-measure.org/resource/om-2/hasNumericalValue -->
+
+    <owl:DatatypeProperty rdf:about="http://www.ontology-of-units-of-measure.org/resource/om-2/hasNumericalValue">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+        <rdfs:label>hasNumericalValue</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.ontology-of-units-of-measure.org/resource/om-2/longComment -->
+
+    <owl:DatatypeProperty rdf:about="http://www.ontology-of-units-of-measure.org/resource/om-2/longComment">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.ontology-of-units-of-measure.org/resource/om-2/Prefix"/>
+                    <rdf:Description rdf:about="http://www.ontology-of-units-of-measure.org/resource/om-2/Unit"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label>longcomment</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.ontology-of-units-of-measure.org/resource/om-2/symbol -->
+
+    <owl:DatatypeProperty rdf:about="http://www.ontology-of-units-of-measure.org/resource/om-2/symbol">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.ontology-of-units-of-measure.org/resource/om-2/Prefix"/>
+                    <rdf:Description rdf:about="http://www.ontology-of-units-of-measure.org/resource/om-2/Unit"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+        <rdfs:label>symbol</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://www.w3.org/ns/prov#endedAtTime -->
+
+    <owl:DatatypeProperty rdf:about="https://www.w3.org/ns/prov#endedAtTime">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://www.w3.org/ns/prov#Activity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <rdfs:label>endedAtTime</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://www.w3.org/ns/prov#startedAtTime -->
+
+    <owl:DatatypeProperty rdf:about="https://www.w3.org/ns/prov#startedAtTime">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://www.w3.org/ns/prov#Activity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <rdfs:label>startedAtTime</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://sbols.org/v3#Attachment -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#Attachment">
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#TopLevel"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://sbols.org/v3#source"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <otol:domainEntity>true</otol:domainEntity>
+        <rdfs:label>Attachment</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#BiochemicalReactionInteraction -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#BiochemicalReactionInteraction">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sbols.org/v3#Interaction"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sbols.org/v3#type"/>
+                        <owl:someValuesFrom rdf:resource="https://identifiers.org/SBO:0000176"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sbols.org/v3#participant"/>
+                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                        <owl:onClass rdf:resource="http://sbols.org/v3#ModifiedParticipation"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sbols.org/v3#participant"/>
+                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                        <owl:onClass rdf:resource="http://sbols.org/v3#ModifierParticipation"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sbols.org/v3#participant"/>
+                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                        <owl:onClass rdf:resource="http://sbols.org/v3#ProductParticipation"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sbols.org/v3#participant"/>
+                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                        <owl:onClass rdf:resource="http://sbols.org/v3#ReactantParticipation"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Interaction"/>
+        <otol:domainEntity>true</otol:domainEntity>
+        <rdfs:label>BiochemicalReactionInteraction</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#CDSDNAComponent -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#CDSDNAComponent">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sbols.org/v3#DNAComponent"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sbols.org/v3#role"/>
+                        <owl:someValuesFrom rdf:resource="https://identifiers.org/SO:0000316"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#DNAComponent"/>
+        <otol:domainEntity>true</otol:domainEntity>
+        <rdfs:label>CDS DNA Component</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#Cardinality -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#Cardinality">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sbols.org/v3#one"/>
+                    <rdf:Description rdf:about="http://sbols.org/v3#oneOrMore"/>
+                    <rdf:Description rdf:about="http://sbols.org/v3#zeroOrMore"/>
+                    <rdf:Description rdf:about="http://sbols.org/v3#zeroOrOne"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#SBOLTerm"/>
+        <otol:constantList>true</otol:constantList>
+        <rdfs:label>Cardinality</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#Collection -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#Collection">
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#TopLevel"/>
+        <otol:domainEntity>true</otol:domainEntity>
+        <rdfs:label>Collection</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#CombinatorialDerivation -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#CombinatorialDerivation">
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#TopLevel"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://sbols.org/v3#template"/>
+                <owl:someValuesFrom rdf:resource="http://sbols.org/v3#Component"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <otol:domainEntity>true</otol:domainEntity>
+        <rdfs:label>CombinatorialDerivation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#CombinatorialDerivationStrategy -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#CombinatorialDerivationStrategy">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sbols.org/v3#enumerate"/>
+                    <rdf:Description rdf:about="http://sbols.org/v3#sample"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#SBOLTerm"/>
+        <otol:constantList>true</otol:constantList>
+        <rdfs:label>CombinatorialDerivationStrategy</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#Component -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#Component">
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#TopLevel"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://sbols.org/v3#type"/>
+                <owl:someValuesFrom rdf:resource="http://sbols.org/v3#ComponentType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://sbols.org/v3#type"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://sbols.org/v3#type"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://sbols.org/v3#ComponentType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <otol:domainEntity>true</otol:domainEntity>
+        <rdfs:label>Component</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#ComponentReference -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#ComponentReference">
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Feature"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://sbols.org/v3#inChildOf"/>
+                <owl:someValuesFrom rdf:resource="http://sbols.org/v3#Component"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://sbols.org/v3#refersTo"/>
+                <owl:someValuesFrom rdf:resource="http://sbols.org/v3#Feature"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <otol:domainEntity>true</otol:domainEntity>
+        <rdfs:label>ComponentReference</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#ComponentRole -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#ComponentRole">
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#SBOLValue"/>
+        <rdfs:label>Component Role</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#ComponentType -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#ComponentType">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sbols.org/v3#ComponentType"/>
+                    <rdf:Description rdf:about="https://identifiers.org/SO:0000984"/>
+                    <rdf:Description rdf:about="https://identifiers.org/SO:0000985"/>
+                    <rdf:Description rdf:about="https://identifiers.org/SO:0000987"/>
+                    <rdf:Description rdf:about="https://identifiers.org/SO:0000988"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://identifiers.org/SBO:0000241"/>
+                    <rdf:Description rdf:about="https://identifiers.org/SBO:0000247"/>
+                    <rdf:Description rdf:about="https://identifiers.org/SBO:0000250"/>
+                    <rdf:Description rdf:about="https://identifiers.org/SBO:0000251"/>
+                    <rdf:Description rdf:about="https://identifiers.org/SBO:0000252"/>
+                    <rdf:Description rdf:about="https://identifiers.org/SBO:0000253"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#SBOLValue"/>
+        <rdfs:subClassOf rdf:resource="https://identifiers.org/SBO:0000236"/>
+        <otol:constantList>true</otol:constantList>
+        <rdfs:label>Component Type</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#Constraint -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#Constraint">
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Identified"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://sbols.org/v3#object"/>
+                <owl:someValuesFrom rdf:resource="http://sbols.org/v3#Feature"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://sbols.org/v3#restriction"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://sbols.org/v3#subject"/>
+                <owl:someValuesFrom rdf:resource="http://sbols.org/v3#Feature"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <otol:domainEntity>true</otol:domainEntity>
+        <rdfs:label>Constraint</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#ConstraintRestriction -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#ConstraintRestriction">
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#SBOLTerm"/>
+        <otol:constantList>true</otol:constantList>
+        <rdfs:comment>Controlled vocabulary for the types of relationships that can be expressed in Constraints.</rdfs:comment>
+        <rdfs:label>ConstraintRestriction</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#ControlInteraction -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#ControlInteraction">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sbols.org/v3#Interaction"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sbols.org/v3#participant"/>
+                        <owl:someValuesFrom rdf:resource="http://sbols.org/v3#ModifiedParticipation"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sbols.org/v3#participant"/>
+                        <owl:someValuesFrom rdf:resource="http://sbols.org/v3#ModifierParticipation"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sbols.org/v3#type"/>
+                        <owl:someValuesFrom rdf:resource="https://identifiers.org/SBO:0000168"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Interaction"/>
+        <otol:domainEntity>true</otol:domainEntity>
+        <rdfs:label>ControlInteraction</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#Cut -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#Cut">
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Location"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://sbols.org/v3#at"/>
+                <owl:someValuesFrom>
+                    <rdfs:Datatype>
+                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+                        <owl:withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</xsd:minInclusive>
+                            </rdf:Description>
+                        </owl:withRestrictions>
+                    </rdfs:Datatype>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <otol:domainEntity>true</otol:domainEntity>
+        <rdfs:label>Cut</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#DNAComponent -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#DNAComponent">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sbols.org/v3#Component"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sbols.org/v3#role"/>
+                        <owl:someValuesFrom rdf:resource="http://sbols.org/v3#DNARole"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sbols.org/v3#type"/>
+                        <owl:someValuesFrom rdf:resource="https://identifiers.org/SBO:0000251"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sbols.org/v3#hasSequence"/>
+                        <owl:allValuesFrom rdf:resource="http://sbols.org/v3#DNASequence"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Component"/>
+        <otol:domainEntity>true</otol:domainEntity>
+        <rdfs:label>DNA Component</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#DNARNAComponentType -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#DNARNAComponentType">
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#ComponentType"/>
+        <otol:constantList>true</otol:constantList>
+        <rdfs:label>DNA or RNA Component Type</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#DNARole -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#DNARole">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://identifiers.org/SO:0000057"/>
+                    <rdf:Description rdf:about="https://identifiers.org/SO:0000110"/>
+                    <rdf:Description rdf:about="https://identifiers.org/SO:0000139"/>
+                    <rdf:Description rdf:about="https://identifiers.org/SO:0000141"/>
+                    <rdf:Description rdf:about="https://identifiers.org/SO:0000167"/>
+                    <rdf:Description rdf:about="https://identifiers.org/SO:0000316"/>
+                    <rdf:Description rdf:about="https://identifiers.org/SO:0000704"/>
+                    <rdf:Description rdf:about="https://identifiers.org/SO:0000804"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#ComponentRole"/>
+        <otol:constantList>true</otol:constantList>
+        <rdfs:label>DNA Role</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#DNASequence -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#DNASequence">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sbols.org/v3#SequenceWithElements"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sbols.org/v3#encoding"/>
+                        <owl:someValuesFrom rdf:resource="https://identifiers.org/edam:format_1207"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#SequenceWithElements"/>
+        <otol:domainEntity>true</otol:domainEntity>
+        <rdfs:label>DNA Sequence</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#DegradationInteraction -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#DegradationInteraction">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sbols.org/v3#Interaction"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sbols.org/v3#participant"/>
+                        <owl:someValuesFrom rdf:resource="http://sbols.org/v3#ReactantParticipation"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sbols.org/v3#type"/>
+                        <owl:someValuesFrom rdf:resource="https://identifiers.org/SBO:0000179"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Interaction"/>
+        <otol:domainEntity>true</otol:domainEntity>
+        <rdfs:label>DegradationInteraction</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#EffectorSimpleChemicalComponent -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#EffectorSimpleChemicalComponent">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sbols.org/v3#SimpleChemicalComponent"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sbols.org/v3#role"/>
+                        <owl:someValuesFrom rdf:resource="https://identifiers.org/CHEBI:35224"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#SimpleChemicalComponent"/>
+        <otol:domainEntity>true</otol:domainEntity>
+        <rdfs:label>Effector Simple Chemical Component</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#Encoding -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#Encoding">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://identifiers.org/edam:format_1196"/>
+                    <rdf:Description rdf:about="https://identifiers.org/edam:format_1197"/>
+                    <rdf:Description rdf:about="https://identifiers.org/edam:format_1207"/>
+                    <rdf:Description rdf:about="https://identifiers.org/edam:format_1208"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#SBOLValue"/>
+        <otol:constantList>true</otol:constantList>
+        <rdfs:label>Encoding</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#EngineeredRegionDNAComponent -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#EngineeredRegionDNAComponent">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sbols.org/v3#DNAComponent"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sbols.org/v3#role"/>
+                        <owl:someValuesFrom rdf:resource="https://identifiers.org/SO:0000804"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#DNAComponent"/>
+        <otol:domainEntity>true</otol:domainEntity>
+        <rdfs:label>Engineered Region DNA Component</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#EntireSequence -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#EntireSequence">
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Location"/>
+        <otol:domainEntity>true</otol:domainEntity>
+        <rdfs:label>EntireSequence</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#Experiment -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#Experiment">
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Collection"/>
+        <otol:domainEntity>true</otol:domainEntity>
+        <rdfs:label>Experiment</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#ExperimentalData -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#ExperimentalData">
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#TopLevel"/>
+        <otol:domainEntity>true</otol:domainEntity>
+        <rdfs:label>ExperimentalData</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#ExternallyDefined -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#ExternallyDefined">
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Feature"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://sbols.org/v3#definition"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://sbols.org/v3#type"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <otol:domainEntity>true</otol:domainEntity>
+        <rdfs:label>ExternallyDefined</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#Feature -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#Feature">
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Identified"/>
+        <otol:domainEntity>true</otol:domainEntity>
+        <rdfs:label>Feature</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#FunctionalEntityComponent -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#FunctionalEntityComponent">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sbols.org/v3#Component"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sbols.org/v3#type"/>
+                        <owl:someValuesFrom rdf:resource="https://identifiers.org/SBO:0000241"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Component"/>
+        <otol:domainEntity>true</otol:domainEntity>
+        <rdfs:label>Functional Entity Component</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#GeneDNAComponent -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#GeneDNAComponent">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sbols.org/v3#DNAComponent"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sbols.org/v3#role"/>
+                        <owl:someValuesFrom rdf:resource="https://identifiers.org/SO:0000704"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#DNAComponent"/>
+        <otol:domainEntity>true</otol:domainEntity>
+        <rdfs:label>Gene DNA Component</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#GenericDNAComponent -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#GenericDNAComponent">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sbols.org/v3#DNAComponent"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sbols.org/v3#role"/>
+                        <owl:someValuesFrom rdf:resource="https://identifiers.org/SO:0000110"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#DNAComponent"/>
+        <otol:domainEntity>true</otol:domainEntity>
+        <rdfs:label>Generic DNA Component</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#GenericTopLevel -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#GenericTopLevel">
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#TopLevel"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <otol:domainEntity>true</otol:domainEntity>
+        <rdfs:label>GenericTopLevel</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#GeneticProductionInteraction -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#GeneticProductionInteraction">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sbols.org/v3#Interaction"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sbols.org/v3#participant"/>
+                        <owl:someValuesFrom rdf:resource="http://sbols.org/v3#TemplateParticipation"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sbols.org/v3#type"/>
+                        <owl:someValuesFrom rdf:resource="https://identifiers.org/SBO:0000589"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sbols.org/v3#participant"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onClass rdf:resource="http://sbols.org/v3#ProductParticipation"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Interaction"/>
+        <otol:domainEntity>true</otol:domainEntity>
+        <rdfs:label>GeneticProductionInteraction</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#Identified -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#Identified">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://sbols.org/v3#Metadata"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label>Identified</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#IdentityRestriction -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#IdentityRestriction">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sbols.org/v3#differentFrom"/>
+                    <rdf:Description rdf:about="http://sbols.org/v3#replaces"/>
+                    <rdf:Description rdf:about="http://sbols.org/v3#verifyIdentical"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#ConstraintRestriction"/>
+        <otol:constantList>true</otol:constantList>
+        <rdfs:label>IdentityRestriction</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#Implementation -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#Implementation">
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#TopLevel"/>
+        <otol:domainEntity>true</otol:domainEntity>
+        <rdfs:label>Implementation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#InChISequence -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#InChISequence">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sbols.org/v3#SequenceWithElements"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sbols.org/v3#encoding"/>
+                        <owl:someValuesFrom rdf:resource="https://identifiers.org/edam:format_1197"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#SequenceWithElements"/>
+        <otol:domainEntity>true</otol:domainEntity>
+        <rdfs:label>InChI Sequence</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#InhibitedParticipation -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#InhibitedParticipation">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sbols.org/v3#Participation"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sbols.org/v3#role"/>
+                        <owl:someValuesFrom rdf:resource="https://identifiers.org/SBO:0000642"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Participation"/>
+        <otol:domainEntity>true</otol:domainEntity>
+        <rdfs:label>InhibitedParticipation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#InhibitionInteraction -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#InhibitionInteraction">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sbols.org/v3#Interaction"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sbols.org/v3#participant"/>
+                        <owl:someValuesFrom rdf:resource="http://sbols.org/v3#InhibitedParticipation"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sbols.org/v3#participant"/>
+                        <owl:someValuesFrom rdf:resource="http://sbols.org/v3#InhibitorParticipation"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sbols.org/v3#type"/>
+                        <owl:someValuesFrom rdf:resource="https://identifiers.org/SBO:0000169"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Interaction"/>
+        <otol:domainEntity>true</otol:domainEntity>
+        <rdfs:label>InhibitionInteraction</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#InhibitorParticipation -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#InhibitorParticipation">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sbols.org/v3#Participation"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sbols.org/v3#role"/>
+                        <owl:someValuesFrom rdf:resource="https://identifiers.org/SBO:0000020"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Participation"/>
+        <otol:domainEntity>true</otol:domainEntity>
+        <rdfs:label>InhibitorParticipant</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#Interaction -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#Interaction">
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Identified"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://sbols.org/v3#type"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <otol:domainEntity>true</otol:domainEntity>
+        <rdfs:label>Interaction</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#InteractionType -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#InteractionType">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://identifiers.org/SBO:0000168"/>
+                    <rdf:Description rdf:about="https://identifiers.org/SBO:0000169"/>
+                    <rdf:Description rdf:about="https://identifiers.org/SBO:0000170"/>
+                    <rdf:Description rdf:about="https://identifiers.org/SBO:0000176"/>
+                    <rdf:Description rdf:about="https://identifiers.org/SBO:0000177"/>
+                    <rdf:Description rdf:about="https://identifiers.org/SBO:0000179"/>
+                    <rdf:Description rdf:about="https://identifiers.org/SBO:0000589"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#SBOLValue"/>
+        <otol:constantList>true</otol:constantList>
+        <rdfs:label>InteractionType</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#Interface -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#Interface">
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Identified"/>
+        <otol:domainEntity>true</otol:domainEntity>
+        <rdfs:label>Interface</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#LocalSubComponent -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#LocalSubComponent">
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Feature"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://sbols.org/v3#type"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <otol:domainEntity>true</otol:domainEntity>
+        <rdfs:label>LocalSubComponent</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#Location -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#Location">
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Identified"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://sbols.org/v3#hasSequence"/>
+                <owl:someValuesFrom rdf:resource="http://sbols.org/v3#Sequence"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://sbols.org/v3#hasSequence"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://sbols.org/v3#Sequence"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <otol:domainEntity>true</otol:domainEntity>
+        <rdfs:label>Location</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#Metadata -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#Metadata">
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Identified"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <otol:domainEntity>true</otol:domainEntity>
+        <rdfs:label>Metadata</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#Model -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#Model">
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#TopLevel"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://sbols.org/v3#framework"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://sbols.org/v3#language"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://sbols.org/v3#source"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <otol:domainEntity>true</otol:domainEntity>
+        <rdfs:label>Model</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#ModelFramework -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#ModelFramework">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://identifiers.org/SBO:0000062"/>
+                    <rdf:Description rdf:about="https://identifiers.org/SBO:0000063"/>
+                    <rdf:Description rdf:about="https://identifiers.org/SBO:0000234"/>
+                    <rdf:Description rdf:about="https://identifiers.org/SBO:0000681"/>
+                    <rdf:Description rdf:about="https://identifiers.org/SBO:0000693"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#SBOLValue"/>
+        <otol:constantList>true</otol:constantList>
+        <rdfs:label>ModelFramework</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#ModelLanguage -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#ModelLanguage">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://identifiers.org/edam:format_2585"/>
+                    <rdf:Description rdf:about="https://identifiers.org/edam:format_3156"/>
+                    <rdf:Description rdf:about="https://identifiers.org/edam:format_3240"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#SBOLValue"/>
+        <otol:constantList>true</otol:constantList>
+        <rdfs:label>ModelLanguage</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#ModifiedParticipation -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#ModifiedParticipation">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sbols.org/v3#Participation"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sbols.org/v3#role"/>
+                        <owl:someValuesFrom rdf:resource="https://identifiers.org/SBO:0000644"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Participation"/>
+        <otol:domainEntity>true</otol:domainEntity>
+        <rdfs:label>ModifiedParticipation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#ModifierParticipation -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#ModifierParticipation">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sbols.org/v3#Participation"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sbols.org/v3#role"/>
+                        <owl:someValuesFrom rdf:resource="https://identifiers.org/SBO:0000019"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Participation"/>
+        <otol:domainEntity>true</otol:domainEntity>
+        <rdfs:label>ModifierParticipation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#NonCovalentBindingInteraction -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#NonCovalentBindingInteraction">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sbols.org/v3#Interaction"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sbols.org/v3#participant"/>
+                        <owl:someValuesFrom rdf:resource="http://sbols.org/v3#ProductParticipation"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sbols.org/v3#participant"/>
+                        <owl:someValuesFrom rdf:resource="http://sbols.org/v3#ReactantParticipation"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sbols.org/v3#type"/>
+                        <owl:someValuesFrom rdf:resource="https://identifiers.org/SBO:0000177"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Interaction"/>
+        <otol:domainEntity>true</otol:domainEntity>
+        <rdfs:label>NonCovalentBindingInteraction</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#NonCovalentComplexComponent -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#NonCovalentComplexComponent">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sbols.org/v3#Component"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sbols.org/v3#type"/>
+                        <owl:someValuesFrom rdf:resource="https://identifiers.org/SBO:0000253"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Component"/>
+        <otol:domainEntity>true</otol:domainEntity>
+        <rdfs:label>Non-Covalent Complex Component</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#NucleicAcidTopology -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#NucleicAcidTopology">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://identifiers.org/SO:0000984"/>
+                    <rdf:Description rdf:about="https://identifiers.org/SO:0000985"/>
+                    <rdf:Description rdf:about="https://identifiers.org/SO:0000987"/>
+                    <rdf:Description rdf:about="https://identifiers.org/SO:0000988"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#SBOLValue"/>
+        <otol:constantList>true</otol:constantList>
+        <rdfs:label>NucleicAcidTopology</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#OperatorDNAComponent -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#OperatorDNAComponent">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sbols.org/v3#DNAComponent"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sbols.org/v3#role"/>
+                        <owl:someValuesFrom rdf:resource="https://identifiers.org/SO:0000057"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#DNAComponent"/>
+        <otol:domainEntity>true</otol:domainEntity>
+        <rdfs:label>Operator DNA Component</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#Orientation -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#Orientation">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sbols.org/v3#inline"/>
+                    <rdf:Description rdf:about="http://sbols.org/v3#reverseComplement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#SBOLTerm"/>
+        <otol:constantList>true</otol:constantList>
+        <rdfs:label>Orientation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#OrientationRestriction -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#OrientationRestriction">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sbols.org/v3#oppositeOrientationAs"/>
+                    <rdf:Description rdf:about="http://sbols.org/v3#sameOrientationAs"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#ConstraintRestriction"/>
+        <otol:constantList>true</otol:constantList>
+        <rdfs:label>OrientationRestriction</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#Participation -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#Participation">
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Identified"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://sbols.org/v3#role"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <otol:domainEntity>true</otol:domainEntity>
+        <rdfs:label>Participation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#ParticipationRole -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#ParticipationRole">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://identifiers.org/SBO:0000010"/>
+                    <rdf:Description rdf:about="https://identifiers.org/SBO:0000011"/>
+                    <rdf:Description rdf:about="https://identifiers.org/SBO:0000019"/>
+                    <rdf:Description rdf:about="https://identifiers.org/SBO:0000020"/>
+                    <rdf:Description rdf:about="https://identifiers.org/SBO:0000459"/>
+                    <rdf:Description rdf:about="https://identifiers.org/SBO:0000598"/>
+                    <rdf:Description rdf:about="https://identifiers.org/SBO:0000642"/>
+                    <rdf:Description rdf:about="https://identifiers.org/SBO:0000643"/>
+                    <rdf:Description rdf:about="https://identifiers.org/SBO:0000645"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#SBOLValue"/>
+        <otol:constantList>true</otol:constantList>
+        <rdfs:label>ParticipationRole</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#ProductParticipation -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#ProductParticipation">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sbols.org/v3#Participation"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sbols.org/v3#role"/>
+                        <owl:someValuesFrom rdf:resource="https://identifiers.org/SBO:0000011"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Participation"/>
+        <otol:domainEntity>true</otol:domainEntity>
+        <rdfs:label>ProductParticipation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#PromoterDNAComponent -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#PromoterDNAComponent">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sbols.org/v3#DNAComponent"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sbols.org/v3#role"/>
+                        <owl:someValuesFrom rdf:resource="https://identifiers.org/SO:0000167"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#DNAComponent"/>
+        <otol:domainEntity>true</otol:domainEntity>
+        <rdfs:label>Promoter DNA Component</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#PromoterParticipation -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#PromoterParticipation">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sbols.org/v3#Participation"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sbols.org/v3#role"/>
+                        <owl:someValuesFrom rdf:resource="https://identifiers.org/SBO:0000598"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Participation"/>
+        <otol:domainEntity>true</otol:domainEntity>
+        <rdfs:label>PromoterParticipation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#ProteinComponent -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#ProteinComponent">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sbols.org/v3#Component"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sbols.org/v3#role"/>
+                        <owl:someValuesFrom rdf:resource="http://sbols.org/v3#ProteinRole"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sbols.org/v3#type"/>
+                        <owl:someValuesFrom rdf:resource="https://identifiers.org/SBO:0000252"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sbols.org/v3#hasSequence"/>
+                        <owl:allValuesFrom rdf:resource="http://sbols.org/v3#ProteinSequence"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Component"/>
+        <otol:domainEntity>true</otol:domainEntity>
+        <rdfs:label>Protein Component</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#ProteinRole -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#ProteinRole">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://identifiers.org/GO:0003674"/>
+                    <rdf:Description rdf:about="https://identifiers.org/GO:0003700"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#ComponentRole"/>
+        <otol:constantList>true</otol:constantList>
+        <rdfs:label>Protein Role</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#ProteinSequence -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#ProteinSequence">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sbols.org/v3#SequenceWithElements"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sbols.org/v3#encoding"/>
+                        <owl:someValuesFrom rdf:resource="https://identifiers.org/edam:format_1208"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#SequenceWithElements"/>
+        <otol:domainEntity>true</otol:domainEntity>
+        <rdfs:label>Protein Sequence</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#RBSDNAComponent -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#RBSDNAComponent">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sbols.org/v3#DNAComponent"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sbols.org/v3#role"/>
+                        <owl:someValuesFrom rdf:resource="https://identifiers.org/SO:0000139"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#DNAComponent"/>
+        <otol:domainEntity>true</otol:domainEntity>
+        <rdfs:label>RBS DNA Component</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#RNAComponent -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#RNAComponent">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sbols.org/v3#Component"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sbols.org/v3#role"/>
+                        <owl:someValuesFrom rdf:resource="http://sbols.org/v3#RNARole"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sbols.org/v3#type"/>
+                        <owl:someValuesFrom rdf:resource="https://identifiers.org/SBO:0000250"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sbols.org/v3#hasSequence"/>
+                        <owl:allValuesFrom rdf:resource="http://sbols.org/v3#RNASequence"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Component"/>
+        <otol:domainEntity>true</otol:domainEntity>
+        <rdfs:label>RNA Component</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#RNARole -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#RNARole">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://identifiers.org/SO:0000110"/>
+                    <rdf:Description rdf:about="https://identifiers.org/SO:0000234"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#ComponentRole"/>
+        <otol:constantList>true</otol:constantList>
+        <rdfs:label>RNA role</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#RNASequence -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#RNASequence">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sbols.org/v3#SequenceWithElements"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sbols.org/v3#encoding"/>
+                        <owl:someValuesFrom rdf:resource="https://identifiers.org/edam:format_1207"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#SequenceWithElements"/>
+        <otol:domainEntity>true</otol:domainEntity>
+        <rdfs:label>RNA Sequence</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#Range -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#Range">
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Location"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://sbols.org/v3#end"/>
+                <owl:someValuesFrom>
+                    <rdfs:Datatype>
+                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+                        <owl:withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</xsd:minInclusive>
+                            </rdf:Description>
+                        </owl:withRestrictions>
+                    </rdfs:Datatype>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://sbols.org/v3#start"/>
+                <owl:someValuesFrom>
+                    <rdfs:Datatype>
+                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+                        <owl:withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</xsd:minInclusive>
+                            </rdf:Description>
+                        </owl:withRestrictions>
+                    </rdfs:Datatype>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <otol:domainEntity>true</otol:domainEntity>
+        <rdfs:label>Range</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#ReactantParticipation -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#ReactantParticipation">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sbols.org/v3#Participation"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sbols.org/v3#role"/>
+                        <owl:someValuesFrom rdf:resource="https://identifiers.org/SBO:0000010"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Participation"/>
+        <otol:domainEntity>true</otol:domainEntity>
+        <rdfs:label>ReactantParticipation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#RoleIntegration -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#RoleIntegration">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sbols.org/v3#mergeRoles"/>
+                    <rdf:Description rdf:about="http://sbols.org/v3#overrideRoles"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#SBOLTerm"/>
+        <otol:constantList>true</otol:constantList>
+        <rdfs:label>RoleIntegration</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#SBOLActivity -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#SBOLActivity">
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#TopLevel"/>
+        <rdfs:subClassOf rdf:resource="https://www.w3.org/ns/prov#Activity"/>
+        <otol:domainEntity>true</otol:domainEntity>
+        <otol:replacementOf rdf:resource="https://www.w3.org/ns/prov#Activity"/>
+        <rdfs:label>SBOL Activity</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#SBOLAgent -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#SBOLAgent">
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#TopLevel"/>
+        <rdfs:subClassOf rdf:resource="https://www.w3.org/ns/prov#Agent"/>
+        <otol:domainEntity>true</otol:domainEntity>
+        <otol:replacementOf rdf:resource="https://www.w3.org/ns/prov#Agent"/>
+        <rdfs:label>SBOL Agent</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#SBOLAssociation -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#SBOLAssociation">
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Identified"/>
+        <rdfs:subClassOf rdf:resource="https://www.w3.org/ns/prov#Association"/>
+        <otol:domainEntity>true</otol:domainEntity>
+        <otol:replacementOf rdf:resource="https://www.w3.org/ns/prov#Association"/>
+        <rdfs:label>SBOL Association</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#SBOLBinaryPrefix -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#SBOLBinaryPrefix">
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#SBOLPrefix"/>
+        <rdfs:subClassOf rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/BinaryPrefix"/>
+        <otol:domainEntity>true</otol:domainEntity>
+        <otol:replacementOf rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/BinaryPrefix"/>
+        <rdfs:label>BinaryPrefix</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#SBOLCompoundUnit -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#SBOLCompoundUnit">
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#SBOLUnit"/>
+        <rdfs:subClassOf rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/CompoundUnit"/>
+        <otol:domainEntity>true</otol:domainEntity>
+        <otol:replacementOf rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/CompoundUnit"/>
+        <rdfs:label>CompoundUnit</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#SBOLMeasure -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#SBOLMeasure">
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Identified"/>
+        <rdfs:subClassOf rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+        <otol:domainEntity>true</otol:domainEntity>
+        <otol:replacementOf rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
+        <rdfs:label>SBOL Measure</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#SBOLPlan -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#SBOLPlan">
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#TopLevel"/>
+        <rdfs:subClassOf rdf:resource="https://www.w3.org/ns/prov#Plan"/>
+        <otol:domainEntity>true</otol:domainEntity>
+        <otol:replacementOf rdf:resource="https://www.w3.org/ns/prov#Plan"/>
+        <rdfs:label>SBOLPlan</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#SBOLPrefix -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#SBOLPrefix">
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#TopLevel"/>
+        <rdfs:subClassOf rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Prefix"/>
+        <otol:domainEntity>true</otol:domainEntity>
+        <otol:replacementOf rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Prefix"/>
+        <rdfs:label>Prefix</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#SBOLPrefixedUnit -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#SBOLPrefixedUnit">
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#SBOLUnit"/>
+        <rdfs:subClassOf rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/PrefixedUnit"/>
+        <otol:domainEntity>true</otol:domainEntity>
+        <otol:replacementOf rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/PrefixedUnit"/>
+        <rdfs:label>PrefixedUnit</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#SBOLSIPrefix -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#SBOLSIPrefix">
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#SBOLPrefix"/>
+        <rdfs:subClassOf rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/SIPrefix"/>
+        <otol:domainEntity>true</otol:domainEntity>
+        <otol:replacementOf rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/SIPrefix"/>
+        <rdfs:label>SIPrefix</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#SBOLSingularUnit -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#SBOLSingularUnit">
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#SBOLUnit"/>
+        <rdfs:subClassOf rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/SingularUnit"/>
+        <otol:domainEntity>true</otol:domainEntity>
+        <otol:replacementOf rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/SingularUnit"/>
+        <rdfs:label>SingularUnit</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#SBOLTerm -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#SBOLTerm">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <otol:vocabulary>true</otol:vocabulary>
+        <rdfs:label>SBOL Term</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#SBOLUnit -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#SBOLUnit">
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#TopLevel"/>
+        <rdfs:subClassOf rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Unit"/>
+        <otol:domainEntity>true</otol:domainEntity>
+        <otol:replacementOf rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Unit"/>
+        <rdfs:label>Unit</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#SBOLUnitDivision -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#SBOLUnitDivision">
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#SBOLUnit"/>
+        <rdfs:subClassOf rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/UnitDivision"/>
+        <otol:domainEntity>true</otol:domainEntity>
+        <otol:replacementOf rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/UnitDivision"/>
+        <rdfs:label>UnitDivision</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#SBOLUnitExponentiation -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#SBOLUnitExponentiation">
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#SBOLUnit"/>
+        <rdfs:subClassOf rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/UnitExponentiation"/>
+        <otol:domainEntity>true</otol:domainEntity>
+        <otol:replacementOf rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/UnitExponentiation"/>
+        <rdfs:label>UnitExponentiation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#SBOLUnitMultiplication -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#SBOLUnitMultiplication">
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#SBOLUnit"/>
+        <rdfs:subClassOf rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/UnitMultiplication"/>
+        <otol:domainEntity>true</otol:domainEntity>
+        <otol:replacementOf rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/UnitMultiplication"/>
+        <rdfs:label>UnitMultiplication</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#SBOLUsage -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#SBOLUsage">
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Identified"/>
+        <rdfs:subClassOf rdf:resource="https://www.w3.org/ns/prov#Usage"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://www.w3.org/ns/prov#entity"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <otol:domainEntity>true</otol:domainEntity>
+        <otol:replacementOf rdf:resource="https://www.w3.org/ns/prov#Usage"/>
+        <rdfs:label>SBOL Usage</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#SBOLValue -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#SBOLValue">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <otol:vocabulary>true</otol:vocabulary>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#SMILESSequence -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#SMILESSequence">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sbols.org/v3#SequenceWithElements"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sbols.org/v3#encoding"/>
+                        <owl:someValuesFrom rdf:resource="https://identifiers.org/edam:format_1196"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#SequenceWithElements"/>
+        <otol:domainEntity>true</otol:domainEntity>
+        <rdfs:label>SMILES Sequence</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#Sequence -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#Sequence">
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#TopLevel"/>
+        <otol:domainEntity>true</otol:domainEntity>
+        <rdfs:label>Sequence</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#SequenceFeature -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#SequenceFeature">
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Feature"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://sbols.org/v3#hasLocation"/>
+                <owl:someValuesFrom rdf:resource="http://sbols.org/v3#Location"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <otol:domainEntity>true</otol:domainEntity>
+        <rdfs:label>SequenceFeature</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#SequenceWithElements -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#SequenceWithElements">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sbols.org/v3#Sequence"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sbols.org/v3#encoding"/>
+                        <owl:someValuesFrom rdf:resource="http://sbols.org/v3#Encoding"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sbols.org/v3#elements"/>
+                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Sequence"/>
+        <rdfs:label>Sequence With Elements</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#SequentialRestriction -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#SequentialRestriction">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sbols.org/v3#contains"/>
+                    <rdf:Description rdf:about="http://sbols.org/v3#equals"/>
+                    <rdf:Description rdf:about="http://sbols.org/v3#finishes"/>
+                    <rdf:Description rdf:about="http://sbols.org/v3#meets"/>
+                    <rdf:Description rdf:about="http://sbols.org/v3#overlaps"/>
+                    <rdf:Description rdf:about="http://sbols.org/v3#precedes"/>
+                    <rdf:Description rdf:about="http://sbols.org/v3#starts"/>
+                    <rdf:Description rdf:about="http://sbols.org/v3#strictlyContains"/>
+                    <rdf:Description rdf:about="http://sbols.org/v3#strictlyPrecedes"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#ConstraintRestriction"/>
+        <otol:constantList>true</otol:constantList>
+        <rdfs:label>SequentialRestriction</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#SimpleChemicalComponent -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#SimpleChemicalComponent">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sbols.org/v3#Component"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sbols.org/v3#role"/>
+                        <owl:someValuesFrom rdf:resource="http://sbols.org/v3#SmallMoleculeRole"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sbols.org/v3#type"/>
+                        <owl:someValuesFrom rdf:resource="https://identifiers.org/SBO:0000247"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sbols.org/v3#hasSequence"/>
+                        <owl:allValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://sbols.org/v3#InChISequence"/>
+                                    <rdf:Description rdf:about="http://sbols.org/v3#SMILESSequence"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:allValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Component"/>
+        <otol:domainEntity>true</otol:domainEntity>
+        <rdfs:label>Simple Chemical Component</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#SmallMoleculeRole -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#SmallMoleculeRole">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://identifiers.org/CHEBI:35224"/>
+                    <rdf:Description rdf:about="https://identifiers.org/CHEBI:50906"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#ComponentRole"/>
+        <otol:constantList>true</otol:constantList>
+        <rdfs:label>Small Molecule Role</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#StimulatedParticipation -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#StimulatedParticipation">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sbols.org/v3#Participation"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sbols.org/v3#role"/>
+                        <owl:someValuesFrom rdf:resource="https://identifiers.org/SBO:0000643"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Participation"/>
+        <otol:domainEntity>true</otol:domainEntity>
+        <rdfs:label>StimulatedParticipation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#StimulationInteraction -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#StimulationInteraction">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sbols.org/v3#Interaction"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sbols.org/v3#participant"/>
+                        <owl:someValuesFrom rdf:resource="http://sbols.org/v3#StimulatedParticipation"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sbols.org/v3#participant"/>
+                        <owl:someValuesFrom rdf:resource="http://sbols.org/v3#StimulatorParticipation"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sbols.org/v3#type"/>
+                        <owl:someValuesFrom rdf:resource="https://identifiers.org/SBO:0000170"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Interaction"/>
+        <otol:domainEntity>true</otol:domainEntity>
+        <rdfs:label>StimulationInteraction</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#StimulatorParticipation -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#StimulatorParticipation">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sbols.org/v3#Participation"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sbols.org/v3#role"/>
+                        <owl:someValuesFrom rdf:resource="https://identifiers.org/SBO:0000459"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Participation"/>
+        <otol:domainEntity>true</otol:domainEntity>
+        <rdfs:label>StimulatorParticipation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#SubComponent -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#SubComponent">
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Feature"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://sbols.org/v3#instanceOf"/>
+                <owl:someValuesFrom rdf:resource="http://sbols.org/v3#Component"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <otol:domainEntity>true</otol:domainEntity>
+        <rdfs:label>SubComponent</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#TemplateParticipation -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#TemplateParticipation">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sbols.org/v3#Participation"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sbols.org/v3#role"/>
+                        <owl:someValuesFrom rdf:resource="https://identifiers.org/SBO:0000645"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Participation"/>
+        <otol:domainEntity>true</otol:domainEntity>
+        <rdfs:label>TemplateParticipation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#TerminatorDNAComponent -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#TerminatorDNAComponent">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sbols.org/v3#DNAComponent"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sbols.org/v3#role"/>
+                        <owl:someValuesFrom rdf:resource="https://identifiers.org/SO:0000141"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#DNAComponent"/>
+        <otol:domainEntity>true</otol:domainEntity>
+        <rdfs:label>Terminator DNA Component</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#TopLevel -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#TopLevel">
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Identified"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://sbols.org/v3#hasNamespace"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label>TopLevel</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#TopologyRestriction -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#TopologyRestriction">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sbols.org/v3#contains"/>
+                    <rdf:Description rdf:about="http://sbols.org/v3#covers"/>
+                    <rdf:Description rdf:about="http://sbols.org/v3#equals"/>
+                    <rdf:Description rdf:about="http://sbols.org/v3#isDisjointFrom"/>
+                    <rdf:Description rdf:about="http://sbols.org/v3#meets"/>
+                    <rdf:Description rdf:about="http://sbols.org/v3#overlaps"/>
+                    <rdf:Description rdf:about="http://sbols.org/v3#strictlyContains"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#ConstraintRestriction"/>
+        <otol:constantList>true</otol:constantList>
+        <rdfs:label>TopologyRestriction</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#TranscriptionFactorProteinComponent -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#TranscriptionFactorProteinComponent">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sbols.org/v3#ProteinComponent"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sbols.org/v3#role"/>
+                        <owl:someValuesFrom rdf:resource="https://identifiers.org/GO:0003700"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#ProteinComponent"/>
+        <otol:domainEntity>true</otol:domainEntity>
+        <rdfs:label>Transcription Factor Protein Component</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#VariableFeature -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#VariableFeature">
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Identified"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://sbols.org/v3#cardinality"/>
+                <owl:someValuesFrom rdf:resource="http://sbols.org/v3#Cardinality"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://sbols.org/v3#variable"/>
+                <owl:someValuesFrom rdf:resource="http://sbols.org/v3#Feature"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <otol:domainEntity>true</otol:domainEntity>
+        <rdfs:label>VariableFeature</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#contains -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#contains">
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#ConstraintRestriction"/>
+        <rdfs:comment>Subject contains object; they might or might not share a boundary.</rdfs:comment>
+        <rdfs:label>contains</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#covers -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#covers">
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#ConstraintRestriction"/>
+        <rdfs:comment>Subject covers object.</rdfs:comment>
+        <rdfs:label>covers</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#differentFrom -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#differentFrom">
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#ConstraintRestriction"/>
+        <rdfs:comment>Subject and object must NOT refer to the same Component/definition.</rdfs:comment>
+        <rdfs:label>differentFrom</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#enumerate -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#enumerate">
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#CombinatorialDerivationStrategy"/>
+        <rdfs:label>enumerate</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#equals -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#equals">
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#ConstraintRestriction"/>
+        <rdfs:comment>Subject and object occupy the same location in space or sequence.</rdfs:comment>
+        <rdfs:label>equals</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#finishes -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#finishes">
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#ConstraintRestriction"/>
+        <rdfs:comment>Subject starts after object starts; end positions are equal.</rdfs:comment>
+        <rdfs:label>finishes</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#inline -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#inline">
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Orientation"/>
+        <rdfs:label>inline</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#isDisjointFrom -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#isDisjointFrom">
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#ConstraintRestriction"/>
+        <rdfs:comment>Subject and object do not overlap in space.</rdfs:comment>
+        <rdfs:label>isDisjointFrom</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#meets -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#meets">
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#ConstraintRestriction"/>
+        <rdfs:comment>Subject and object are connected at a shared boundary.</rdfs:comment>
+        <rdfs:label>meets</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#mergeRoles -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#mergeRoles">
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#RoleIntegration"/>
+        <rdfs:label>mergeRoles</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#one -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#one">
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Cardinality"/>
+        <rdfs:label>one</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#oneOrMore -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#oneOrMore">
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Cardinality"/>
+        <rdfs:label>OneOrMore</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#oppositeOrientationAs -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#oppositeOrientationAs">
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#OrientationRestriction"/>
+        <rdfs:comment>Subject and object have opposite strand orientations.</rdfs:comment>
+        <rdfs:label>oppositeOrientationAs</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#overlaps -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#overlaps">
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#ConstraintRestriction"/>
+        <rdfs:comment>Subject and object overlap but portions of each are outside the other.</rdfs:comment>
+        <rdfs:label>overlaps</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#overrideRoles -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#overrideRoles">
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#RoleIntegration"/>
+        <rdfs:label>overrideRoles</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#precedes -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#precedes">
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#ConstraintRestriction"/>
+        <rdfs:comment>Start of subject location is less than start of object location.</rdfs:comment>
+        <rdfs:label>precedes</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#replaces -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#replaces">
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#ConstraintRestriction"/>
+        <rdfs:comment>The definition of subject is to replace the definition of object during design resolution.</rdfs:comment>
+        <rdfs:label>replaces</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#reverseComplement -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#reverseComplement">
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Orientation"/>
+        <rdfs:label>reverseComplement</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#sameOrientationAs -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#sameOrientationAs">
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#OrientationRestriction"/>
+        <rdfs:comment>Subject and object have the same strand orientation.</rdfs:comment>
+        <rdfs:label>sameOrientationAs</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#sample -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#sample">
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#CombinatorialDerivationStrategy"/>
+        <rdfs:label>sample</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#starts -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#starts">
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#ConstraintRestriction"/>
+        <rdfs:comment>Start positions are equal; subject ends before object ends.</rdfs:comment>
+        <rdfs:label>starts</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#strictlyContains -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#strictlyContains">
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#ConstraintRestriction"/>
+        <rdfs:comment>Subject entirely contains object without sharing any boundary.</rdfs:comment>
+        <rdfs:label>strictlyContains</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#strictlyPrecedes -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#strictlyPrecedes">
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#ConstraintRestriction"/>
+        <rdfs:comment>End of subject location is less than start of object location.</rdfs:comment>
+        <rdfs:label>strictlyPrecedes</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#verifyIdentical -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#verifyIdentical">
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#ConstraintRestriction"/>
+        <rdfs:comment>Subject and object must both be SubComponents with the same instanceOf or ExternallyDefined with the same definition.</rdfs:comment>
+        <rdfs:label>verifyIdentical</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#zeroOrMore -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#zeroOrMore">
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Cardinality"/>
+        <rdfs:label>zeroOrMore</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v3#zeroOrOne -->
+
+    <owl:Class rdf:about="http://sbols.org/v3#zeroOrOne">
+        <rdfs:subClassOf rdf:resource="http://sbols.org/v3#Cardinality"/>
+        <rdfs:label>zeroOrOne</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ontology-of-units-of-measure.org/resource/om-2/BinaryPrefix -->
+
+    <owl:Class rdf:about="http://www.ontology-of-units-of-measure.org/resource/om-2/BinaryPrefix">
+        <rdfs:subClassOf rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Prefix"/>
+        <rdfs:label>BinaryPrefix</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ontology-of-units-of-measure.org/resource/om-2/CompoundUnit -->
+
+    <owl:Class rdf:about="http://www.ontology-of-units-of-measure.org/resource/om-2/CompoundUnit">
+        <rdfs:subClassOf rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Unit"/>
+        <rdfs:label>CompoundUnit</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ontology-of-units-of-measure.org/resource/om-2/Measure -->
+
+    <owl:Class rdf:about="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/hasUnit"/>
+                <owl:someValuesFrom rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Unit"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/hasNumericalValue"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label>Measure</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ontology-of-units-of-measure.org/resource/om-2/Prefix -->
+
+    <owl:Class rdf:about="http://www.ontology-of-units-of-measure.org/resource/om-2/Prefix">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/hasFactor"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/symbol"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label>Prefix</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ontology-of-units-of-measure.org/resource/om-2/PrefixedUnit -->
+
+    <owl:Class rdf:about="http://www.ontology-of-units-of-measure.org/resource/om-2/PrefixedUnit">
+        <rdfs:subClassOf rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Unit"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/hasPrefix"/>
+                <owl:someValuesFrom rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Prefix"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/hasUnit"/>
+                <owl:someValuesFrom rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Unit"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label>PrefixedUnit</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ontology-of-units-of-measure.org/resource/om-2/SIPrefix -->
+
+    <owl:Class rdf:about="http://www.ontology-of-units-of-measure.org/resource/om-2/SIPrefix">
+        <rdfs:subClassOf rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Prefix"/>
+        <rdfs:label>SIPrefix</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ontology-of-units-of-measure.org/resource/om-2/SingularUnit -->
+
+    <owl:Class rdf:about="http://www.ontology-of-units-of-measure.org/resource/om-2/SingularUnit">
+        <rdfs:subClassOf rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Unit"/>
+        <rdfs:label>SingularUnit</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ontology-of-units-of-measure.org/resource/om-2/Unit -->
+
+    <owl:Class rdf:about="http://www.ontology-of-units-of-measure.org/resource/om-2/Unit">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/symbol"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label>Unit</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ontology-of-units-of-measure.org/resource/om-2/UnitDivision -->
+
+    <owl:Class rdf:about="http://www.ontology-of-units-of-measure.org/resource/om-2/UnitDivision">
+        <rdfs:subClassOf rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Unit"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/hasDenominator"/>
+                <owl:someValuesFrom rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Unit"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/hasNumerator"/>
+                <owl:someValuesFrom rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Unit"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label>UnitDivision</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ontology-of-units-of-measure.org/resource/om-2/UnitExponentiation -->
+
+    <owl:Class rdf:about="http://www.ontology-of-units-of-measure.org/resource/om-2/UnitExponentiation">
+        <rdfs:subClassOf rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Unit"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/hasBase"/>
+                <owl:someValuesFrom rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Unit"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/hasExponent"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label>UnitExponentiation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ontology-of-units-of-measure.org/resource/om-2/UnitMultiplication -->
+
+    <owl:Class rdf:about="http://www.ontology-of-units-of-measure.org/resource/om-2/UnitMultiplication">
+        <rdfs:subClassOf rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Unit"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/hasTerm1"/>
+                <owl:someValuesFrom rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Unit"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/hasTerm2"/>
+                <owl:someValuesFrom rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Unit"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label>UnitMultiplication</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://identifiers.org/CHEBI:35224 -->
+
+    <owl:Class rdf:about="https://identifiers.org/CHEBI:35224"/>
+    
+
+
+    <!-- https://identifiers.org/CHEBI:50906 -->
+
+    <owl:Class rdf:about="https://identifiers.org/CHEBI:50906"/>
+    
+
+
+    <!-- https://identifiers.org/GO:0003674 -->
+
+    <owl:Class rdf:about="https://identifiers.org/GO:0003674"/>
+    
+
+
+    <!-- https://identifiers.org/GO:0003700 -->
+
+    <owl:Class rdf:about="https://identifiers.org/GO:0003700"/>
+    
+
+
+    <!-- https://identifiers.org/SBO:0000010 -->
+
+    <owl:Class rdf:about="https://identifiers.org/SBO:0000010"/>
+    
+
+
+    <!-- https://identifiers.org/SBO:0000011 -->
+
+    <owl:Class rdf:about="https://identifiers.org/SBO:0000011"/>
+    
+
+
+    <!-- https://identifiers.org/SBO:0000019 -->
+
+    <owl:Class rdf:about="https://identifiers.org/SBO:0000019"/>
+    
+
+
+    <!-- https://identifiers.org/SBO:0000020 -->
+
+    <owl:Class rdf:about="https://identifiers.org/SBO:0000020"/>
+    
+
+
+    <!-- https://identifiers.org/SBO:0000062 -->
+
+    <owl:Class rdf:about="https://identifiers.org/SBO:0000062"/>
+    
+
+
+    <!-- https://identifiers.org/SBO:0000063 -->
+
+    <owl:Class rdf:about="https://identifiers.org/SBO:0000063"/>
+    
+
+
+    <!-- https://identifiers.org/SBO:0000168 -->
+
+    <owl:Class rdf:about="https://identifiers.org/SBO:0000168"/>
+    
+
+
+    <!-- https://identifiers.org/SBO:0000169 -->
+
+    <owl:Class rdf:about="https://identifiers.org/SBO:0000169"/>
+    
+
+
+    <!-- https://identifiers.org/SBO:0000170 -->
+
+    <owl:Class rdf:about="https://identifiers.org/SBO:0000170"/>
+    
+
+
+    <!-- https://identifiers.org/SBO:0000176 -->
+
+    <owl:Class rdf:about="https://identifiers.org/SBO:0000176"/>
+    
+
+
+    <!-- https://identifiers.org/SBO:0000177 -->
+
+    <owl:Class rdf:about="https://identifiers.org/SBO:0000177"/>
+    
+
+
+    <!-- https://identifiers.org/SBO:0000179 -->
+
+    <owl:Class rdf:about="https://identifiers.org/SBO:0000179"/>
+    
+
+
+    <!-- https://identifiers.org/SBO:0000234 -->
+
+    <owl:Class rdf:about="https://identifiers.org/SBO:0000234"/>
+    
+
+
+    <!-- https://identifiers.org/SBO:0000236 -->
+
+    <owl:Class rdf:about="https://identifiers.org/SBO:0000236"/>
+    
+
+
+    <!-- https://identifiers.org/SBO:0000241 -->
+
+    <owl:Class rdf:about="https://identifiers.org/SBO:0000241"/>
+    
+
+
+    <!-- https://identifiers.org/SBO:0000247 -->
+
+    <owl:Class rdf:about="https://identifiers.org/SBO:0000247"/>
+    
+
+
+    <!-- https://identifiers.org/SBO:0000250 -->
+
+    <owl:Class rdf:about="https://identifiers.org/SBO:0000250"/>
+    
+
+
+    <!-- https://identifiers.org/SBO:0000251 -->
+
+    <owl:Class rdf:about="https://identifiers.org/SBO:0000251"/>
+    
+
+
+    <!-- https://identifiers.org/SBO:0000252 -->
+
+    <owl:Class rdf:about="https://identifiers.org/SBO:0000252"/>
+    
+
+
+    <!-- https://identifiers.org/SBO:0000253 -->
+
+    <owl:Class rdf:about="https://identifiers.org/SBO:0000253"/>
+    
+
+
+    <!-- https://identifiers.org/SBO:0000459 -->
+
+    <owl:Class rdf:about="https://identifiers.org/SBO:0000459"/>
+    
+
+
+    <!-- https://identifiers.org/SBO:0000589 -->
+
+    <owl:Class rdf:about="https://identifiers.org/SBO:0000589"/>
+    
+
+
+    <!-- https://identifiers.org/SBO:0000598 -->
+
+    <owl:Class rdf:about="https://identifiers.org/SBO:0000598"/>
+    
+
+
+    <!-- https://identifiers.org/SBO:0000642 -->
+
+    <owl:Class rdf:about="https://identifiers.org/SBO:0000642"/>
+    
+
+
+    <!-- https://identifiers.org/SBO:0000643 -->
+
+    <owl:Class rdf:about="https://identifiers.org/SBO:0000643"/>
+    
+
+
+    <!-- https://identifiers.org/SBO:0000644 -->
+
+    <owl:Class rdf:about="https://identifiers.org/SBO:0000644"/>
+    
+
+
+    <!-- https://identifiers.org/SBO:0000645 -->
+
+    <owl:Class rdf:about="https://identifiers.org/SBO:0000645"/>
+    
+
+
+    <!-- https://identifiers.org/SBO:0000681 -->
+
+    <owl:Class rdf:about="https://identifiers.org/SBO:0000681"/>
+    
+
+
+    <!-- https://identifiers.org/SBO:0000693 -->
+
+    <owl:Class rdf:about="https://identifiers.org/SBO:0000693"/>
+    
+
+
+    <!-- https://identifiers.org/SO:0000057 -->
+
+    <owl:Class rdf:about="https://identifiers.org/SO:0000057"/>
+    
+
+
+    <!-- https://identifiers.org/SO:0000110 -->
+
+    <owl:Class rdf:about="https://identifiers.org/SO:0000110"/>
+    
+
+
+    <!-- https://identifiers.org/SO:0000139 -->
+
+    <owl:Class rdf:about="https://identifiers.org/SO:0000139"/>
+    
+
+
+    <!-- https://identifiers.org/SO:0000141 -->
+
+    <owl:Class rdf:about="https://identifiers.org/SO:0000141"/>
+    
+
+
+    <!-- https://identifiers.org/SO:0000167 -->
+
+    <owl:Class rdf:about="https://identifiers.org/SO:0000167"/>
+    
+
+
+    <!-- https://identifiers.org/SO:0000234 -->
+
+    <owl:Class rdf:about="https://identifiers.org/SO:0000234"/>
+    
+
+
+    <!-- https://identifiers.org/SO:0000316 -->
+
+    <owl:Class rdf:about="https://identifiers.org/SO:0000316"/>
+    
+
+
+    <!-- https://identifiers.org/SO:0000704 -->
+
+    <owl:Class rdf:about="https://identifiers.org/SO:0000704"/>
+    
+
+
+    <!-- https://identifiers.org/SO:0000804 -->
+
+    <owl:Class rdf:about="https://identifiers.org/SO:0000804"/>
+    
+
+
+    <!-- https://identifiers.org/SO:0000984 -->
+
+    <owl:Class rdf:about="https://identifiers.org/SO:0000984"/>
+    
+
+
+    <!-- https://identifiers.org/SO:0000985 -->
+
+    <owl:Class rdf:about="https://identifiers.org/SO:0000985"/>
+    
+
+
+    <!-- https://identifiers.org/SO:0000987 -->
+
+    <owl:Class rdf:about="https://identifiers.org/SO:0000987"/>
+    
+
+
+    <!-- https://identifiers.org/SO:0000988 -->
+
+    <owl:Class rdf:about="https://identifiers.org/SO:0000988"/>
+    
+
+
+    <!-- https://identifiers.org/edam:format_1196 -->
+
+    <owl:Class rdf:about="https://identifiers.org/edam:format_1196"/>
+    
+
+
+    <!-- https://identifiers.org/edam:format_1197 -->
+
+    <owl:Class rdf:about="https://identifiers.org/edam:format_1197"/>
+    
+
+
+    <!-- https://identifiers.org/edam:format_1207 -->
+
+    <owl:Class rdf:about="https://identifiers.org/edam:format_1207"/>
+    
+
+
+    <!-- https://identifiers.org/edam:format_1208 -->
+
+    <owl:Class rdf:about="https://identifiers.org/edam:format_1208"/>
+    
+
+
+    <!-- https://identifiers.org/edam:format_2585 -->
+
+    <owl:Class rdf:about="https://identifiers.org/edam:format_2585"/>
+    
+
+
+    <!-- https://identifiers.org/edam:format_3156 -->
+
+    <owl:Class rdf:about="https://identifiers.org/edam:format_3156"/>
+    
+
+
+    <!-- https://identifiers.org/edam:format_3240 -->
+
+    <owl:Class rdf:about="https://identifiers.org/edam:format_3240"/>
+    
+
+
+    <!-- https://www.w3.org/ns/prov#Activity -->
+
+    <owl:Class rdf:about="https://www.w3.org/ns/prov#Activity">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:label>Activity</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.w3.org/ns/prov#Agent -->
+
+    <owl:Class rdf:about="https://www.w3.org/ns/prov#Agent">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:label>Agent</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.w3.org/ns/prov#Association -->
+
+    <owl:Class rdf:about="https://www.w3.org/ns/prov#Association">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://www.w3.org/ns/prov#agent"/>
+                <owl:someValuesFrom rdf:resource="https://www.w3.org/ns/prov#Agent"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label>Association</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.w3.org/ns/prov#Plan -->
+
+    <owl:Class rdf:about="https://www.w3.org/ns/prov#Plan">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:label>Plan</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.w3.org/ns/prov#Usage -->
+
+    <owl:Class rdf:about="https://www.w3.org/ns/prov#Usage">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:label>Usage</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://sbols.org/v3#Attachment"/>
+            <rdf:Description rdf:about="http://sbols.org/v3#Collection"/>
+            <rdf:Description rdf:about="http://sbols.org/v3#CombinatorialDerivation"/>
+            <rdf:Description rdf:about="http://sbols.org/v3#Component"/>
+            <rdf:Description rdf:about="http://sbols.org/v3#ExperimentalData"/>
+            <rdf:Description rdf:about="http://sbols.org/v3#Implementation"/>
+            <rdf:Description rdf:about="http://sbols.org/v3#Model"/>
+            <rdf:Description rdf:about="http://sbols.org/v3#SBOLActivity"/>
+            <rdf:Description rdf:about="http://sbols.org/v3#SBOLAgent"/>
+            <rdf:Description rdf:about="http://sbols.org/v3#SBOLBinaryPrefix"/>
+            <rdf:Description rdf:about="http://sbols.org/v3#SBOLCompoundUnit"/>
+            <rdf:Description rdf:about="http://sbols.org/v3#SBOLMeasure"/>
+            <rdf:Description rdf:about="http://sbols.org/v3#SBOLPlan"/>
+            <rdf:Description rdf:about="http://sbols.org/v3#SBOLPrefixedUnit"/>
+            <rdf:Description rdf:about="http://sbols.org/v3#SBOLSIPrefix"/>
+            <rdf:Description rdf:about="http://sbols.org/v3#SBOLSingularUnit"/>
+            <rdf:Description rdf:about="http://sbols.org/v3#SBOLUnitDivision"/>
+            <rdf:Description rdf:about="http://sbols.org/v3#SBOLUnitExponentiation"/>
+            <rdf:Description rdf:about="http://sbols.org/v3#SBOLUnitMultiplication"/>
+            <rdf:Description rdf:about="http://sbols.org/v3#Sequence"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://sbols.org/v3#ComponentReference"/>
+            <rdf:Description rdf:about="http://sbols.org/v3#ExternallyDefined"/>
+            <rdf:Description rdf:about="http://sbols.org/v3#LocalSubComponent"/>
+            <rdf:Description rdf:about="http://sbols.org/v3#SequenceFeature"/>
+            <rdf:Description rdf:about="http://sbols.org/v3#SubComponent"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://sbols.org/v3#Cut"/>
+            <rdf:Description rdf:about="http://sbols.org/v3#EntireSequence"/>
+            <rdf:Description rdf:about="http://sbols.org/v3#Range"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29) https://github.com/owlcs/owlapi -->
+

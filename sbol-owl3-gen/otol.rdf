@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xml:base="http://keele.ac.uk/scm/otol"
+         xmlns="http://keele.ac.uk/scm/otol#">
+
+<owl:Ontology rdf:about="http://keele.ac.uk/scm/otol"/>
+
+<owl:AnnotationProperty rdf:about="#constantList">
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Constant list</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">If true, create an enum list.</rdfs:comment>
+</owl:AnnotationProperty>
+
+<owl:AnnotationProperty rdf:about="#vocabulary">
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Vocabulary</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">If true, an object should be created for the container class.</rdfs:comment>
+</owl:AnnotationProperty>
+
+<owl:AnnotationProperty rdf:about="#replacementOf">
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">replacementOf</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">If specified, create the entity name according to the value of this property. E.g. for sbol3:SBOLActivity otol:replacementOf prov:Activity, create the entities using the Activity name only.</rdfs:comment>
+</owl:AnnotationProperty>
+
+<owl:AnnotationProperty rdf:about="#domainEntity">
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">domainEntity</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">If true, indicates that the term corresponds to a domain entity. Software automation tools should create a specific entity.</rdfs:comment>
+</owl:AnnotationProperty>
+
+
+</rdf:RDF>
