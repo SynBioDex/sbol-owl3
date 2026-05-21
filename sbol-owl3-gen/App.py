@@ -68,135 +68,138 @@ with otol:
 with sbo:
 
     SBO_0000000 = types.new_class("0000000", (Thing,))
-    SBO_0000000.label = ["Systems Biology Representation"]
-    SBO_0000000.comment = ["Root term for Systems Biology Ontology representing all mathematical or logical terms used in systems biology."]
+    SBO_0000000.label = ["systems biology representation"]
+    SBO_0000000.comment = ["Representation of an entity used in a systems biology knowledge reconstruction, such as a model, pathway, network."]
 
     SBO_0000236 = types.new_class("0000236", (SBO_0000000,))
-    SBO_0000236.label = ["Physical Entity Representation"]
-    SBO_0000236.comment = ["A material entity such as a molecule, complex, or cell. Representation of a discrete portion of matter that has mass and occupies space."]
+    SBO_0000236.label = ["physical entity representation"]
+    SBO_0000236.comment = [""]
 
     SBO_0000251 = types.new_class("0000251", (SBO_0000236,))
-    SBO_0000251.label = ["DNA"]
-    SBO_0000251.comment = ["DNA molecule, a polymer consisting of deoxyribonucleotide monomers."]
+    SBO_0000251.label = ["deoxyribonucleic acid"]
+    SBO_0000251.comment = ["Synonym: DNA"]
 
     SBO_0000250 = types.new_class("0000250", (SBO_0000236,))
-    SBO_0000250.label = ["RNA"]
-    SBO_0000250.comment = ["RNA molecule, a polymer consisting of ribonucleotide monomers."]
+    SBO_0000250.label = ["ribonucleic acid"]
+    SBO_0000250.comment = ["Synonym: RNA"]
 
     SBO_0000252 = types.new_class("0000252", (SBO_0000236,))
-    SBO_0000252.label = ["Protein"]
-    SBO_0000252.comment = ["Protein or polypeptide. A polymer consisting of amino acid monomers linked by peptide bonds."]
+    SBO_0000252.label = ["polypeptide chain"]
+    SBO_0000252.comment = ["Naturally occurring macromolecule formed by the repetition of amino-acid residues linked by peptidic bonds. A polypeptide chain is synthesized by the ribosome."]
 
     SBO_0000247 = types.new_class("0000247", (SBO_0000236,))
-    SBO_0000247.label = ["Simple Chemical"]
-    SBO_0000247.comment = ["A small molecule or ion. A small molecule without specific type classification."]
+    SBO_0000247.label = ["simple chemical"]
+    SBO_0000247.comment = ["Simple, non-repetitive chemical entity."]
 
     SBO_0000253 = types.new_class("0000253", (SBO_0000236,))
-    SBO_0000253.label = ["Non-covalent Complex"]
-    SBO_0000253.comment = ["Entity composed of non-covalently bound components. Entity composed of multiple components bound together through non-covalent interactions."]
+    SBO_0000253.label = ["non-covalent complex"]
+    SBO_0000253.comment = ["Entity composed of several independant components that are not linked by covalent bonds."]
 
     SBO_0000241 = types.new_class("0000241", (SBO_0000236,))
-    SBO_0000241.label = ["Functional Entity"]
-    SBO_0000241.comment = ["An abstract entity with function but no physical form"]
+    SBO_0000241.label = ["functional entity"]
+    SBO_0000241.comment = ["A real thing, defined by its properties or the actions it performs, rather than it physico-chemical structure."]
 
     # Occurring Entity Representation (parent for interactions)
     SBO_0000231 = types.new_class("0000231", (SBO_0000000,))
-    SBO_0000231.label = ["Occurring Entity Representation"]
-    SBO_0000231.comment = ["Representation of an entity that develops or occurs over time, such as events, interactions, or reactions."]
+    SBO_0000231.label = ["occurring entity representation"]
+    SBO_0000231.comment = ["Representation of an entity that manifests, unfolds or develops through time, such as a discrete event, or a mutual or reciprocal action or influence that happens between participating physical entities, and/or other occurring entities."]
 
     # Biochemical or transport reaction
     SBO_0000167 = types.new_class("0000167", (SBO_0000231,))
-    SBO_0000167.label = ["Biochemical or Transport Reaction"]
+    SBO_0000167.label = ["biochemical or transport reaction"]
     SBO_0000167.comment = ["An event involving physical entities that results in modification of structure, location, or free energy."]
 
     # Biochemical reaction
     SBO_0000176 = types.new_class("0000176", (SBO_0000167,))
-    SBO_0000176.label = ["Biochemical Reaction"]
-    SBO_0000176.comment = ["An event involving one or more chemical entities that alters their electrochemical structure."]
+    SBO_0000176.label = ["biochemical reaction"]
+    SBO_0000176.comment = ["An event involving one or more chemical entities that modifies the electrochemical structure of at least one of the participants."]
 
-    # Non-covalent binding or dissociation
+    # Non-covalent binding
     SBO_0000177 = types.new_class("0000177", (SBO_0000176,))
-    SBO_0000177.label = ["Non-covalent Binding"]
-    SBO_0000177.comment = ["Association without covalent bonds. Biochemical reaction where a molecular complex breaks into smaller components."]
+    SBO_0000177.label = ["non-covalent binding"]
+    SBO_0000177.comment = ["Synonym: association"]
 
     # Degradation
     SBO_0000179 = types.new_class("0000179", (SBO_0000176,))
-    SBO_0000179.label = ["Degradation"]
-    SBO_0000179.comment = ["Breakdown of a molecule, usually into simpler components."]
+    SBO_0000179.label = ["degradation"]
+    SBO_0000179.comment = ["Complete disappearance of a physical entity."]
 
     # Control
     SBO_0000168 = types.new_class("0000168", (SBO_0000231,))
-    SBO_0000168.label = ["Control"]
-    SBO_0000168.comment = ["Modulation of activity. Modification of the execution of an event or process. Also known as regulation."]
+    SBO_0000168.label = ["control"]
+    SBO_0000168.comment = ["Synonym: regulation"]
 
     # Inhibition
     SBO_0000169 = types.new_class("0000169", (SBO_0000168,))
-    SBO_0000169.label = ["Inhibition"]
-    SBO_0000169.comment = ["Negative modulation of activity; decreasing the rate or probability of an event."]
+    SBO_0000169.label = ["inhibition"]
+    SBO_0000169.comment = ["Negative modulation of the execution of a process."]
 
     # Stimulation
     SBO_0000170 = types.new_class("0000170", (SBO_0000168,))
-    SBO_0000170.label = ["Stimulation"]
-    SBO_0000170.comment = ["Positive modulation of activity; increasing the rate or probability of an event."]
+    SBO_0000170.label = ["stimulation"]
+    SBO_0000170.comment = ["Positive modulation of the execution of a process."]
 
     # Genetic production
     SBO_0000589 = types.new_class("0000589", (SBO_0000231,))
-    SBO_0000589.label = ["Genetic Production"]
-    SBO_0000589.comment = ["Production of a gene product. Composite biochemical process through which a gene sequence is converted into mature gene products."]
+    SBO_0000589.label = ["genetic production"]
+    SBO_0000589.comment = ["A composite biochemical process through which a gene sequence is fully converted into mature gene products. These gene products may include RNA species as well as proteins, and the process encompasses all intermediate steps required to generate the active form of the gene product."]
 
     # Participant roles
     SBO_0000003 = types.new_class("0000003", (SBO_0000000,))
-    SBO_0000003.label = ["Participant Role"]
-    SBO_0000003.comment = ["The function of a physical entity or process (participant) in a process or event."]
+    SBO_0000003.label = ["participant role"]
+    SBO_0000003.comment = ["The function of a physical or conceptual entity, that is its role, in the execution of an event or process."]
 
     # Modifier
     SBO_0000019 = types.new_class("0000019", (SBO_0000003,))
-    SBO_0000019.label = ["Modifier"]
-    SBO_0000019.comment = ["Entity that changes the velocity of a process without being consumed or transformed."]
+    SBO_0000019.label = ["modifier"]
+    SBO_0000019.comment = ["Substance that changes the velocity of a process without itself being consumed or transformed by the reaction."]
 
     # Inhibitor
     SBO_0000020 = types.new_class("0000020", (SBO_0000019,))
-    SBO_0000020.label = ["Inhibitor"]
-    SBO_0000020.comment = ["Substance that decreases the probability of a chemical reaction without being consumed or transformed."]
+    SBO_0000020.label = ["inhibitor"]
+    SBO_0000020.comment = ["Substance that decreases the probability of a chemical reaction without itself being consumed or transformed by the reaction."]
 
     # Stimulator
     SBO_0000459 = types.new_class("0000459", (SBO_0000019,))
-    SBO_0000459.label = ["Stimulator"]
-    SBO_0000459.comment = ["Substance that increases the probability of a chemical reaction without being consumed or transformed."]
+    SBO_0000459.label = ["stimulator"]
+    SBO_0000459.comment = ["Synonym: activator"]
 
     # Inhibited
     SBO_0000642 = types.new_class("0000642", (SBO_0000003,))
-    SBO_0000642.label = ["Inhibited"]
-    SBO_0000642.comment = ["Entity that is inhibited. Conceptual or material entity that is the object of an inhibition process, acted upon by an inhibitor."]
+    SBO_0000642.label = ["inhibited"]
+    SBO_0000642.comment = ["Conceptual or material entity that is the object of an inhibition process, and is acted upon by an inhibitor."]
 
     # Stimulated
     SBO_0000643 = types.new_class("0000643", (SBO_0000003,))
-    SBO_0000643.label = ["Stimulated"]
-    SBO_0000643.comment = ["Entity that is stimulated. Conceptual or material entity that is the object of a stimulation process, acted upon by a stimulator."]
+    SBO_0000643.label = ["stimulated"]
+    SBO_0000643.comment = ["Conceptual or material entity that is the object of a stimulation process, and is acted upon by a stimulator."]
 
     # Modified
     SBO_0000644 = types.new_class("0000644", (SBO_0000003,))
-    SBO_0000644.label = ["Modified"]
-    SBO_0000644.comment = ["Entity that has been modified. Conceptual or material entity that is the object of a modification process, acted upon by a modifier."]
+    SBO_0000644.label = ["modified"]
+    SBO_0000644.comment = ["Conceptual or material entity that is the object of a modification process, and is acted upon by a modifier."]
 
     # Template
     SBO_0000645 = types.new_class("0000645", (SBO_0000003,))
-    SBO_0000645.label = ["Template"]
-    SBO_0000645.comment = ["Entity that acts as the template or starting material for genetic production."]
+    SBO_0000645.label = ["template"]
+    SBO_0000645.comment = ["An entity that acts as the starting material for genetic production (http://identifiers.org/biomodels.sbo/SBO:0000589)."]
 
     # Functional compartment
     SBO_0000289 = types.new_class("0000289", (SBO_0000003,))
-    SBO_0000289.label = ["Functional Compartment"]
-    SBO_0000289.comment = ["An abstract entity with function but no physical form. A logical or physical subdivision of an event space containing pools of participants considered identical for the events."]
+    SBO_0000289.label = ["functional compartment"]
+    SBO_0000289.comment = ["Logical or physical subset of the event space that contains pools, that is sets of participants considered identical when it comes to the event they are involved into. A compartment can have any number of dimensions, including 0, and be of any size including null."]
 
     SBO_0000011 = types.new_class("0000011", (SBO_0000003,))
-    SBO_0000011.label = ["Product"]
+    SBO_0000011.label = ["product"]
+    SBO_0000011.comment = ["Substance that is produced in a reaction. In a chemical equation the Products are the elements or compounds on the right hand side of the reaction equation. A product can be produced and consumed by the same reaction, its global quantity remaining unchanged."]
 
     SBO_0000010 = types.new_class("0000010", (SBO_0000003,))
-    SBO_0000010.label = ["Reactant"]
+    SBO_0000010.label = ["reactant"]
+    SBO_0000010.comment = ["Substance consumed by a chemical reaction. Reactants react with each other to form the products of a chemical reaction. In a chemical equation the Reactants are the elements or compounds on the left hand side of the reaction equation. A reactant can be consumed and produced by the same reaction, its global quantity remaining unchanged."]
 
     SBO_0000598 = types.new_class("0000598", (SBO_0000003,))
-    SBO_0000598.label = ["Promoter"]
+    SBO_0000598.label = ["promoter"]
+    SBO_0000598.comment = ["A region of DNA to which various transcription factors and RNA polymerase must bind in order to initiate transcription for a gene."]
 
     # Modelling framework
     SBO_0000004 = types.new_class("0000004", (SBO_0000000,))
@@ -204,20 +207,25 @@ with sbo:
     SBO_0000004.comment = ["Set of assumptions that underlay a mathematical description."]
 
     SBO_0000062 = types.new_class("0000062", (SBO_0000004,))
-    SBO_0000062.label = ["continuous"]
+    SBO_0000062.label = ["continuous framework"]
+    SBO_0000062.comment = ["Modelling approach where the quantities of participants are considered continuous, and represented by real values. The associated simulation methods make use of differential equations."]
   
     SBO_0000063 = types.new_class("0000063", (SBO_0000004,))
-    SBO_0000063.label = ["discrete"]
+    SBO_0000063.label = ["discrete framework"]
+    SBO_0000063.comment = ["Modelling approach where the quantities of participants are considered discrete, and represented by integer values. The associated simulation methods can be deterministic or stochastic."]
   
     SBO_0000693 = types.new_class("0000693", (SBO_0000004,))
-    SBO_0000693.label = ["constraint-based"]
-  
+    SBO_0000693.label = ["constraint-based framework"]
+    SBO_0000693.comment = ["Modelling approach which captures bounds on the possible behavior of a system, which may be further reduced using an objective function."]
+
     SBO_0000234 = types.new_class("0000234", (SBO_0000004,))
-    SBO_0000234.label = ["logical"]
+    SBO_0000234.label = ["logical framework"]
+    SBO_0000234.comment = ["Modelling approach, pioneered by Rene Thomas and Stuart Kaufman, where the evolution of a system is described by the transitions between discrete activity states of 'genes' that control each other."]
 
     SBO_0000681 = types.new_class("0000681", (SBO_0000004,))
-    SBO_0000681.label = ["hybrid"]
-    
+    SBO_0000681.label = ["hybrid framework"]
+    SBO_0000681.comment = ["Modeling approach which combines multiple canonical modeling frameworks. For example, a hybrid model could consider both continuous (represented by real values) and discrete (represented by integers) participants. Hybrid models are executed with hybrid simulation algorithms. For example, a hybrid continuous-discrete model may be simulation using a combination of stochastic simulation and ordinary differential equations."]
+
 with so:
     SO_0000110 = types.new_class("0000110", (Thing,))
     SO_0000110.label = ["Sequence Feature"]
@@ -396,6 +404,7 @@ with sbol3:
 
     class Sequence (TopLevel):
         label = "Sequence"
+        comment = "Represents the primary structure of a Component object and the manner in which it is encoded."
     Sequence.domainEntity = ["true"]
 
     class Component (TopLevel):
@@ -768,12 +777,14 @@ with sbol3:
     # Sequence properties
     class elements(DataProperty, FunctionalProperty):
         label = "elements"
+        comment ="An OPTIONAL String of characters that represents the constituents of a biological or chemical molecule. For example, these characters could represent the nucleotide bases of a molecule of DNA, the amino acid residues of a protein, or the atoms and chemical bonds of a small molecule."
         domain = [Sequence]
         range = [str]
     # Sequence.is_a.append(elements.some(str))
 
     class encoding(ObjectProperty, FunctionalProperty):
         label = "encoding"
+        comment = "Has a data type of IRI, and is OPTIONAL unless elements is set, in which case it is REQUIRED. This property MUST indicate how the elements property of a Sequence are formed and interpreted."
         domain = [Sequence]
 
     # Component properties
