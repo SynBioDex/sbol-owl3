@@ -228,72 +228,80 @@ with sbo:
 
 with so:
     SO_0000110 = types.new_class("0000110", (Thing,))
-    SO_0000110.label = ["Sequence Feature"]
-    SO_0000110.comment = ["A general sequence feature", "Any extent of continuous biological sequence."]
+    SO_0000110.label = ["sequence_feature"]
+    SO_0000110.comment = ["Any extent of continuous biological sequence."]
 
     SO_0000167 = types.new_class("0000167", (SO_0000110,))
-    SO_0000167.label = ["Promoter"]
-    SO_0000167.comment = ["A regulatory region that initiates transcription. A regulatory region where transcription is initiated."]
+    SO_0000167.label = ["promoter"]
+    SO_0000167.comment = ["This term is mapped to MGED. Do not obsolete without consulting MGED ontology. The region on a DNA molecule involved in RNA polymerase binding to initiate transcription. Moved from is_a: SO:0001055 transcriptional_cis_regulatory_region as per request from GREEKC initiative in August 2020. Merged with RNA_polymerase_promoter (SO:0001203) Aug 2020. Moved up one level from is_a CRM (SO:0000727) to is_a transcriptional_cis_regulatory_region (SO:0001055) as part of the GREEKC work January 2021. Pascale Gaudet from Gene Ontology pointed out that CRM can be located upstream of the promoter and therefore cannot include the promoter. A regulatory_region composed of the TSS(s) and binding sites for TF_complexes of the core transcription machinery. A region (DNA) to which RNA polymerase binds, to begin transcription."]
 
     SO_0000139 = types.new_class("0000139", (SO_0000110,))
-    SO_0000139.label = ["Ribosome Binding Site"]
-    SO_0000139.comment = ["Region of mRNA where the ribosome assembles to begin translation. A sequence where ribosomes bind to initiate translation."]
+    SO_0000139.label = ["ribosome_entry_site"]
+    SO_0000139.comment = ["Region in mRNA where ribosome assembles."]
 
     SO_0000316 = types.new_class("0000316", (SO_0000110,))
-    SO_0000316.label = ["Coding Sequence"]
-    SO_0000316.comment = ["Coding DNA Sequence - region that can be translated into protein. Coding sequence; DNA region that codes for protein."]
-
+    SO_0000316.label = ["CDS"]
+    SO_0000316.comment = ["A contiguous sequence which begins with, and includes, a start codon and ends with, and includes, a stop codon."]
+    
     SO_0000141 = types.new_class("0000141", (SO_0000110,))
-    SO_0000141.label = ["Terminator"]
-    SO_0000141.comment = ["Sequence that terminates transcription. A sequence signaling the end of transcription."]
+    SO_0000141.label = ["terminator"]
+    SO_0000141.comment = ["Moved from transcription_regulatory_region (SO:0001679) to transcriptional_cis_regulatory_region (SO:0001055) by Dave Sant on Feb 11, 2021 when transcription_regulatory_region was merged into transcriptional_cis_regulatory_region to be consistent with GO and reduce redundancy as part of the GREEKC consortium. See GitHub Issue #527. The sequence of DNA located either at the end of the transcript that causes RNA polymerase to terminate transcription."]
 
     SO_0000704 = types.new_class("0000704", (SO_0000110,))
-    SO_0000704.label = ["Gene"]
-    SO_0000704.comment = ["A region of genomic sequence encoding a gene product. A region of sequence that encodes functional products."]
+    SO_0000704.label = ["gene"]
+    SO_0000704.comment = ["This term is mapped to MGED. Do not obsolete without consulting MGED ontology. A gene may be considered as a unit of inheritance. A region (or regions) that includes all of the sequence elements necessary to encode a functional transcript. A gene may include regulatory regions, transcribed regions and/or other functional sequence regions."]
 
     SO_0000057 = types.new_class("0000057", (SO_0000110,))
-    SO_0000057.label = ["Operator"]
-    SO_0000057.comment = ["A regulatory element controlling gene expression. A DNA regulatory element where a repressor binds to control gene expression."]
+    SO_0000057.label = ["operator"]
+    SO_0000057.comment = ["Moved to transcriptional_cis_regulatory_region (SO:0001055) from gene_group_regulatory_region (SO:0000752) on 11 Feb 2021 when SO:0000752 was merged into SO:0001055. See GitHub Issue #529. A regulatory element of an operon to which activators or repressors bind thereby effecting translation of genes in that operon."]
 
     SO_0000804 = types.new_class("0000804", (SO_0000110,))
-    SO_0000804.label = ["Engineered Region"]
-    SO_0000804.comment = ["A region constructed using genetic engineering. A region constructed using genetic engineering techniques."]
+    SO_0000804.label = ["engineered_region"]
+    SO_0000804.comment = ["A region that is engineered."]
 
     SO_0000234 = types.new_class("0000234", (SO_0000110,))
     SO_0000234.label = ["mRNA"]
+    SO_0000234.comment = ["An mRNA does not contain introns as it is a processed_transcript. The equivalent kind of primary_transcript is protein_coding_primary_transcript (SO:0000120) which may contain introns. This term is mapped to MGED. Do not obsolete without consulting MGED ontology. Messenger RNA is the intermediate molecule between DNA and protein. It includes UTR and coding sequences. It does not contain introns."]
 
     SO_0000400 = types.new_class("0000400", (Thing,))
-    SO_0000400.label = ["Nucleic Acid Topology"]
-    SO_0000400.comment = ["An attribute describing a sequence", "An attribute describes a quality of sequence."]
+    SO_0000400.label = ["sequence_attribute"]
+    SO_0000400.comment = ["An attribute describes a quality of sequence."]
 
     SO_0000987 = types.new_class("0000987", (SO_0000400,))
     SO_0000987.label = ["linear"]
+    SO_0000987.comment = ["Attributes added to describe the different kinds of replicon. SO workshop, September 2006. A quality of a nucleotide polymer that has a 3'-terminal residue and a 5'-terminal residue."]
 
     SO_0000988 = types.new_class("0000988", (SO_0000400,))
     SO_0000988.label = ["circular"]
+    SO_0000988.comment = ["Attributes added to describe the different kinds of replicon. SO workshop, September 2006. A quality of a nucleotide polymer that has no terminal nucleotide residues."]
 
     SO_0000984 = types.new_class("0000984", (SO_0000400,))
-    SO_0000984.label = ["single-stranded"]
+    SO_0000984.label = ["single"]
+    SO_0000984.comment = ["Attributes added to describe the different kinds of replicon. SO workshop, September 2006. When a nucleotide polymer has only one strand."]
+
 
     SO_0000985 = types.new_class("0000985", (SO_0000400,))
-    SO_0000985.label = ["double-stranded"]
+    SO_0000985.label = ["double"]
+    SO_0000985.comment = ["Attributes added to describe the different kinds of replicon. SO workshop, September 2006. When a nucleotide polymer has two strands that are reverse-complement to one another and pair together."]
+
 
     # Orientation terms
     SO_0001030 = types.new_class("0001030", (SO_0000400,))
-    SO_0001030.label = ["inline"]
-    SO_0001030.comment = ["Feature located on the forward strand. Orientation corresponding to the forward strand (5' to 3' left to right in standard representations)."]
+    SO_0001030.label = ["forward"]
+    SO_0001030.comment = ["Forward is an attribute of the feature, where the feature is in the 5' to 3' direction."]
 
     SO_0001031 = types.new_class("0001031", (SO_0000400,))
-    SO_0001031.label = ["reverseComplement"]
-    SO_0001031.comment = ["Feature located on the reverse complement strand. Orientation corresponding to the reverse strand (complementary to the forward strand)."]
+    SO_0001031.label = ["reverse"]
+    SO_0001031.comment = ["Reverse is an attribute of the feature, where the feature is in the 3' to 5' direction. Again could be applied to primer."]
 
 with chebi:
     CHEBI_50906 = types.new_class("50906", (Thing,))
     CHEBI_50906.label = ["Material Entity"]
+    CHEBI_50906.comment = [""]
 
     CHEBI_35224 = types.new_class("35224", (CHEBI_50906,))
     CHEBI_35224.label = ["Effector"]
-
+    CHEBI_35224.comment = [""]
 with go:
     GO_0003674 = types.new_class("0003674", (Thing,))
     GO_0003674.label = ["Molecular Function"]
@@ -337,12 +345,15 @@ with sbol3 :
 
     class ComponentType (SBO_0000236):
         label = "Component Type"
+        comment = "Controlled vocabulary for the types of physical entities that can be represented in SBOL. The value of a Component's type property must be an instance of a class that is a subclass of ComponentType."
     ComponentType.constantList = ["true"]
     ComponentType.is_a.append(SBOLValue)
     ComponentType.equivalent_to.append(SBO_0000241 | SBO_0000247 | SBO_0000250 | SBO_0000251 | SBO_0000252 | SBO_0000253)
 
+
     class DNARNAComponentType (ComponentType):
         label = "DNA or RNA Component Type"
+        comment ="Type for DNA or RNA components. The value of a Component's type property must be an instance of a class that is a subclass of DNARNAComponentType if the Component has a role that is a subclass of DNARole or RNARole."
     DNARNAComponentType.constantList = ["true"]
     ComponentType.equivalent_to.append(ComponentType | SO_0000987 | SO_0000988 | SO_0000984 | SO_0000985)
 
@@ -398,151 +409,184 @@ with sbol3:
     # ---------SBOL Entities--------------
     class Identified(Thing):
         label = "Identified"
+        component = "All SBOL-defined classes are directly or indirectly derived from the Identified abstract class."
 
     class TopLevel(Identified):
         label = "TopLevel"
+        component = "TopLevel is an abstract class that is extended by any Identified class that can be found at the top level of an SBOL document or file."
 
     class Sequence (TopLevel):
         label = "Sequence"
-        comment = "Represents the primary structure of a Component object and the manner in which it is encoded."
+        comment = "The purpose of the Sequence class is to represent the primary structure of a Component object and the manner in which it is encoded."
     Sequence.domainEntity = ["true"]
 
     class Component (TopLevel):
         label = "Component"
+        comment = "The Component class represents the structural and/or functional entities of a biological design. The primary usage of this class is to represent entities with designed sequences, such as DNA, RNA, and proteins, but it can also be used to represent any other entity that is part of a design, such as simple chemicals, molecular complexes, strains, media, light, and abstract functional groupings of other entities."
     Component.domainEntity = ["true"]
 
     class Model (TopLevel):
         label = "Model"
+        comment = "The purpose of the Model class is to serve as a placeholder for an external computational model and provide additional meta-data to enable better reasoning about the contents of this model."
     Model.domainEntity = ["true"]
 
     class Implementation (TopLevel):
         label = "Implementation"
+        comment = "An Implementation represents a realized instance of a Component, such a sample of DNA resulting from fabricating a genetic design or an aliquot of a specified reagent."
     Implementation.domainEntity = ["true"]
 
     class Attachment (TopLevel):
         label = "Attachment"
+        comment = "The purpose of the Attachment class is to serve as a general container for data files, especially experimental data files. It provides a means for linking files and metadata to SBOL designs."
     Attachment.domainEntity = ["true"]
 
     class Collection (TopLevel):
         label = "Collection"
+        comment = "The Collection class is a class that groups together a set of TopLevel objects that have something in common."
     Collection.domainEntity = ["true"]
 
     class Experiment(Collection):
         label = "Experiment"
+        comment = "The purpose of the Experiment class is to aggregate ExperimentalData objects for subsequent analysis, usually in accordance with an experimental design."
     Experiment.domainEntity = ["true"]
 
     class ExperimentalData (TopLevel):
         label = "ExperimentalData"
+        comment = "The purpose of the ExperimentalData class is to aggregate links to experimental data files. An ExperimentalData is typically associated with a single sample, lab instrument, or experimental condition and can be used to describe the output of the test phase of a design-build-test-learn workflow."
     ExperimentalData.domainEntity = ["true"]
 
     class CombinatorialDerivation (TopLevel):
         label = "CombinatorialDerivation"
+        comment = "The purpose of the CombinatorialDerivation class is to specify combinatorial biological designs without having to specify every possible design variant."
     CombinatorialDerivation.domainEntity = ["true"]
 
     class Interaction (Identified):
         label = "Interaction"
+        comment = "The Interaction class provides more detailed description of how the Feature objects of a Component are intended to work together. For example, this class can be used to represent different forms of genetic regulation (e.g., transcriptional activation or repression), processes from the central dogma of biology (e.g. transcription and translation), and other basic molecular interactions (e.g., non-covalent binding or enzymatic phosphorylation)."
     Interaction.domainEntity = ["true"]
 
     class Constraint (Identified):
         label = "Constraint"
+        comment = "The Constraint class can be used to assert restrictions on the relationships of pairs of Feature objects contained by the same parent Component. Uses of this class include expressing containment (e.g., a plasmid transformed into a chassis strain), identity mappings (e.g., replacing a placeholder value with a complete definition), and expressing relative, sequence-based positions (e.g., the ordering of features within a template)."
     Constraint.domainEntity = ["true"]
 
     class Interface (Identified):
         label = "Interface"
+        comment = "The Interface class is a way of explicitly specifying the interface of a Component."
     Interface.domainEntity = ["true"]
 
     class Feature (Identified):
         label = "Feature"
+        comment = "The Feature class, is used to compose Component objects into a structural or functional hierarchy. Feature is an abstract class; only its child classes are actually instantiated."
     Feature.domainEntity = ["true"]
 
     class SubComponent (Feature):
         label = "SubComponent"
+        comment = "The SubComponent class is a subclass of the Feature class that can be used to specify structural hierarchy."
     SubComponent.domainEntity = ["true"]
 
     class ComponentReference (Feature):
         label = "ComponentReference"
+        comment = "The ComponentReference class is a subclass of Feature that can be used to reference Features within SubComponents."
     ComponentReference.domainEntity = ["true"]
 
     class ExternallyDefined (Feature):
         label = "ExternallyDefined"
+        comment = "The ExternallyDefined class has been introduced so that external definitions in databases like ChEBI or UniProt can be referenced."
     ExternallyDefined.domainEntity = ["true"]
 
     class LocalSubComponent (Feature):
         label = "LocalSubComponent"
+        comment = "The LocalSubComponent class is a subclass of Feature. This class serves as a way to create a placeholder in more complex Components, such as a variable to be filled in later or a composite that exists only within the context of the parent Component."
     LocalSubComponent.domainEntity = ["true"]
 
     class SequenceFeature (Feature):
         label = "SequenceFeature"
+        comment = "The SequenceFeature class describes one or more regions of interest on the Sequence objects referred to by its parent Component."
     SequenceFeature.domainEntity = ["true"]
 
     class Location (Identified):
         label = "Location"
+        comment = "The Location class is used to represent the location of Features within Sequences. This class is extended by the Range, Cut, and EntireSequence classes. Location is an abstract class; only its child classes are actually instantiated."
     Location.domainEntity = ["true"]
 
     class Range (Location):
         label = "Range"
+        comment = "A Range object specifies a region via discrete, inclusive start and end positions that correspond to indices for characters in the elements String of a Sequence."
     Range.domainEntity = ["true"]
 
     class Cut (Location):
         label = "Cut"
+        comment = "The Cut class has been introduced to enable the specification of a region between two discrete positions. This specification is accomplished using the at property, which specifies a discrete position that corresponds to the index of a character in the elements String of a Sequence (except in the case when at is equal to zero.)"
     Cut.domainEntity = ["true"]
 
     class EntireSequence (Location):
         label = "EntireSequence"
+        comment = "The EntireSequence class does not have any additional properties. Use of this class indicates that the linked Sequence describes the entirety of the Component or Feature parent of this Location object."
     EntireSequence.domainEntity = ["true"]
 
     class Participation (Identified):
         label = "Participation"
+        comment = "Each Participation represents how a particular Feature behaves in its parent Interaction."
     Participation.domainEntity = ["true"]
 
     class VariableFeature (Identified):
         label = "VariableFeature"
+        comment = "VariableFeature class specifies a variable and set of values that will replace one of the Feature objects in the template of a CombinatorialDerivation. The variable is specified by the variable property, and the set of values is defined by the union of Component objects referred to by the variant, variantCollection, and variantDerivation properties."
     VariableFeature.domainEntity = ["true"]
     
     class Metadata (Identified):
         label = "Metadata"
+        comment = "TODO: Custom data in the form of independent objects can participate in the SBOL data model if they are assigned one of the SBOL types Identified or TopLevel. An example is an RDF object that is annotated such that it represents a data sheet that describes the performance of a Component in a particular context."
     Metadata.domainEntity = ["true"]
     Metadata.is_a.append(rdfNS.type.some(Thing))#Metadata must have another RDF.type    
     Identified.is_a.append(owlNS.topObjectProperty.min(0,Metadata)) #Identified may have zero or more Metadata annotations, but Metadata must be attached to at least one Identified entity
 
     class GenericTopLevel (TopLevel):
         label = "GenericTopLevel"
+        comment = "TODO"
     GenericTopLevel.domainEntity = ["true"]
     GenericTopLevel.is_a.append(rdfNS.type.some(Thing))    #GenericTopLevel must have another RDF.type
     
 # ---------Provenance Entities--------------
     class SBOLActivity(TopLevel):
       label = "SBOL Activity"
+      comment = "TODO"
     SBOLActivity.domainEntity = ["true"]
     SBOLActivity.replacementOf = [prov.Activity]
     SBOLActivity.is_a.append(prov.Activity)
 
     class SBOLPlan(TopLevel):
       label = "SBOLPlan"
+      comment = "TODO"
     SBOLPlan.domainEntity = ["true"]
     SBOLPlan.replacementOf = [prov.Plan]
     SBOLPlan.is_a.append(prov.Plan)
 
     class SBOLAgent(TopLevel):
       label = "SBOL Agent"
+      comment = "TODO"
     SBOLAgent.domainEntity = ["true"]
     SBOLAgent.replacementOf = [prov.Agent]
     SBOLAgent.is_a.append(prov.Agent)
 
     class SBOLUsage(Identified):
       label = "SBOL Usage"
+      comment = "TODO"
     SBOLUsage.domainEntity = ["true"]
     SBOLUsage.replacementOf = [prov.Usage]
     SBOLUsage.is_a.append(prov.Usage)
 
     class SBOLAssociation(Identified):
       label = "SBOL Association"
+      comment = "TODO"
     SBOLAssociation.domainEntity = ["true"]
     SBOLAssociation.replacementOf = [prov.Association]
     SBOLAssociation.is_a.append(prov.Association)
 
     class SBOLMeasure(Identified):
       label = "SBOL Measure"
+      comment = "TODO"
     SBOLMeasure.domainEntity = ["true"]
     SBOLMeasure.replacementOf = [om.Measure]
     SBOLMeasure.is_a.append(om.Measure)
@@ -550,83 +594,97 @@ with sbol3:
     # ---------SBOL Vocabulary--------------
     class SBOLTerm (Thing):
       label = "SBOL Term"
+      comment = "TODO"
     SBOLTerm.vocabulary = ["true"] # Do not create an object
     
     # Orientation terms
     class Orientation (SBOLTerm):
       label = "Orientation"
+      comment = "TODO: The orientation property is OPTIONAL and has a data type of IRI. This can be used to indicate how any associated double-stranded Feature is oriented on the elements of a Sequence from their parent Component."
     Orientation.constantList = ["true"]
 
     class inline (Orientation):
         label = "inline"
+        comment = "The region specified by this Feature or Location is on the elements of a Sequence."
 
     class reverseComplement (Orientation):
         label = "reverseComplement"
-
+        comment = "The region specified by this Feature or Location is on the reversecomplement mapping of the elements of a Sequence. The exact nature of this mapping depends on the encoding of the Sequence."
     Orientation.equivalent_to.append(inline | reverseComplement)
 
     # CombinatorialDerivationStrategy terms
     class CombinatorialDerivationStrategy  (SBOLTerm):
         label = "CombinatorialDerivationStrategy"
+        comment = "TODO: This property recommends how many Component objects SHOULD be derived from the template Component."
     CombinatorialDerivationStrategy.constantList = ["true"]
 
     class enumerate (CombinatorialDerivationStrategy):
         label = "enumerate"
-
+        comment = "Derivation SHOULD produce all possible Component objects specified by the CombinatorialDerivation."
     class sample (CombinatorialDerivationStrategy):
         label = "sample"
+        comment = "Derivation SHOULD produce a subset of possible Component objects specified by CombinatorialDerivation. The manner in which this subset is chosen is left unspecified."
 
     CombinatorialDerivationStrategy.equivalent_to.append(enumerate | sample)
 
     # Cardinality terms
     class Cardinality  (SBOLTerm):
         label = "Cardinality"
+        comment = "TODO: CHECK OUT TABLE INFO: The cardinality property is REQUIRED and has type of IRI. This property specifies how many Feature objects SHOULD be derived from the template Feature during the derivation of a new Component. The value of this property MUST come from the URLs provided in Table 14."
     Cardinality.constantList = ["true"]
 
     class zeroOrOne (Cardinality):
         label = "zeroOrOne"
+        comment = "No more than one Feature in the derived Component SHOULD have a prov:wasDerivedFrom property that refers to the template Feature."
 
     class one (Cardinality):
         label = "one"
+        comment = "Exactly one Feature in the derived Component SHOULD have a prov:wasDerivedFrom property that refers to the template Feature."
 
     class zeroOrMore (Cardinality):
         label = "zeroOrMore"
+        comment = "Any number of Feature objects in the derived Component MAY have prov:wasDerivedFrom properties that refer to the template Feature."
 
     class oneOrMore (Cardinality):
         label = "OneOrMore"
+        comment = "At least one Feature in the derived Component SHOULD have a prov:wasDerivedFrom property that refers to the template Feature."
 
     Cardinality.equivalent_to.append(zeroOrOne | one | zeroOrMore | oneOrMore)
 
     # RoleIntegration terms
     class RoleIntegration (SBOLTerm):
         label = "RoleIntegration"
+        comment = "A roleIntegration specifies the relationship between a SubComponent instance’s own set of role properties and the set of role properties on the included Component."
     RoleIntegration.constantList = ["true"]
 
     class overrideRoles (RoleIntegration):
         label = "overrideRoles"
+        comment = "In the context of this SubComponent, ignore any role given for the included Component. Instead use only the set of zero or more role properties given for this SubComponent."
 
     class mergeRoles (RoleIntegration):
         label = "mergeRoles"
+        comment = "Use the union of the two sets: both the set of zero or more role properties given for this SubComponent as well as the set of zero or more role properties given for the included Component."
 
     RoleIntegration.equivalent_to.append(overrideRoles | mergeRoles)
 
     # NucleicAcidTopology terms
     class NucleicAcidTopology (SBOLValue):
         label = "NucleicAcidTopology"
+        comment = "TODO: CHECK IT OUT: Specifies the topology of a nucleic acid Component, such as linear or circular. For DNA Components with a fully specified sequence, topology information is recommended and should be provided using a term from the Topology Attribute branch of the Sequence Ontology. Topology may be omitted when the DNA Component has no sequence information, has incomplete sequence information, or when the topology is genuinely unknown. For RNA Components, topology information is optional and linear topology is assumed by default. Conflicting topology values must not be specified."
     NucleicAcidTopology.constantList = ["true"]
     NucleicAcidTopology.equivalent_to.append(SO_0000987 | SO_0000988 | SO_0000984 | SO_0000985)
 
     # ConstraintRestriction terms
     class ConstraintRestriction(SBOLTerm):
         label = "ConstraintRestriction"
-        comment = "Controlled vocabulary for the types of relationships that can be expressed in Constraints."
+        comment = "TODO: CHECK OUT TABLE INFO: The restriction property is REQUIRED and has a data type of IRI. This property MUST indicate the type of restriction on the locations, orientations, or identities of the subject and object Feature objects in relation to each other. The IRI value of this property SHOULD come from the RECOMMENDED URLs in Table 8, Table 9, and 4 Table 10."
     ConstraintRestriction.constantList = ["true"]
 
     # Identity relations
     class verifyIdentical(ConstraintRestriction):
         label = "verifyIdentical"
-        comment = "Subject and object must both be SubComponents with the same instanceOf or ExternallyDefined with the same definition."
-
+        comment = "The subject and object, after tracing through any layers of ComponentReference, MUST both refer to SubComponent objects with the same instanceOf value or both refer to ExternallyDefined objects with the same definition. Example: a promoter included via two different subsystems must be the identical."
+    
     class differentFrom(ConstraintRestriction):
         label = "differentFrom"
         comment = "Subject and object must NOT refer to the same Component/definition."
