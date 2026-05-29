@@ -426,11 +426,11 @@ with sbol3:
     # ---------SBOL Entities--------------
     class Identified(Thing):
         label = "Identified"
-        component = "All SBOL-defined classes are directly or indirectly derived from the Identified abstract class."
+        comment = "All SBOL-defined classes are directly or indirectly derived from the Identified abstract class."
 
     class TopLevel(Identified):
         label = "TopLevel"
-        component = "TopLevel is an abstract class that is extended by any Identified class that can be found at the top level of an SBOL document or file."
+        comment = "TopLevel is an abstract class that is extended by any Identified class that can be found at the top level of an SBOL document or file."
 
     class Sequence (TopLevel):
         label = "Sequence"
@@ -575,35 +575,35 @@ with sbol3:
 
     class SBOLPlan(TopLevel):
       label = "SBOL Plan"
-      comment = "TODO: ASK: A wrapper for the PROV Plan class. The purpose of this class is to allow for the inclusion of SBOL-specific properties on PROV Plans, such as the association of a Plan with a particular Component or Interaction."
+      comment = "A wrapper for the PROV-O Plan class. The purpose of this class is to allow for the inclusion of SBOL-specific properties on PROV Plans, such as the association of a Plan with a particular Component or Interaction."
     SBOLPlan.domainEntity = ["true"]
     SBOLPlan.replacementOf = [prov.Plan]
     SBOLPlan.is_a.append(prov.Plan)
 
     class SBOLAgent(TopLevel):
       label = "SBOL Agent"
-      comment = "TODO: ASK: A wrapper for the PROV Agent class. The purpose of this class is to allow for the inclusion of SBOL-specific properties on PROV Agents, such as the association of an Agent with a particular Component or Interaction."
+      comment = "A wrapper for the PROV-O Agent class. The purpose of this class is to allow for the inclusion of SBOL-specific properties on PROV Agents, such as the association of an Agent with a particular Component or Interaction."
     SBOLAgent.domainEntity = ["true"]
     SBOLAgent.replacementOf = [prov.Agent]
     SBOLAgent.is_a.append(prov.Agent)
 
     class SBOLUsage(Identified):
       label = "SBOL Usage"
-      comment = "A wrapper for the PROV Usage class. The purpose of this class is to allow for the inclusion of SBOL-specific properties on PROV Usages, such as the association of a Usage with a particular Component or Interaction."
+      comment = "A wrapper for the PROV-O Usage class. The purpose of this class is to allow for the inclusion of SBOL-specific properties on PROV Usages, such as the association of a Usage with a particular Component or Interaction."
     SBOLUsage.domainEntity = ["true"]
     SBOLUsage.replacementOf = [prov.Usage]
     SBOLUsage.is_a.append(prov.Usage)
 
     class SBOLAssociation(Identified):
       label = "SBOL Association"
-      comment = "A wrapper for the PROV Association class. The purpose of this class is to allow for the inclusion of SBOL-specific properties on PROV Associations, such as the association of an Association with a particular Component or Interaction."
+      comment = "A wrapper for the PROV-O Association class. The purpose of this class is to allow for the inclusion of SBOL-specific properties on PROV Associations, such as the association of an Association with a particular Component or Interaction."
     SBOLAssociation.domainEntity = ["true"]
     SBOLAssociation.replacementOf = [prov.Association]
     SBOLAssociation.is_a.append(prov.Association)
 
     class SBOLMeasure(Identified):
       label = "SBOL Measure"
-      comment = "A wrapper for the PROV Measure class. The purpose of this class is to allow for the inclusion of SBOL-specific properties on PROV Measures, such as the association of a Measure with a particular Component or Interaction."
+      comment = "A wrapper for the OM Measure class. The purpose of this class is to allow for the inclusion of SBOL-specific properties on OM Measures, such as the association of a Measure with a particular Component or Interaction."
     SBOLMeasure.domainEntity = ["true"]
     SBOLMeasure.replacementOf = [om.Measure]
     SBOLMeasure.is_a.append(om.Measure)
@@ -617,7 +617,7 @@ with sbol3:
     # Orientation terms
     class Orientation (SBOLTerm):
       label = "Orientation"
-      comment = "TODO: ASK: Controlled vocabulary for the orientation of a Feature or Location. The value of a Feature or Location's orientation property must be an instance of a class that is a subclass of Orientation."
+      comment = "Controlled vocabulary for the orientation of a Feature or Location. The value of a Feature or Location's orientation property must be an instance of a class that is a subclass of Orientation."
     Orientation.constantList = ["true"]
 
     class inline (Orientation):
@@ -645,7 +645,7 @@ with sbol3:
     # Cardinality terms
     class Cardinality  (SBOLTerm):
         label = "Cardinality"
-        comment = "TODO: ASK: The cardinality property is REQUIRED and has type of IRI. This property specifies how many Feature objects SHOULD be derived from the template Feature during the derivation of a new Component."
+        comment = "Provides a controlled vocabulary for describing restrictions between pairs of Feature objects, including identity, topology, sequence order, and orientation relationships."
     Cardinality.constantList = ["true"]
 
     class zeroOrOne (Cardinality):
@@ -685,14 +685,14 @@ with sbol3:
     # NucleicAcidTopology terms
     class NucleicAcidTopology (SBOLValue):
         label = "NucleicAcidTopology"
-        comment = "Specifies the topology of a nucleic acid Component, such as linear or circular. For DNA Components with a fully specified sequence, topology information is recommended and should be provided using a term from the Topology Attribute branch of the Sequence Ontology."
+        comment = "Specifies the topology of a nucleic acid Component. Values are linear, circular, single, and double. For DNA Components with a fully specified sequence, topology information is recommended and should be provided using a term from the Topology Attribute branch of the Sequence Ontology."
     NucleicAcidTopology.constantList = ["true"]
     NucleicAcidTopology.equivalent_to.append(SO_0000987 | SO_0000988 | SO_0000984 | SO_0000985)
 
     # ConstraintRestriction terms
     class ConstraintRestriction(SBOLTerm):
         label = "ConstraintRestriction"
-        comment = "TODO: ASK: SHOULD I TAKE IT FROM THE CONSTRAINT - RESTRICTION PROPERTY: Controlled vocabulary for the types of restrictions that can be expressed in a Constraint. The value of a Constraint's restriction property must be an instance of a class that is a subclass of ConstraintRestriction."
+        comment = "Controlled vocabulary for the types of restrictions that can be expressed in a Constraint. The value of a Constraint's restriction property must be an instance of a class that is a subclass of ConstraintRestriction. Subclasses of ConstraintRestriction include IdentityRestriction, TopologyRestriction, SequentialRestriction, and OrientationRestriction."
     ConstraintRestriction.constantList = ["true"]
 
     # Identity relations
@@ -792,14 +792,14 @@ with sbol3:
     # Interaction types
     class InteractionType(SBOLValue):
         label = "InteractionType"
-    comment = "Provides a vocabulary to choose the interaction type of behavior represented by an Interaction. Interaction types are typically identified using IRIs, such as terms from the Systems Biology Ontology."
+        comment = "Provides a vocabulary to choose the interaction type of behavior represented by an Interaction. Interaction types are typically identified using IRIs, such as terms from the Systems Biology Ontology."
     InteractionType.constantList = ["true"]    
     InteractionType.equivalent_to.append(SBO_0000169 | SBO_0000170 | SBO_0000176 | SBO_0000177 | SBO_0000179 | SBO_0000589 | SBO_0000168)
 
     # Participant roles
     class ParticipationRole(SBOLValue):
         label = "ParticipationRole"
-        comment = "TODO: ASK: SHOULD I TAKE IT FROM THE PARTICIPATION - ROLE PROPERTY: Provides a vocabulary to choose the role of a Participation in an Interaction. Participation roles are typically identified using IRIs, such as terms from the Systems Biology Ontology."
+        comment = "Provides a vocabulary to choose the role of a Participation in an Interaction. Participation roles are typically identified using IRIs, such as terms from the Systems Biology Ontology."
     ParticipationRole.constantList = ["true"]
     ParticipationRole.equivalent_to.append(SBO_0000020 | SBO_0000642 | SBO_0000459 | SBO_0000643 | SBO_0000010 | SBO_0000011 | SBO_0000598 | SBO_0000019 | SBO_0000645)
 
@@ -820,11 +820,11 @@ with sbol3:
     # ---------SBOL properties---------
     class comprises(ObjectProperty, TransitiveProperty):
         label = "comprises"
-        comment = "TODO: ASK: The comprises property is a transitive object property that is used to link an Identified object to another Identified object that is part of it."
+        comment = "The comprises property can be used to express parent-child compositional relationships as a custom approach if needed."
 
     class directlyComprises(comprises, ObjectProperty):
         label = "directlyComprises"
-        comment = "TODO: ASK: The directlyComprises property is a non-transitive object property that is used to link an Identified object to another Identified object that is directly part of it. "
+        comment = "Subclass of comprises that is used to express direct parent-child compositional relationships."
 
     #Identified properties
     class displayId(DataProperty, FunctionalProperty):
@@ -848,7 +848,6 @@ with sbol3:
     class hasMeasure(directlyComprises, Identified >> om.Measure):
         label = "hasMeasure"
         comment = "An Identified object MAY have zero or more hasMeasure properties, each of which refers to a om:Measure object that describe measured parameters for this object."
-        #TODO: WHY BELOW IS COMMENTED OUT?
         #domain = [Identified]
         #range = [om.Measure]
 
@@ -965,7 +964,7 @@ with sbol3:
     class inChildOf(ComponentReference >> SubComponent, FunctionalProperty):
         label = "inChildOf"
         comment = "The inChildOf property is a REQUIRED IRI that refers to a SubComponent. The inChildOf property MUST refer to a SubComponent pointed directly to by the parent of the ComponentReference."
-    ComponentReference.is_a.append(inChildOf.some(Component))
+    ComponentReference.is_a.append(inChildOf.some(Component)) 
 
     # ExternallyDefined properties
     class definition(ObjectProperty, FunctionalProperty):
@@ -1209,13 +1208,13 @@ with sbol3:
 
     class NonCovalentComplexComponent (Component):
         label = "Non-Covalent Complex Component"
-        comment = "Represents a non-covalent complex component, with the type of SBO:non_covalent_complex. It restricts instances to have the sequences with the correct encoding."
+        comment = "Represents a non-covalent complex Component, with the type SBO:non-covalent complex."
     NonCovalentComplexComponent.domainEntity = ["true"]
     NonCovalentComplexComponent.equivalent_to.append(Component & type.some(SBO_0000253))
 
     class FunctionalEntityComponent (Component):
         label = "Functional Entity Component"
-        comment = "Represents a functional entity component, with the type of SBO:functional_entity. It restricts instances to have the sequences with the correct encoding."
+        comment = "Represents a functional entity component, with the type of SBO:functional_entity."
     FunctionalEntityComponent.domainEntity = ["true"]
     FunctionalEntityComponent.equivalent_to.append(Component & type.some(SBO_0000241))
 
@@ -1602,7 +1601,7 @@ with om:
   class hasUnit(ObjectProperty, FunctionalProperty):
     label = "hasUnit"
     comment = "This property can be used in a Measure, SingularUnit or PrefixedUnit. For Measure and PrefixedUnit, the om:hasUnit property is REQUIRED and MUST contain a IRI that refers to a om:Unit. For SingularUnit, the om:hasUnit is OPTIONAL and MAY contain a IRI."
-    domain = [Measure | SingularUnit |PrefixedUnit] #[1..0]
+    domain = [Measure | SingularUnit |PrefixedUnit] #[0..1] 
     range  = [Unit]
   Measure.is_a.append(hasUnit.some(Unit)) #[1..1]
   PrefixedUnit.is_a.append(hasUnit.some(Unit)) #[1..1]
@@ -1611,14 +1610,14 @@ with om:
     label = "symbol"
     comment = "This property can be used in a Unit or Prefix. The om:symbol property is REQUIRED and MUST contain a String. This String is commonly used to abbreviate the name of the unit of measure or prefix."
     domain = [Unit | Prefix]
-    range  = [float]
+    range  = [float] 
   Unit.is_a.append(symbol.some(float)) # [1..]
   Prefix.is_a.append(symbol.some(float)) # [1..]
 
   #[1..0]
   class alternativeSymbol(DataProperty):
     label = "alternativeSymbol"
-    comment = "This property can be used in a Unit or Prefix. The om:alternativeSymbols property is OPTIONAL and MAY contain a set of Strings. This property can be used to specify alternative abbreviations other than that specified using the om:symbol property"
+    comment = "This property can be used in a Unit or Prefix. The om:alternativeSymbol property is OPTIONAL and MAY contain a set of Strings. This property can be used to specify alternative abbreviations other than that specified using the om:symbol property"
     domain = [Unit | Prefix]
     range  = [str]
 
@@ -1714,12 +1713,12 @@ otol.save(file = "otol.rdf", format = "rdfxml")
 
 from rdflib import URIRef
 
-# Merges  ontologies into a single combined rdf file
+# Merge selected ontology files into a single RDF/XML file.
 def mergeOntologies(inputFiles, outputName):
     combined = Graph()
     for f in inputFiles:
         combined.parse(f, format="xml")
-    # Keep only the sbol3 owl:Ontology declaration — remove all others so the OWL API does not randomly choose one of the other ontlogies (SBO, SO, CHEBI, GO, PROV, OM)
+    # Keep only the sbol3 owl:Ontology declaration — remove all others so the OWL API does not randomly choose one of the other ontologies (SBO, SO, CHEBI, GO, PROV, OM)
     sbol3IRI = URIRef(sbol3.base_iri)
     for ontology in list(combined.subjects(RDF.type, OWL.Ontology)):
         if ontology != sbol3IRI:
@@ -1748,7 +1747,8 @@ def createOWL(robotJar, inputFile, outputFiles, prefixes):
         else:
             print(f"{outputFile} created!")
     
-    # Replace identifiers.org URIs with identifiers:localname. This is due to the OWL-API behaviour. It does not shorten local names with colons or starting with digits.
+    # Post-process ROBOT outputs because the OWL API does not automatically shorten
+    # identifiers.org IRIs whose local names contain colons or start with digits.
     identifiersPattern = re.compile(r'<https://identifiers\.org/([^>]+)>')
     for fileName in outputFiles:
         file = Path(fileName)
@@ -1772,7 +1772,10 @@ createOWL(robotJarFile, "sbol_om_prov.rdf", ["sbol_om_prov.owl", "sbol_om_prov.o
 #prefixes: list of (prefix, namespace) pairs
 def createHTML(ontologies, prefixes=None):
     try:
-        # Workaround for the pyLODE.pyproject.toml file issue. The following code creates a minimal pyproject.toml in the site-packages folder if it doesn't already exist. If the distribution does not include this file, then the pyLODE fails!
+        # Workaround for a pyLODE packaging issue:
+        # some installations miss pyproject.toml, causing pyLODE to fail when reading its version.
+        # The following code creates a minimal pyproject.toml in the site-packages folder if it doesn't already exist. 
+        # If the distribution does not include this file, then the pyLODE fails!
         import site
         tomlFile = Path(site.getsitepackages()[0]) / "pyproject.toml"
         if not tomlFile.exists():
