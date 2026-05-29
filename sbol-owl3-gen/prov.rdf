@@ -12,36 +12,42 @@
   <rdfs:domain rdf:resource="http://sbols.org/v3#Identified"/>
   <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">wasDerivedFrom</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An Identified object MAY have zero or more prov:wasDerivedFrom properties, each of type IRI. This property is defined by the PROV-O ontology and is located in the https://www.w3.org/ns/prov# namespace</rdfs:comment>
 </owl:ObjectProperty>
 
 <owl:ObjectProperty rdf:about="#wasInformedBy">
   <rdfs:domain rdf:resource="#Activity"/>
   <rdfs:range rdf:resource="#Activity"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">wasInformedBy</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An prov:Activity MAY have one or more prov:wasInformedBy properties, each of type IRI that refers to another prov:Activity object.</rdfs:comment>
 </owl:ObjectProperty>
 
 <owl:ObjectProperty rdf:about="#wasGeneratedBy">
   <rdfs:domain rdf:resource="http://sbols.org/v3#Identified"/>
   <rdfs:range rdf:resource="http://sbols.org/v3#SBOLActivity"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">wasGeneratedBy</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An Identified object MAY have zero or more prov:wasGeneratedBy properties, each of type IRI.</rdfs:comment>
 </owl:ObjectProperty>
 
 <owl:ObjectProperty rdf:about="#qualifiedUsage">
   <rdfs:domain rdf:resource="#Activity"/>
   <rdfs:range rdf:resource="#Usage"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">qualifiedUsage</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An prov:Activity MAY have one or more prov:qualifiedUsage properties, each of type IRI that refers to an prov:Usage object.</rdfs:comment>
 </owl:ObjectProperty>
 
 <owl:ObjectProperty rdf:about="#qualifiedAssociation">
   <rdfs:domain rdf:resource="#Activity"/>
   <rdfs:range rdf:resource="#Association"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">qualifiedAssociation</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An prov:Activity MAY have one or more prov:qualifiedAssociation properties, each of type IRI that refers to an prov:Association object.</rdfs:comment>
 </owl:ObjectProperty>
 
 <owl:ObjectProperty rdf:about="#entity">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
   <rdfs:domain rdf:resource="#Usage"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">entity</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The prov:entity property is REQUIRED and MUST contain a IRI which MAY refer to an Identified object.</rdfs:comment>
 </owl:ObjectProperty>
 
 <owl:ObjectProperty rdf:about="#hadRole">
@@ -54,6 +60,7 @@
     </owl:Class>
   </rdfs:domain>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hadRole</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An prov:Usage MAY have one or more prov:hadRole properties, each of type IRI that refers to particular term(s) describing the usage of an prov:Entity referenced by the prov:entity property.</rdfs:comment>
 </owl:ObjectProperty>
 
 <owl:ObjectProperty rdf:about="#hadPlan">
@@ -61,6 +68,7 @@
   <rdfs:domain rdf:resource="#Association"/>
   <rdfs:range rdf:resource="#Plan"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hadPlan</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The prov:hadPlan property is OPTIONAL and contains a IRI that refers to a prov:Plan.</rdfs:comment>
 </owl:ObjectProperty>
 
 <owl:ObjectProperty rdf:about="#agent">
@@ -68,6 +76,7 @@
   <rdfs:domain rdf:resource="#Association"/>
   <rdfs:range rdf:resource="#Agent"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">agent</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The prov:agent property is REQUIRED and MUST contain a IRI that refers to an prov:Agent object.</rdfs:comment>
 </owl:ObjectProperty>
 
 <owl:DatatypeProperty rdf:about="#startedAtTime">
@@ -75,6 +84,7 @@
   <rdfs:domain rdf:resource="#Activity"/>
   <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">startedAtTime</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The prov:startedAtTime property is OPTIONAL and contains a DateTime value, indicating when the activity started. If this property is present, then the prov:endedAtTime property is REQUIRED.</rdfs:comment>
 </owl:DatatypeProperty>
 
 <owl:DatatypeProperty rdf:about="#endedAtTime">
@@ -82,6 +92,7 @@
   <rdfs:domain rdf:resource="#Activity"/>
   <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">endedAtTime</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The prov:endedAtTime property is OPTIONAL and contains a DateTime value, indicating when the activity ended.</rdfs:comment>
 </owl:DatatypeProperty>
 
 <owl:Class rdf:about="#Activity">

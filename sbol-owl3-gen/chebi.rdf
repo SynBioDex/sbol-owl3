@@ -10,12 +10,14 @@
 
 <owl:Class rdf:about="https://identifiers.org/CHEBI:50906">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Material Entity</rdfs:label>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Material entity role</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
 </owl:Class>
 
 <owl:Class rdf:about="https://identifiers.org/CHEBI:35224">
   <rdfs:subClassOf rdf:resource="https://identifiers.org/CHEBI:50906"/>
-  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Effector</rdfs:label>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">effector</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A small molecule which increases (activator) or decreases (inhibitor) the activity of an (allosteric) enzyme by binding to the enzyme at the regulatory site (which is different from the substrate-binding catalytic site).</rdfs:comment>
 </owl:Class>
 
 
