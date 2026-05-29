@@ -1,36 +1,35 @@
 # SBOL3 Ontology
 
-## Ontology
+The SBOL-OWL3 ontology provides a set of controlled terms that are used to describe genetic circuit designs using the SBOL3 data standard. Terms are included for the followings.
 
-The SBOL3 ontology provides a set of controlled terms that are used to describe synthetic biology designs using SBOL3. These terms support the formal representation of SBOL3 entities, their relationships, accepted values, constraints, and commonly used biological design concepts.
+- Descriptions of SBOL entities (e.g. [Component](https://synbiodex.github.io/sbol-owl3/sbol3.html#Component), [SubComponent](https://synbiodex.github.io/sbol-owl3/sbol3.html#CSubomponent), and [Model](https://synbiodex.github.io/sbol-owl3/sbol3.html#Model)). 
 
-Terms are included for the following.
+- Properties that connect SBOL3 entities to one another or to accepted values. Examples include properties such as [hasFeature](https://synbiodex.github.io/sbol-owl3/sbol3.html#hasFeature), [hasSequence](https://synbiodex.github.io/sbol-owl3/sbol3.html#hassequence), [hasInteraction](https://synbiodex.github.io/sbol-owl3/sbol3.html#hasInteraction), [hasParticipation](https://synbiodex.github.io/sbol-owl3/sbol3.html#hasInteraction), and [role](https://synbiodex.github.io/sbol-owl3/sbol3.html#role), and other relationships used to describe the structure and behavior of biological designs. 
 
-- **Descriptions of SBOL3 entities**  
-  The ontology includes descriptions of SBOL3 entities such as `Component`, `Sequence`, `Feature`, `SubComponent`, `Interaction`, `Participation`, `Implementation`, `Model`, `Collection`, and other entities that are exchanged electronically in SBOL3 documents. Constraints and validation rules associated with these entities are also captured as part of the ontology.
+- SBOL-specific constraints (e.g. A Component must have at least one 'type' value).
 
-- **Abstract SBOL3 entities**  
-  Some SBOL3 entities, such as `Identified` and `TopLevel`, are not always used directly in serialized biological designs but provide an important structure for grouping and relating SBOL3 entities. The ontology exposes these entities to semantic reasoning tools through class hierarchies and parent-child relationships.
+- SBOL entities (e.g. "[TopLevel](https://synbiodex.github.io/sbol-owl3/sbol3.html#TopLevel)" that are not serialised but are used to group different SBOL entities. SBOL-OWL exposes these entities to semantic reasoning tools via parent-child relationships.
 
-- **Controlled vocabulary terms**  
-  The ontology includes terms used to restrict or standardize the values of SBOL3 properties. These include terms for component types, feature roles, interaction types, model languages, model frameworks, orientations, and other controlled values used in SBOL3 descriptions.
+- SBOL Vocabulary terms (e.g. "[inline](https://synbiodex.github.io/sbol-owl3/sbol3.html#inline)") that are used to restrict values of SBOL entities.
 
-- **Properties linking SBOL3 entities**  
-  The ontology defines properties that connect SBOL3 entities to one another or to accepted values. Examples include properties such as `hasFeature`, `hasSequence`, `hasInteraction`, `hasParticipation`, `hasRole`, `hasType`, `hasLocation`, and other relationships used to describe the structure and behavior of biological designs.
+- Enumerations that group different SBOL terms. (e.g. "[Orientation](https://synbiodex.github.io/sbol-owl3/sbol3.html#Orientation)")
 
-- **Metadata terms for biological design descriptions**  
-  The ontology includes metadata terms for commonly used descriptions of biological design entities, such as promoters, coding sequences, terminators, ribosome binding sites, genetic circuits, molecular species, and interactions. These terms may require the combined use of multiple SBOL3 entities and properties.
+- Metadata terms (e.g. "[Promoter](https://synbiodex.github.io/sbol-owl3/sbol3.html#Promoter)") for commonly used descriptions of design entities. Such terms may require the use of several SBOL entities and properties.
 
-## Browse
+- Wrrapper terms to add SBOL specific rules for external tems (e.g. "[SBOLActivity](https://synbiodex.github.io/sbol-owl3/sbol3.html#SBOLActivity)" which inherits from  [prov:Activity](https://synbiodex.github.io/sbol-owl3/sbol3.html#Activity) and [TopLevel](https://synbiodex.github.io/sbol-owl3/sbol3.html#TopLevel)).
 
-Browse the SBOL3 ontology terms via an HTML page.
+### Browse
+[Browse the SBOL-OWL3 terms via an HTML page.](https://synbiodex.github.io/sbol-owl3/sbol3.html)
 
-## Download
+### Download
+SBOL-OWL3 is available in different formats.
 
-The SBOL3 ontology is available in different formats.
+- [OWL file](https://synbiodex.github.io/sbol-owl3/sbol.owl)
+- [RDF file](https://synbiodex.github.io/sbol-owl3/sbol.rdf)
+- [OMN file](https://synbiodex.github.io/sbol-owl3/sbol.omn) (Manchester Syntax)
 
-- OWL file
-- RDF file
-- OMN file (Manchester Syntax)
-
-## Cite
+# Dependencies
+* owlready2 0.5
+* rdflib 7.6.0
+* pyLODE: 3.4.3a: At the time of the development, we created a pull request for a fix to pyLODE.  This has been incorporated. So, make sure to use the latest release when it is ready!
+* Robot 1.9.10: Available as a jar file within the project. Sourced from: https://github.com/ontodev/robot/releases/tag/v1.9.10
