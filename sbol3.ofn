@@ -343,6 +343,7 @@ AnnotationAssertion(rdfs:label otol:vocabulary "Vocabulary")
 
 # Object Property: sbol:built (built)
 
+AnnotationAssertion(rdfs:comment sbol:built "The built property is OPTIONAL and MAY contain a IRI that MUST refer to a Component. This Component is intended to describe the actual physical structure and/or functional behavior of the Implementation.")
 AnnotationAssertion(rdfs:label sbol:built "built")
 FunctionalObjectProperty(sbol:built)
 ObjectPropertyDomain(sbol:built sbol:Implementation)
@@ -350,6 +351,7 @@ ObjectPropertyRange(sbol:built sbol:Component)
 
 # Object Property: sbol:cardinality (cardinality)
 
+AnnotationAssertion(rdfs:comment sbol:cardinality "The cardinality property is REQUIRED and has type of IRI. This property specifies how many Feature objects SHOULD be derived from the template Feature during the derivation of a new Component.")
 AnnotationAssertion(rdfs:label sbol:cardinality "cardinality")
 FunctionalObjectProperty(sbol:cardinality)
 ObjectPropertyDomain(sbol:cardinality sbol:VariableFeature)
@@ -357,46 +359,54 @@ ObjectPropertyRange(sbol:cardinality ObjectUnionOf(sbol:one sbol:oneOrMore sbol:
 
 # Object Property: sbol:comprises (comprises)
 
+AnnotationAssertion(rdfs:comment sbol:comprises "The comprises property can be used to express parent-child compositional relationships as a custom approach if needed.")
 AnnotationAssertion(rdfs:label sbol:comprises "comprises")
 TransitiveObjectProperty(sbol:comprises)
 
 # Object Property: sbol:definition (definition)
 
+AnnotationAssertion(rdfs:comment sbol:definition "The definition property is REQUIRED and is of type IRI that links to a canonical definition external to SBOL.")
 AnnotationAssertion(rdfs:label sbol:definition "definition")
 FunctionalObjectProperty(sbol:definition)
 ObjectPropertyDomain(sbol:definition sbol:ExternallyDefined)
 
 # Object Property: sbol:directlyComprises (directlyComprises)
 
+AnnotationAssertion(rdfs:comment sbol:directlyComprises "Subclass of comprises that is used to express direct parent-child compositional relationships.")
 AnnotationAssertion(rdfs:label sbol:directlyComprises "directlyComprises")
 SubObjectPropertyOf(sbol:directlyComprises sbol:comprises)
 
 # Object Property: sbol:encoding (encoding)
 
+AnnotationAssertion(rdfs:comment sbol:encoding "The encoding property has a data type of IRI, and is OPTIONAL unless elements is set, in which case it is REQUIRED.")
 AnnotationAssertion(rdfs:label sbol:encoding "encoding")
 FunctionalObjectProperty(sbol:encoding)
 ObjectPropertyDomain(sbol:encoding sbol:Sequence)
 
 # Object Property: sbol:format (format)
 
+AnnotationAssertion(rdfs:comment sbol:format "The format property is OPTIONAL and MAY contain a IRI that specifies the format of the attached file. It is RECOMMENDED that this IRI refer to a term from the EMBRACE Data and Methods (EDAM) ontology")
 AnnotationAssertion(rdfs:label sbol:format "format")
 FunctionalObjectProperty(sbol:format)
 ObjectPropertyDomain(sbol:format sbol:Attachment)
 
 # Object Property: sbol:framework (framework)
 
+AnnotationAssertion(rdfs:comment sbol:framework "The framework property is REQUIRED and MUST contain a IRI that specifies the framework in which the model is implemented. It is RECOMMENDED this IRI refer to a term from the modeling framework branch of the SBO when possible.")
 AnnotationAssertion(rdfs:label sbol:framework "framework")
 FunctionalObjectProperty(sbol:framework)
 ObjectPropertyDomain(sbol:framework sbol:Model)
 
 # Object Property: sbol:hasAttachment (hasAttachment)
 
+AnnotationAssertion(rdfs:comment sbol:hasAttachment "A TopLevel object can have zero or more hasAttachment properties, each of type IRI specifying an Attachment object.")
 AnnotationAssertion(rdfs:label sbol:hasAttachment "hasAttachment")
 ObjectPropertyDomain(sbol:hasAttachment sbol:TopLevel)
 ObjectPropertyRange(sbol:hasAttachment sbol:Attachment)
 
 # Object Property: sbol:hasConstraint (hasConstraint)
 
+AnnotationAssertion(rdfs:comment sbol:hasConstraint "A Component MAY have any number of hasConstraint properties, each of type IRI, that MUST reference a Constraint object.")
 AnnotationAssertion(rdfs:label sbol:hasConstraint "hasConstraint")
 SubObjectPropertyOf(sbol:hasConstraint sbol:directlyComprises)
 ObjectPropertyDomain(sbol:hasConstraint sbol:Component)
@@ -404,6 +414,7 @@ ObjectPropertyRange(sbol:hasConstraint sbol:Constraint)
 
 # Object Property: sbol:hasFeature (hasFeature)
 
+AnnotationAssertion(rdfs:comment sbol:hasFeature "A Component MAY have any number of hasFeature properties, each of type IRI that MUST reference a Feature object")
 AnnotationAssertion(rdfs:label sbol:hasFeature "hasFeature")
 SubObjectPropertyOf(sbol:hasFeature sbol:directlyComprises)
 ObjectPropertyDomain(sbol:hasFeature sbol:Component)
@@ -411,6 +422,7 @@ ObjectPropertyRange(sbol:hasFeature sbol:Feature)
 
 # Object Property: sbol:hasInteraction (hasInteraction)
 
+AnnotationAssertion(rdfs:comment sbol:hasInteraction "A Component MAY have any number of hasInteraction properties, each of type IRI, that MUST reference an Interaction object.")
 AnnotationAssertion(rdfs:label sbol:hasInteraction "hasInteraction")
 SubObjectPropertyOf(sbol:hasInteraction sbol:directlyComprises)
 ObjectPropertyDomain(sbol:hasInteraction sbol:Component)
@@ -418,6 +430,7 @@ ObjectPropertyRange(sbol:hasInteraction sbol:Interaction)
 
 # Object Property: sbol:hasInterface (hasInterface)
 
+AnnotationAssertion(rdfs:comment sbol:hasInterface "A Component MAY have zero or one hasInterface property of type IRI that MUST reference an Interface object.")
 AnnotationAssertion(rdfs:label sbol:hasInterface "hasInterface")
 SubObjectPropertyOf(sbol:hasInterface sbol:directlyComprises)
 FunctionalObjectProperty(sbol:hasInterface)
@@ -426,6 +439,7 @@ ObjectPropertyRange(sbol:hasInterface sbol:Interface)
 
 # Object Property: sbol:hasLocation (hasLocation)
 
+AnnotationAssertion(rdfs:comment sbol:hasLocation "A SubComponent MAY have any number of hasLocation properties, each of type IRI, that MUST refer to Location objects that indicates the location of the Sequence from the instanceOf Component in a Sequence of the parent Component. A LocalSubComponent MAY have any number of hasLocation properties, each of type IRI, that MUST refer to Location objects. In SequenceFeature, the hasLocation is REQUIRED and contains one or more IRIs, which MUST refer to Location objects.")
 AnnotationAssertion(rdfs:label sbol:hasLocation "hasLocation")
 SubObjectPropertyOf(sbol:hasLocation sbol:directlyComprises)
 ObjectPropertyDomain(sbol:hasLocation ObjectUnionOf(sbol:LocalSubComponent sbol:SequenceFeature sbol:SubComponent))
@@ -441,18 +455,21 @@ ObjectPropertyRange(sbol:hasMeasure om:Measure)
 
 # Object Property: sbol:hasModel (hasModel)
 
+AnnotationAssertion(rdfs:comment sbol:hasModel "A Component MAY have any number of hasModel properties, each of type IRI, that MUST reference a Model object.")
 AnnotationAssertion(rdfs:label sbol:hasModel "hasModel")
 ObjectPropertyDomain(sbol:hasModel sbol:Component)
 ObjectPropertyRange(sbol:hasModel sbol:Model)
 
 # Object Property: sbol:hasNamespace (hasNamespace)
 
+AnnotationAssertion(rdfs:comment sbol:hasNamespace "A TopLevel object MUST have precisely one hasNamespace property, which contains a URL that defines the namespace portion of URLs for this object and any child objects.")
 AnnotationAssertion(rdfs:label sbol:hasNamespace "hasNamespace")
 FunctionalObjectProperty(sbol:hasNamespace)
 ObjectPropertyDomain(sbol:hasNamespace sbol:TopLevel)
 
 # Object Property: sbol:hasParticipation (hasParticipation)
 
+AnnotationAssertion(rdfs:comment sbol:hasParticipation "An Interaction MAY have any number of hasParticipation properties, each of type IRI, that MUST reference a Participation object, each of which identifies the role that its referenced Feature plays in the Interaction.")
 AnnotationAssertion(rdfs:label sbol:hasParticipation "hasParticipation")
 SubObjectPropertyOf(sbol:hasParticipation sbol:directlyComprises)
 ObjectPropertyDomain(sbol:hasParticipation sbol:Interaction)
@@ -460,12 +477,14 @@ ObjectPropertyRange(sbol:hasParticipation sbol:Participation)
 
 # Object Property: sbol:hasSequence (hasSequence)
 
+AnnotationAssertion(rdfs:comment sbol:hasSequence "This property can be used in a Component or Location. A Component MAY have any number of hasSequence properties, each of type IRI, that MUST reference a Sequence object. In a Location, the hasSequence property is REQUIRED and MUST contain the IRI of a Sequence object.")
 AnnotationAssertion(rdfs:label sbol:hasSequence "hasSequence")
 ObjectPropertyDomain(sbol:hasSequence ObjectUnionOf(sbol:Component sbol:Location))
 ObjectPropertyRange(sbol:hasSequence sbol:Sequence)
 
 # Object Property: sbol:hasVariableFeature (hasVariableFeature)
 
+AnnotationAssertion(rdfs:comment sbol:hasVariableFeature "A CombinatorialDerivation object can have zero or more hasVariableFeature properties, each of type IRI, specifying a VariableFeature. The set of hasVariableFeature properties MUST NOT contain two or more VariableFeature objects that refer to the same template.")
 AnnotationAssertion(rdfs:label sbol:hasVariableFeature "hasVariableFeature")
 SubObjectPropertyOf(sbol:hasVariableFeature sbol:directlyComprises)
 ObjectPropertyDomain(sbol:hasVariableFeature sbol:CombinatorialDerivation)
@@ -473,6 +492,7 @@ ObjectPropertyRange(sbol:hasVariableFeature sbol:VariableFeature)
 
 # Object Property: sbol:higherOrderParticipant (higherOrderParticipant)
 
+AnnotationAssertion(rdfs:comment sbol:higherOrderParticipant "The higherOrderParticipant property indicates an Interaction object that plays the designated role in its parent Interaction object. Precisely one value MUST be specified for precisely one of participant or higherOrderParticipant.")
 AnnotationAssertion(rdfs:label sbol:higherOrderParticipant "higherOrderParticipant")
 FunctionalObjectProperty(sbol:higherOrderParticipant)
 ObjectPropertyDomain(sbol:higherOrderParticipant sbol:Participation)
@@ -487,12 +507,14 @@ ObjectPropertyRange(sbol:inChildOf sbol:SubComponent)
 
 # Object Property: sbol:input (input)
 
+AnnotationAssertion(rdfs:comment sbol:input "An Interface MAY have any number of input properties, each of type IRI, that MUST reference a Feature object in the same Component.")
 AnnotationAssertion(rdfs:label sbol:input "input")
 ObjectPropertyDomain(sbol:input sbol:Interface)
 ObjectPropertyRange(sbol:input sbol:Feature)
 
 # Object Property: sbol:instanceOf (instanceOf)
 
+AnnotationAssertion(rdfs:comment sbol:instanceOf "The instanceOf property is a REQUIRED IRI that refers to the Component providing the definition for this SubComponent.")
 AnnotationAssertion(rdfs:label sbol:instanceOf "instanceOf")
 FunctionalObjectProperty(sbol:instanceOf)
 ObjectPropertyDomain(sbol:instanceOf sbol:SubComponent)
@@ -500,24 +522,28 @@ ObjectPropertyRange(sbol:instanceOf sbol:Component)
 
 # Object Property: sbol:language (language)
 
+AnnotationAssertion(rdfs:comment sbol:language "The language property is REQUIRED and MUST contain a IRI that specifies the language in which the model is implemented. It is RECOMMENDED that this IRI refer to a term from the EMBRACE Data and Methods (EDAM) ontology.")
 AnnotationAssertion(rdfs:label sbol:language "language")
 FunctionalObjectProperty(sbol:language)
 ObjectPropertyDomain(sbol:language sbol:Model)
 
 # Object Property: sbol:member (member)
 
+AnnotationAssertion(rdfs:comment sbol:member "A Collection object can have zero or more member properties, each of type IRI specifying a TopLevel object.")
 AnnotationAssertion(rdfs:label sbol:member "member")
 ObjectPropertyDomain(sbol:member sbol:Collection)
 ObjectPropertyRange(sbol:member sbol:TopLevel)
 
 # Object Property: sbol:nondirectional (nondirectional)
 
+AnnotationAssertion(rdfs:comment sbol:nondirectional "An Interface MAY have any number of nondirectional properties, each of type IRI, that MUST reference a Feature object in the same Component.")
 AnnotationAssertion(rdfs:label sbol:nondirectional "nondirectional")
 ObjectPropertyDomain(sbol:nondirectional sbol:Interface)
 ObjectPropertyRange(sbol:nondirectional sbol:Feature)
 
 # Object Property: sbol:object (object)
 
+AnnotationAssertion(rdfs:comment sbol:object "The object property is REQUIRED and MUST contain a IRI that refers to a Feature contained by the same parent Component that contains the Constraint. This Feature MUST NOT be the same Feature that the Constraint refers to via its subject property.")
 AnnotationAssertion(rdfs:label sbol:object "object")
 FunctionalObjectProperty(sbol:object)
 ObjectPropertyDomain(sbol:object sbol:Constraint)
@@ -525,6 +551,7 @@ ObjectPropertyRange(sbol:object sbol:Feature)
 
 # Object Property: sbol:orientation (orientation)
 
+AnnotationAssertion(rdfs:comment sbol:orientation "The orientation property is OPTIONAL and has a data type of IRI.")
 AnnotationAssertion(rdfs:label sbol:orientation "orientation")
 FunctionalObjectProperty(sbol:orientation)
 ObjectPropertyDomain(sbol:orientation ObjectUnionOf(sbol:Feature sbol:Location))
@@ -532,12 +559,14 @@ ObjectPropertyRange(sbol:orientation sbol:Orientation)
 
 # Object Property: sbol:output (output)
 
+AnnotationAssertion(rdfs:comment sbol:output "An Interface MAY have any number of output properties, each of type IRI, that MUST reference a Feature object in the same Component.")
 AnnotationAssertion(rdfs:label sbol:output "output")
 ObjectPropertyDomain(sbol:output sbol:Interface)
 ObjectPropertyRange(sbol:output sbol:Feature)
 
 # Object Property: sbol:participant (participant)
 
+AnnotationAssertion(rdfs:comment sbol:participant "The participant property indicates a Feature object that plays the designated role in its parent Interaction object. Precisely one value MUST be specified for precisely one of participant or higherOrderParticipant.")
 AnnotationAssertion(rdfs:label sbol:participant "participant")
 FunctionalObjectProperty(sbol:participant)
 ObjectPropertyDomain(sbol:participant sbol:Participation)
@@ -545,6 +574,7 @@ ObjectPropertyRange(sbol:participant sbol:Feature)
 
 # Object Property: sbol:refersTo (refersTo)
 
+AnnotationAssertion(rdfs:comment sbol:refersTo "The refersTo property is a REQUIRED IRI that refers to a Feature.")
 AnnotationAssertion(rdfs:label sbol:refersTo "refersTo")
 FunctionalObjectProperty(sbol:refersTo)
 ObjectPropertyDomain(sbol:refersTo sbol:ComponentReference)
@@ -552,29 +582,34 @@ ObjectPropertyRange(sbol:refersTo sbol:Feature)
 
 # Object Property: sbol:restriction (restriction)
 
+AnnotationAssertion(rdfs:comment sbol:restriction "The restriction property is REQUIRED and has a data type of IRI. This property MUST indicate the type of restriction on the locations, orientations, or identities of the subject and object Feature objects in relation to each other.")
 AnnotationAssertion(rdfs:label sbol:restriction "restriction")
 FunctionalObjectProperty(sbol:restriction)
 ObjectPropertyDomain(sbol:restriction sbol:Constraint)
 
 # Object Property: sbol:role (role)
 
+AnnotationAssertion(rdfs:comment sbol:role "This property can be used in a Component, Feature or Participation. A Component MAY have any number of role properties, each of type IRI, that MUST identify terms from ontologies that are consistent with the type property of the Component. Each Feature can have zero or more role property IRIs describing the purpose or potential function of this Feature in the context of its parent Component. A Participation is REQUIRED to have one or more role properties, each of type IRI, that describes the behavior of a Participation (and by extension its referenced Feature) in the context of its parent Interaction.")
 AnnotationAssertion(rdfs:label sbol:role "role")
 ObjectPropertyDomain(sbol:role ObjectUnionOf(sbol:Component sbol:Feature sbol:Participation))
 
 # Object Property: sbol:roleIntegration (roleIntegration)
 
+AnnotationAssertion(rdfs:comment sbol:roleIntegration "A roleIntegration specifies the relationship between a SubComponent instance's own set of role properties and the set of role properties on the included Component.")
 AnnotationAssertion(rdfs:label sbol:roleIntegration "roleIntegration")
 FunctionalObjectProperty(sbol:roleIntegration)
 ObjectPropertyDomain(sbol:roleIntegration sbol:SubComponent)
 
 # Object Property: sbol:source (source)
 
+AnnotationAssertion(rdfs:comment sbol:source "The source property is REQUIRED and MUST contain a IRI reference to the source file.")
 AnnotationAssertion(rdfs:label sbol:source "source")
 FunctionalObjectProperty(sbol:source)
 ObjectPropertyDomain(sbol:source ObjectUnionOf(sbol:Attachment sbol:Model))
 
 # Object Property: sbol:sourceLocation (sourceLocation)
 
+AnnotationAssertion(rdfs:comment sbol:sourceLocation "The sourceLocation property allows for only a portion of a Component's Sequence to be included, rather than its entirety.")
 AnnotationAssertion(rdfs:label sbol:sourceLocation "sourceLocation")
 SubObjectPropertyOf(sbol:sourceLocation sbol:directlyComprises)
 ObjectPropertyDomain(sbol:sourceLocation sbol:SubComponent)
@@ -582,6 +617,7 @@ ObjectPropertyRange(sbol:sourceLocation sbol:Location)
 
 # Object Property: sbol:strategy (strategy)
 
+AnnotationAssertion(rdfs:comment sbol:strategy "The strategy property is OPTIONAL and has a data type of IRI.")
 AnnotationAssertion(rdfs:label sbol:strategy "strategy")
 FunctionalObjectProperty(sbol:strategy)
 ObjectPropertyDomain(sbol:strategy sbol:CombinatorialDerivation)
@@ -589,6 +625,7 @@ ObjectPropertyRange(sbol:strategy ObjectUnionOf(sbol:enumerate sbol:sample))
 
 # Object Property: sbol:subject (subject)
 
+AnnotationAssertion(rdfs:comment sbol:subject "The subject property is REQUIRED and MUST contain a IRI that refers to a Feature contained by the same parent Component that contains the Constraint.")
 AnnotationAssertion(rdfs:label sbol:subject "subject")
 FunctionalObjectProperty(sbol:subject)
 ObjectPropertyDomain(sbol:subject sbol:Constraint)
@@ -596,6 +633,7 @@ ObjectPropertyRange(sbol:subject sbol:Feature)
 
 # Object Property: sbol:template (template)
 
+AnnotationAssertion(rdfs:comment sbol:template "The template property is REQUIRED and MUST contain a IRI that refers to a Component. ")
 AnnotationAssertion(rdfs:label sbol:template "template")
 FunctionalObjectProperty(sbol:template)
 ObjectPropertyDomain(sbol:template sbol:CombinatorialDerivation)
@@ -603,11 +641,13 @@ ObjectPropertyRange(sbol:template sbol:Component)
 
 # Object Property: sbol:type (type)
 
+AnnotationAssertion(rdfs:comment sbol:type "A Component MUST have one or more type properties, each of type IRI specifying the category of biochemical or physical entity (for example DNA, protein, or simple chemical) that a Component object abstracts for the purpose of engineering design")
 AnnotationAssertion(rdfs:label sbol:type "type")
 ObjectPropertyDomain(sbol:type ObjectUnionOf(sbol:Component sbol:ExternallyDefined sbol:Interaction sbol:LocalSubComponent sbol:SBOLActivity sbol:SBOLMeasure))
 
 # Object Property: sbol:variable (variable)
 
+AnnotationAssertion(rdfs:comment sbol:variable "The variable property is REQUIRED and MUST contain a IRI that refers to a template Feature in the template Component referred to by this VariableFeature's parent CombinatorialDerivation")
 AnnotationAssertion(rdfs:label sbol:variable "variable")
 FunctionalObjectProperty(sbol:variable)
 ObjectPropertyDomain(sbol:variable sbol:VariableFeature)
@@ -615,66 +655,83 @@ ObjectPropertyRange(sbol:variable sbol:Feature)
 
 # Object Property: sbol:variant (variant)
 
+AnnotationAssertion(rdfs:comment sbol:variant "A VariableFeature object can have zero or more variant properties, each of type IRI, specifying a Component object. This property specifies individual Component objects to serve as options when deriving a new Feature for the variable Feature from the template.")
 AnnotationAssertion(rdfs:label sbol:variant "variant")
 ObjectPropertyDomain(sbol:variant sbol:VariableFeature)
 ObjectPropertyRange(sbol:variant sbol:Component)
 
 # Object Property: sbol:variantCollection (variantCollection)
 
+AnnotationAssertion(rdfs:comment sbol:variantCollection "A VariableFeature object can have zero or more variantCollection properties, each of type IRI, specifying a Collection object. Such a Collection MUST NOT contain any objects besides Component objects or Collection objects that themselves contain only Component or Collection objects. This property enables the specification of existing groups of Component objects to serve as options.")
 AnnotationAssertion(rdfs:label sbol:variantCollection "variantCollection")
 ObjectPropertyDomain(sbol:variantCollection sbol:VariableFeature)
 ObjectPropertyRange(sbol:variantCollection sbol:Collection)
 
 # Object Property: sbol:variantDerivation (variantDerivation)
 
+AnnotationAssertion(rdfs:comment sbol:variantDerivation "A VariableFeature object can have zero or more variantDerivation properties, each of type IRI, specifying a CombinatorialDerivation object. This property enables the specification of Component objects derived in accordance with another CombinatorialDerivation to serve as options when deriving a new Feature for the variable Feature from the template.")
 AnnotationAssertion(rdfs:label sbol:variantDerivation "variantDerivation")
 ObjectPropertyDomain(sbol:variantDerivation sbol:VariableFeature)
 ObjectPropertyRange(sbol:variantDerivation sbol:CombinatorialDerivation)
 
 # Object Property: sbol:variantMeasure (variantMeasure)
 
+AnnotationAssertion(rdfs:comment sbol:variantMeasure "A VariableFeature object can have zero or more variantMeasure properties, each of type IRI, specifying a om:Measure object. This property specifies numerical values that are options to be applied to the variable Feature from the template when deriving a new Component.")
 AnnotationAssertion(rdfs:label sbol:variantMeasure "variantMeasure")
 ObjectPropertyDomain(sbol:variantMeasure sbol:VariableFeature)
 ObjectPropertyRange(sbol:variantMeasure om:Measure)
 
-# Object Property: om:hasBase (om:hasBase)
+# Object Property: om:hasBase (hasBase)
 
+AnnotationAssertion(rdfs:comment om:hasBase "The om:hasBase property is REQUIRED and MUST contain a IRI that refers to another om:Unit.")
+AnnotationAssertion(rdfs:label om:hasBase "hasBase")
 FunctionalObjectProperty(om:hasBase)
 ObjectPropertyDomain(om:hasBase om:UnitExponentiation)
 ObjectPropertyRange(om:hasBase om:Unit)
 
-# Object Property: om:hasDenominator (om:hasDenominator)
+# Object Property: om:hasDenominator (hasDenominator)
 
+AnnotationAssertion(rdfs:comment om:hasDenominator "The om:hasDenominator property is REQUIRED and MUST contain a IRI that refers to another om:Unit.")
+AnnotationAssertion(rdfs:label om:hasDenominator "hasDenominator")
 FunctionalObjectProperty(om:hasDenominator)
 ObjectPropertyDomain(om:hasDenominator om:UnitDivision)
 ObjectPropertyRange(om:hasDenominator om:Unit)
 
-# Object Property: om:hasNumerator (om:hasNumerator)
+# Object Property: om:hasNumerator (hasNumerator)
 
+AnnotationAssertion(rdfs:comment om:hasNumerator "The om:hasNumerator property is REQUIRED and MUST contain a IRI that refers to another om:Unit.")
+AnnotationAssertion(rdfs:label om:hasNumerator "hasNumerator")
 FunctionalObjectProperty(om:hasNumerator)
 ObjectPropertyDomain(om:hasNumerator om:UnitDivision)
 ObjectPropertyRange(om:hasNumerator om:Unit)
 
-# Object Property: om:hasPrefix (om:hasPrefix)
+# Object Property: om:hasPrefix (hasPrefix)
 
+AnnotationAssertion(rdfs:comment om:hasPrefix "The om:hasPrefix property is REQUIRED and MUST contain a IRI that refers to a om:Prefix.")
+AnnotationAssertion(rdfs:label om:hasPrefix "hasPrefix")
 FunctionalObjectProperty(om:hasPrefix)
 ObjectPropertyDomain(om:hasPrefix om:PrefixedUnit)
 ObjectPropertyRange(om:hasPrefix om:Prefix)
 
-# Object Property: om:hasTerm1 (om:hasTerm1)
+# Object Property: om:hasTerm1 (hasTerm1)
 
+AnnotationAssertion(rdfs:comment om:hasTerm1 "The om:hasTerm1 property is REQUIRED and MUST contain a IRI that refers to another om:Unit. This om:Unit is the first multiplication term.")
+AnnotationAssertion(rdfs:label om:hasTerm1 "hasTerm1")
 FunctionalObjectProperty(om:hasTerm1)
 ObjectPropertyDomain(om:hasTerm1 om:UnitMultiplication)
 ObjectPropertyRange(om:hasTerm1 om:Unit)
 
-# Object Property: om:hasTerm2 (om:hasTerm2)
+# Object Property: om:hasTerm2 (hasTerm2)
 
+AnnotationAssertion(rdfs:comment om:hasTerm2 "The om:hasTerm2 property is REQUIRED and MUST contain a IRI that refers to another om:Unit. This om:Unit is the second multiplication term. It is okay if the om:Unit referred to by om:hasTerm1 is the same as that referred to by om:hasTerm2.")
+AnnotationAssertion(rdfs:label om:hasTerm2 "hasTerm2")
 FunctionalObjectProperty(om:hasTerm2)
 ObjectPropertyDomain(om:hasTerm2 om:UnitMultiplication)
 ObjectPropertyRange(om:hasTerm2 om:Unit)
 
 # Object Property: om:hasUnit (hasUnit)
 
+AnnotationAssertion(rdfs:comment om:hasUnit "This property can be used in a Measure, SingularUnit or PrefixedUnit. For Measure and PrefixedUnit, the om:hasUnit property is REQUIRED and MUST contain a IRI that refers to a om:Unit. For SingularUnit, the om:hasUnit is OPTIONAL and MAY contain a IRI.")
 AnnotationAssertion(rdfs:label om:hasUnit "hasUnit")
 FunctionalObjectProperty(om:hasUnit)
 ObjectPropertyDomain(om:hasUnit ObjectUnionOf(om:Measure om:PrefixedUnit om:SingularUnit))
@@ -682,6 +739,7 @@ ObjectPropertyRange(om:hasUnit om:Unit)
 
 # Object Property: prov:agent (agent)
 
+AnnotationAssertion(rdfs:comment prov:agent "The prov:agent property is REQUIRED and MUST contain a IRI that refers to an prov:Agent object.")
 AnnotationAssertion(rdfs:label prov:agent "agent")
 FunctionalObjectProperty(prov:agent)
 ObjectPropertyDomain(prov:agent prov:Association)
@@ -689,12 +747,14 @@ ObjectPropertyRange(prov:agent prov:Agent)
 
 # Object Property: prov:entity (entity)
 
+AnnotationAssertion(rdfs:comment prov:entity "The prov:entity property is REQUIRED and MUST contain a IRI which MAY refer to an Identified object.")
 AnnotationAssertion(rdfs:label prov:entity "entity")
 FunctionalObjectProperty(prov:entity)
 ObjectPropertyDomain(prov:entity prov:Usage)
 
 # Object Property: prov:hadPlan (hadPlan)
 
+AnnotationAssertion(rdfs:comment prov:hadPlan "The prov:hadPlan property is OPTIONAL and contains a IRI that refers to a prov:Plan.")
 AnnotationAssertion(rdfs:label prov:hadPlan "hadPlan")
 FunctionalObjectProperty(prov:hadPlan)
 ObjectPropertyDomain(prov:hadPlan prov:Association)
@@ -702,35 +762,41 @@ ObjectPropertyRange(prov:hadPlan prov:Plan)
 
 # Object Property: prov:hadRole (hadRole)
 
+AnnotationAssertion(rdfs:comment prov:hadRole "An prov:Usage MAY have one or more prov:hadRole properties, each of type IRI that refers to particular term(s) describing the usage of an prov:Entity referenced by the prov:entity property.")
 AnnotationAssertion(rdfs:label prov:hadRole "hadRole")
 ObjectPropertyDomain(prov:hadRole ObjectUnionOf(prov:Association prov:Usage))
 
 # Object Property: prov:qualifiedAssociation (qualifiedAssociation)
 
+AnnotationAssertion(rdfs:comment prov:qualifiedAssociation "An prov:Activity MAY have one or more prov:qualifiedAssociation properties, each of type IRI that refers to an prov:Association object.")
 AnnotationAssertion(rdfs:label prov:qualifiedAssociation "qualifiedAssociation")
 ObjectPropertyDomain(prov:qualifiedAssociation prov:Activity)
 ObjectPropertyRange(prov:qualifiedAssociation prov:Association)
 
 # Object Property: prov:qualifiedUsage (qualifiedUsage)
 
+AnnotationAssertion(rdfs:comment prov:qualifiedUsage "An prov:Activity MAY have one or more prov:qualifiedUsage properties, each of type IRI that refers to an prov:Usage object.")
 AnnotationAssertion(rdfs:label prov:qualifiedUsage "qualifiedUsage")
 ObjectPropertyDomain(prov:qualifiedUsage prov:Activity)
 ObjectPropertyRange(prov:qualifiedUsage prov:Usage)
 
 # Object Property: prov:wasDerivedFrom (wasDerivedFrom)
 
+AnnotationAssertion(rdfs:comment prov:wasDerivedFrom "An Identified object MAY have zero or more prov:wasDerivedFrom properties, each of type IRI. This property is defined by the PROV-O ontology and is located in the https://www.w3.org/ns/prov# namespace")
 AnnotationAssertion(rdfs:label prov:wasDerivedFrom "wasDerivedFrom")
 ObjectPropertyDomain(prov:wasDerivedFrom sbol:Identified)
 ObjectPropertyRange(prov:wasDerivedFrom owl:Thing)
 
 # Object Property: prov:wasGeneratedBy (wasGeneratedBy)
 
+AnnotationAssertion(rdfs:comment prov:wasGeneratedBy "An Identified object MAY have zero or more prov:wasGeneratedBy properties, each of type IRI.")
 AnnotationAssertion(rdfs:label prov:wasGeneratedBy "wasGeneratedBy")
 ObjectPropertyDomain(prov:wasGeneratedBy sbol:Identified)
 ObjectPropertyRange(prov:wasGeneratedBy sbol:SBOLActivity)
 
 # Object Property: prov:wasInformedBy (wasInformedBy)
 
+AnnotationAssertion(rdfs:comment prov:wasInformedBy "An prov:Activity MAY have one or more prov:wasInformedBy properties, each of type IRI that refers to another prov:Activity object.")
 AnnotationAssertion(rdfs:label prov:wasInformedBy "wasInformedBy")
 ObjectPropertyDomain(prov:wasInformedBy prov:Activity)
 ObjectPropertyRange(prov:wasInformedBy prov:Activity)
@@ -742,6 +808,7 @@ ObjectPropertyRange(prov:wasInformedBy prov:Activity)
 
 # Data Property: sbol:at (at)
 
+AnnotationAssertion(rdfs:comment sbol:at "The at property is REQUIRED and MUST contain an Integer value greater than or equal to zero. The region specified by the Cut is between the position specified by this property and the position that immediately follows it. When the at property is equal to zero, the specified region is immediately before the first discrete position or character in the elements String of a Sequence.")
 AnnotationAssertion(rdfs:label sbol:at "at")
 FunctionalDataProperty(sbol:at)
 DataPropertyDomain(sbol:at sbol:Cut)
@@ -749,6 +816,7 @@ DataPropertyRange(sbol:at DatatypeRestriction(xsd:integer xsd:minInclusive "0"^^
 
 # Data Property: sbol:description (description)
 
+AnnotationAssertion(rdfs:comment sbol:description "The description property is OPTIONAL and has a data type of String. This property is intended to contain a more thorough text description of an Identified object.")
 AnnotationAssertion(rdfs:label sbol:description "description")
 FunctionalDataProperty(sbol:description)
 DataPropertyDomain(sbol:description sbol:Identified)
@@ -756,6 +824,7 @@ DataPropertyRange(sbol:description xsd:string)
 
 # Data Property: sbol:displayId (displayId)
 
+AnnotationAssertion(rdfs:comment sbol:displayId "The displayId property is an OPTIONAL identifier with a data type of String. This property is intended to be an intermediate between a IRI and the name property that is machine-readable, but more human-readable than the full IRI of an object")
 AnnotationAssertion(rdfs:label sbol:displayId "displayId")
 FunctionalDataProperty(sbol:displayId)
 DataPropertyDomain(sbol:displayId sbol:Identified)
@@ -763,6 +832,7 @@ DataPropertyRange(sbol:displayId xsd:string)
 
 # Data Property: sbol:elements (elements)
 
+AnnotationAssertion(rdfs:comment sbol:elements "The elements property is an OPTIONAL String of characters that represents the constituents of a biological or chemical molecule.")
 AnnotationAssertion(rdfs:label sbol:elements "elements")
 FunctionalDataProperty(sbol:elements)
 DataPropertyDomain(sbol:elements sbol:Sequence)
@@ -770,6 +840,7 @@ DataPropertyRange(sbol:elements xsd:string)
 
 # Data Property: sbol:end (end)
 
+AnnotationAssertion(rdfs:comment sbol:end "The end property specifies the inclusive ending position of the Range. This property is REQUIRED and MUST contain an Integer value greater than zero. In addition, this Integer value MUST be greater than or equal to that of the start property.")
 AnnotationAssertion(rdfs:label sbol:end "end")
 FunctionalDataProperty(sbol:end)
 DataPropertyDomain(sbol:end sbol:Range)
@@ -777,6 +848,7 @@ DataPropertyRange(sbol:end DatatypeRestriction(xsd:integer xsd:minInclusive "1"^
 
 # Data Property: sbol:hash (hash)
 
+AnnotationAssertion(rdfs:comment sbol:hash "The hash property is OPTIONAL and MAY contain a hash value for the file contents represented as a hexadecimal digest.")
 AnnotationAssertion(rdfs:label sbol:hash "hash")
 FunctionalDataProperty(sbol:hash)
 DataPropertyDomain(sbol:hash sbol:Attachment)
@@ -784,6 +856,7 @@ DataPropertyRange(sbol:hash xsd:string)
 
 # Data Property: sbol:hashAlgorithm (hashAlgorithm)
 
+AnnotationAssertion(rdfs:comment sbol:hashAlgorithm "The hashAlgorithm property is OPTIONAL and MAY contain the name of the hash algorithm used to generate the value of the hash property. The value of this property SHOULD be a hash name string from the IANA Named Information Hash Algorithm Registry, of which sha3-256 is currently RECOMMENDED. If the hash property is set, then hashAlgorithm MUST be set as well.")
 AnnotationAssertion(rdfs:label sbol:hashAlgorithm "hashAlgorithm")
 FunctionalDataProperty(sbol:hashAlgorithm)
 DataPropertyDomain(sbol:hashAlgorithm sbol:Attachment)
@@ -791,6 +864,7 @@ DataPropertyRange(sbol:hashAlgorithm xsd:string)
 
 # Data Property: sbol:name (name)
 
+AnnotationAssertion(rdfs:comment sbol:name "The name property is OPTIONAL and has a data type of String. This property is intended to be displayed to a human when visualizing an Identified object.")
 AnnotationAssertion(rdfs:label sbol:name "name")
 FunctionalDataProperty(sbol:name)
 DataPropertyDomain(sbol:name sbol:Identified)
@@ -798,6 +872,7 @@ DataPropertyRange(sbol:name xsd:string)
 
 # Data Property: sbol:order (order)
 
+AnnotationAssertion(rdfs:comment sbol:order "The order property is OPTIONAL and has a data type of Integer. If there are multiple Location objects associated with a Feature, the order property is used to specify the order (in increasing value) in which the specified Locations are to be joined to form the sequence of the Feature.")
 AnnotationAssertion(rdfs:label sbol:order "order")
 FunctionalDataProperty(sbol:order)
 DataPropertyDomain(sbol:order sbol:Location)
@@ -805,6 +880,7 @@ DataPropertyRange(sbol:order DatatypeRestriction(xsd:integer xsd:minInclusive "1
 
 # Data Property: sbol:size (size)
 
+AnnotationAssertion(rdfs:comment sbol:size "The size property is OPTIONAL and MAY contain a long indicating the file size in bytes.")
 AnnotationAssertion(rdfs:label sbol:size "size")
 FunctionalDataProperty(sbol:size)
 DataPropertyDomain(sbol:size sbol:Attachment)
@@ -812,51 +888,60 @@ DataPropertyRange(sbol:size DatatypeRestriction(xsd:integer xsd:minInclusive "0"
 
 # Data Property: sbol:start (start)
 
+AnnotationAssertion(rdfs:comment sbol:start "The start property specifies the inclusive starting position of the Range. This property is REQUIRED and MUST contain an Integer value greater than zero.")
 AnnotationAssertion(rdfs:label sbol:start "start")
 FunctionalDataProperty(sbol:start)
 DataPropertyDomain(sbol:start sbol:Range)
 DataPropertyRange(sbol:start DatatypeRestriction(xsd:integer xsd:minInclusive "1"^^xsd:integer))
 
-# Data Property: om:alternativeLabel (alternativeSymbol)
+# Data Property: om:alternativeLabel (alternativeLabel)
 
-AnnotationAssertion(rdfs:label om:alternativeLabel "alternativeSymbol")
+AnnotationAssertion(rdfs:comment om:alternativeLabel "This property can be used in a Unit or Prefix. The om:alternativeLabel property is OPTIONAL and MAY contain a set of Strings. This property can be used to specify alternative common names other than that specified using om:label property.")
+AnnotationAssertion(rdfs:label om:alternativeLabel "alternativeLabel")
 DataPropertyDomain(om:alternativeLabel ObjectUnionOf(om:Prefix om:Unit))
 DataPropertyRange(om:alternativeLabel xsd:string)
 
 # Data Property: om:alternativeSymbol (alternativeSymbol)
 
+AnnotationAssertion(rdfs:comment om:alternativeSymbol "This property can be used in a Unit or Prefix. The om:alternativeSymbol property is OPTIONAL and MAY contain a set of Strings. This property can be used to specify alternative abbreviations other than that specified using the om:symbol property")
 AnnotationAssertion(rdfs:label om:alternativeSymbol "alternativeSymbol")
 DataPropertyDomain(om:alternativeSymbol ObjectUnionOf(om:Prefix om:Unit))
 DataPropertyRange(om:alternativeSymbol xsd:string)
 
-# Data Property: om:hasExponent (om:hasExponent)
+# Data Property: om:hasExponent (hasExponent)
 
+AnnotationAssertion(rdfs:comment om:hasExponent "The om:hasExponent property is REQUIRED and MUST contain an xsd:integer.")
+AnnotationAssertion(rdfs:label om:hasExponent "hasExponent")
 FunctionalDataProperty(om:hasExponent)
 DataPropertyDomain(om:hasExponent om:UnitExponentiation)
 DataPropertyRange(om:hasExponent xsd:integer)
 
 # Data Property: om:hasFactor (hasFactor)
 
+AnnotationAssertion(rdfs:comment om:hasFactor "This property can be used in a SingularUnit or Prefix. For SingularUnit, the om:hasFactor property is OPTIONAL and MAY contain a xsd:float. If the om:hasFactor property of a om:SingularUnit is non-empty, then its om:hasUnit property SHOULD also be non-empty. For Prefix, The om:hasFactor property is REQUIRED and MUST contain an xsd:float.")
 AnnotationAssertion(rdfs:label om:hasFactor "hasFactor")
 DataPropertyDomain(om:hasFactor ObjectUnionOf(om:Prefix om:SingularUnit))
 DataPropertyRange(om:hasFactor xsd:decimal)
 
 # Data Property: om:hasNumericalValue (hasNumericalValue)
 
+AnnotationAssertion(rdfs:comment om:hasNumericalValue "The om:hasNumericalValue property is REQUIRED and MUST contain a single xsd:float.")
 AnnotationAssertion(rdfs:label om:hasNumericalValue "hasNumericalValue")
 FunctionalDataProperty(om:hasNumericalValue)
 DataPropertyDomain(om:hasNumericalValue om:Measure)
 DataPropertyRange(om:hasNumericalValue xsd:decimal)
 
-# Data Property: om:longComment (longcomment)
+# Data Property: om:longComment (longComment)
 
-AnnotationAssertion(rdfs:label om:longComment "longcomment")
+AnnotationAssertion(rdfs:comment om:longComment "This property can be used in a Unit or Prefix. The om:longcomment property is OPTIONAL and MAY contain a String. This String is a long description of the unit of measure and SHOULD be longer than any String contained by the om:comment property.")
+AnnotationAssertion(rdfs:label om:longComment "longComment")
 FunctionalDataProperty(om:longComment)
 DataPropertyDomain(om:longComment ObjectUnionOf(om:Prefix om:Unit))
 DataPropertyRange(om:longComment xsd:string)
 
 # Data Property: om:symbol (symbol)
 
+AnnotationAssertion(rdfs:comment om:symbol "This property can be used in a Unit or Prefix. The om:symbol property is REQUIRED and MUST contain a String. This String is commonly used to abbreviate the name of the unit of measure or prefix.")
 AnnotationAssertion(rdfs:label om:symbol "symbol")
 FunctionalDataProperty(om:symbol)
 DataPropertyDomain(om:symbol ObjectUnionOf(om:Prefix om:Unit))
@@ -864,6 +949,7 @@ DataPropertyRange(om:symbol xsd:string)
 
 # Data Property: prov:endedAtTime (endedAtTime)
 
+AnnotationAssertion(rdfs:comment prov:endedAtTime "The prov:endedAtTime property is OPTIONAL and contains a DateTime value, indicating when the activity ended.")
 AnnotationAssertion(rdfs:label prov:endedAtTime "endedAtTime")
 FunctionalDataProperty(prov:endedAtTime)
 DataPropertyDomain(prov:endedAtTime prov:Activity)
@@ -871,6 +957,7 @@ DataPropertyRange(prov:endedAtTime xsd:dateTime)
 
 # Data Property: prov:startedAtTime (startedAtTime)
 
+AnnotationAssertion(rdfs:comment prov:startedAtTime "The prov:startedAtTime property is OPTIONAL and contains a DateTime value, indicating when the activity started. If this property is present, then the prov:endedAtTime property is REQUIRED.")
 AnnotationAssertion(rdfs:label prov:startedAtTime "startedAtTime")
 FunctionalDataProperty(prov:startedAtTime)
 DataPropertyDomain(prov:startedAtTime prov:Activity)
@@ -885,6 +972,7 @@ DataPropertyRange(prov:startedAtTime xsd:dateTime)
 # Class: sbol:Attachment (Attachment)
 
 AnnotationAssertion(otol:domainEntity sbol:Attachment "true")
+AnnotationAssertion(rdfs:comment sbol:Attachment "The purpose of the Attachment class is to serve as a general container for data files, especially experimental data files. It provides a means for linking files and metadata to SBOL designs.")
 AnnotationAssertion(rdfs:label sbol:Attachment "Attachment")
 SubClassOf(sbol:Attachment sbol:TopLevel)
 SubClassOf(sbol:Attachment ObjectSomeValuesFrom(sbol:source owl:Thing))
@@ -892,6 +980,7 @@ SubClassOf(sbol:Attachment ObjectSomeValuesFrom(sbol:source owl:Thing))
 # Class: sbol:BiochemicalReactionInteraction (BiochemicalReactionInteraction)
 
 AnnotationAssertion(otol:domainEntity sbol:BiochemicalReactionInteraction "true")
+AnnotationAssertion(rdfs:comment sbol:BiochemicalReactionInteraction "Represents a biochemical reaction interaction, with the type of SBO:biochemical_reaction, that involves zero or more modifier, modified, product, and reactant participations.")
 AnnotationAssertion(rdfs:label sbol:BiochemicalReactionInteraction "BiochemicalReactionInteraction")
 EquivalentClasses(sbol:BiochemicalReactionInteraction ObjectIntersectionOf(sbol:Interaction ObjectSomeValuesFrom(sbol:type identifiers:SBO:0000176) ObjectMinCardinality(0 sbol:hasParticipation sbol:ModifiedParticipation) ObjectMinCardinality(0 sbol:hasParticipation sbol:ModifierParticipation) ObjectMinCardinality(0 sbol:hasParticipation sbol:ProductParticipation) ObjectMinCardinality(0 sbol:hasParticipation sbol:ReactantParticipation)))
 SubClassOf(sbol:BiochemicalReactionInteraction sbol:Interaction)
@@ -899,6 +988,7 @@ SubClassOf(sbol:BiochemicalReactionInteraction sbol:Interaction)
 # Class: sbol:CDSDNAComponent (CDS DNA Component)
 
 AnnotationAssertion(otol:domainEntity sbol:CDSDNAComponent "true")
+AnnotationAssertion(rdfs:comment sbol:CDSDNAComponent "Represents a coding sequence DNA component, with the role of SO:CDS.")
 AnnotationAssertion(rdfs:label sbol:CDSDNAComponent "CDS DNA Component")
 EquivalentClasses(sbol:CDSDNAComponent ObjectIntersectionOf(sbol:DNAComponent ObjectSomeValuesFrom(sbol:role identifiers:SO:0000316)))
 SubClassOf(sbol:CDSDNAComponent sbol:DNAComponent)
@@ -906,6 +996,7 @@ SubClassOf(sbol:CDSDNAComponent sbol:DNAComponent)
 # Class: sbol:Cardinality (Cardinality)
 
 AnnotationAssertion(otol:constantList sbol:Cardinality "true")
+AnnotationAssertion(rdfs:comment sbol:Cardinality "Provides a controlled vocabulary for describing restrictions between pairs of Feature objects, including identity, topology, sequence order, and orientation relationships.")
 AnnotationAssertion(rdfs:label sbol:Cardinality "Cardinality")
 EquivalentClasses(sbol:Cardinality ObjectUnionOf(sbol:one sbol:oneOrMore sbol:zeroOrMore sbol:zeroOrOne))
 SubClassOf(sbol:Cardinality sbol:SBOLTerm)
@@ -913,12 +1004,14 @@ SubClassOf(sbol:Cardinality sbol:SBOLTerm)
 # Class: sbol:Collection (Collection)
 
 AnnotationAssertion(otol:domainEntity sbol:Collection "true")
+AnnotationAssertion(rdfs:comment sbol:Collection "The Collection class is a class that groups together a set of TopLevel objects that have something in common.")
 AnnotationAssertion(rdfs:label sbol:Collection "Collection")
 SubClassOf(sbol:Collection sbol:TopLevel)
 
 # Class: sbol:CombinatorialDerivation (CombinatorialDerivation)
 
 AnnotationAssertion(otol:domainEntity sbol:CombinatorialDerivation "true")
+AnnotationAssertion(rdfs:comment sbol:CombinatorialDerivation "The purpose of the CombinatorialDerivation class is to specify combinatorial biological designs without having to specify every possible design variant.")
 AnnotationAssertion(rdfs:label sbol:CombinatorialDerivation "CombinatorialDerivation")
 SubClassOf(sbol:CombinatorialDerivation sbol:TopLevel)
 SubClassOf(sbol:CombinatorialDerivation ObjectSomeValuesFrom(sbol:template sbol:Component))
@@ -926,6 +1019,7 @@ SubClassOf(sbol:CombinatorialDerivation ObjectSomeValuesFrom(sbol:template sbol:
 # Class: sbol:CombinatorialDerivationStrategy (CombinatorialDerivationStrategy)
 
 AnnotationAssertion(otol:constantList sbol:CombinatorialDerivationStrategy "true")
+AnnotationAssertion(rdfs:comment sbol:CombinatorialDerivationStrategy "Controlled vocabulary for the strategies that can be used to derive new Components from a template Component. ")
 AnnotationAssertion(rdfs:label sbol:CombinatorialDerivationStrategy "CombinatorialDerivationStrategy")
 EquivalentClasses(sbol:CombinatorialDerivationStrategy ObjectUnionOf(sbol:enumerate sbol:sample))
 SubClassOf(sbol:CombinatorialDerivationStrategy sbol:SBOLTerm)
@@ -933,6 +1027,7 @@ SubClassOf(sbol:CombinatorialDerivationStrategy sbol:SBOLTerm)
 # Class: sbol:Component (Component)
 
 AnnotationAssertion(otol:domainEntity sbol:Component "true")
+AnnotationAssertion(rdfs:comment sbol:Component "The Component class represents the structural and/or functional entities of a biological design. The primary usage of this class is to represent entities with designed sequences, such as DNA, RNA, and proteins, but it can also be used to represent any other entity that is part of a design, such as simple chemicals, molecular complexes, strains, media, light, and abstract functional groupings of other entities.")
 AnnotationAssertion(rdfs:label sbol:Component "Component")
 SubClassOf(sbol:Component sbol:TopLevel)
 SubClassOf(sbol:Component ObjectSomeValuesFrom(sbol:type sbol:ComponentType))
@@ -942,6 +1037,7 @@ SubClassOf(sbol:Component ObjectMaxCardinality(1 sbol:type sbol:ComponentType))
 # Class: sbol:ComponentReference (ComponentReference)
 
 AnnotationAssertion(otol:domainEntity sbol:ComponentReference "true")
+AnnotationAssertion(rdfs:comment sbol:ComponentReference "The ComponentReference class is a subclass of Feature that can be used to reference Features within SubComponents.")
 AnnotationAssertion(rdfs:label sbol:ComponentReference "ComponentReference")
 SubClassOf(sbol:ComponentReference sbol:Feature)
 SubClassOf(sbol:ComponentReference ObjectSomeValuesFrom(sbol:inChildOf sbol:SubComponent))
@@ -949,12 +1045,14 @@ SubClassOf(sbol:ComponentReference ObjectSomeValuesFrom(sbol:refersTo sbol:Featu
 
 # Class: sbol:ComponentRole (Component Role)
 
+AnnotationAssertion(rdfs:comment sbol:ComponentRole "Controlled vocabulary for the roles that a Component can play in a design. The value of a Component's role property must be an instance of a class that is a subclass of ComponentRole.")
 AnnotationAssertion(rdfs:label sbol:ComponentRole "Component Role")
 SubClassOf(sbol:ComponentRole sbol:SBOLValue)
 
 # Class: sbol:ComponentType (Component Type)
 
 AnnotationAssertion(otol:constantList sbol:ComponentType "true")
+AnnotationAssertion(rdfs:comment sbol:ComponentType "Controlled vocabulary for the types of physical entities that can be represented in SBOL. The value of a Component's type property must be an instance of a class that is a subclass of ComponentType.")
 AnnotationAssertion(rdfs:label sbol:ComponentType "Component Type")
 EquivalentClasses(sbol:ComponentType ObjectUnionOf(sbol:ComponentType identifiers:SO:0000984 identifiers:SO:0000985 identifiers:SO:0000987 identifiers:SO:0000988))
 EquivalentClasses(sbol:ComponentType ObjectUnionOf(identifiers:SBO:0000241 identifiers:SBO:0000247 identifiers:SBO:0000250 identifiers:SBO:0000251 identifiers:SBO:0000252 identifiers:SBO:0000253))
@@ -964,6 +1062,7 @@ SubClassOf(sbol:ComponentType identifiers:SBO:0000236)
 # Class: sbol:Constraint (Constraint)
 
 AnnotationAssertion(otol:domainEntity sbol:Constraint "true")
+AnnotationAssertion(rdfs:comment sbol:Constraint "The Constraint class can be used to assert restrictions on the relationships of pairs of Feature objects contained by the same parent Component. Uses of this class include expressing containment (e.g., a plasmid transformed into a chassis strain), identity mappings (e.g., replacing a placeholder value with a complete definition), and expressing relative, sequence-based positions (e.g., the ordering of features within a template).")
 AnnotationAssertion(rdfs:label sbol:Constraint "Constraint")
 SubClassOf(sbol:Constraint sbol:Identified)
 SubClassOf(sbol:Constraint ObjectSomeValuesFrom(sbol:object sbol:Feature))
@@ -973,13 +1072,14 @@ SubClassOf(sbol:Constraint ObjectSomeValuesFrom(sbol:subject sbol:Feature))
 # Class: sbol:ConstraintRestriction (ConstraintRestriction)
 
 AnnotationAssertion(otol:constantList sbol:ConstraintRestriction "true")
-AnnotationAssertion(rdfs:comment sbol:ConstraintRestriction "Controlled vocabulary for the types of relationships that can be expressed in Constraints.")
+AnnotationAssertion(rdfs:comment sbol:ConstraintRestriction "Controlled vocabulary for the types of restrictions that can be expressed in a Constraint. The value of a Constraint's restriction property must be an instance of a class that is a subclass of ConstraintRestriction. Subclasses of ConstraintRestriction include IdentityRestriction, TopologyRestriction, SequentialRestriction, and OrientationRestriction.")
 AnnotationAssertion(rdfs:label sbol:ConstraintRestriction "ConstraintRestriction")
 SubClassOf(sbol:ConstraintRestriction sbol:SBOLTerm)
 
 # Class: sbol:ControlInteraction (ControlInteraction)
 
 AnnotationAssertion(otol:domainEntity sbol:ControlInteraction "true")
+AnnotationAssertion(rdfs:comment sbol:ControlInteraction "Represents a control interaction, with the type of SBO:control, that involves at least one modifier participation and at least one modified participation.")
 AnnotationAssertion(rdfs:label sbol:ControlInteraction "ControlInteraction")
 EquivalentClasses(sbol:ControlInteraction ObjectIntersectionOf(sbol:Interaction ObjectSomeValuesFrom(sbol:hasParticipation sbol:ModifiedParticipation) ObjectSomeValuesFrom(sbol:hasParticipation sbol:ModifierParticipation) ObjectSomeValuesFrom(sbol:type identifiers:SBO:0000168)))
 SubClassOf(sbol:ControlInteraction sbol:Interaction)
@@ -987,6 +1087,7 @@ SubClassOf(sbol:ControlInteraction sbol:Interaction)
 # Class: sbol:Cut (Cut)
 
 AnnotationAssertion(otol:domainEntity sbol:Cut "true")
+AnnotationAssertion(rdfs:comment sbol:Cut "The Cut class has been introduced to enable the specification of a region between two discrete positions. This specification is accomplished using the at property, which specifies a discrete position that corresponds to the index of a character in the elements String of a Sequence (except in the case when at is equal to zero.)")
 AnnotationAssertion(rdfs:label sbol:Cut "Cut")
 SubClassOf(sbol:Cut sbol:Location)
 SubClassOf(sbol:Cut DataSomeValuesFrom(sbol:at DatatypeRestriction(xsd:integer xsd:minInclusive "0"^^xsd:integer)))
@@ -994,6 +1095,7 @@ SubClassOf(sbol:Cut DataSomeValuesFrom(sbol:at DatatypeRestriction(xsd:integer x
 # Class: sbol:DNAComponent (DNA Component)
 
 AnnotationAssertion(otol:domainEntity sbol:DNAComponent "true")
+AnnotationAssertion(rdfs:comment sbol:DNAComponent "Represents a DNA component, with the type of SBO:DNA, the role of DNARole. It restricts instances to have the sequences with the correct DNA encoding.")
 AnnotationAssertion(rdfs:label sbol:DNAComponent "DNA Component")
 EquivalentClasses(sbol:DNAComponent ObjectIntersectionOf(sbol:Component ObjectSomeValuesFrom(sbol:role sbol:DNARole) ObjectSomeValuesFrom(sbol:type identifiers:SBO:0000251) ObjectAllValuesFrom(sbol:hasSequence sbol:DNASequence)))
 SubClassOf(sbol:DNAComponent sbol:Component)
@@ -1001,12 +1103,14 @@ SubClassOf(sbol:DNAComponent sbol:Component)
 # Class: sbol:DNARNAComponentType (DNA or RNA Component Type)
 
 AnnotationAssertion(otol:constantList sbol:DNARNAComponentType "true")
+AnnotationAssertion(rdfs:comment sbol:DNARNAComponentType "Type for DNA or RNA components. The value of a Component's type property must be an instance of a class that is a subclass of DNARNAComponentType if the Component has a role that is a subclass of DNARole or RNARole.")
 AnnotationAssertion(rdfs:label sbol:DNARNAComponentType "DNA or RNA Component Type")
 SubClassOf(sbol:DNARNAComponentType sbol:ComponentType)
 
 # Class: sbol:DNARole (DNA Role)
 
 AnnotationAssertion(otol:constantList sbol:DNARole "true")
+AnnotationAssertion(rdfs:comment sbol:DNARole "Controlled vocabulary for the roles that a DNA Component can play in a design. The value of a Component's role property must be an instance of a class that is a subclass of DNARole.")
 AnnotationAssertion(rdfs:label sbol:DNARole "DNA Role")
 EquivalentClasses(sbol:DNARole ObjectUnionOf(identifiers:SO:0000057 identifiers:SO:0000110 identifiers:SO:0000139 identifiers:SO:0000141 identifiers:SO:0000167 identifiers:SO:0000316 identifiers:SO:0000704 identifiers:SO:0000804))
 SubClassOf(sbol:DNARole sbol:ComponentRole)
@@ -1014,6 +1118,7 @@ SubClassOf(sbol:DNARole sbol:ComponentRole)
 # Class: sbol:DNASequence (DNA Sequence)
 
 AnnotationAssertion(otol:domainEntity sbol:DNASequence "true")
+AnnotationAssertion(rdfs:comment sbol:DNASequence "Represents a DNA sequence, with the encoding of EDAM format 1207. The elements property MUST contain only characters from the IUPAC DNA character set: A, C, G, T, U, M, R, W, S, Y, K, V, H, D, B, N and -.")
 AnnotationAssertion(rdfs:label sbol:DNASequence "DNA Sequence")
 EquivalentClasses(sbol:DNASequence ObjectIntersectionOf(sbol:SequenceWithElements ObjectSomeValuesFrom(sbol:encoding identifiers:edam:format_1207)))
 SubClassOf(sbol:DNASequence sbol:SequenceWithElements)
@@ -1021,6 +1126,7 @@ SubClassOf(sbol:DNASequence sbol:SequenceWithElements)
 # Class: sbol:DegradationInteraction (DegradationInteraction)
 
 AnnotationAssertion(otol:domainEntity sbol:DegradationInteraction "true")
+AnnotationAssertion(rdfs:comment sbol:DegradationInteraction "Represents a degradation interaction, with the type of SBO:degradation, that involves at least one reactant participation.")
 AnnotationAssertion(rdfs:label sbol:DegradationInteraction "DegradationInteraction")
 EquivalentClasses(sbol:DegradationInteraction ObjectIntersectionOf(sbol:Interaction ObjectSomeValuesFrom(sbol:hasParticipation sbol:ReactantParticipation) ObjectSomeValuesFrom(sbol:type identifiers:SBO:0000179)))
 SubClassOf(sbol:DegradationInteraction sbol:Interaction)
@@ -1028,6 +1134,7 @@ SubClassOf(sbol:DegradationInteraction sbol:Interaction)
 # Class: sbol:EffectorSimpleChemicalComponent (Effector Simple Chemical Component)
 
 AnnotationAssertion(otol:domainEntity sbol:EffectorSimpleChemicalComponent "true")
+AnnotationAssertion(rdfs:comment sbol:EffectorSimpleChemicalComponent "Represents an effector simple chemical component, with the role of CHEBI:effector.")
 AnnotationAssertion(rdfs:label sbol:EffectorSimpleChemicalComponent "Effector Simple Chemical Component")
 EquivalentClasses(sbol:EffectorSimpleChemicalComponent ObjectIntersectionOf(sbol:SimpleChemicalComponent ObjectSomeValuesFrom(sbol:role identifiers:CHEBI:35224)))
 SubClassOf(sbol:EffectorSimpleChemicalComponent sbol:SimpleChemicalComponent)
@@ -1035,6 +1142,7 @@ SubClassOf(sbol:EffectorSimpleChemicalComponent sbol:SimpleChemicalComponent)
 # Class: sbol:Encoding (Encoding)
 
 AnnotationAssertion(otol:constantList sbol:Encoding "true")
+AnnotationAssertion(rdfs:comment sbol:Encoding "Controlled vocabulary for the types of encoding that can be used to represent the primary structure of a Component. The value of a Sequence's encoding property must be an instance of a class that is a subclass of Encoding.")
 AnnotationAssertion(rdfs:label sbol:Encoding "Encoding")
 EquivalentClasses(sbol:Encoding ObjectUnionOf(identifiers:edam:format_1196 identifiers:edam:format_1197 identifiers:edam:format_1207 identifiers:edam:format_1208))
 SubClassOf(sbol:Encoding sbol:SBOLValue)
@@ -1042,6 +1150,7 @@ SubClassOf(sbol:Encoding sbol:SBOLValue)
 # Class: sbol:EngineeredRegionDNAComponent (Engineered Region DNA Component)
 
 AnnotationAssertion(otol:domainEntity sbol:EngineeredRegionDNAComponent "true")
+AnnotationAssertion(rdfs:comment sbol:EngineeredRegionDNAComponent "Represents an engineered region DNA component, with the role of SO:engineered_region.")
 AnnotationAssertion(rdfs:label sbol:EngineeredRegionDNAComponent "Engineered Region DNA Component")
 EquivalentClasses(sbol:EngineeredRegionDNAComponent ObjectIntersectionOf(sbol:DNAComponent ObjectSomeValuesFrom(sbol:role identifiers:SO:0000804)))
 SubClassOf(sbol:EngineeredRegionDNAComponent sbol:DNAComponent)
@@ -1049,24 +1158,28 @@ SubClassOf(sbol:EngineeredRegionDNAComponent sbol:DNAComponent)
 # Class: sbol:EntireSequence (EntireSequence)
 
 AnnotationAssertion(otol:domainEntity sbol:EntireSequence "true")
+AnnotationAssertion(rdfs:comment sbol:EntireSequence "The EntireSequence class does not have any additional properties. Use of this class indicates that the linked Sequence describes the entirety of the Component or Feature parent of this Location object.")
 AnnotationAssertion(rdfs:label sbol:EntireSequence "EntireSequence")
 SubClassOf(sbol:EntireSequence sbol:Location)
 
 # Class: sbol:Experiment (Experiment)
 
 AnnotationAssertion(otol:domainEntity sbol:Experiment "true")
+AnnotationAssertion(rdfs:comment sbol:Experiment "The purpose of the Experiment class is to aggregate ExperimentalData objects for subsequent analysis, usually in accordance with an experimental design.")
 AnnotationAssertion(rdfs:label sbol:Experiment "Experiment")
 SubClassOf(sbol:Experiment sbol:Collection)
 
 # Class: sbol:ExperimentalData (ExperimentalData)
 
 AnnotationAssertion(otol:domainEntity sbol:ExperimentalData "true")
+AnnotationAssertion(rdfs:comment sbol:ExperimentalData "The purpose of the ExperimentalData class is to aggregate links to experimental data files. An ExperimentalData is typically associated with a single sample, lab instrument, or experimental condition and can be used to describe the output of the test phase of a design-build-test-learn workflow.")
 AnnotationAssertion(rdfs:label sbol:ExperimentalData "ExperimentalData")
 SubClassOf(sbol:ExperimentalData sbol:TopLevel)
 
 # Class: sbol:ExternallyDefined (ExternallyDefined)
 
 AnnotationAssertion(otol:domainEntity sbol:ExternallyDefined "true")
+AnnotationAssertion(rdfs:comment sbol:ExternallyDefined "The ExternallyDefined class has been introduced so that external definitions in databases like ChEBI or UniProt can be referenced.")
 AnnotationAssertion(rdfs:label sbol:ExternallyDefined "ExternallyDefined")
 SubClassOf(sbol:ExternallyDefined sbol:Feature)
 SubClassOf(sbol:ExternallyDefined ObjectSomeValuesFrom(sbol:definition owl:Thing))
@@ -1075,12 +1188,14 @@ SubClassOf(sbol:ExternallyDefined ObjectSomeValuesFrom(sbol:type owl:Thing))
 # Class: sbol:Feature (Feature)
 
 AnnotationAssertion(otol:domainEntity sbol:Feature "true")
+AnnotationAssertion(rdfs:comment sbol:Feature "The Feature class, is used to compose Component objects into a structural or functional hierarchy. Feature is an abstract class; only its child classes are actually instantiated.")
 AnnotationAssertion(rdfs:label sbol:Feature "Feature")
 SubClassOf(sbol:Feature sbol:Identified)
 
 # Class: sbol:FunctionalEntityComponent (Functional Entity Component)
 
 AnnotationAssertion(otol:domainEntity sbol:FunctionalEntityComponent "true")
+AnnotationAssertion(rdfs:comment sbol:FunctionalEntityComponent "Represents a functional entity component, with the type of SBO:functional_entity.")
 AnnotationAssertion(rdfs:label sbol:FunctionalEntityComponent "Functional Entity Component")
 EquivalentClasses(sbol:FunctionalEntityComponent ObjectIntersectionOf(sbol:Component ObjectSomeValuesFrom(sbol:type identifiers:SBO:0000241)))
 SubClassOf(sbol:FunctionalEntityComponent sbol:Component)
@@ -1088,6 +1203,7 @@ SubClassOf(sbol:FunctionalEntityComponent sbol:Component)
 # Class: sbol:GeneDNAComponent (Gene DNA Component)
 
 AnnotationAssertion(otol:domainEntity sbol:GeneDNAComponent "true")
+AnnotationAssertion(rdfs:comment sbol:GeneDNAComponent "Represents a gene DNA component, with the role of SO:gene.")
 AnnotationAssertion(rdfs:label sbol:GeneDNAComponent "Gene DNA Component")
 EquivalentClasses(sbol:GeneDNAComponent ObjectIntersectionOf(sbol:DNAComponent ObjectSomeValuesFrom(sbol:role identifiers:SO:0000704)))
 SubClassOf(sbol:GeneDNAComponent sbol:DNAComponent)
@@ -1095,6 +1211,7 @@ SubClassOf(sbol:GeneDNAComponent sbol:DNAComponent)
 # Class: sbol:GenericDNAComponent (Generic DNA Component)
 
 AnnotationAssertion(otol:domainEntity sbol:GenericDNAComponent "true")
+AnnotationAssertion(rdfs:comment sbol:GenericDNAComponent "Represents a generic DNA component, with the role of SO:sequence_feature.")
 AnnotationAssertion(rdfs:label sbol:GenericDNAComponent "Generic DNA Component")
 EquivalentClasses(sbol:GenericDNAComponent ObjectIntersectionOf(sbol:DNAComponent ObjectSomeValuesFrom(sbol:role identifiers:SO:0000110)))
 SubClassOf(sbol:GenericDNAComponent sbol:DNAComponent)
@@ -1102,6 +1219,7 @@ SubClassOf(sbol:GenericDNAComponent sbol:DNAComponent)
 # Class: sbol:GenericTopLevel (GenericTopLevel)
 
 AnnotationAssertion(otol:domainEntity sbol:GenericTopLevel "true")
+AnnotationAssertion(rdfs:comment sbol:GenericTopLevel "The GenericTopLevel class is a way to create a placeholder for a top-level entity that is not defined in the SBOL data model.")
 AnnotationAssertion(rdfs:label sbol:GenericTopLevel "GenericTopLevel")
 SubClassOf(sbol:GenericTopLevel sbol:TopLevel)
 SubClassOf(sbol:GenericTopLevel ObjectSomeValuesFrom(rdf:type owl:Thing))
@@ -1109,12 +1227,14 @@ SubClassOf(sbol:GenericTopLevel ObjectSomeValuesFrom(rdf:type owl:Thing))
 # Class: sbol:GeneticProductionInteraction (GeneticProductionInteraction)
 
 AnnotationAssertion(otol:domainEntity sbol:GeneticProductionInteraction "true")
+AnnotationAssertion(rdfs:comment sbol:GeneticProductionInteraction "Represents a genetic production interaction, with the type of SBO:genetic_production, that involves at least one template participation and at least one product participation.")
 AnnotationAssertion(rdfs:label sbol:GeneticProductionInteraction "GeneticProductionInteraction")
 EquivalentClasses(sbol:GeneticProductionInteraction ObjectIntersectionOf(sbol:Interaction ObjectSomeValuesFrom(sbol:hasParticipation sbol:ProductParticipation) ObjectSomeValuesFrom(sbol:hasParticipation sbol:TemplateParticipation) ObjectSomeValuesFrom(sbol:type identifiers:SBO:0000589) ObjectMinCardinality(0 sbol:hasParticipation sbol:PromoterParticipation)))
 SubClassOf(sbol:GeneticProductionInteraction sbol:Interaction)
 
 # Class: sbol:Identified (Identified)
 
+AnnotationAssertion(rdfs:comment sbol:Identified "All SBOL-defined classes are directly or indirectly derived from the Identified abstract class.")
 AnnotationAssertion(rdfs:label sbol:Identified "Identified")
 SubClassOf(sbol:Identified owl:Thing)
 SubClassOf(sbol:Identified ObjectMinCardinality(0 owl:topObjectProperty sbol:Metadata))
@@ -1122,6 +1242,7 @@ SubClassOf(sbol:Identified ObjectMinCardinality(0 owl:topObjectProperty sbol:Met
 # Class: sbol:IdentityRestriction (IdentityRestriction)
 
 AnnotationAssertion(otol:constantList sbol:IdentityRestriction "true")
+AnnotationAssertion(rdfs:comment sbol:IdentityRestriction "Identity restrictions are a subset of the ConstraintRestriction class that are used to express identity relationships between pairs of Features within a template Component. The value of an IdentityRestriction must be one of the following: verifyIdentical, differentFrom, or replaces.")
 AnnotationAssertion(rdfs:label sbol:IdentityRestriction "IdentityRestriction")
 EquivalentClasses(sbol:IdentityRestriction ObjectUnionOf(sbol:differentFrom sbol:replaces sbol:verifyIdentical))
 SubClassOf(sbol:IdentityRestriction sbol:ConstraintRestriction)
@@ -1129,12 +1250,14 @@ SubClassOf(sbol:IdentityRestriction sbol:ConstraintRestriction)
 # Class: sbol:Implementation (Implementation)
 
 AnnotationAssertion(otol:domainEntity sbol:Implementation "true")
+AnnotationAssertion(rdfs:comment sbol:Implementation "An Implementation represents a realized instance of a Component, such a sample of DNA resulting from fabricating a genetic design or an aliquot of a specified reagent.")
 AnnotationAssertion(rdfs:label sbol:Implementation "Implementation")
 SubClassOf(sbol:Implementation sbol:TopLevel)
 
 # Class: sbol:InChISequence (InChI Sequence)
 
 AnnotationAssertion(otol:domainEntity sbol:InChISequence "true")
+AnnotationAssertion(rdfs:comment sbol:InChISequence "Represents a chemical structure using the IUPAC International Chemical Identifier (InChI) format, with the encoding of EDAM format 1197. The elements property MUST contain a valid InChI string.")
 AnnotationAssertion(rdfs:label sbol:InChISequence "InChI Sequence")
 EquivalentClasses(sbol:InChISequence ObjectIntersectionOf(sbol:SequenceWithElements ObjectSomeValuesFrom(sbol:encoding identifiers:edam:format_1197)))
 SubClassOf(sbol:InChISequence sbol:SequenceWithElements)
@@ -1142,6 +1265,7 @@ SubClassOf(sbol:InChISequence sbol:SequenceWithElements)
 # Class: sbol:InhibitedParticipation (InhibitedParticipation)
 
 AnnotationAssertion(otol:domainEntity sbol:InhibitedParticipation "true")
+AnnotationAssertion(rdfs:comment sbol:InhibitedParticipation "Represents a participation of a feature that is inhibited in an interaction, with the role of SBO:inhibited.")
 AnnotationAssertion(rdfs:label sbol:InhibitedParticipation "InhibitedParticipation")
 EquivalentClasses(sbol:InhibitedParticipation ObjectIntersectionOf(sbol:Participation ObjectSomeValuesFrom(sbol:role identifiers:SBO:0000642)))
 SubClassOf(sbol:InhibitedParticipation sbol:Participation)
@@ -1149,6 +1273,7 @@ SubClassOf(sbol:InhibitedParticipation sbol:Participation)
 # Class: sbol:InhibitionInteraction (InhibitionInteraction)
 
 AnnotationAssertion(otol:domainEntity sbol:InhibitionInteraction "true")
+AnnotationAssertion(rdfs:comment sbol:InhibitionInteraction "Represents an inhibition interaction, with the type of SBO:inhibition, that involves at least one inhibitor participation and at least one inhibited participation.")
 AnnotationAssertion(rdfs:label sbol:InhibitionInteraction "InhibitionInteraction")
 EquivalentClasses(sbol:InhibitionInteraction ObjectIntersectionOf(sbol:Interaction ObjectSomeValuesFrom(sbol:hasParticipation sbol:InhibitedParticipation) ObjectSomeValuesFrom(sbol:hasParticipation sbol:InhibitorParticipation) ObjectSomeValuesFrom(sbol:type identifiers:SBO:0000169)))
 SubClassOf(sbol:InhibitionInteraction sbol:Interaction)
@@ -1156,6 +1281,7 @@ SubClassOf(sbol:InhibitionInteraction sbol:Interaction)
 # Class: sbol:InhibitorParticipation (InhibitorParticipant)
 
 AnnotationAssertion(otol:domainEntity sbol:InhibitorParticipation "true")
+AnnotationAssertion(rdfs:comment sbol:InhibitorParticipation "Represents a participation of a feature that inhibits an interaction, with the role of SBO:inhibitor.")
 AnnotationAssertion(rdfs:label sbol:InhibitorParticipation "InhibitorParticipant")
 EquivalentClasses(sbol:InhibitorParticipation ObjectIntersectionOf(sbol:Participation ObjectSomeValuesFrom(sbol:role identifiers:SBO:0000020)))
 SubClassOf(sbol:InhibitorParticipation sbol:Participation)
@@ -1163,6 +1289,7 @@ SubClassOf(sbol:InhibitorParticipation sbol:Participation)
 # Class: sbol:Interaction (Interaction)
 
 AnnotationAssertion(otol:domainEntity sbol:Interaction "true")
+AnnotationAssertion(rdfs:comment sbol:Interaction "The Interaction class provides more detailed description of how the Feature objects of a Component are intended to work together. For example, this class can be used to represent different forms of genetic regulation (e.g., transcriptional activation or repression), processes from the central dogma of biology (e.g. transcription and translation), and other basic molecular interactions (e.g., non-covalent binding or enzymatic phosphorylation).")
 AnnotationAssertion(rdfs:label sbol:Interaction "Interaction")
 SubClassOf(sbol:Interaction sbol:Identified)
 SubClassOf(sbol:Interaction ObjectSomeValuesFrom(sbol:type owl:Thing))
@@ -1170,6 +1297,7 @@ SubClassOf(sbol:Interaction ObjectSomeValuesFrom(sbol:type owl:Thing))
 # Class: sbol:InteractionType (InteractionType)
 
 AnnotationAssertion(otol:constantList sbol:InteractionType "true")
+AnnotationAssertion(rdfs:comment sbol:InteractionType "Provides a vocabulary to choose the interaction type of behavior represented by an Interaction. Interaction types are typically identified using IRIs, such as terms from the Systems Biology Ontology.")
 AnnotationAssertion(rdfs:label sbol:InteractionType "InteractionType")
 EquivalentClasses(sbol:InteractionType ObjectUnionOf(identifiers:SBO:0000168 identifiers:SBO:0000169 identifiers:SBO:0000170 identifiers:SBO:0000176 identifiers:SBO:0000177 identifiers:SBO:0000179 identifiers:SBO:0000589))
 SubClassOf(sbol:InteractionType sbol:SBOLValue)
@@ -1177,12 +1305,14 @@ SubClassOf(sbol:InteractionType sbol:SBOLValue)
 # Class: sbol:Interface (Interface)
 
 AnnotationAssertion(otol:domainEntity sbol:Interface "true")
+AnnotationAssertion(rdfs:comment sbol:Interface "The Interface class is a way of explicitly specifying the interface of a Component.")
 AnnotationAssertion(rdfs:label sbol:Interface "Interface")
 SubClassOf(sbol:Interface sbol:Identified)
 
 # Class: sbol:LocalSubComponent (LocalSubComponent)
 
 AnnotationAssertion(otol:domainEntity sbol:LocalSubComponent "true")
+AnnotationAssertion(rdfs:comment sbol:LocalSubComponent "The LocalSubComponent class is a subclass of Feature. This class serves as a way to create a placeholder in more complex Components, such as a variable to be filled in later or a composite that exists only within the context of the parent Component.")
 AnnotationAssertion(rdfs:label sbol:LocalSubComponent "LocalSubComponent")
 SubClassOf(sbol:LocalSubComponent sbol:Feature)
 SubClassOf(sbol:LocalSubComponent ObjectSomeValuesFrom(sbol:type owl:Thing))
@@ -1190,6 +1320,7 @@ SubClassOf(sbol:LocalSubComponent ObjectSomeValuesFrom(sbol:type owl:Thing))
 # Class: sbol:Location (Location)
 
 AnnotationAssertion(otol:domainEntity sbol:Location "true")
+AnnotationAssertion(rdfs:comment sbol:Location "The Location class is used to represent the location of Features within Sequences. This class is extended by the Range, Cut, and EntireSequence classes. Location is an abstract class; only its child classes are actually instantiated.")
 AnnotationAssertion(rdfs:label sbol:Location "Location")
 SubClassOf(sbol:Location sbol:Identified)
 SubClassOf(sbol:Location ObjectSomeValuesFrom(sbol:hasSequence sbol:Sequence))
@@ -1198,6 +1329,7 @@ SubClassOf(sbol:Location ObjectMaxCardinality(1 sbol:hasSequence sbol:Sequence))
 # Class: sbol:Metadata (Metadata)
 
 AnnotationAssertion(otol:domainEntity sbol:Metadata "true")
+AnnotationAssertion(rdfs:comment sbol:Metadata "Custom data in the form of independent objects can participate in the SBOL data model if they are assigned one of the SBOL types Identified or TopLevel. An example is an RDF object that is annotated such that it represents a data sheet that describes the performance of a Component in a particular context.")
 AnnotationAssertion(rdfs:label sbol:Metadata "Metadata")
 SubClassOf(sbol:Metadata sbol:Identified)
 SubClassOf(sbol:Metadata ObjectSomeValuesFrom(rdf:type owl:Thing))
@@ -1205,6 +1337,7 @@ SubClassOf(sbol:Metadata ObjectSomeValuesFrom(rdf:type owl:Thing))
 # Class: sbol:Model (Model)
 
 AnnotationAssertion(otol:domainEntity sbol:Model "true")
+AnnotationAssertion(rdfs:comment sbol:Model "The purpose of the Model class is to serve as a placeholder for an external computational model and provide additional meta-data to enable better reasoning about the contents of this model.")
 AnnotationAssertion(rdfs:label sbol:Model "Model")
 SubClassOf(sbol:Model sbol:TopLevel)
 SubClassOf(sbol:Model ObjectSomeValuesFrom(sbol:framework owl:Thing))
@@ -1214,6 +1347,7 @@ SubClassOf(sbol:Model ObjectSomeValuesFrom(sbol:source owl:Thing))
 # Class: sbol:ModelFramework (ModelFramework)
 
 AnnotationAssertion(otol:constantList sbol:ModelFramework "true")
+AnnotationAssertion(rdfs:comment sbol:ModelFramework "Provides a vocabulary to choose the modeling framework of a Model. Model frameworks are typically identified using IRIs, such as terms from the Systems Biology Ontology.")
 AnnotationAssertion(rdfs:label sbol:ModelFramework "ModelFramework")
 EquivalentClasses(sbol:ModelFramework ObjectUnionOf(identifiers:SBO:0000062 identifiers:SBO:0000063 identifiers:SBO:0000234 identifiers:SBO:0000681 identifiers:SBO:0000693))
 SubClassOf(sbol:ModelFramework sbol:SBOLValue)
@@ -1221,6 +1355,7 @@ SubClassOf(sbol:ModelFramework sbol:SBOLValue)
 # Class: sbol:ModelLanguage (ModelLanguage)
 
 AnnotationAssertion(otol:constantList sbol:ModelLanguage "true")
+AnnotationAssertion(rdfs:comment sbol:ModelLanguage "Provides a vocabulary to choose the modeling language of a Model. Model languages are typically identified using IRIs, such as terms from the EDAM ontology.")
 AnnotationAssertion(rdfs:label sbol:ModelLanguage "ModelLanguage")
 EquivalentClasses(sbol:ModelLanguage ObjectUnionOf(identifiers:edam:format_2585 identifiers:edam:format_3156 identifiers:edam:format_3240))
 SubClassOf(sbol:ModelLanguage sbol:SBOLValue)
@@ -1228,6 +1363,7 @@ SubClassOf(sbol:ModelLanguage sbol:SBOLValue)
 # Class: sbol:ModifiedParticipation (ModifiedParticipation)
 
 AnnotationAssertion(otol:domainEntity sbol:ModifiedParticipation "true")
+AnnotationAssertion(rdfs:comment sbol:ModifiedParticipation "Represents a participation of a feature that is modified in an interaction, with the role of SBO:modified.")
 AnnotationAssertion(rdfs:label sbol:ModifiedParticipation "ModifiedParticipation")
 EquivalentClasses(sbol:ModifiedParticipation ObjectIntersectionOf(sbol:Participation ObjectSomeValuesFrom(sbol:role identifiers:SBO:0000644)))
 SubClassOf(sbol:ModifiedParticipation sbol:Participation)
@@ -1235,6 +1371,7 @@ SubClassOf(sbol:ModifiedParticipation sbol:Participation)
 # Class: sbol:ModifierParticipation (ModifierParticipation)
 
 AnnotationAssertion(otol:domainEntity sbol:ModifierParticipation "true")
+AnnotationAssertion(rdfs:comment sbol:ModifierParticipation "Represents a participation of a feature that is a modifier in an interaction, with the role of SBO:modifier.")
 AnnotationAssertion(rdfs:label sbol:ModifierParticipation "ModifierParticipation")
 EquivalentClasses(sbol:ModifierParticipation ObjectIntersectionOf(sbol:Participation ObjectSomeValuesFrom(sbol:role identifiers:SBO:0000019)))
 SubClassOf(sbol:ModifierParticipation sbol:Participation)
@@ -1242,6 +1379,7 @@ SubClassOf(sbol:ModifierParticipation sbol:Participation)
 # Class: sbol:NonCovalentBindingInteraction (NonCovalentBindingInteraction)
 
 AnnotationAssertion(otol:domainEntity sbol:NonCovalentBindingInteraction "true")
+AnnotationAssertion(rdfs:comment sbol:NonCovalentBindingInteraction "Represents a non-covalent binding interaction, with the type of SBO:non_covalent_binding, that involves at least one reactant participation and at least one product participation.")
 AnnotationAssertion(rdfs:label sbol:NonCovalentBindingInteraction "NonCovalentBindingInteraction")
 EquivalentClasses(sbol:NonCovalentBindingInteraction ObjectIntersectionOf(sbol:Interaction ObjectSomeValuesFrom(sbol:hasParticipation sbol:ProductParticipation) ObjectSomeValuesFrom(sbol:hasParticipation sbol:ReactantParticipation) ObjectSomeValuesFrom(sbol:type identifiers:SBO:0000177)))
 SubClassOf(sbol:NonCovalentBindingInteraction sbol:Interaction)
@@ -1249,6 +1387,7 @@ SubClassOf(sbol:NonCovalentBindingInteraction sbol:Interaction)
 # Class: sbol:NonCovalentComplexComponent (Non-Covalent Complex Component)
 
 AnnotationAssertion(otol:domainEntity sbol:NonCovalentComplexComponent "true")
+AnnotationAssertion(rdfs:comment sbol:NonCovalentComplexComponent "Represents a non-covalent complex Component, with the type SBO:non-covalent complex.")
 AnnotationAssertion(rdfs:label sbol:NonCovalentComplexComponent "Non-Covalent Complex Component")
 EquivalentClasses(sbol:NonCovalentComplexComponent ObjectIntersectionOf(sbol:Component ObjectSomeValuesFrom(sbol:type identifiers:SBO:0000253)))
 SubClassOf(sbol:NonCovalentComplexComponent sbol:Component)
@@ -1256,6 +1395,7 @@ SubClassOf(sbol:NonCovalentComplexComponent sbol:Component)
 # Class: sbol:NucleicAcidTopology (NucleicAcidTopology)
 
 AnnotationAssertion(otol:constantList sbol:NucleicAcidTopology "true")
+AnnotationAssertion(rdfs:comment sbol:NucleicAcidTopology "Specifies the topology of a nucleic acid Component. Values are linear, circular, single, and double. For DNA Components with a fully specified sequence, topology information is recommended and should be provided using a term from the Topology Attribute branch of the Sequence Ontology.")
 AnnotationAssertion(rdfs:label sbol:NucleicAcidTopology "NucleicAcidTopology")
 EquivalentClasses(sbol:NucleicAcidTopology ObjectUnionOf(identifiers:SO:0000984 identifiers:SO:0000985 identifiers:SO:0000987 identifiers:SO:0000988))
 SubClassOf(sbol:NucleicAcidTopology sbol:SBOLValue)
@@ -1263,6 +1403,7 @@ SubClassOf(sbol:NucleicAcidTopology sbol:SBOLValue)
 # Class: sbol:OperatorDNAComponent (Operator DNA Component)
 
 AnnotationAssertion(otol:domainEntity sbol:OperatorDNAComponent "true")
+AnnotationAssertion(rdfs:comment sbol:OperatorDNAComponent "Represents an operator DNA component, with the role of SO:operator.")
 AnnotationAssertion(rdfs:label sbol:OperatorDNAComponent "Operator DNA Component")
 EquivalentClasses(sbol:OperatorDNAComponent ObjectIntersectionOf(sbol:DNAComponent ObjectSomeValuesFrom(sbol:role identifiers:SO:0000057)))
 SubClassOf(sbol:OperatorDNAComponent sbol:DNAComponent)
@@ -1270,6 +1411,7 @@ SubClassOf(sbol:OperatorDNAComponent sbol:DNAComponent)
 # Class: sbol:Orientation (Orientation)
 
 AnnotationAssertion(otol:constantList sbol:Orientation "true")
+AnnotationAssertion(rdfs:comment sbol:Orientation "Controlled vocabulary for the orientation of a Feature or Location. The value of a Feature or Location's orientation property must be an instance of a class that is a subclass of Orientation.")
 AnnotationAssertion(rdfs:label sbol:Orientation "Orientation")
 EquivalentClasses(sbol:Orientation ObjectUnionOf(sbol:inline sbol:reverseComplement))
 SubClassOf(sbol:Orientation sbol:SBOLTerm)
@@ -1277,6 +1419,7 @@ SubClassOf(sbol:Orientation sbol:SBOLTerm)
 # Class: sbol:OrientationRestriction (OrientationRestriction)
 
 AnnotationAssertion(otol:constantList sbol:OrientationRestriction "true")
+AnnotationAssertion(rdfs:comment sbol:OrientationRestriction "Orientation restrictions are a subset of the ConstraintRestriction class that are used to express orientation relationships between pairs of Features within a template Component. The value of an OrientationRestriction must be one of the following: sameOrientationAs or oppositeOrientationAs.")
 AnnotationAssertion(rdfs:label sbol:OrientationRestriction "OrientationRestriction")
 EquivalentClasses(sbol:OrientationRestriction ObjectUnionOf(sbol:oppositeOrientationAs sbol:sameOrientationAs))
 SubClassOf(sbol:OrientationRestriction sbol:ConstraintRestriction)
@@ -1284,6 +1427,7 @@ SubClassOf(sbol:OrientationRestriction sbol:ConstraintRestriction)
 # Class: sbol:Participation (Participation)
 
 AnnotationAssertion(otol:domainEntity sbol:Participation "true")
+AnnotationAssertion(rdfs:comment sbol:Participation "Each Participation represents how a particular Feature behaves in its parent Interaction.")
 AnnotationAssertion(rdfs:label sbol:Participation "Participation")
 SubClassOf(sbol:Participation sbol:Identified)
 SubClassOf(sbol:Participation ObjectSomeValuesFrom(sbol:role owl:Thing))
@@ -1291,6 +1435,7 @@ SubClassOf(sbol:Participation ObjectSomeValuesFrom(sbol:role owl:Thing))
 # Class: sbol:ParticipationRole (ParticipationRole)
 
 AnnotationAssertion(otol:constantList sbol:ParticipationRole "true")
+AnnotationAssertion(rdfs:comment sbol:ParticipationRole "Provides a vocabulary to choose the role of a Participation in an Interaction. Participation roles are typically identified using IRIs, such as terms from the Systems Biology Ontology.")
 AnnotationAssertion(rdfs:label sbol:ParticipationRole "ParticipationRole")
 EquivalentClasses(sbol:ParticipationRole ObjectUnionOf(identifiers:SBO:0000010 identifiers:SBO:0000011 identifiers:SBO:0000019 identifiers:SBO:0000020 identifiers:SBO:0000459 identifiers:SBO:0000598 identifiers:SBO:0000642 identifiers:SBO:0000643 identifiers:SBO:0000645))
 SubClassOf(sbol:ParticipationRole sbol:SBOLValue)
@@ -1298,6 +1443,7 @@ SubClassOf(sbol:ParticipationRole sbol:SBOLValue)
 # Class: sbol:ProductParticipation (ProductParticipation)
 
 AnnotationAssertion(otol:domainEntity sbol:ProductParticipation "true")
+AnnotationAssertion(rdfs:comment sbol:ProductParticipation "Represents a participation of a feature that is a product in an interaction, with the role of SBO:product.")
 AnnotationAssertion(rdfs:label sbol:ProductParticipation "ProductParticipation")
 EquivalentClasses(sbol:ProductParticipation ObjectIntersectionOf(sbol:Participation ObjectSomeValuesFrom(sbol:role identifiers:SBO:0000011)))
 SubClassOf(sbol:ProductParticipation sbol:Participation)
@@ -1305,6 +1451,7 @@ SubClassOf(sbol:ProductParticipation sbol:Participation)
 # Class: sbol:PromoterDNAComponent (Promoter DNA Component)
 
 AnnotationAssertion(otol:domainEntity sbol:PromoterDNAComponent "true")
+AnnotationAssertion(rdfs:comment sbol:PromoterDNAComponent "Represents a promoter DNA component, with the role of SO:promoter.")
 AnnotationAssertion(rdfs:label sbol:PromoterDNAComponent "Promoter DNA Component")
 EquivalentClasses(sbol:PromoterDNAComponent ObjectIntersectionOf(sbol:DNAComponent ObjectSomeValuesFrom(sbol:role identifiers:SO:0000167)))
 SubClassOf(sbol:PromoterDNAComponent sbol:DNAComponent)
@@ -1312,6 +1459,7 @@ SubClassOf(sbol:PromoterDNAComponent sbol:DNAComponent)
 # Class: sbol:PromoterParticipation (PromoterParticipation)
 
 AnnotationAssertion(otol:domainEntity sbol:PromoterParticipation "true")
+AnnotationAssertion(rdfs:comment sbol:PromoterParticipation "Represents a participation of a feature that is a promoter in an interaction, with the role of SBO:promoter.")
 AnnotationAssertion(rdfs:label sbol:PromoterParticipation "PromoterParticipation")
 EquivalentClasses(sbol:PromoterParticipation ObjectIntersectionOf(sbol:Participation ObjectSomeValuesFrom(sbol:role identifiers:SBO:0000598)))
 SubClassOf(sbol:PromoterParticipation sbol:Participation)
@@ -1319,6 +1467,7 @@ SubClassOf(sbol:PromoterParticipation sbol:Participation)
 # Class: sbol:ProteinComponent (Protein Component)
 
 AnnotationAssertion(otol:domainEntity sbol:ProteinComponent "true")
+AnnotationAssertion(rdfs:comment sbol:ProteinComponent "Represents a protein component, with the type of SBO:protein, the role of ProteinRole. It restricts instances to have the sequences with the correct protein encoding.")
 AnnotationAssertion(rdfs:label sbol:ProteinComponent "Protein Component")
 EquivalentClasses(sbol:ProteinComponent ObjectIntersectionOf(sbol:Component ObjectSomeValuesFrom(sbol:role sbol:ProteinRole) ObjectSomeValuesFrom(sbol:type identifiers:SBO:0000252) ObjectAllValuesFrom(sbol:hasSequence sbol:ProteinSequence)))
 SubClassOf(sbol:ProteinComponent sbol:Component)
@@ -1326,6 +1475,7 @@ SubClassOf(sbol:ProteinComponent sbol:Component)
 # Class: sbol:ProteinRole (Protein Role)
 
 AnnotationAssertion(otol:constantList sbol:ProteinRole "true")
+AnnotationAssertion(rdfs:comment sbol:ProteinRole "Controlled vocabulary for the roles that a Protein Component can play in a design. The value of a Component's role property must be an instance of a class that is a subclass of ProteinRole.")
 AnnotationAssertion(rdfs:label sbol:ProteinRole "Protein Role")
 EquivalentClasses(sbol:ProteinRole ObjectUnionOf(identifiers:GO:0003674 identifiers:GO:0003700))
 SubClassOf(sbol:ProteinRole sbol:ComponentRole)
@@ -1333,6 +1483,7 @@ SubClassOf(sbol:ProteinRole sbol:ComponentRole)
 # Class: sbol:ProteinSequence (Protein Sequence)
 
 AnnotationAssertion(otol:domainEntity sbol:ProteinSequence "true")
+AnnotationAssertion(rdfs:comment sbol:ProteinSequence "Represents a protein sequence, with the encoding of EDAM format 1208. The elements property MUST contain only characters from the IUPAC Protein character set: A, C, D, E, F, G, H, I, K, L, M, N, P, Q, R, S, T, V, W, Y and -.")
 AnnotationAssertion(rdfs:label sbol:ProteinSequence "Protein Sequence")
 EquivalentClasses(sbol:ProteinSequence ObjectIntersectionOf(sbol:SequenceWithElements ObjectSomeValuesFrom(sbol:encoding identifiers:edam:format_1208)))
 SubClassOf(sbol:ProteinSequence sbol:SequenceWithElements)
@@ -1340,6 +1491,7 @@ SubClassOf(sbol:ProteinSequence sbol:SequenceWithElements)
 # Class: sbol:RBSDNAComponent (RBS DNA Component)
 
 AnnotationAssertion(otol:domainEntity sbol:RBSDNAComponent "true")
+AnnotationAssertion(rdfs:comment sbol:RBSDNAComponent "Represents a ribosome binding site DNA component, with the role of SO:RBS.")
 AnnotationAssertion(rdfs:label sbol:RBSDNAComponent "RBS DNA Component")
 EquivalentClasses(sbol:RBSDNAComponent ObjectIntersectionOf(sbol:DNAComponent ObjectSomeValuesFrom(sbol:role identifiers:SO:0000139)))
 SubClassOf(sbol:RBSDNAComponent sbol:DNAComponent)
@@ -1347,6 +1499,7 @@ SubClassOf(sbol:RBSDNAComponent sbol:DNAComponent)
 # Class: sbol:RNAComponent (RNA Component)
 
 AnnotationAssertion(otol:domainEntity sbol:RNAComponent "true")
+AnnotationAssertion(rdfs:comment sbol:RNAComponent "Represents an RNA component, with the type of SBO:RNA, the role of RNARole. It restricts instances to have the sequences with the correct RNA encoding.")
 AnnotationAssertion(rdfs:label sbol:RNAComponent "RNA Component")
 EquivalentClasses(sbol:RNAComponent ObjectIntersectionOf(sbol:Component ObjectSomeValuesFrom(sbol:role sbol:RNARole) ObjectSomeValuesFrom(sbol:type identifiers:SBO:0000250) ObjectAllValuesFrom(sbol:hasSequence sbol:RNASequence)))
 SubClassOf(sbol:RNAComponent sbol:Component)
@@ -1354,6 +1507,7 @@ SubClassOf(sbol:RNAComponent sbol:Component)
 # Class: sbol:RNARole (RNA role)
 
 AnnotationAssertion(otol:constantList sbol:RNARole "true")
+AnnotationAssertion(rdfs:comment sbol:RNARole "Controlled vocabulary for the roles that an RNA Component can play in a design. The value of a Component's role property must be an instance of a class that is a subclass of RNARole.")
 AnnotationAssertion(rdfs:label sbol:RNARole "RNA role")
 EquivalentClasses(sbol:RNARole ObjectUnionOf(identifiers:SO:0000110 identifiers:SO:0000234))
 SubClassOf(sbol:RNARole sbol:ComponentRole)
@@ -1361,6 +1515,7 @@ SubClassOf(sbol:RNARole sbol:ComponentRole)
 # Class: sbol:RNASequence (RNA Sequence)
 
 AnnotationAssertion(otol:domainEntity sbol:RNASequence "true")
+AnnotationAssertion(rdfs:comment sbol:RNASequence "Represents an RNA sequence, with the encoding of EDAM format 1207. The elements property MUST contain only characters from the IUPAC RNA character set: A, C, G, U, M, R, W, S, Y, K, V, H, D, B, N and -.")
 AnnotationAssertion(rdfs:label sbol:RNASequence "RNA Sequence")
 EquivalentClasses(sbol:RNASequence ObjectIntersectionOf(sbol:SequenceWithElements ObjectSomeValuesFrom(sbol:encoding identifiers:edam:format_1207)))
 SubClassOf(sbol:RNASequence sbol:SequenceWithElements)
@@ -1368,6 +1523,7 @@ SubClassOf(sbol:RNASequence sbol:SequenceWithElements)
 # Class: sbol:Range (Range)
 
 AnnotationAssertion(otol:domainEntity sbol:Range "true")
+AnnotationAssertion(rdfs:comment sbol:Range "A Range object specifies a region via discrete, inclusive start and end positions that correspond to indices for characters in the elements String of a Sequence.")
 AnnotationAssertion(rdfs:label sbol:Range "Range")
 SubClassOf(sbol:Range sbol:Location)
 SubClassOf(sbol:Range DataSomeValuesFrom(sbol:end DatatypeRestriction(xsd:integer xsd:minInclusive "1"^^xsd:integer)))
@@ -1376,6 +1532,7 @@ SubClassOf(sbol:Range DataSomeValuesFrom(sbol:start DatatypeRestriction(xsd:inte
 # Class: sbol:ReactantParticipation (ReactantParticipation)
 
 AnnotationAssertion(otol:domainEntity sbol:ReactantParticipation "true")
+AnnotationAssertion(rdfs:comment sbol:ReactantParticipation "Represents a participation of a feature that is a reactant in an interaction, with the role of SBO:reactant.")
 AnnotationAssertion(rdfs:label sbol:ReactantParticipation "ReactantParticipation")
 EquivalentClasses(sbol:ReactantParticipation ObjectIntersectionOf(sbol:Participation ObjectSomeValuesFrom(sbol:role identifiers:SBO:0000010)))
 SubClassOf(sbol:ReactantParticipation sbol:Participation)
@@ -1383,6 +1540,7 @@ SubClassOf(sbol:ReactantParticipation sbol:Participation)
 # Class: sbol:RoleIntegration (RoleIntegration)
 
 AnnotationAssertion(otol:constantList sbol:RoleIntegration "true")
+AnnotationAssertion(rdfs:comment sbol:RoleIntegration "A roleIntegration specifies the relationship between a SubComponent instance's own set of role properties and the set of role properties on the included Component.")
 AnnotationAssertion(rdfs:label sbol:RoleIntegration "RoleIntegration")
 EquivalentClasses(sbol:RoleIntegration ObjectUnionOf(sbol:mergeRoles sbol:overrideRoles))
 SubClassOf(sbol:RoleIntegration sbol:SBOLTerm)
@@ -1391,6 +1549,7 @@ SubClassOf(sbol:RoleIntegration sbol:SBOLTerm)
 
 AnnotationAssertion(otol:domainEntity sbol:SBOLActivity "true")
 AnnotationAssertion(otol:replacementOf sbol:SBOLActivity prov:Activity)
+AnnotationAssertion(rdfs:comment sbol:SBOLActivity "A wrapper for the PROV Activity class. The purpose of this class is to allow for the inclusion of SBOL-specific properties on PROV Activities, such as the association of an Activity with a particular Component or Interaction.")
 AnnotationAssertion(rdfs:label sbol:SBOLActivity "SBOL Activity")
 SubClassOf(sbol:SBOLActivity sbol:TopLevel)
 SubClassOf(sbol:SBOLActivity prov:Activity)
@@ -1399,6 +1558,7 @@ SubClassOf(sbol:SBOLActivity prov:Activity)
 
 AnnotationAssertion(otol:domainEntity sbol:SBOLAgent "true")
 AnnotationAssertion(otol:replacementOf sbol:SBOLAgent prov:Agent)
+AnnotationAssertion(rdfs:comment sbol:SBOLAgent "A wrapper for the PROV-O Agent class. The purpose of this class is to allow for the inclusion of SBOL-specific properties on PROV Agents, such as the association of an Agent with a particular Component or Interaction.")
 AnnotationAssertion(rdfs:label sbol:SBOLAgent "SBOL Agent")
 SubClassOf(sbol:SBOLAgent sbol:TopLevel)
 SubClassOf(sbol:SBOLAgent prov:Agent)
@@ -1407,23 +1567,26 @@ SubClassOf(sbol:SBOLAgent prov:Agent)
 
 AnnotationAssertion(otol:domainEntity sbol:SBOLAssociation "true")
 AnnotationAssertion(otol:replacementOf sbol:SBOLAssociation prov:Association)
+AnnotationAssertion(rdfs:comment sbol:SBOLAssociation "A wrapper for the PROV-O Association class. The purpose of this class is to allow for the inclusion of SBOL-specific properties on PROV Associations, such as the association of an Association with a particular Component or Interaction.")
 AnnotationAssertion(rdfs:label sbol:SBOLAssociation "SBOL Association")
 SubClassOf(sbol:SBOLAssociation sbol:Identified)
 SubClassOf(sbol:SBOLAssociation prov:Association)
 
-# Class: sbol:SBOLBinaryPrefix (BinaryPrefix)
+# Class: sbol:SBOLBinaryPrefix (SBOLBinaryPrefix)
 
 AnnotationAssertion(otol:domainEntity sbol:SBOLBinaryPrefix "true")
 AnnotationAssertion(otol:replacementOf sbol:SBOLBinaryPrefix om:BinaryPrefix)
-AnnotationAssertion(rdfs:label sbol:SBOLBinaryPrefix "BinaryPrefix")
+AnnotationAssertion(rdfs:comment sbol:SBOLBinaryPrefix "A wrapper class to enable the use of OM BinaryPrefixes in SBOL. This class allows adding custom SBOL relationships.")
+AnnotationAssertion(rdfs:label sbol:SBOLBinaryPrefix "SBOLBinaryPrefix")
 SubClassOf(sbol:SBOLBinaryPrefix sbol:SBOLPrefix)
 SubClassOf(sbol:SBOLBinaryPrefix om:BinaryPrefix)
 
-# Class: sbol:SBOLCompoundUnit (CompoundUnit)
+# Class: sbol:SBOLCompoundUnit (SBOLCompoundUnit)
 
 AnnotationAssertion(otol:domainEntity sbol:SBOLCompoundUnit "true")
 AnnotationAssertion(otol:replacementOf sbol:SBOLCompoundUnit om:CompoundUnit)
-AnnotationAssertion(rdfs:label sbol:SBOLCompoundUnit "CompoundUnit")
+AnnotationAssertion(rdfs:comment sbol:SBOLCompoundUnit "A wrapper class to enable the use of OM CompoundUnits in SBOL. This class allows adding custom SBOL relationships.")
+AnnotationAssertion(rdfs:label sbol:SBOLCompoundUnit "SBOLCompoundUnit")
 SubClassOf(sbol:SBOLCompoundUnit sbol:SBOLUnit)
 SubClassOf(sbol:SBOLCompoundUnit om:CompoundUnit)
 
@@ -1431,85 +1594,96 @@ SubClassOf(sbol:SBOLCompoundUnit om:CompoundUnit)
 
 AnnotationAssertion(otol:domainEntity sbol:SBOLMeasure "true")
 AnnotationAssertion(otol:replacementOf sbol:SBOLMeasure om:Measure)
+AnnotationAssertion(rdfs:comment sbol:SBOLMeasure "A wrapper for the OM Measure class. The purpose of this class is to allow for the inclusion of SBOL-specific properties on OM Measures, such as the association of a Measure with a particular Component or Interaction.")
 AnnotationAssertion(rdfs:label sbol:SBOLMeasure "SBOL Measure")
 SubClassOf(sbol:SBOLMeasure sbol:Identified)
 SubClassOf(sbol:SBOLMeasure om:Measure)
 
-# Class: sbol:SBOLPlan (SBOLPlan)
+# Class: sbol:SBOLPlan (SBOL Plan)
 
 AnnotationAssertion(otol:domainEntity sbol:SBOLPlan "true")
 AnnotationAssertion(otol:replacementOf sbol:SBOLPlan prov:Plan)
-AnnotationAssertion(rdfs:label sbol:SBOLPlan "SBOLPlan")
+AnnotationAssertion(rdfs:comment sbol:SBOLPlan "A wrapper for the PROV-O Plan class. The purpose of this class is to allow for the inclusion of SBOL-specific properties on PROV Plans, such as the association of a Plan with a particular Component or Interaction.")
+AnnotationAssertion(rdfs:label sbol:SBOLPlan "SBOL Plan")
 SubClassOf(sbol:SBOLPlan sbol:TopLevel)
 SubClassOf(sbol:SBOLPlan prov:Plan)
 
-# Class: sbol:SBOLPrefix (Prefix)
+# Class: sbol:SBOLPrefix (SBOLPrefix)
 
 AnnotationAssertion(otol:domainEntity sbol:SBOLPrefix "true")
 AnnotationAssertion(otol:replacementOf sbol:SBOLPrefix om:Prefix)
-AnnotationAssertion(rdfs:label sbol:SBOLPrefix "Prefix")
+AnnotationAssertion(rdfs:comment sbol:SBOLPrefix "A wrapper class to enable the use of OM Prefixes in SBOL. This class allows adding custom SBOL relationships.")
+AnnotationAssertion(rdfs:label sbol:SBOLPrefix "SBOLPrefix")
 SubClassOf(sbol:SBOLPrefix sbol:TopLevel)
 SubClassOf(sbol:SBOLPrefix om:Prefix)
 
-# Class: sbol:SBOLPrefixedUnit (PrefixedUnit)
+# Class: sbol:SBOLPrefixedUnit (SBOLPrefixedUnit)
 
 AnnotationAssertion(otol:domainEntity sbol:SBOLPrefixedUnit "true")
 AnnotationAssertion(otol:replacementOf sbol:SBOLPrefixedUnit om:PrefixedUnit)
-AnnotationAssertion(rdfs:label sbol:SBOLPrefixedUnit "PrefixedUnit")
+AnnotationAssertion(rdfs:comment sbol:SBOLPrefixedUnit "A wrapper class to enable the use of OM PrefixedUnits in SBOL. This class allows adding custom SBOL relationships.")
+AnnotationAssertion(rdfs:label sbol:SBOLPrefixedUnit "SBOLPrefixedUnit")
 SubClassOf(sbol:SBOLPrefixedUnit sbol:SBOLUnit)
 SubClassOf(sbol:SBOLPrefixedUnit om:PrefixedUnit)
 
-# Class: sbol:SBOLSIPrefix (SIPrefix)
+# Class: sbol:SBOLSIPrefix (SBOLSIPrefix)
 
 AnnotationAssertion(otol:domainEntity sbol:SBOLSIPrefix "true")
 AnnotationAssertion(otol:replacementOf sbol:SBOLSIPrefix om:SIPrefix)
-AnnotationAssertion(rdfs:label sbol:SBOLSIPrefix "SIPrefix")
+AnnotationAssertion(rdfs:comment sbol:SBOLSIPrefix "A wrapper class to enable the use of OM SIPrefixes in SBOL. This class allows adding custom SBOL relationships.")
+AnnotationAssertion(rdfs:label sbol:SBOLSIPrefix "SBOLSIPrefix")
 SubClassOf(sbol:SBOLSIPrefix sbol:SBOLPrefix)
 SubClassOf(sbol:SBOLSIPrefix om:SIPrefix)
 
-# Class: sbol:SBOLSingularUnit (SingularUnit)
+# Class: sbol:SBOLSingularUnit (SBOLSingularUnit)
 
 AnnotationAssertion(otol:domainEntity sbol:SBOLSingularUnit "true")
 AnnotationAssertion(otol:replacementOf sbol:SBOLSingularUnit om:SingularUnit)
-AnnotationAssertion(rdfs:label sbol:SBOLSingularUnit "SingularUnit")
+AnnotationAssertion(rdfs:comment sbol:SBOLSingularUnit "A wrapper class to enable the use of OM SingularUnits in SBOL. This class allows adding custom SBOL relationships.")
+AnnotationAssertion(rdfs:label sbol:SBOLSingularUnit "SBOLSingularUnit")
 SubClassOf(sbol:SBOLSingularUnit sbol:SBOLUnit)
 SubClassOf(sbol:SBOLSingularUnit om:SingularUnit)
 
 # Class: sbol:SBOLTerm (SBOL Term)
 
 AnnotationAssertion(otol:vocabulary sbol:SBOLTerm "true")
+AnnotationAssertion(rdfs:comment sbol:SBOLTerm "The SBOLTerm class is a way to create a placeholder for a term in an SBOL-controlled vocabulary.")
 AnnotationAssertion(rdfs:label sbol:SBOLTerm "SBOL Term")
 SubClassOf(sbol:SBOLTerm owl:Thing)
 
-# Class: sbol:SBOLUnit (Unit)
+# Class: sbol:SBOLUnit (SBOLUnit)
 
 AnnotationAssertion(otol:domainEntity sbol:SBOLUnit "true")
 AnnotationAssertion(otol:replacementOf sbol:SBOLUnit om:Unit)
-AnnotationAssertion(rdfs:label sbol:SBOLUnit "Unit")
+AnnotationAssertion(rdfs:comment sbol:SBOLUnit "A wrapper class to enable the use of OM Units in SBOL. This class allows adding custom SBOL relationships.")
+AnnotationAssertion(rdfs:label sbol:SBOLUnit "SBOLUnit")
 SubClassOf(sbol:SBOLUnit sbol:TopLevel)
 SubClassOf(sbol:SBOLUnit om:Unit)
 
-# Class: sbol:SBOLUnitDivision (UnitDivision)
+# Class: sbol:SBOLUnitDivision (SBOLUnitDivision)
 
 AnnotationAssertion(otol:domainEntity sbol:SBOLUnitDivision "true")
 AnnotationAssertion(otol:replacementOf sbol:SBOLUnitDivision om:UnitDivision)
-AnnotationAssertion(rdfs:label sbol:SBOLUnitDivision "UnitDivision")
+AnnotationAssertion(rdfs:comment sbol:SBOLUnitDivision "A wrapper class to enable the use of OM UnitDivisions in SBOL. This class allows adding custom SBOL relationships.")
+AnnotationAssertion(rdfs:label sbol:SBOLUnitDivision "SBOLUnitDivision")
 SubClassOf(sbol:SBOLUnitDivision sbol:SBOLUnit)
 SubClassOf(sbol:SBOLUnitDivision om:UnitDivision)
 
-# Class: sbol:SBOLUnitExponentiation (UnitExponentiation)
+# Class: sbol:SBOLUnitExponentiation (SBOLUnitExponentiation)
 
 AnnotationAssertion(otol:domainEntity sbol:SBOLUnitExponentiation "true")
 AnnotationAssertion(otol:replacementOf sbol:SBOLUnitExponentiation om:UnitExponentiation)
-AnnotationAssertion(rdfs:label sbol:SBOLUnitExponentiation "UnitExponentiation")
+AnnotationAssertion(rdfs:comment sbol:SBOLUnitExponentiation "A wrapper class to enable the use of OM UnitExponentiations in SBOL. This class allows adding custom SBOL relationships.")
+AnnotationAssertion(rdfs:label sbol:SBOLUnitExponentiation "SBOLUnitExponentiation")
 SubClassOf(sbol:SBOLUnitExponentiation sbol:SBOLUnit)
 SubClassOf(sbol:SBOLUnitExponentiation om:UnitExponentiation)
 
-# Class: sbol:SBOLUnitMultiplication (UnitMultiplication)
+# Class: sbol:SBOLUnitMultiplication (SBOLUnitMultiplication)
 
 AnnotationAssertion(otol:domainEntity sbol:SBOLUnitMultiplication "true")
 AnnotationAssertion(otol:replacementOf sbol:SBOLUnitMultiplication om:UnitMultiplication)
-AnnotationAssertion(rdfs:label sbol:SBOLUnitMultiplication "UnitMultiplication")
+AnnotationAssertion(rdfs:comment sbol:SBOLUnitMultiplication "A wrapper class to enable the use of OM UnitMultiplications in SBOL. This class allows adding custom SBOL relationships.")
+AnnotationAssertion(rdfs:label sbol:SBOLUnitMultiplication "SBOLUnitMultiplication")
 SubClassOf(sbol:SBOLUnitMultiplication sbol:SBOLUnit)
 SubClassOf(sbol:SBOLUnitMultiplication om:UnitMultiplication)
 
@@ -1517,6 +1691,7 @@ SubClassOf(sbol:SBOLUnitMultiplication om:UnitMultiplication)
 
 AnnotationAssertion(otol:domainEntity sbol:SBOLUsage "true")
 AnnotationAssertion(otol:replacementOf sbol:SBOLUsage prov:Usage)
+AnnotationAssertion(rdfs:comment sbol:SBOLUsage "A wrapper for the PROV-O Usage class. The purpose of this class is to allow for the inclusion of SBOL-specific properties on PROV Usages, such as the association of a Usage with a particular Component or Interaction.")
 AnnotationAssertion(rdfs:label sbol:SBOLUsage "SBOL Usage")
 SubClassOf(sbol:SBOLUsage sbol:Identified)
 SubClassOf(sbol:SBOLUsage prov:Usage)
@@ -1530,6 +1705,7 @@ SubClassOf(sbol:SBOLValue owl:Thing)
 # Class: sbol:SMILESSequence (SMILES Sequence)
 
 AnnotationAssertion(otol:domainEntity sbol:SMILESSequence "true")
+AnnotationAssertion(rdfs:comment sbol:SMILESSequence "Represents a chemical structure using the Simplified Molecular-Input Line-Entry System (SMILES) format, with the encoding of EDAM format 1196. The elements property MUST contain a valid SMILES string.")
 AnnotationAssertion(rdfs:label sbol:SMILESSequence "SMILES Sequence")
 EquivalentClasses(sbol:SMILESSequence ObjectIntersectionOf(sbol:SequenceWithElements ObjectSomeValuesFrom(sbol:encoding identifiers:edam:format_1196)))
 SubClassOf(sbol:SMILESSequence sbol:SequenceWithElements)
@@ -1537,18 +1713,21 @@ SubClassOf(sbol:SMILESSequence sbol:SequenceWithElements)
 # Class: sbol:Sequence (Sequence)
 
 AnnotationAssertion(otol:domainEntity sbol:Sequence "true")
+AnnotationAssertion(rdfs:comment sbol:Sequence "The purpose of the Sequence class is to represent the primary structure of a Component object and the manner in which it is encoded.")
 AnnotationAssertion(rdfs:label sbol:Sequence "Sequence")
 SubClassOf(sbol:Sequence sbol:TopLevel)
 
 # Class: sbol:SequenceFeature (SequenceFeature)
 
 AnnotationAssertion(otol:domainEntity sbol:SequenceFeature "true")
+AnnotationAssertion(rdfs:comment sbol:SequenceFeature "The SequenceFeature class describes one or more regions of interest on the Sequence objects referred to by its parent Component.")
 AnnotationAssertion(rdfs:label sbol:SequenceFeature "SequenceFeature")
 SubClassOf(sbol:SequenceFeature sbol:Feature)
 SubClassOf(sbol:SequenceFeature ObjectSomeValuesFrom(sbol:hasLocation sbol:Location))
 
 # Class: sbol:SequenceWithElements (Sequence With Elements)
 
+AnnotationAssertion(rdfs:comment sbol:SequenceWithElements "A SequenceWithElements is a Sequence that contains elements and an encoding.")
 AnnotationAssertion(rdfs:label sbol:SequenceWithElements "Sequence With Elements")
 EquivalentClasses(sbol:SequenceWithElements ObjectIntersectionOf(sbol:Sequence ObjectSomeValuesFrom(sbol:encoding sbol:Encoding) DataSomeValuesFrom(sbol:elements xsd:string)))
 SubClassOf(sbol:SequenceWithElements sbol:Sequence)
@@ -1556,6 +1735,7 @@ SubClassOf(sbol:SequenceWithElements sbol:Sequence)
 # Class: sbol:SequentialRestriction (SequentialRestriction)
 
 AnnotationAssertion(otol:constantList sbol:SequentialRestriction "true")
+AnnotationAssertion(rdfs:comment sbol:SequentialRestriction "Sequential restrictions are a subset of the ConstraintRestriction class that are used to express relative, sequence-based positions of pairs of Features within a template Component. The value of a SequentialRestriction must be one of the following: precedes, strictlyPrecedes, meets, overlaps, contains, strictlyContains, equals, starts, or finishes.")
 AnnotationAssertion(rdfs:label sbol:SequentialRestriction "SequentialRestriction")
 EquivalentClasses(sbol:SequentialRestriction ObjectUnionOf(sbol:contains sbol:equals sbol:finishes sbol:meets sbol:overlaps sbol:precedes sbol:starts sbol:strictlyContains sbol:strictlyPrecedes))
 SubClassOf(sbol:SequentialRestriction sbol:ConstraintRestriction)
@@ -1563,6 +1743,7 @@ SubClassOf(sbol:SequentialRestriction sbol:ConstraintRestriction)
 # Class: sbol:SimpleChemicalComponent (Simple Chemical Component)
 
 AnnotationAssertion(otol:domainEntity sbol:SimpleChemicalComponent "true")
+AnnotationAssertion(rdfs:comment sbol:SimpleChemicalComponent "Represents a simple chemical component, with the type of SBO:simple_chemical, the role of SmallMoleculeRole. It restricts instances to have the sequences with the correct chemical encoding.")
 AnnotationAssertion(rdfs:label sbol:SimpleChemicalComponent "Simple Chemical Component")
 EquivalentClasses(sbol:SimpleChemicalComponent ObjectIntersectionOf(sbol:Component ObjectSomeValuesFrom(sbol:role sbol:SmallMoleculeRole) ObjectSomeValuesFrom(sbol:type identifiers:SBO:0000247) ObjectAllValuesFrom(sbol:hasSequence ObjectUnionOf(sbol:InChISequence sbol:SMILESSequence))))
 SubClassOf(sbol:SimpleChemicalComponent sbol:Component)
@@ -1570,6 +1751,7 @@ SubClassOf(sbol:SimpleChemicalComponent sbol:Component)
 # Class: sbol:SmallMoleculeRole (Small Molecule Role)
 
 AnnotationAssertion(otol:constantList sbol:SmallMoleculeRole "true")
+AnnotationAssertion(rdfs:comment sbol:SmallMoleculeRole "Controlled vocabulary for the roles that a Small Molecule Component can play in a design. The value of a Component's role property must be an instance of a class that is a subclass of SmallMoleculeRole.")
 AnnotationAssertion(rdfs:label sbol:SmallMoleculeRole "Small Molecule Role")
 EquivalentClasses(sbol:SmallMoleculeRole ObjectUnionOf(identifiers:CHEBI:35224 identifiers:CHEBI:50906))
 SubClassOf(sbol:SmallMoleculeRole sbol:ComponentRole)
@@ -1577,6 +1759,7 @@ SubClassOf(sbol:SmallMoleculeRole sbol:ComponentRole)
 # Class: sbol:StimulatedParticipation (StimulatedParticipation)
 
 AnnotationAssertion(otol:domainEntity sbol:StimulatedParticipation "true")
+AnnotationAssertion(rdfs:comment sbol:StimulatedParticipation "Represents a participation of a feature that is stimulated in an interaction, with the role of SBO:stimulated.")
 AnnotationAssertion(rdfs:label sbol:StimulatedParticipation "StimulatedParticipation")
 EquivalentClasses(sbol:StimulatedParticipation ObjectIntersectionOf(sbol:Participation ObjectSomeValuesFrom(sbol:role identifiers:SBO:0000643)))
 SubClassOf(sbol:StimulatedParticipation sbol:Participation)
@@ -1584,6 +1767,7 @@ SubClassOf(sbol:StimulatedParticipation sbol:Participation)
 # Class: sbol:StimulationInteraction (StimulationInteraction)
 
 AnnotationAssertion(otol:domainEntity sbol:StimulationInteraction "true")
+AnnotationAssertion(rdfs:comment sbol:StimulationInteraction "Represents a stimulation interaction, with the type of SBO:stimulation, that involves at least one stimulator participation and at least one stimulated participation.")
 AnnotationAssertion(rdfs:label sbol:StimulationInteraction "StimulationInteraction")
 EquivalentClasses(sbol:StimulationInteraction ObjectIntersectionOf(sbol:Interaction ObjectSomeValuesFrom(sbol:hasParticipation sbol:StimulatedParticipation) ObjectSomeValuesFrom(sbol:hasParticipation sbol:StimulatorParticipation) ObjectSomeValuesFrom(sbol:type identifiers:SBO:0000170)))
 SubClassOf(sbol:StimulationInteraction sbol:Interaction)
@@ -1591,6 +1775,7 @@ SubClassOf(sbol:StimulationInteraction sbol:Interaction)
 # Class: sbol:StimulatorParticipation (StimulatorParticipation)
 
 AnnotationAssertion(otol:domainEntity sbol:StimulatorParticipation "true")
+AnnotationAssertion(rdfs:comment sbol:StimulatorParticipation "Represents a participation of a feature that stimulates an interaction, with the role of SBO:stimulator.")
 AnnotationAssertion(rdfs:label sbol:StimulatorParticipation "StimulatorParticipation")
 EquivalentClasses(sbol:StimulatorParticipation ObjectIntersectionOf(sbol:Participation ObjectSomeValuesFrom(sbol:role identifiers:SBO:0000459)))
 SubClassOf(sbol:StimulatorParticipation sbol:Participation)
@@ -1598,6 +1783,7 @@ SubClassOf(sbol:StimulatorParticipation sbol:Participation)
 # Class: sbol:SubComponent (SubComponent)
 
 AnnotationAssertion(otol:domainEntity sbol:SubComponent "true")
+AnnotationAssertion(rdfs:comment sbol:SubComponent "The SubComponent class is a subclass of the Feature class that can be used to specify structural hierarchy.")
 AnnotationAssertion(rdfs:label sbol:SubComponent "SubComponent")
 SubClassOf(sbol:SubComponent sbol:Feature)
 SubClassOf(sbol:SubComponent ObjectSomeValuesFrom(sbol:instanceOf sbol:Component))
@@ -1605,6 +1791,7 @@ SubClassOf(sbol:SubComponent ObjectSomeValuesFrom(sbol:instanceOf sbol:Component
 # Class: sbol:TemplateParticipation (TemplateParticipation)
 
 AnnotationAssertion(otol:domainEntity sbol:TemplateParticipation "true")
+AnnotationAssertion(rdfs:comment sbol:TemplateParticipation "Represents a participation of a feature that is a template in an interaction, with the role of SBO:template.")
 AnnotationAssertion(rdfs:label sbol:TemplateParticipation "TemplateParticipation")
 EquivalentClasses(sbol:TemplateParticipation ObjectIntersectionOf(sbol:Participation ObjectSomeValuesFrom(sbol:role identifiers:SBO:0000645)))
 SubClassOf(sbol:TemplateParticipation sbol:Participation)
@@ -1612,12 +1799,14 @@ SubClassOf(sbol:TemplateParticipation sbol:Participation)
 # Class: sbol:TerminatorDNAComponent (Terminator DNA Component)
 
 AnnotationAssertion(otol:domainEntity sbol:TerminatorDNAComponent "true")
+AnnotationAssertion(rdfs:comment sbol:TerminatorDNAComponent "Represents a terminator DNA component, with the role of SO:terminator.")
 AnnotationAssertion(rdfs:label sbol:TerminatorDNAComponent "Terminator DNA Component")
 EquivalentClasses(sbol:TerminatorDNAComponent ObjectIntersectionOf(sbol:DNAComponent ObjectSomeValuesFrom(sbol:role identifiers:SO:0000141)))
 SubClassOf(sbol:TerminatorDNAComponent sbol:DNAComponent)
 
 # Class: sbol:TopLevel (TopLevel)
 
+AnnotationAssertion(rdfs:comment sbol:TopLevel "TopLevel is an abstract class that is extended by any Identified class that can be found at the top level of an SBOL document or file.")
 AnnotationAssertion(rdfs:label sbol:TopLevel "TopLevel")
 SubClassOf(sbol:TopLevel sbol:Identified)
 SubClassOf(sbol:TopLevel ObjectSomeValuesFrom(sbol:hasNamespace owl:Thing))
@@ -1625,6 +1814,7 @@ SubClassOf(sbol:TopLevel ObjectSomeValuesFrom(sbol:hasNamespace owl:Thing))
 # Class: sbol:TopologyRestriction (TopologyRestriction)
 
 AnnotationAssertion(otol:constantList sbol:TopologyRestriction "true")
+AnnotationAssertion(rdfs:comment sbol:TopologyRestriction "Topology restrictions are a subset of the ConstraintRestriction class that are used to express topological relationships between pairs of Features within a template Component. The value of a TopologyRestriction must be one of the following: contains, strictlyContains, equals, covers, overlaps, meets, or isDisjointFrom.")
 AnnotationAssertion(rdfs:label sbol:TopologyRestriction "TopologyRestriction")
 EquivalentClasses(sbol:TopologyRestriction ObjectUnionOf(sbol:contains sbol:covers sbol:equals sbol:isDisjointFrom sbol:meets sbol:overlaps sbol:strictlyContains))
 SubClassOf(sbol:TopologyRestriction sbol:ConstraintRestriction)
@@ -1632,6 +1822,7 @@ SubClassOf(sbol:TopologyRestriction sbol:ConstraintRestriction)
 # Class: sbol:TranscriptionFactorProteinComponent (Transcription Factor Protein Component)
 
 AnnotationAssertion(otol:domainEntity sbol:TranscriptionFactorProteinComponent "true")
+AnnotationAssertion(rdfs:comment sbol:TranscriptionFactorProteinComponent "Represents a transcription factor protein component, with the role of GO:DNA-binding transcription factor activity.")
 AnnotationAssertion(rdfs:label sbol:TranscriptionFactorProteinComponent "Transcription Factor Protein Component")
 EquivalentClasses(sbol:TranscriptionFactorProteinComponent ObjectIntersectionOf(sbol:ProteinComponent ObjectSomeValuesFrom(sbol:role identifiers:GO:0003700)))
 SubClassOf(sbol:TranscriptionFactorProteinComponent sbol:ProteinComponent)
@@ -1639,6 +1830,7 @@ SubClassOf(sbol:TranscriptionFactorProteinComponent sbol:ProteinComponent)
 # Class: sbol:VariableFeature (VariableFeature)
 
 AnnotationAssertion(otol:domainEntity sbol:VariableFeature "true")
+AnnotationAssertion(rdfs:comment sbol:VariableFeature "VariableFeature class specifies a variable and set of values that will replace one of the Feature objects in the template of a CombinatorialDerivation. The variable is specified by the variable property, and the set of values is defined by the union of Component objects referred to by the variant, variantCollection, and variantDerivation properties.")
 AnnotationAssertion(rdfs:label sbol:VariableFeature "VariableFeature")
 SubClassOf(sbol:VariableFeature sbol:Identified)
 SubClassOf(sbol:VariableFeature ObjectSomeValuesFrom(sbol:cardinality sbol:Cardinality))
@@ -1646,162 +1838,175 @@ SubClassOf(sbol:VariableFeature ObjectSomeValuesFrom(sbol:variable sbol:Feature)
 
 # Class: sbol:contains (contains)
 
-AnnotationAssertion(rdfs:comment sbol:contains "Subject contains object; they might or might not share a boundary.")
+AnnotationAssertion(rdfs:comment sbol:contains "The subject contains the object and they might or might not share a boundary.")
 AnnotationAssertion(rdfs:label sbol:contains "contains")
 SubClassOf(sbol:contains sbol:ConstraintRestriction)
 
 # Class: sbol:covers (covers)
 
-AnnotationAssertion(rdfs:comment sbol:covers "Subject covers object.")
+AnnotationAssertion(rdfs:comment sbol:covers "The subject contains the object but also shares a boundary.")
 AnnotationAssertion(rdfs:label sbol:covers "covers")
 SubClassOf(sbol:covers sbol:ConstraintRestriction)
 
 # Class: sbol:differentFrom (differentFrom)
 
-AnnotationAssertion(rdfs:comment sbol:differentFrom "Subject and object must NOT refer to the same Component/definition.")
+AnnotationAssertion(rdfs:comment sbol:differentFrom "The subject and object, after tracing through any layers of ComponentReference, MUST NOT both refer to SubComponent objects with the same instanceOf value or both refer to ExternallyDefined objects with the same definition. Example: two fluorescent reporters must be different.")
 AnnotationAssertion(rdfs:label sbol:differentFrom "differentFrom")
 SubClassOf(sbol:differentFrom sbol:ConstraintRestriction)
 
 # Class: sbol:enumerate (enumerate)
 
+AnnotationAssertion(rdfs:comment sbol:enumerate "Enumerate is a strategy for deriving new Components from a template Component. The enumerate strategy specifies that a new Component should be derived for every possible combination of values for the variable specified by the VariableFeature objects in the template Component.")
 AnnotationAssertion(rdfs:label sbol:enumerate "enumerate")
 SubClassOf(sbol:enumerate sbol:CombinatorialDerivationStrategy)
 
 # Class: sbol:equals (equals)
 
-AnnotationAssertion(rdfs:comment sbol:equals "Subject and object occupy the same location in space or sequence.")
+AnnotationAssertion(rdfs:comment sbol:equals "The subject and object occupy the same location in space.")
 AnnotationAssertion(rdfs:label sbol:equals "equals")
 SubClassOf(sbol:equals sbol:ConstraintRestriction)
 
 # Class: sbol:finishes (finishes)
 
-AnnotationAssertion(rdfs:comment sbol:finishes "Subject starts after object starts; end positions are equal.")
+AnnotationAssertion(rdfs:comment sbol:finishes "The start of the location for subject is after the start of the location for object and the end of the location for subject is equal to the end of the location for object.")
 AnnotationAssertion(rdfs:label sbol:finishes "finishes")
 SubClassOf(sbol:finishes sbol:ConstraintRestriction)
 
 # Class: sbol:inline (inline)
 
+AnnotationAssertion(rdfs:comment sbol:inline "Inline is an attribute of the feature, where the feature is in the 5' to 3' direction.")
 AnnotationAssertion(rdfs:label sbol:inline "inline")
 SubClassOf(sbol:inline sbol:Orientation)
 
 # Class: sbol:isDisjointFrom (isDisjointFrom)
 
-AnnotationAssertion(rdfs:comment sbol:isDisjointFrom "Subject and object do not overlap in space.")
+AnnotationAssertion(rdfs:comment sbol:isDisjointFrom "The subject and object do not overlap in space.")
 AnnotationAssertion(rdfs:label sbol:isDisjointFrom "isDisjointFrom")
 SubClassOf(sbol:isDisjointFrom sbol:ConstraintRestriction)
 
 # Class: sbol:meets (meets)
 
-AnnotationAssertion(rdfs:comment sbol:meets "Subject and object are connected at a shared boundary.")
+AnnotationAssertion(rdfs:comment sbol:meets "The subject and object are connected at a shared boundary.")
 AnnotationAssertion(rdfs:label sbol:meets "meets")
 SubClassOf(sbol:meets sbol:ConstraintRestriction)
 
 # Class: sbol:mergeRoles (mergeRoles)
 
+AnnotationAssertion(rdfs:comment sbol:mergeRoles "Use the union of the two sets: both the set of zero or more role properties given for this SubComponent as well as the set of zero or more role properties given for the included Component.")
 AnnotationAssertion(rdfs:label sbol:mergeRoles "mergeRoles")
 SubClassOf(sbol:mergeRoles sbol:RoleIntegration)
 
 # Class: sbol:one (one)
 
+AnnotationAssertion(rdfs:comment sbol:one "Exactly one Feature in the derived Component SHOULD have a prov:wasDerivedFrom property that refers to the template Feature.")
 AnnotationAssertion(rdfs:label sbol:one "one")
 SubClassOf(sbol:one sbol:Cardinality)
 
 # Class: sbol:oneOrMore (OneOrMore)
 
+AnnotationAssertion(rdfs:comment sbol:oneOrMore "At least one Feature in the derived Component SHOULD have a prov:wasDerivedFrom property that refers to the template Feature.")
 AnnotationAssertion(rdfs:label sbol:oneOrMore "OneOrMore")
 SubClassOf(sbol:oneOrMore sbol:Cardinality)
 
 # Class: sbol:oppositeOrientationAs (oppositeOrientationAs)
 
-AnnotationAssertion(rdfs:comment sbol:oppositeOrientationAs "Subject and object have opposite strand orientations.")
+AnnotationAssertion(rdfs:comment sbol:oppositeOrientationAs "The subject and object Component objects MUST have opposite orientations.")
 AnnotationAssertion(rdfs:label sbol:oppositeOrientationAs "oppositeOrientationAs")
 SubClassOf(sbol:oppositeOrientationAs sbol:OrientationRestriction)
 
 # Class: sbol:overlaps (overlaps)
 
-AnnotationAssertion(rdfs:comment sbol:overlaps "Subject and object overlap but portions of each are outside the other.")
+AnnotationAssertion(rdfs:comment sbol:overlaps "The subject and object overlap in space, but portions of each are outside of the other.")
 AnnotationAssertion(rdfs:label sbol:overlaps "overlaps")
 SubClassOf(sbol:overlaps sbol:ConstraintRestriction)
 
 # Class: sbol:overrideRoles (overrideRoles)
 
+AnnotationAssertion(rdfs:comment sbol:overrideRoles "In the context of this SubComponent, ignore any role given for the included Component. Instead use only the set of zero or more role properties given for this SubComponent.")
 AnnotationAssertion(rdfs:label sbol:overrideRoles "overrideRoles")
 SubClassOf(sbol:overrideRoles sbol:RoleIntegration)
 
 # Class: sbol:precedes (precedes)
 
-AnnotationAssertion(rdfs:comment sbol:precedes "Start of subject location is less than start of object location.")
+AnnotationAssertion(rdfs:comment sbol:precedes "The start of the location for subject is less than the start of the location for object.")
 AnnotationAssertion(rdfs:label sbol:precedes "precedes")
 SubClassOf(sbol:precedes sbol:ConstraintRestriction)
 
 # Class: sbol:replaces (replaces)
 
-AnnotationAssertion(rdfs:comment sbol:replaces "The definition of subject is to replace the definition of object during design resolution.")
+AnnotationAssertion(rdfs:comment sbol:replaces "In the context of the parent object of the Constraint, information about the subject should be used in place of all instances of the object. Example: the J23101 promoter replaces a generic promoter.")
 AnnotationAssertion(rdfs:label sbol:replaces "replaces")
 SubClassOf(sbol:replaces sbol:ConstraintRestriction)
 
 # Class: sbol:reverseComplement (reverseComplement)
 
+AnnotationAssertion(rdfs:comment sbol:reverseComplement "Reverse complement is an attribute of the feature, where the feature is in the 3' to 5' direction.")
 AnnotationAssertion(rdfs:label sbol:reverseComplement "reverseComplement")
 SubClassOf(sbol:reverseComplement sbol:Orientation)
 
 # Class: sbol:sameOrientationAs (sameOrientationAs)
 
-AnnotationAssertion(rdfs:comment sbol:sameOrientationAs "Subject and object have the same strand orientation.")
+AnnotationAssertion(rdfs:comment sbol:sameOrientationAs "The subject and object Component objects MUST have the same orientation. ")
 AnnotationAssertion(rdfs:label sbol:sameOrientationAs "sameOrientationAs")
 SubClassOf(sbol:sameOrientationAs sbol:OrientationRestriction)
 
 # Class: sbol:sample (sample)
 
+AnnotationAssertion(rdfs:comment sbol:sample "Sample is a strategy for deriving new Components from a template Component. The sample strategy specifies that a new Component should be derived for a random sample of the possible combinations of values for the variable specified by the VariableFeature objects in the template Component.")
 AnnotationAssertion(rdfs:label sbol:sample "sample")
 SubClassOf(sbol:sample sbol:CombinatorialDerivationStrategy)
 
 # Class: sbol:starts (starts)
 
-AnnotationAssertion(rdfs:comment sbol:starts "Start positions are equal; subject ends before object ends.")
+AnnotationAssertion(rdfs:comment sbol:starts "The start of the location for subject is equal to the start of the location for object and the end of the location for subject is before the end of the location for object.")
 AnnotationAssertion(rdfs:label sbol:starts "starts")
 SubClassOf(sbol:starts sbol:ConstraintRestriction)
 
 # Class: sbol:strictlyContains (strictlyContains)
 
-AnnotationAssertion(rdfs:comment sbol:strictlyContains "Subject entirely contains object without sharing any boundary.")
+AnnotationAssertion(rdfs:comment sbol:strictlyContains "The subject entirely contains the object: they do not share a boundary.")
 AnnotationAssertion(rdfs:label sbol:strictlyContains "strictlyContains")
 SubClassOf(sbol:strictlyContains sbol:ConstraintRestriction)
 
 # Class: sbol:strictlyPrecedes (strictlyPrecedes)
 
-AnnotationAssertion(rdfs:comment sbol:strictlyPrecedes "End of subject location is less than start of object location.")
+AnnotationAssertion(rdfs:comment sbol:strictlyPrecedes "The end of the location for subject is less than the start of the location for object.")
 AnnotationAssertion(rdfs:label sbol:strictlyPrecedes "strictlyPrecedes")
 SubClassOf(sbol:strictlyPrecedes sbol:ConstraintRestriction)
 
 # Class: sbol:verifyIdentical (verifyIdentical)
 
-AnnotationAssertion(rdfs:comment sbol:verifyIdentical "Subject and object must both be SubComponents with the same instanceOf or ExternallyDefined with the same definition.")
+AnnotationAssertion(rdfs:comment sbol:verifyIdentical "The subject and object, after tracing through any layers of ComponentReference, MUST both refer to SubComponent objects with the same instanceOf value or both refer to ExternallyDefined objects with the same definition. Example: a promoter included via two different subsystems must be the identical.")
 AnnotationAssertion(rdfs:label sbol:verifyIdentical "verifyIdentical")
 SubClassOf(sbol:verifyIdentical sbol:ConstraintRestriction)
 
 # Class: sbol:zeroOrMore (zeroOrMore)
 
+AnnotationAssertion(rdfs:comment sbol:zeroOrMore "Any number of Feature objects in the derived Component MAY have prov:wasDerivedFrom properties that refer to the template Feature.")
 AnnotationAssertion(rdfs:label sbol:zeroOrMore "zeroOrMore")
 SubClassOf(sbol:zeroOrMore sbol:Cardinality)
 
 # Class: sbol:zeroOrOne (zeroOrOne)
 
+AnnotationAssertion(rdfs:comment sbol:zeroOrOne "No more than one Feature in the derived Component SHOULD have a prov:wasDerivedFrom property that refers to the template Feature.")
 AnnotationAssertion(rdfs:label sbol:zeroOrOne "zeroOrOne")
 SubClassOf(sbol:zeroOrOne sbol:Cardinality)
 
 # Class: om:BinaryPrefix (BinaryPrefix)
 
+AnnotationAssertion(rdfs:comment om:BinaryPrefix "The purpose of the om:BinaryPrefix class is to describe standard binary prefixes such as \"kibi\", \"mebi\", \"gibi\", etc.")
 AnnotationAssertion(rdfs:label om:BinaryPrefix "BinaryPrefix")
 SubClassOf(om:BinaryPrefix om:Prefix)
 
 # Class: om:CompoundUnit (CompoundUnit)
 
+AnnotationAssertion(rdfs:comment om:CompoundUnit "om:CompoundUnit is an abstract class that is extended by other classes to describe units of measure that can be represented as combinations of multiple other units of measure.")
 AnnotationAssertion(rdfs:label om:CompoundUnit "CompoundUnit")
 SubClassOf(om:CompoundUnit om:Unit)
 
 # Class: om:Measure (Measure)
 
+AnnotationAssertion(rdfs:comment om:Measure "The purpose of the om:Measure class is to link a numerical value to a om:Unit.")
 AnnotationAssertion(rdfs:label om:Measure "Measure")
 SubClassOf(om:Measure owl:Thing)
 SubClassOf(om:Measure ObjectSomeValuesFrom(om:hasUnit om:Unit))
@@ -1809,6 +2014,7 @@ SubClassOf(om:Measure DataSomeValuesFrom(om:hasNumericalValue xsd:decimal))
 
 # Class: om:Prefix (Prefix)
 
+AnnotationAssertion(rdfs:comment om:Prefix "om:Prefix is an abstract class that is extended by other classes to describe factors that are  commonly represented by standard unit prefixes.")
 AnnotationAssertion(rdfs:label om:Prefix "Prefix")
 SubClassOf(om:Prefix owl:Thing)
 SubClassOf(om:Prefix DataSomeValuesFrom(om:hasFactor xsd:decimal))
@@ -1817,6 +2023,7 @@ SubClassOf(om:Prefix DataSomeValuesFrom(rdfs:label xsd:string))
 
 # Class: om:PrefixedUnit (PrefixedUnit)
 
+AnnotationAssertion(rdfs:comment om:PrefixedUnit "The purpose of the om:PrefixedUnit class is to describe a unit of measure that is the multiplication of another unit of measure and a factor represented by a standard prefix such as \"milli\", \"centi\", \"kilo\", etc.")
 AnnotationAssertion(rdfs:label om:PrefixedUnit "PrefixedUnit")
 SubClassOf(om:PrefixedUnit om:Unit)
 SubClassOf(om:PrefixedUnit ObjectSomeValuesFrom(om:hasPrefix om:Prefix))
@@ -1824,16 +2031,19 @@ SubClassOf(om:PrefixedUnit ObjectSomeValuesFrom(om:hasUnit om:Unit))
 
 # Class: om:SIPrefix (SIPrefix)
 
+AnnotationAssertion(rdfs:comment om:SIPrefix "The purpose of the om:SIPrefix class is to describe standard SI prefixes such as \"milli\", \"centi\", \"kilo\", etc.")
 AnnotationAssertion(rdfs:label om:SIPrefix "SIPrefix")
 SubClassOf(om:SIPrefix om:Prefix)
 
 # Class: om:SingularUnit (SingularUnit)
 
+AnnotationAssertion(rdfs:comment om:SingularUnit "The purpose of the om:SingularUnit class is to describe a unit of measure that is not explicitly represented as a combination of multiple units, but could be equivalent to such a representation.")
 AnnotationAssertion(rdfs:label om:SingularUnit "SingularUnit")
 SubClassOf(om:SingularUnit om:Unit)
 
 # Class: om:Unit (Unit)
 
+AnnotationAssertion(rdfs:comment om:Unit "om:Unit is an abstract class that is extended by other classes to describe units of measure using a shared set of properties.")
 AnnotationAssertion(rdfs:label om:Unit "Unit")
 SubClassOf(om:Unit owl:Thing)
 SubClassOf(om:Unit DataSomeValuesFrom(om:symbol xsd:string))
@@ -1841,6 +2051,7 @@ SubClassOf(om:Unit DataSomeValuesFrom(rdfs:label xsd:string))
 
 # Class: om:UnitDivision (UnitDivision)
 
+AnnotationAssertion(rdfs:comment om:UnitDivision "The purpose of the om:UnitDivision class is to describe a unit of measure that is the division of one unit of measure by another.")
 AnnotationAssertion(rdfs:label om:UnitDivision "UnitDivision")
 SubClassOf(om:UnitDivision om:Unit)
 SubClassOf(om:UnitDivision ObjectSomeValuesFrom(om:hasDenominator om:Unit))
@@ -1848,6 +2059,7 @@ SubClassOf(om:UnitDivision ObjectSomeValuesFrom(om:hasNumerator om:Unit))
 
 # Class: om:UnitExponentiation (UnitExponentiation)
 
+AnnotationAssertion(rdfs:comment om:UnitExponentiation "The purpose of the om:UnitExponentiation class is to describe a unit of measure that is raised to an integer power.")
 AnnotationAssertion(rdfs:label om:UnitExponentiation "UnitExponentiation")
 SubClassOf(om:UnitExponentiation om:Unit)
 SubClassOf(om:UnitExponentiation ObjectSomeValuesFrom(om:hasBase om:Unit))
@@ -1855,41 +2067,46 @@ SubClassOf(om:UnitExponentiation DataSomeValuesFrom(om:hasExponent xsd:integer))
 
 # Class: om:UnitMultiplication (UnitMultiplication)
 
+AnnotationAssertion(rdfs:comment om:UnitMultiplication "The purpose of the om:UnitMultiplication class is to describe a unit of measure that is the multiplication of two other units of measure.")
 AnnotationAssertion(rdfs:label om:UnitMultiplication "UnitMultiplication")
 SubClassOf(om:UnitMultiplication om:Unit)
 SubClassOf(om:UnitMultiplication ObjectSomeValuesFrom(om:hasTerm1 om:Unit))
 SubClassOf(om:UnitMultiplication ObjectSomeValuesFrom(om:hasTerm2 om:Unit))
 
-# Class: identifiers:CHEBI:35224 (Effector)
+# Class: identifiers:CHEBI:35224 (effector)
 
-AnnotationAssertion(rdfs:label identifiers:CHEBI:35224 "Effector")
+AnnotationAssertion(rdfs:comment identifiers:CHEBI:35224 "A small molecule which increases (activator) or decreases (inhibitor) the activity of an (allosteric) enzyme by binding to the enzyme at the regulatory site (which is different from the substrate-binding catalytic site).")
+AnnotationAssertion(rdfs:label identifiers:CHEBI:35224 "effector")
 SubClassOf(identifiers:CHEBI:35224 identifiers:CHEBI:50906)
 
-# Class: identifiers:CHEBI:50906 (Material Entity)
+# Class: identifiers:CHEBI:50906 (material entity role)
 
-AnnotationAssertion(rdfs:label identifiers:CHEBI:50906 "Material Entity")
+AnnotationAssertion(rdfs:comment identifiers:CHEBI:50906 "A role is particular behaviour which a material entity may exhibit.")
+AnnotationAssertion(rdfs:label identifiers:CHEBI:50906 "material entity role")
 SubClassOf(identifiers:CHEBI:50906 owl:Thing)
 
-# Class: identifiers:GO:0003674 (Molecular Function)
+# Class: identifiers:GO:0003674 (molecular_function)
 
-AnnotationAssertion(rdfs:label identifiers:GO:0003674 "Molecular Function")
+AnnotationAssertion(rdfs:comment identifiers:GO:0003674 "A molecular process that can be carried out by the action of a single macromolecular machine, usually via direct physical interactions with other molecular entities. Function in this sense denotes an action, or activity, that a gene product (or a complex) performs.")
+AnnotationAssertion(rdfs:label identifiers:GO:0003674 "molecular_function")
 SubClassOf(identifiers:GO:0003674 owl:Thing)
 
-# Class: identifiers:GO:0003700 (Transcription Factor)
+# Class: identifiers:GO:0003700 (DNA-binding transcription factor activity)
 
-AnnotationAssertion(rdfs:label identifiers:GO:0003700 "Transcription Factor")
+AnnotationAssertion(rdfs:comment identifiers:GO:0003700 "A transcription regulator activity that modulates transcription of gene sets via selective and non-covalent binding to a specific double-stranded genomic DNA sequence (sometimes referred to as a motif) within a cis-regulatory region. Regulatory regions include promoters (proximal and distal) and enhancers. Genes are transcriptional units, and include bacterial operons.")
+AnnotationAssertion(rdfs:label identifiers:GO:0003700 "DNA-binding transcription factor activity")
 SubClassOf(identifiers:GO:0003700 identifiers:GO:0003674)
 
-# Class: identifiers:SBO:0000000 (Systems Biology Representation)
+# Class: identifiers:SBO:0000000 (systems biology representation)
 
-AnnotationAssertion(rdfs:comment identifiers:SBO:0000000 "Root term for Systems Biology Ontology representing all mathematical or logical terms used in systems biology.")
-AnnotationAssertion(rdfs:label identifiers:SBO:0000000 "Systems Biology Representation")
+AnnotationAssertion(rdfs:comment identifiers:SBO:0000000 "Representation of an entity used in a systems biology knowledge reconstruction, such as a model, pathway, network.")
+AnnotationAssertion(rdfs:label identifiers:SBO:0000000 "systems biology representation")
 SubClassOf(identifiers:SBO:0000000 owl:Thing)
 
-# Class: identifiers:SBO:0000003 (Participant Role)
+# Class: identifiers:SBO:0000003 (participant role)
 
-AnnotationAssertion(rdfs:comment identifiers:SBO:0000003 "The function of a physical entity or process (participant) in a process or event.")
-AnnotationAssertion(rdfs:label identifiers:SBO:0000003 "Participant Role")
+AnnotationAssertion(rdfs:comment identifiers:SBO:0000003 "The function of a physical or conceptual entity, that is its role, in the execution of an event or process.")
+AnnotationAssertion(rdfs:label identifiers:SBO:0000003 "participant role")
 SubClassOf(identifiers:SBO:0000003 identifiers:SBO:0000000)
 
 # Class: identifiers:SBO:0000004 (modelling framework)
@@ -1898,349 +2115,370 @@ AnnotationAssertion(rdfs:comment identifiers:SBO:0000004 "Set of assumptions tha
 AnnotationAssertion(rdfs:label identifiers:SBO:0000004 "modelling framework")
 SubClassOf(identifiers:SBO:0000004 identifiers:SBO:0000000)
 
-# Class: identifiers:SBO:0000010 (Reactant)
+# Class: identifiers:SBO:0000010 (reactant)
 
-AnnotationAssertion(rdfs:label identifiers:SBO:0000010 "Reactant")
+AnnotationAssertion(rdfs:comment identifiers:SBO:0000010 "Substance consumed by a chemical reaction. Reactants react with each other to form the products of a chemical reaction. In a chemical equation the Reactants are the elements or compounds on the left hand side of the reaction equation. A reactant can be consumed and produced by the same reaction, its global quantity remaining unchanged.")
+AnnotationAssertion(rdfs:label identifiers:SBO:0000010 "reactant")
 SubClassOf(identifiers:SBO:0000010 identifiers:SBO:0000003)
 
-# Class: identifiers:SBO:0000011 (Product)
+# Class: identifiers:SBO:0000011 (product)
 
-AnnotationAssertion(rdfs:label identifiers:SBO:0000011 "Product")
+AnnotationAssertion(rdfs:comment identifiers:SBO:0000011 "Substance that is produced in a reaction. In a chemical equation the Products are the elements or compounds on the right hand side of the reaction equation. A product can be produced and consumed by the same reaction, its global quantity remaining unchanged.")
+AnnotationAssertion(rdfs:label identifiers:SBO:0000011 "product")
 SubClassOf(identifiers:SBO:0000011 identifiers:SBO:0000003)
 
-# Class: identifiers:SBO:0000019 (Modifier)
+# Class: identifiers:SBO:0000019 (modifier)
 
-AnnotationAssertion(rdfs:comment identifiers:SBO:0000019 "Entity that changes the velocity of a process without being consumed or transformed.")
-AnnotationAssertion(rdfs:label identifiers:SBO:0000019 "Modifier")
+AnnotationAssertion(rdfs:comment identifiers:SBO:0000019 "Substance that changes the velocity of a process without itself being consumed or transformed by the reaction.")
+AnnotationAssertion(rdfs:label identifiers:SBO:0000019 "modifier")
 SubClassOf(identifiers:SBO:0000019 identifiers:SBO:0000003)
 
-# Class: identifiers:SBO:0000020 (Inhibitor)
+# Class: identifiers:SBO:0000020 (inhibitor)
 
-AnnotationAssertion(rdfs:comment identifiers:SBO:0000020 "Substance that decreases the probability of a chemical reaction without being consumed or transformed.")
-AnnotationAssertion(rdfs:label identifiers:SBO:0000020 "Inhibitor")
+AnnotationAssertion(rdfs:comment identifiers:SBO:0000020 "Substance that decreases the probability of a chemical reaction without itself being consumed or transformed by the reaction.")
+AnnotationAssertion(rdfs:label identifiers:SBO:0000020 "inhibitor")
 SubClassOf(identifiers:SBO:0000020 identifiers:SBO:0000019)
 
-# Class: identifiers:SBO:0000062 (continuous)
+# Class: identifiers:SBO:0000062 (continuous framework)
 
-AnnotationAssertion(rdfs:label identifiers:SBO:0000062 "continuous")
+AnnotationAssertion(rdfs:comment identifiers:SBO:0000062 "Modelling approach where the quantities of participants are considered continuous, and represented by real values. The associated simulation methods make use of differential equations.")
+AnnotationAssertion(rdfs:label identifiers:SBO:0000062 "continuous framework")
 SubClassOf(identifiers:SBO:0000062 identifiers:SBO:0000004)
 
-# Class: identifiers:SBO:0000063 (discrete)
+# Class: identifiers:SBO:0000063 (discrete framework)
 
-AnnotationAssertion(rdfs:label identifiers:SBO:0000063 "discrete")
+AnnotationAssertion(rdfs:comment identifiers:SBO:0000063 "Modelling approach where the quantities of participants are considered discrete, and represented by integer values. The associated simulation methods can be deterministic or stochastic.")
+AnnotationAssertion(rdfs:label identifiers:SBO:0000063 "discrete framework")
 SubClassOf(identifiers:SBO:0000063 identifiers:SBO:0000004)
 
-# Class: identifiers:SBO:0000167 (Biochemical or Transport Reaction)
+# Class: identifiers:SBO:0000167 (biochemical or transport reaction)
 
 AnnotationAssertion(rdfs:comment identifiers:SBO:0000167 "An event involving physical entities that results in modification of structure, location, or free energy.")
-AnnotationAssertion(rdfs:label identifiers:SBO:0000167 "Biochemical or Transport Reaction")
+AnnotationAssertion(rdfs:label identifiers:SBO:0000167 "biochemical or transport reaction")
 SubClassOf(identifiers:SBO:0000167 identifiers:SBO:0000231)
 
-# Class: identifiers:SBO:0000168 (Control)
+# Class: identifiers:SBO:0000168 (control)
 
-AnnotationAssertion(rdfs:comment identifiers:SBO:0000168 "Modulation of activity. Modification of the execution of an event or process. Also known as regulation.")
-AnnotationAssertion(rdfs:label identifiers:SBO:0000168 "Control")
+AnnotationAssertion(rdfs:comment identifiers:SBO:0000168 "Synonym: regulation")
+AnnotationAssertion(rdfs:label identifiers:SBO:0000168 "control")
 SubClassOf(identifiers:SBO:0000168 identifiers:SBO:0000231)
 
-# Class: identifiers:SBO:0000169 (Inhibition)
+# Class: identifiers:SBO:0000169 (inhibition)
 
-AnnotationAssertion(rdfs:comment identifiers:SBO:0000169 "Negative modulation of activity; decreasing the rate or probability of an event.")
-AnnotationAssertion(rdfs:label identifiers:SBO:0000169 "Inhibition")
+AnnotationAssertion(rdfs:comment identifiers:SBO:0000169 "Negative modulation of the execution of a process.")
+AnnotationAssertion(rdfs:label identifiers:SBO:0000169 "inhibition")
 SubClassOf(identifiers:SBO:0000169 identifiers:SBO:0000168)
 
-# Class: identifiers:SBO:0000170 (Stimulation)
+# Class: identifiers:SBO:0000170 (stimulation)
 
-AnnotationAssertion(rdfs:comment identifiers:SBO:0000170 "Positive modulation of activity; increasing the rate or probability of an event.")
-AnnotationAssertion(rdfs:label identifiers:SBO:0000170 "Stimulation")
+AnnotationAssertion(rdfs:comment identifiers:SBO:0000170 "Positive modulation of the execution of a process.")
+AnnotationAssertion(rdfs:label identifiers:SBO:0000170 "stimulation")
 SubClassOf(identifiers:SBO:0000170 identifiers:SBO:0000168)
 
-# Class: identifiers:SBO:0000176 (Biochemical Reaction)
+# Class: identifiers:SBO:0000176 (biochemical reaction)
 
-AnnotationAssertion(rdfs:comment identifiers:SBO:0000176 "An event involving one or more chemical entities that alters their electrochemical structure.")
-AnnotationAssertion(rdfs:label identifiers:SBO:0000176 "Biochemical Reaction")
+AnnotationAssertion(rdfs:comment identifiers:SBO:0000176 "An event involving one or more chemical entities that modifies the electrochemical structure of at least one of the participants.")
+AnnotationAssertion(rdfs:label identifiers:SBO:0000176 "biochemical reaction")
 SubClassOf(identifiers:SBO:0000176 identifiers:SBO:0000167)
 
-# Class: identifiers:SBO:0000177 (Non-covalent Binding)
+# Class: identifiers:SBO:0000177 (non-covalent binding)
 
-AnnotationAssertion(rdfs:comment identifiers:SBO:0000177 "Association without covalent bonds. Biochemical reaction where a molecular complex breaks into smaller components.")
-AnnotationAssertion(rdfs:label identifiers:SBO:0000177 "Non-covalent Binding")
+AnnotationAssertion(rdfs:comment identifiers:SBO:0000177 "Synonym: association")
+AnnotationAssertion(rdfs:label identifiers:SBO:0000177 "non-covalent binding")
 SubClassOf(identifiers:SBO:0000177 identifiers:SBO:0000176)
 
-# Class: identifiers:SBO:0000179 (Degradation)
+# Class: identifiers:SBO:0000179 (degradation)
 
-AnnotationAssertion(rdfs:comment identifiers:SBO:0000179 "Breakdown of a molecule, usually into simpler components.")
-AnnotationAssertion(rdfs:label identifiers:SBO:0000179 "Degradation")
+AnnotationAssertion(rdfs:comment identifiers:SBO:0000179 "Complete disappearance of a physical entity.")
+AnnotationAssertion(rdfs:label identifiers:SBO:0000179 "degradation")
 SubClassOf(identifiers:SBO:0000179 identifiers:SBO:0000176)
 
-# Class: identifiers:SBO:0000231 (Occurring Entity Representation)
+# Class: identifiers:SBO:0000231 (occurring entity representation)
 
-AnnotationAssertion(rdfs:comment identifiers:SBO:0000231 "Representation of an entity that develops or occurs over time, such as events, interactions, or reactions.")
-AnnotationAssertion(rdfs:label identifiers:SBO:0000231 "Occurring Entity Representation")
+AnnotationAssertion(rdfs:comment identifiers:SBO:0000231 "Representation of an entity that manifests, unfolds or develops through time, such as a discrete event, or a mutual or reciprocal action or influence that happens between participating physical entities, and/or other occurring entities.")
+AnnotationAssertion(rdfs:label identifiers:SBO:0000231 "occurring entity representation")
 SubClassOf(identifiers:SBO:0000231 identifiers:SBO:0000000)
 
-# Class: identifiers:SBO:0000234 (logical)
+# Class: identifiers:SBO:0000234 (logical framework)
 
-AnnotationAssertion(rdfs:label identifiers:SBO:0000234 "logical")
+AnnotationAssertion(rdfs:comment identifiers:SBO:0000234 "Modelling approach, pioneered by Rene Thomas and Stuart Kaufman, where the evolution of a system is described by the transitions between discrete activity states of 'genes' that control each other.")
+AnnotationAssertion(rdfs:label identifiers:SBO:0000234 "logical framework")
 SubClassOf(identifiers:SBO:0000234 identifiers:SBO:0000004)
 
-# Class: identifiers:SBO:0000236 (Physical Entity Representation)
+# Class: identifiers:SBO:0000236 (physical entity representation)
 
-AnnotationAssertion(rdfs:comment identifiers:SBO:0000236 "A material entity such as a molecule, complex, or cell. Representation of a discrete portion of matter that has mass and occupies space.")
-AnnotationAssertion(rdfs:label identifiers:SBO:0000236 "Physical Entity Representation")
+AnnotationAssertion(rdfs:comment identifiers:SBO:0000236 "Synonym: new synonym")
+AnnotationAssertion(rdfs:label identifiers:SBO:0000236 "physical entity representation")
 SubClassOf(identifiers:SBO:0000236 identifiers:SBO:0000000)
 
-# Class: identifiers:SBO:0000241 (Functional Entity)
+# Class: identifiers:SBO:0000241 (functional entity)
 
-AnnotationAssertion(rdfs:comment identifiers:SBO:0000241 "An abstract entity with function but no physical form")
-AnnotationAssertion(rdfs:label identifiers:SBO:0000241 "Functional Entity")
+AnnotationAssertion(rdfs:comment identifiers:SBO:0000241 "A real thing, defined by its properties or the actions it performs, rather than it physico-chemical structure.")
+AnnotationAssertion(rdfs:label identifiers:SBO:0000241 "functional entity")
 SubClassOf(identifiers:SBO:0000241 identifiers:SBO:0000236)
 
-# Class: identifiers:SBO:0000247 (Simple Chemical)
+# Class: identifiers:SBO:0000247 (simple chemical)
 
-AnnotationAssertion(rdfs:comment identifiers:SBO:0000247 "A small molecule or ion. A small molecule without specific type classification.")
-AnnotationAssertion(rdfs:label identifiers:SBO:0000247 "Simple Chemical")
+AnnotationAssertion(rdfs:comment identifiers:SBO:0000247 "Simple, non-repetitive chemical entity.")
+AnnotationAssertion(rdfs:label identifiers:SBO:0000247 "simple chemical")
 SubClassOf(identifiers:SBO:0000247 identifiers:SBO:0000236)
 
-# Class: identifiers:SBO:0000250 (RNA)
+# Class: identifiers:SBO:0000250 (ribonucleic acid)
 
-AnnotationAssertion(rdfs:comment identifiers:SBO:0000250 "RNA molecule, a polymer consisting of ribonucleotide monomers.")
-AnnotationAssertion(rdfs:label identifiers:SBO:0000250 "RNA")
+AnnotationAssertion(rdfs:comment identifiers:SBO:0000250 "Synonym: RNA")
+AnnotationAssertion(rdfs:label identifiers:SBO:0000250 "ribonucleic acid")
 SubClassOf(identifiers:SBO:0000250 identifiers:SBO:0000236)
 
-# Class: identifiers:SBO:0000251 (DNA)
+# Class: identifiers:SBO:0000251 (deoxyribonucleic acid)
 
-AnnotationAssertion(rdfs:comment identifiers:SBO:0000251 "DNA molecule, a polymer consisting of deoxyribonucleotide monomers.")
-AnnotationAssertion(rdfs:label identifiers:SBO:0000251 "DNA")
+AnnotationAssertion(rdfs:comment identifiers:SBO:0000251 "Synonym: DNA")
+AnnotationAssertion(rdfs:label identifiers:SBO:0000251 "deoxyribonucleic acid")
 SubClassOf(identifiers:SBO:0000251 identifiers:SBO:0000236)
 
-# Class: identifiers:SBO:0000252 (Protein)
+# Class: identifiers:SBO:0000252 (polypeptide chain)
 
-AnnotationAssertion(rdfs:comment identifiers:SBO:0000252 "Protein or polypeptide. A polymer consisting of amino acid monomers linked by peptide bonds.")
-AnnotationAssertion(rdfs:label identifiers:SBO:0000252 "Protein")
+AnnotationAssertion(rdfs:comment identifiers:SBO:0000252 "Naturally occurring macromolecule formed by the repetition of amino-acid residues linked by peptidic bonds. A polypeptide chain is synthesized by the ribosome.")
+AnnotationAssertion(rdfs:label identifiers:SBO:0000252 "polypeptide chain")
 SubClassOf(identifiers:SBO:0000252 identifiers:SBO:0000236)
 
-# Class: identifiers:SBO:0000253 (Non-covalent Complex)
+# Class: identifiers:SBO:0000253 (non-covalent complex)
 
-AnnotationAssertion(rdfs:comment identifiers:SBO:0000253 "Entity composed of non-covalently bound components. Entity composed of multiple components bound together through non-covalent interactions.")
-AnnotationAssertion(rdfs:label identifiers:SBO:0000253 "Non-covalent Complex")
+AnnotationAssertion(rdfs:comment identifiers:SBO:0000253 "Entity composed of several independant components that are not linked by covalent bonds.")
+AnnotationAssertion(rdfs:label identifiers:SBO:0000253 "non-covalent complex")
 SubClassOf(identifiers:SBO:0000253 identifiers:SBO:0000236)
 
-# Class: identifiers:SBO:0000289 (Functional Compartment)
+# Class: identifiers:SBO:0000289 (functional compartment)
 
-AnnotationAssertion(rdfs:comment identifiers:SBO:0000289 "An abstract entity with function but no physical form. A logical or physical subdivision of an event space containing pools of participants considered identical for the events.")
-AnnotationAssertion(rdfs:label identifiers:SBO:0000289 "Functional Compartment")
+AnnotationAssertion(rdfs:comment identifiers:SBO:0000289 "Logical or physical subset of the event space that contains pools, that is sets of participants considered identical when it comes to the event they are involved into. A compartment can have any number of dimensions, including 0, and be of any size including null.")
+AnnotationAssertion(rdfs:label identifiers:SBO:0000289 "functional compartment")
 SubClassOf(identifiers:SBO:0000289 identifiers:SBO:0000003)
 
-# Class: identifiers:SBO:0000459 (Stimulator)
+# Class: identifiers:SBO:0000459 (stimulator)
 
-AnnotationAssertion(rdfs:comment identifiers:SBO:0000459 "Substance that increases the probability of a chemical reaction without being consumed or transformed.")
-AnnotationAssertion(rdfs:label identifiers:SBO:0000459 "Stimulator")
+AnnotationAssertion(rdfs:comment identifiers:SBO:0000459 "Synonym: activator")
+AnnotationAssertion(rdfs:label identifiers:SBO:0000459 "stimulator")
 SubClassOf(identifiers:SBO:0000459 identifiers:SBO:0000019)
 
-# Class: identifiers:SBO:0000589 (Genetic Production)
+# Class: identifiers:SBO:0000589 (genetic production)
 
-AnnotationAssertion(rdfs:comment identifiers:SBO:0000589 "Production of a gene product. Composite biochemical process through which a gene sequence is converted into mature gene products.")
-AnnotationAssertion(rdfs:label identifiers:SBO:0000589 "Genetic Production")
+AnnotationAssertion(rdfs:comment identifiers:SBO:0000589 "A composite biochemical process through which a gene sequence is fully converted into mature gene products. These gene products may include RNA species as well as proteins, and the process encompasses all intermediate steps required to generate the active form of the gene product.")
+AnnotationAssertion(rdfs:label identifiers:SBO:0000589 "genetic production")
 SubClassOf(identifiers:SBO:0000589 identifiers:SBO:0000231)
 
-# Class: identifiers:SBO:0000598 (Promoter)
+# Class: identifiers:SBO:0000598 (promoter)
 
-AnnotationAssertion(rdfs:label identifiers:SBO:0000598 "Promoter")
+AnnotationAssertion(rdfs:comment identifiers:SBO:0000598 "A region of DNA to which various transcription factors and RNA polymerase must bind in order to initiate transcription for a gene.")
+AnnotationAssertion(rdfs:label identifiers:SBO:0000598 "promoter")
 SubClassOf(identifiers:SBO:0000598 identifiers:SBO:0000003)
 
-# Class: identifiers:SBO:0000642 (Inhibited)
+# Class: identifiers:SBO:0000642 (inhibited)
 
-AnnotationAssertion(rdfs:comment identifiers:SBO:0000642 "Entity that is inhibited. Conceptual or material entity that is the object of an inhibition process, acted upon by an inhibitor.")
-AnnotationAssertion(rdfs:label identifiers:SBO:0000642 "Inhibited")
+AnnotationAssertion(rdfs:comment identifiers:SBO:0000642 "Conceptual or material entity that is the object of an inhibition process, and is acted upon by an inhibitor.")
+AnnotationAssertion(rdfs:label identifiers:SBO:0000642 "inhibited")
 SubClassOf(identifiers:SBO:0000642 identifiers:SBO:0000003)
 
-# Class: identifiers:SBO:0000643 (Stimulated)
+# Class: identifiers:SBO:0000643 (stimulated)
 
-AnnotationAssertion(rdfs:comment identifiers:SBO:0000643 "Entity that is stimulated. Conceptual or material entity that is the object of a stimulation process, acted upon by a stimulator.")
-AnnotationAssertion(rdfs:label identifiers:SBO:0000643 "Stimulated")
+AnnotationAssertion(rdfs:comment identifiers:SBO:0000643 "Conceptual or material entity that is the object of a stimulation process, and is acted upon by a stimulator.")
+AnnotationAssertion(rdfs:label identifiers:SBO:0000643 "stimulated")
 SubClassOf(identifiers:SBO:0000643 identifiers:SBO:0000003)
 
-# Class: identifiers:SBO:0000644 (Modified)
+# Class: identifiers:SBO:0000644 (modified)
 
-AnnotationAssertion(rdfs:comment identifiers:SBO:0000644 "Entity that has been modified. Conceptual or material entity that is the object of a modification process, acted upon by a modifier.")
-AnnotationAssertion(rdfs:label identifiers:SBO:0000644 "Modified")
+AnnotationAssertion(rdfs:comment identifiers:SBO:0000644 "Conceptual or material entity that is the object of a modification process, and is acted upon by a modifier.")
+AnnotationAssertion(rdfs:label identifiers:SBO:0000644 "modified")
 SubClassOf(identifiers:SBO:0000644 identifiers:SBO:0000003)
 
-# Class: identifiers:SBO:0000645 (Template)
+# Class: identifiers:SBO:0000645 (template)
 
-AnnotationAssertion(rdfs:comment identifiers:SBO:0000645 "Entity that acts as the template or starting material for genetic production.")
-AnnotationAssertion(rdfs:label identifiers:SBO:0000645 "Template")
+AnnotationAssertion(rdfs:comment identifiers:SBO:0000645 "An entity that acts as the starting material for genetic production (http://identifiers.org/biomodels.sbo/SBO:0000589).")
+AnnotationAssertion(rdfs:label identifiers:SBO:0000645 "template")
 SubClassOf(identifiers:SBO:0000645 identifiers:SBO:0000003)
 
-# Class: identifiers:SBO:0000681 (hybrid)
+# Class: identifiers:SBO:0000681 (hybrid framework)
 
-AnnotationAssertion(rdfs:label identifiers:SBO:0000681 "hybrid")
+AnnotationAssertion(rdfs:comment identifiers:SBO:0000681 "Modeling approach which combines multiple canonical modeling frameworks. For example, a hybrid model could consider both continuous (represented by real values) and discrete (represented by integers) participants. Hybrid models are executed with hybrid simulation algorithms. For example, a hybrid continuous-discrete model may be simulation using a combination of stochastic simulation and ordinary differential equations.")
+AnnotationAssertion(rdfs:label identifiers:SBO:0000681 "hybrid framework")
 SubClassOf(identifiers:SBO:0000681 identifiers:SBO:0000004)
 
-# Class: identifiers:SBO:0000693 (constraint-based)
+# Class: identifiers:SBO:0000693 (constraint-based framework)
 
-AnnotationAssertion(rdfs:label identifiers:SBO:0000693 "constraint-based")
+AnnotationAssertion(rdfs:comment identifiers:SBO:0000693 "Modelling approach which captures bounds on the possible behavior of a system, which may be further reduced using an objective function.")
+AnnotationAssertion(rdfs:label identifiers:SBO:0000693 "constraint-based framework")
 SubClassOf(identifiers:SBO:0000693 identifiers:SBO:0000004)
 
-# Class: identifiers:SO:0000057 (Operator)
+# Class: identifiers:SO:0000057 (operator)
 
-AnnotationAssertion(rdfs:comment identifiers:SO:0000057 "A regulatory element controlling gene expression. A DNA regulatory element where a repressor binds to control gene expression.")
-AnnotationAssertion(rdfs:label identifiers:SO:0000057 "Operator")
+AnnotationAssertion(rdfs:comment identifiers:SO:0000057 "Moved to transcriptional_cis_regulatory_region (SO:0001055) from gene_group_regulatory_region (SO:0000752) on 11 Feb 2021 when SO:0000752 was merged into SO:0001055. See GitHub Issue #529. A regulatory element of an operon to which activators or repressors bind thereby effecting translation of genes in that operon.")
+AnnotationAssertion(rdfs:label identifiers:SO:0000057 "operator")
 SubClassOf(identifiers:SO:0000057 identifiers:SO:0000110)
 
-# Class: identifiers:SO:0000110 (Sequence Feature)
+# Class: identifiers:SO:0000110 (sequence_feature)
 
-AnnotationAssertion(rdfs:comment identifiers:SO:0000110 "A general sequence feature")
 AnnotationAssertion(rdfs:comment identifiers:SO:0000110 "Any extent of continuous biological sequence.")
-AnnotationAssertion(rdfs:label identifiers:SO:0000110 "Sequence Feature")
+AnnotationAssertion(rdfs:label identifiers:SO:0000110 "sequence_feature")
 SubClassOf(identifiers:SO:0000110 owl:Thing)
 
-# Class: identifiers:SO:0000139 (Ribosome Binding Site)
+# Class: identifiers:SO:0000139 (ribosome_entry_site)
 
-AnnotationAssertion(rdfs:comment identifiers:SO:0000139 "Region of mRNA where the ribosome assembles to begin translation. A sequence where ribosomes bind to initiate translation.")
-AnnotationAssertion(rdfs:label identifiers:SO:0000139 "Ribosome Binding Site")
+AnnotationAssertion(rdfs:comment identifiers:SO:0000139 "Region in mRNA where ribosome assembles.")
+AnnotationAssertion(rdfs:label identifiers:SO:0000139 "ribosome_entry_site")
 SubClassOf(identifiers:SO:0000139 identifiers:SO:0000110)
 
-# Class: identifiers:SO:0000141 (Terminator)
+# Class: identifiers:SO:0000141 (terminator)
 
-AnnotationAssertion(rdfs:comment identifiers:SO:0000141 "Sequence that terminates transcription. A sequence signaling the end of transcription.")
-AnnotationAssertion(rdfs:label identifiers:SO:0000141 "Terminator")
+AnnotationAssertion(rdfs:comment identifiers:SO:0000141 "Moved from transcription_regulatory_region (SO:0001679) to transcriptional_cis_regulatory_region (SO:0001055) by Dave Sant on Feb 11, 2021 when transcription_regulatory_region was merged into transcriptional_cis_regulatory_region to be consistent with GO and reduce redundancy as part of the GREEKC consortium. See GitHub Issue #527. The sequence of DNA located either at the end of the transcript that causes RNA polymerase to terminate transcription.")
+AnnotationAssertion(rdfs:label identifiers:SO:0000141 "terminator")
 SubClassOf(identifiers:SO:0000141 identifiers:SO:0000110)
 
-# Class: identifiers:SO:0000167 (Promoter)
+# Class: identifiers:SO:0000167 (promoter)
 
-AnnotationAssertion(rdfs:comment identifiers:SO:0000167 "A regulatory region that initiates transcription. A regulatory region where transcription is initiated.")
-AnnotationAssertion(rdfs:label identifiers:SO:0000167 "Promoter")
+AnnotationAssertion(rdfs:comment identifiers:SO:0000167 "This term is mapped to MGED. Do not obsolete without consulting MGED ontology. The region on a DNA molecule involved in RNA polymerase binding to initiate transcription. Moved from is_a: SO:0001055 transcriptional_cis_regulatory_region as per request from GREEKC initiative in August 2020. Merged with RNA_polymerase_promoter (SO:0001203) Aug 2020. Moved up one level from is_a CRM (SO:0000727) to is_a transcriptional_cis_regulatory_region (SO:0001055) as part of the GREEKC work January 2021. Pascale Gaudet from Gene Ontology pointed out that CRM can be located upstream of the promoter and therefore cannot include the promoter. A regulatory_region composed of the TSS(s) and binding sites for TF_complexes of the core transcription machinery. A region (DNA) to which RNA polymerase binds, to begin transcription.")
+AnnotationAssertion(rdfs:label identifiers:SO:0000167 "promoter")
 SubClassOf(identifiers:SO:0000167 identifiers:SO:0000110)
 
 # Class: identifiers:SO:0000234 (mRNA)
 
+AnnotationAssertion(rdfs:comment identifiers:SO:0000234 "An mRNA does not contain introns as it is a processed_transcript. The equivalent kind of primary_transcript is protein_coding_primary_transcript (SO:0000120) which may contain introns. This term is mapped to MGED. Do not obsolete without consulting MGED ontology. Messenger RNA is the intermediate molecule between DNA and protein. It includes UTR and coding sequences. It does not contain introns.")
 AnnotationAssertion(rdfs:label identifiers:SO:0000234 "mRNA")
 SubClassOf(identifiers:SO:0000234 identifiers:SO:0000110)
 
-# Class: identifiers:SO:0000316 (Coding Sequence)
+# Class: identifiers:SO:0000316 (CDS)
 
-AnnotationAssertion(rdfs:comment identifiers:SO:0000316 "Coding DNA Sequence - region that can be translated into protein. Coding sequence; DNA region that codes for protein.")
-AnnotationAssertion(rdfs:label identifiers:SO:0000316 "Coding Sequence")
+AnnotationAssertion(rdfs:comment identifiers:SO:0000316 "A contiguous sequence which begins with, and includes, a start codon and ends with, and includes, a stop codon.")
+AnnotationAssertion(rdfs:label identifiers:SO:0000316 "CDS")
 SubClassOf(identifiers:SO:0000316 identifiers:SO:0000110)
 
-# Class: identifiers:SO:0000400 (Nucleic Acid Topology)
+# Class: identifiers:SO:0000400 (sequence_attribute)
 
 AnnotationAssertion(rdfs:comment identifiers:SO:0000400 "An attribute describes a quality of sequence.")
-AnnotationAssertion(rdfs:comment identifiers:SO:0000400 "An attribute describing a sequence")
-AnnotationAssertion(rdfs:label identifiers:SO:0000400 "Nucleic Acid Topology")
+AnnotationAssertion(rdfs:label identifiers:SO:0000400 "sequence_attribute")
 SubClassOf(identifiers:SO:0000400 owl:Thing)
 
-# Class: identifiers:SO:0000704 (Gene)
+# Class: identifiers:SO:0000704 (gene)
 
-AnnotationAssertion(rdfs:comment identifiers:SO:0000704 "A region of genomic sequence encoding a gene product. A region of sequence that encodes functional products.")
-AnnotationAssertion(rdfs:label identifiers:SO:0000704 "Gene")
+AnnotationAssertion(rdfs:comment identifiers:SO:0000704 "This term is mapped to MGED. Do not obsolete without consulting MGED ontology. A gene may be considered as a unit of inheritance. A region (or regions) that includes all of the sequence elements necessary to encode a functional transcript. A gene may include regulatory regions, transcribed regions and/or other functional sequence regions.")
+AnnotationAssertion(rdfs:label identifiers:SO:0000704 "gene")
 SubClassOf(identifiers:SO:0000704 identifiers:SO:0000110)
 
-# Class: identifiers:SO:0000804 (Engineered Region)
+# Class: identifiers:SO:0000804 (engineered_region)
 
-AnnotationAssertion(rdfs:comment identifiers:SO:0000804 "A region constructed using genetic engineering. A region constructed using genetic engineering techniques.")
-AnnotationAssertion(rdfs:label identifiers:SO:0000804 "Engineered Region")
+AnnotationAssertion(rdfs:comment identifiers:SO:0000804 "A region that is engineered.")
+AnnotationAssertion(rdfs:label identifiers:SO:0000804 "engineered_region")
 SubClassOf(identifiers:SO:0000804 identifiers:SO:0000110)
 
-# Class: identifiers:SO:0000984 (single-stranded)
+# Class: identifiers:SO:0000984 (single)
 
-AnnotationAssertion(rdfs:label identifiers:SO:0000984 "single-stranded")
+AnnotationAssertion(rdfs:comment identifiers:SO:0000984 "Attributes added to describe the different kinds of replicon. SO workshop, September 2006. When a nucleotide polymer has only one strand.")
+AnnotationAssertion(rdfs:label identifiers:SO:0000984 "single")
 SubClassOf(identifiers:SO:0000984 identifiers:SO:0000400)
 
-# Class: identifiers:SO:0000985 (double-stranded)
+# Class: identifiers:SO:0000985 (double)
 
-AnnotationAssertion(rdfs:label identifiers:SO:0000985 "double-stranded")
+AnnotationAssertion(rdfs:comment identifiers:SO:0000985 "Attributes added to describe the different kinds of replicon. SO workshop, September 2006. When a nucleotide polymer has two strands that are reverse-complement to one another and pair together.")
+AnnotationAssertion(rdfs:label identifiers:SO:0000985 "double")
 SubClassOf(identifiers:SO:0000985 identifiers:SO:0000400)
 
 # Class: identifiers:SO:0000987 (linear)
 
+AnnotationAssertion(rdfs:comment identifiers:SO:0000987 "Attributes added to describe the different kinds of replicon. SO workshop, September 2006. A quality of a nucleotide polymer that has a 3'-terminal residue and a 5'-terminal residue.")
 AnnotationAssertion(rdfs:label identifiers:SO:0000987 "linear")
 SubClassOf(identifiers:SO:0000987 identifiers:SO:0000400)
 
 # Class: identifiers:SO:0000988 (circular)
 
+AnnotationAssertion(rdfs:comment identifiers:SO:0000988 "Attributes added to describe the different kinds of replicon. SO workshop, September 2006. A quality of a nucleotide polymer that has no terminal nucleotide residues.")
 AnnotationAssertion(rdfs:label identifiers:SO:0000988 "circular")
 SubClassOf(identifiers:SO:0000988 identifiers:SO:0000400)
 
-# Class: identifiers:SO:0001030 (inline)
+# Class: identifiers:SO:0001030 (forward)
 
-AnnotationAssertion(rdfs:comment identifiers:SO:0001030 "Feature located on the forward strand. Orientation corresponding to the forward strand (5' to 3' left to right in standard representations).")
-AnnotationAssertion(rdfs:label identifiers:SO:0001030 "inline")
+AnnotationAssertion(rdfs:comment identifiers:SO:0001030 "Forward is an attribute of the feature, where the feature is in the 5' to 3' direction.")
+AnnotationAssertion(rdfs:label identifiers:SO:0001030 "forward")
 SubClassOf(identifiers:SO:0001030 identifiers:SO:0000400)
 
-# Class: identifiers:SO:0001031 (reverseComplement)
+# Class: identifiers:SO:0001031 (reverse)
 
-AnnotationAssertion(rdfs:comment identifiers:SO:0001031 "Feature located on the reverse complement strand. Orientation corresponding to the reverse strand (complementary to the forward strand).")
-AnnotationAssertion(rdfs:label identifiers:SO:0001031 "reverseComplement")
+AnnotationAssertion(rdfs:comment identifiers:SO:0001031 "Reverse is an attribute of the feature, where the feature is in the 3' to 5' direction. Again could be applied to primer.")
+AnnotationAssertion(rdfs:label identifiers:SO:0001031 "reverse")
 SubClassOf(identifiers:SO:0001031 identifiers:SO:0000400)
 
 # Class: identifiers:format_1196 (SMILES)
 
+AnnotationAssertion(rdfs:comment identifiers:edam:format_1196 "Chemical structure specified in Simplified Molecular Input Line Entry System (SMILES) line notation.")
 AnnotationAssertion(rdfs:label identifiers:edam:format_1196 "SMILES")
 SubClassOf(identifiers:edam:format_1196 identifiers:edam:format_1915)
 
 # Class: identifiers:format_1197 (InChI)
 
+AnnotationAssertion(rdfs:comment identifiers:edam:format_1197 "Chemical structure specified in IUPAC International Chemical Identifier (InChI) line notation.")
 AnnotationAssertion(rdfs:label identifiers:edam:format_1197 "InChI")
 SubClassOf(identifiers:edam:format_1197 identifiers:edam:format_1915)
 
-# Class: identifiers:format_1207 (IUPAC DNA/RNA)
+# Class: identifiers:format_1207 (nucleotide)
 
-AnnotationAssertion(rdfs:label identifiers:edam:format_1207 "IUPAC DNA/RNA")
+AnnotationAssertion(rdfs:comment identifiers:edam:format_1207 "Alphabet for a nucleotide sequence with possible ambiguity, unknown positions and non-sequence characters.")
+AnnotationAssertion(rdfs:label identifiers:edam:format_1207 "nucleotide")
 SubClassOf(identifiers:edam:format_1207 identifiers:edam:format_1915)
 
-# Class: identifiers:format_1208 (IUPAC Protein)
+# Class: identifiers:format_1208 (protein)
 
-AnnotationAssertion(rdfs:label identifiers:edam:format_1208 "IUPAC Protein")
+AnnotationAssertion(rdfs:comment identifiers:edam:format_1208 "Alphabet for a protein sequence with possible ambiguity, unknown positions and non-sequence characters.")
+AnnotationAssertion(rdfs:label identifiers:edam:format_1208 "protein")
 SubClassOf(identifiers:edam:format_1208 identifiers:edam:format_1915)
 
 # Class: identifiers:format_1915 (Format)
 
+AnnotationAssertion(rdfs:comment identifiers:edam:format_1915 "A defined way or layout of representing and structuring data in a computer file, blob, string, message, or elsewhere.")
 AnnotationAssertion(rdfs:label identifiers:edam:format_1915 "Format")
 SubClassOf(identifiers:edam:format_1915 owl:Thing)
 
 # Class: identifiers:format_2585 (SBML)
 
-AnnotationAssertion(rdfs:comment identifiers:edam:format_2585 "Systems Biology Markup Language (SBML) format.")
+AnnotationAssertion(rdfs:comment identifiers:edam:format_2585 "Systems Biology Markup Language (SBML), the standard XML format for models of biological processes such as for example metabolism, cell signaling, and gene regulation.")
 AnnotationAssertion(rdfs:label identifiers:edam:format_2585 "SBML")
 SubClassOf(identifiers:edam:format_2585 identifiers:edam:format_1915)
 
 # Class: identifiers:format_3156 (BioPAX)
 
-AnnotationAssertion(rdfs:comment identifiers:edam:format_3156 "Biological Pathway Exchange (BioPAX) format.")
+AnnotationAssertion(rdfs:comment identifiers:edam:format_3156 "BioPAX is an exchange format for pathway data, with its data model defined in OWL.")
 AnnotationAssertion(rdfs:label identifiers:edam:format_3156 "BioPAX")
 SubClassOf(identifiers:edam:format_3156 identifiers:edam:format_1915)
 
 # Class: identifiers:format_3240 (CellML)
 
-AnnotationAssertion(rdfs:comment identifiers:edam:format_3240 "CellML model language format.")
+AnnotationAssertion(rdfs:comment identifiers:edam:format_3240 "CellML, the format for mathematical models of biological and other networks.")
 AnnotationAssertion(rdfs:label identifiers:edam:format_3240 "CellML")
 SubClassOf(identifiers:edam:format_3240 identifiers:edam:format_1915)
 
 # Class: prov:Activity (Activity)
 
+AnnotationAssertion(rdfs:comment prov:Activity "An Activity is used to represent the execution of a process or set of processes. An Activity is linked through prov:qualifiedAssociation to one or more Associations, and is linked through prov:used to one or more Entities.")
 AnnotationAssertion(rdfs:label prov:Activity "Activity")
 SubClassOf(prov:Activity owl:Thing)
 
 # Class: prov:Agent (Agent)
 
+AnnotationAssertion(rdfs:comment prov:Agent "An Agent is something that bears some form of responsibility for an Activity taking place, such as a person, organization, or software agent.")
 AnnotationAssertion(rdfs:label prov:Agent "Agent")
 SubClassOf(prov:Agent owl:Thing)
 
 # Class: prov:Association (Association)
 
+AnnotationAssertion(rdfs:comment prov:Association "An Association is used to link an Activity to one or more Agents, and to describe the role of each Agent in the execution of the Activity. An Association is linked through prov:qualifiedAssociation to an Activity, and is linked through prov:agent to one or more Agents.")
 AnnotationAssertion(rdfs:label prov:Association "Association")
 SubClassOf(prov:Association owl:Thing)
 SubClassOf(prov:Association ObjectSomeValuesFrom(prov:agent prov:Agent))
 
 # Class: prov:Plan (Plan)
 
+AnnotationAssertion(rdfs:comment prov:Plan "A Plan is used to describe a set of actions or steps intended to achieve a specific goal or outcome.")
 AnnotationAssertion(rdfs:label prov:Plan "Plan")
 SubClassOf(prov:Plan owl:Thing)
 
 # Class: prov:Usage (Usage)
 
+AnnotationAssertion(rdfs:comment prov:Usage "A Usage is used to describe the involvement of an Entity in an Activity, specifying how the Entity was used during the execution of the Activity.")
 AnnotationAssertion(rdfs:label prov:Usage "Usage")
 SubClassOf(prov:Usage owl:Thing)
 

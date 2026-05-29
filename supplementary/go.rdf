@@ -10,12 +10,14 @@
 
 <owl:Class rdf:about="https://identifiers.org/GO:0003674">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Molecular Function</rdfs:label>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">molecular_function</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A molecular process that can be carried out by the action of a single macromolecular machine, usually via direct physical interactions with other molecular entities. Function in this sense denotes an action, or activity, that a gene product (or a complex) performs.</rdfs:comment>
 </owl:Class>
 
 <owl:Class rdf:about="https://identifiers.org/GO:0003700">
   <rdfs:subClassOf rdf:resource="https://identifiers.org/GO:0003674"/>
-  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Transcription Factor</rdfs:label>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DNA-binding transcription factor activity</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A transcription regulator activity that modulates transcription of gene sets via selective and non-covalent binding to a specific double-stranded genomic DNA sequence (sometimes referred to as a motif) within a cis-regulatory region. Regulatory regions include promoters (proximal and distal) and enhancers. Genes are transcriptional units, and include bacterial operons.</rdfs:comment>
 </owl:Class>
 
 

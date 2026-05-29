@@ -11,44 +11,49 @@
 <owl:Class rdf:about="https://identifiers.org/edam:format_1915">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Format</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A defined way or layout of representing and structuring data in a computer file, blob, string, message, or elsewhere.</rdfs:comment>
 </owl:Class>
 
 <owl:Class rdf:about="https://identifiers.org/edam:format_1207">
   <rdfs:subClassOf rdf:resource="https://identifiers.org/edam:format_1915"/>
-  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">IUPAC DNA/RNA</rdfs:label>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">nucleotide</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Alphabet for a nucleotide sequence with possible ambiguity, unknown positions and non-sequence characters.</rdfs:comment>
 </owl:Class>
 
 <owl:Class rdf:about="https://identifiers.org/edam:format_1208">
   <rdfs:subClassOf rdf:resource="https://identifiers.org/edam:format_1915"/>
-  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">IUPAC Protein</rdfs:label>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">protein</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Alphabet for a protein sequence with possible ambiguity, unknown positions and non-sequence characters.</rdfs:comment>
 </owl:Class>
 
 <owl:Class rdf:about="https://identifiers.org/edam:format_1197">
   <rdfs:subClassOf rdf:resource="https://identifiers.org/edam:format_1915"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">InChI</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Chemical structure specified in IUPAC International Chemical Identifier (InChI) line notation.</rdfs:comment>
 </owl:Class>
 
 <owl:Class rdf:about="https://identifiers.org/edam:format_1196">
   <rdfs:subClassOf rdf:resource="https://identifiers.org/edam:format_1915"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SMILES</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Chemical structure specified in Simplified Molecular Input Line Entry System (SMILES) line notation.</rdfs:comment>
 </owl:Class>
 
 <owl:Class rdf:about="https://identifiers.org/edam:format_2585">
   <rdfs:subClassOf rdf:resource="https://identifiers.org/edam:format_1915"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SBML</rdfs:label>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Systems Biology Markup Language (SBML) format.</rdfs:comment>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Systems Biology Markup Language (SBML), the standard XML format for models of biological processes such as for example metabolism, cell signaling, and gene regulation.</rdfs:comment>
 </owl:Class>
 
 <owl:Class rdf:about="https://identifiers.org/edam:format_3240">
   <rdfs:subClassOf rdf:resource="https://identifiers.org/edam:format_1915"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CellML</rdfs:label>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CellML model language format.</rdfs:comment>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CellML, the format for mathematical models of biological and other networks.</rdfs:comment>
 </owl:Class>
 
 <owl:Class rdf:about="https://identifiers.org/edam:format_3156">
   <rdfs:subClassOf rdf:resource="https://identifiers.org/edam:format_1915"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">BioPAX</rdfs:label>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Biological Pathway Exchange (BioPAX) format.</rdfs:comment>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">BioPAX is an exchange format for pathway data, with its data model defined in OWL.</rdfs:comment>
 </owl:Class>
 
 
