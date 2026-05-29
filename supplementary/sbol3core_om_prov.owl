@@ -229,6 +229,7 @@
     <owl:ObjectProperty rdf:about="http://sbols.org/v3#hasMeasure">
         <rdfs:subPropertyOf rdf:resource="http://sbols.org/v3#directlyComprises"/>
         <rdfs:domain rdf:resource="http://sbols.org/v3#Identified"/>
+        <rdfs:range rdf:resource="http://sbols.org/v3#SBOLMeasure"/>
         <rdfs:range rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
         <rdfs:label>hasMeasure</rdfs:label>
     </owl:ObjectProperty>
@@ -1066,7 +1067,7 @@
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:label>symbol</rdfs:label>
     </owl:DatatypeProperty>
     
@@ -1133,22 +1134,22 @@
                         <owl:someValuesFrom rdf:resource="https://identifiers.org/SBO:0000176"/>
                     </owl:Restriction>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://sbols.org/v3#participant"/>
+                        <owl:onProperty rdf:resource="http://sbols.org/v3#hasParticipation"/>
                         <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
                         <owl:onClass rdf:resource="http://sbols.org/v3#ModifiedParticipation"/>
                     </owl:Restriction>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://sbols.org/v3#participant"/>
+                        <owl:onProperty rdf:resource="http://sbols.org/v3#hasParticipation"/>
                         <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
                         <owl:onClass rdf:resource="http://sbols.org/v3#ModifierParticipation"/>
                     </owl:Restriction>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://sbols.org/v3#participant"/>
+                        <owl:onProperty rdf:resource="http://sbols.org/v3#hasParticipation"/>
                         <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
                         <owl:onClass rdf:resource="http://sbols.org/v3#ProductParticipation"/>
                     </owl:Restriction>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://sbols.org/v3#participant"/>
+                        <owl:onProperty rdf:resource="http://sbols.org/v3#hasParticipation"/>
                         <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
                         <owl:onClass rdf:resource="http://sbols.org/v3#ReactantParticipation"/>
                     </owl:Restriction>
@@ -1283,7 +1284,7 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://sbols.org/v3#inChildOf"/>
-                <owl:someValuesFrom rdf:resource="http://sbols.org/v3#Component"/>
+                <owl:someValuesFrom rdf:resource="http://sbols.org/v3#SubComponent"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -1388,11 +1389,11 @@
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="http://sbols.org/v3#Interaction"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://sbols.org/v3#participant"/>
+                        <owl:onProperty rdf:resource="http://sbols.org/v3#hasParticipation"/>
                         <owl:someValuesFrom rdf:resource="http://sbols.org/v3#ModifiedParticipation"/>
                     </owl:Restriction>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://sbols.org/v3#participant"/>
+                        <owl:onProperty rdf:resource="http://sbols.org/v3#hasParticipation"/>
                         <owl:someValuesFrom rdf:resource="http://sbols.org/v3#ModifierParticipation"/>
                     </owl:Restriction>
                     <owl:Restriction>
@@ -1526,7 +1527,7 @@
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="http://sbols.org/v3#Interaction"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://sbols.org/v3#participant"/>
+                        <owl:onProperty rdf:resource="http://sbols.org/v3#hasParticipation"/>
                         <owl:someValuesFrom rdf:resource="http://sbols.org/v3#ReactantParticipation"/>
                     </owl:Restriction>
                     <owl:Restriction>
@@ -1754,7 +1755,11 @@
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="http://sbols.org/v3#Interaction"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://sbols.org/v3#participant"/>
+                        <owl:onProperty rdf:resource="http://sbols.org/v3#hasParticipation"/>
+                        <owl:someValuesFrom rdf:resource="http://sbols.org/v3#ProductParticipation"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sbols.org/v3#hasParticipation"/>
                         <owl:someValuesFrom rdf:resource="http://sbols.org/v3#TemplateParticipation"/>
                     </owl:Restriction>
                     <owl:Restriction>
@@ -1762,9 +1767,9 @@
                         <owl:someValuesFrom rdf:resource="https://identifiers.org/SBO:0000589"/>
                     </owl:Restriction>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://sbols.org/v3#participant"/>
-                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                        <owl:onClass rdf:resource="http://sbols.org/v3#ProductParticipation"/>
+                        <owl:onProperty rdf:resource="http://sbols.org/v3#hasParticipation"/>
+                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                        <owl:onClass rdf:resource="http://sbols.org/v3#PromoterParticipation"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -1871,11 +1876,11 @@
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="http://sbols.org/v3#Interaction"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://sbols.org/v3#participant"/>
+                        <owl:onProperty rdf:resource="http://sbols.org/v3#hasParticipation"/>
                         <owl:someValuesFrom rdf:resource="http://sbols.org/v3#InhibitedParticipation"/>
                     </owl:Restriction>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://sbols.org/v3#participant"/>
+                        <owl:onProperty rdf:resource="http://sbols.org/v3#hasParticipation"/>
                         <owl:someValuesFrom rdf:resource="http://sbols.org/v3#InhibitorParticipation"/>
                     </owl:Restriction>
                     <owl:Restriction>
@@ -2135,11 +2140,11 @@
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="http://sbols.org/v3#Interaction"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://sbols.org/v3#participant"/>
+                        <owl:onProperty rdf:resource="http://sbols.org/v3#hasParticipation"/>
                         <owl:someValuesFrom rdf:resource="http://sbols.org/v3#ProductParticipation"/>
                     </owl:Restriction>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://sbols.org/v3#participant"/>
+                        <owl:onProperty rdf:resource="http://sbols.org/v3#hasParticipation"/>
                         <owl:someValuesFrom rdf:resource="http://sbols.org/v3#ReactantParticipation"/>
                     </owl:Restriction>
                     <owl:Restriction>
@@ -2990,11 +2995,11 @@
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="http://sbols.org/v3#Interaction"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://sbols.org/v3#participant"/>
+                        <owl:onProperty rdf:resource="http://sbols.org/v3#hasParticipation"/>
                         <owl:someValuesFrom rdf:resource="http://sbols.org/v3#StimulatedParticipation"/>
                     </owl:Restriction>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://sbols.org/v3#participant"/>
+                        <owl:onProperty rdf:resource="http://sbols.org/v3#hasParticipation"/>
                         <owl:someValuesFrom rdf:resource="http://sbols.org/v3#StimulatorParticipation"/>
                     </owl:Restriction>
                     <owl:Restriction>
@@ -3473,7 +3478,7 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/symbol"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -3533,7 +3538,7 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/symbol"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>

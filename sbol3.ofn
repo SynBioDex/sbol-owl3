@@ -436,6 +436,7 @@ ObjectPropertyRange(sbol:hasLocation sbol:Location)
 AnnotationAssertion(rdfs:label sbol:hasMeasure "hasMeasure")
 SubObjectPropertyOf(sbol:hasMeasure sbol:directlyComprises)
 ObjectPropertyDomain(sbol:hasMeasure sbol:Identified)
+ObjectPropertyRange(sbol:hasMeasure sbol:SBOLMeasure)
 ObjectPropertyRange(sbol:hasMeasure om:Measure)
 
 # Object Property: sbol:hasModel (hasModel)
@@ -859,7 +860,7 @@ DataPropertyRange(om:longComment xsd:string)
 AnnotationAssertion(rdfs:label om:symbol "symbol")
 FunctionalDataProperty(om:symbol)
 DataPropertyDomain(om:symbol ObjectUnionOf(om:Prefix om:Unit))
-DataPropertyRange(om:symbol xsd:decimal)
+DataPropertyRange(om:symbol xsd:string)
 
 # Data Property: prov:endedAtTime (endedAtTime)
 
@@ -892,7 +893,7 @@ SubClassOf(sbol:Attachment ObjectSomeValuesFrom(sbol:source owl:Thing))
 
 AnnotationAssertion(otol:domainEntity sbol:BiochemicalReactionInteraction "true")
 AnnotationAssertion(rdfs:label sbol:BiochemicalReactionInteraction "BiochemicalReactionInteraction")
-EquivalentClasses(sbol:BiochemicalReactionInteraction ObjectIntersectionOf(sbol:Interaction ObjectSomeValuesFrom(sbol:type identifiers:SBO:0000176) ObjectMinCardinality(0 sbol:participant sbol:ModifiedParticipation) ObjectMinCardinality(0 sbol:participant sbol:ModifierParticipation) ObjectMinCardinality(0 sbol:participant sbol:ProductParticipation) ObjectMinCardinality(0 sbol:participant sbol:ReactantParticipation)))
+EquivalentClasses(sbol:BiochemicalReactionInteraction ObjectIntersectionOf(sbol:Interaction ObjectSomeValuesFrom(sbol:type identifiers:SBO:0000176) ObjectMinCardinality(0 sbol:hasParticipation sbol:ModifiedParticipation) ObjectMinCardinality(0 sbol:hasParticipation sbol:ModifierParticipation) ObjectMinCardinality(0 sbol:hasParticipation sbol:ProductParticipation) ObjectMinCardinality(0 sbol:hasParticipation sbol:ReactantParticipation)))
 SubClassOf(sbol:BiochemicalReactionInteraction sbol:Interaction)
 
 # Class: sbol:CDSDNAComponent (CDS DNA Component)
@@ -943,7 +944,7 @@ SubClassOf(sbol:Component ObjectMaxCardinality(1 sbol:type sbol:ComponentType))
 AnnotationAssertion(otol:domainEntity sbol:ComponentReference "true")
 AnnotationAssertion(rdfs:label sbol:ComponentReference "ComponentReference")
 SubClassOf(sbol:ComponentReference sbol:Feature)
-SubClassOf(sbol:ComponentReference ObjectSomeValuesFrom(sbol:inChildOf sbol:Component))
+SubClassOf(sbol:ComponentReference ObjectSomeValuesFrom(sbol:inChildOf sbol:SubComponent))
 SubClassOf(sbol:ComponentReference ObjectSomeValuesFrom(sbol:refersTo sbol:Feature))
 
 # Class: sbol:ComponentRole (Component Role)
@@ -980,7 +981,7 @@ SubClassOf(sbol:ConstraintRestriction sbol:SBOLTerm)
 
 AnnotationAssertion(otol:domainEntity sbol:ControlInteraction "true")
 AnnotationAssertion(rdfs:label sbol:ControlInteraction "ControlInteraction")
-EquivalentClasses(sbol:ControlInteraction ObjectIntersectionOf(sbol:Interaction ObjectSomeValuesFrom(sbol:participant sbol:ModifiedParticipation) ObjectSomeValuesFrom(sbol:participant sbol:ModifierParticipation) ObjectSomeValuesFrom(sbol:type identifiers:SBO:0000168)))
+EquivalentClasses(sbol:ControlInteraction ObjectIntersectionOf(sbol:Interaction ObjectSomeValuesFrom(sbol:hasParticipation sbol:ModifiedParticipation) ObjectSomeValuesFrom(sbol:hasParticipation sbol:ModifierParticipation) ObjectSomeValuesFrom(sbol:type identifiers:SBO:0000168)))
 SubClassOf(sbol:ControlInteraction sbol:Interaction)
 
 # Class: sbol:Cut (Cut)
@@ -1021,7 +1022,7 @@ SubClassOf(sbol:DNASequence sbol:SequenceWithElements)
 
 AnnotationAssertion(otol:domainEntity sbol:DegradationInteraction "true")
 AnnotationAssertion(rdfs:label sbol:DegradationInteraction "DegradationInteraction")
-EquivalentClasses(sbol:DegradationInteraction ObjectIntersectionOf(sbol:Interaction ObjectSomeValuesFrom(sbol:participant sbol:ReactantParticipation) ObjectSomeValuesFrom(sbol:type identifiers:SBO:0000179)))
+EquivalentClasses(sbol:DegradationInteraction ObjectIntersectionOf(sbol:Interaction ObjectSomeValuesFrom(sbol:hasParticipation sbol:ReactantParticipation) ObjectSomeValuesFrom(sbol:type identifiers:SBO:0000179)))
 SubClassOf(sbol:DegradationInteraction sbol:Interaction)
 
 # Class: sbol:EffectorSimpleChemicalComponent (Effector Simple Chemical Component)
@@ -1109,7 +1110,7 @@ SubClassOf(sbol:GenericTopLevel ObjectSomeValuesFrom(rdf:type owl:Thing))
 
 AnnotationAssertion(otol:domainEntity sbol:GeneticProductionInteraction "true")
 AnnotationAssertion(rdfs:label sbol:GeneticProductionInteraction "GeneticProductionInteraction")
-EquivalentClasses(sbol:GeneticProductionInteraction ObjectIntersectionOf(sbol:Interaction ObjectSomeValuesFrom(sbol:participant sbol:TemplateParticipation) ObjectSomeValuesFrom(sbol:type identifiers:SBO:0000589) ObjectExactCardinality(1 sbol:participant sbol:ProductParticipation)))
+EquivalentClasses(sbol:GeneticProductionInteraction ObjectIntersectionOf(sbol:Interaction ObjectSomeValuesFrom(sbol:hasParticipation sbol:ProductParticipation) ObjectSomeValuesFrom(sbol:hasParticipation sbol:TemplateParticipation) ObjectSomeValuesFrom(sbol:type identifiers:SBO:0000589) ObjectMinCardinality(0 sbol:hasParticipation sbol:PromoterParticipation)))
 SubClassOf(sbol:GeneticProductionInteraction sbol:Interaction)
 
 # Class: sbol:Identified (Identified)
@@ -1149,7 +1150,7 @@ SubClassOf(sbol:InhibitedParticipation sbol:Participation)
 
 AnnotationAssertion(otol:domainEntity sbol:InhibitionInteraction "true")
 AnnotationAssertion(rdfs:label sbol:InhibitionInteraction "InhibitionInteraction")
-EquivalentClasses(sbol:InhibitionInteraction ObjectIntersectionOf(sbol:Interaction ObjectSomeValuesFrom(sbol:participant sbol:InhibitedParticipation) ObjectSomeValuesFrom(sbol:participant sbol:InhibitorParticipation) ObjectSomeValuesFrom(sbol:type identifiers:SBO:0000169)))
+EquivalentClasses(sbol:InhibitionInteraction ObjectIntersectionOf(sbol:Interaction ObjectSomeValuesFrom(sbol:hasParticipation sbol:InhibitedParticipation) ObjectSomeValuesFrom(sbol:hasParticipation sbol:InhibitorParticipation) ObjectSomeValuesFrom(sbol:type identifiers:SBO:0000169)))
 SubClassOf(sbol:InhibitionInteraction sbol:Interaction)
 
 # Class: sbol:InhibitorParticipation (InhibitorParticipant)
@@ -1242,7 +1243,7 @@ SubClassOf(sbol:ModifierParticipation sbol:Participation)
 
 AnnotationAssertion(otol:domainEntity sbol:NonCovalentBindingInteraction "true")
 AnnotationAssertion(rdfs:label sbol:NonCovalentBindingInteraction "NonCovalentBindingInteraction")
-EquivalentClasses(sbol:NonCovalentBindingInteraction ObjectIntersectionOf(sbol:Interaction ObjectSomeValuesFrom(sbol:participant sbol:ProductParticipation) ObjectSomeValuesFrom(sbol:participant sbol:ReactantParticipation) ObjectSomeValuesFrom(sbol:type identifiers:SBO:0000177)))
+EquivalentClasses(sbol:NonCovalentBindingInteraction ObjectIntersectionOf(sbol:Interaction ObjectSomeValuesFrom(sbol:hasParticipation sbol:ProductParticipation) ObjectSomeValuesFrom(sbol:hasParticipation sbol:ReactantParticipation) ObjectSomeValuesFrom(sbol:type identifiers:SBO:0000177)))
 SubClassOf(sbol:NonCovalentBindingInteraction sbol:Interaction)
 
 # Class: sbol:NonCovalentComplexComponent (Non-Covalent Complex Component)
@@ -1584,7 +1585,7 @@ SubClassOf(sbol:StimulatedParticipation sbol:Participation)
 
 AnnotationAssertion(otol:domainEntity sbol:StimulationInteraction "true")
 AnnotationAssertion(rdfs:label sbol:StimulationInteraction "StimulationInteraction")
-EquivalentClasses(sbol:StimulationInteraction ObjectIntersectionOf(sbol:Interaction ObjectSomeValuesFrom(sbol:participant sbol:StimulatedParticipation) ObjectSomeValuesFrom(sbol:participant sbol:StimulatorParticipation) ObjectSomeValuesFrom(sbol:type identifiers:SBO:0000170)))
+EquivalentClasses(sbol:StimulationInteraction ObjectIntersectionOf(sbol:Interaction ObjectSomeValuesFrom(sbol:hasParticipation sbol:StimulatedParticipation) ObjectSomeValuesFrom(sbol:hasParticipation sbol:StimulatorParticipation) ObjectSomeValuesFrom(sbol:type identifiers:SBO:0000170)))
 SubClassOf(sbol:StimulationInteraction sbol:Interaction)
 
 # Class: sbol:StimulatorParticipation (StimulatorParticipation)
@@ -1811,7 +1812,7 @@ SubClassOf(om:Measure DataSomeValuesFrom(om:hasNumericalValue xsd:decimal))
 AnnotationAssertion(rdfs:label om:Prefix "Prefix")
 SubClassOf(om:Prefix owl:Thing)
 SubClassOf(om:Prefix DataSomeValuesFrom(om:hasFactor xsd:decimal))
-SubClassOf(om:Prefix DataSomeValuesFrom(om:symbol xsd:decimal))
+SubClassOf(om:Prefix DataSomeValuesFrom(om:symbol xsd:string))
 SubClassOf(om:Prefix DataSomeValuesFrom(rdfs:label xsd:string))
 
 # Class: om:PrefixedUnit (PrefixedUnit)
@@ -1835,7 +1836,7 @@ SubClassOf(om:SingularUnit om:Unit)
 
 AnnotationAssertion(rdfs:label om:Unit "Unit")
 SubClassOf(om:Unit owl:Thing)
-SubClassOf(om:Unit DataSomeValuesFrom(om:symbol xsd:decimal))
+SubClassOf(om:Unit DataSomeValuesFrom(om:symbol xsd:string))
 SubClassOf(om:Unit DataSomeValuesFrom(rdfs:label xsd:string))
 
 # Class: om:UnitDivision (UnitDivision)

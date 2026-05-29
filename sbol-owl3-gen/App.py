@@ -753,8 +753,8 @@ with sbol3:
 
     class hasMeasure(directlyComprises, Identified >> om.Measure):
         label = "hasMeasure"
-        #domain = [Identified]
-        #range = [om.Measure]
+        domain = [Identified]
+        range = [SBOLMeasure]
 
     # TopLevel properties
     class hasNamespace(ObjectProperty, FunctionalProperty):
@@ -851,7 +851,7 @@ with sbol3:
     # ComponentReference properties
     class inChildOf(ComponentReference >> SubComponent, FunctionalProperty):
         label = "inChildOf"
-    ComponentReference.is_a.append(inChildOf.some(Component))
+    ComponentReference.is_a.append(inChildOf.some(SubComponent))
 
     # ExternallyDefined properties
     class definition(ObjectProperty, FunctionalProperty):
@@ -1170,37 +1170,37 @@ with sbol3:
     class InhibitionInteraction (Interaction):
         label = "InhibitionInteraction"
     InhibitionInteraction.domainEntity = ["true"]
-    InhibitionInteraction.equivalent_to.append(Interaction & type.some(SBO_0000169) & participant.some(InhibitorParticipation) &  participant.some(InhibitedParticipation))
+    InhibitionInteraction.equivalent_to.append(Interaction & type.some(SBO_0000169) & hasParticipation.some(InhibitorParticipation) &  hasParticipation.some(InhibitedParticipation))
 
     class StimulationInteraction (Interaction):
         label = "StimulationInteraction"
     StimulationInteraction.domainEntity = ["true"]
-    StimulationInteraction.equivalent_to.append(Interaction & type.some(SBO_0000170) & participant.some(StimulatedParticipation) &  participant.some(StimulatorParticipation))
+    StimulationInteraction.equivalent_to.append(Interaction & type.some(SBO_0000170) & hasParticipation.some(StimulatedParticipation) &  hasParticipation.some(StimulatorParticipation))
 
     class DegradationInteraction (Interaction):
         label = "DegradationInteraction"
     DegradationInteraction.domainEntity = ["true"]
-    DegradationInteraction.equivalent_to.append(Interaction & type.some(SBO_0000179) &  participant.some(ReactantParticipation))
+    DegradationInteraction.equivalent_to.append(Interaction & type.some(SBO_0000179) &  hasParticipation.some(ReactantParticipation))
     
     class BiochemicalReactionInteraction (Interaction):
         label = "BiochemicalReactionInteraction"
     BiochemicalReactionInteraction.domainEntity = ["true"]
-    BiochemicalReactionInteraction.equivalent_to.append(Interaction & type.some(SBO_0000176) & participant.min(0, ModifierParticipation) & participant.min(0, ModifiedParticipation) & participant.min(0, ProductParticipation) & participant.min(0, ReactantParticipation) )
+    BiochemicalReactionInteraction.equivalent_to.append(Interaction & type.some(SBO_0000176) & hasParticipation.min(0, ModifierParticipation) & hasParticipation.min(0, ModifiedParticipation) & hasParticipation.min(0, ProductParticipation) & hasParticipation.min(0, ReactantParticipation) )
 
     class NonCovalentBindingInteraction (Interaction):
         label = "NonCovalentBindingInteraction"
     NonCovalentBindingInteraction.domainEntity = ["true"]
-    NonCovalentBindingInteraction.equivalent_to.append(Interaction & type.some(SBO_0000177) & participant.some(ReactantParticipation) & participant.some(ProductParticipation))
+    NonCovalentBindingInteraction.equivalent_to.append(Interaction & type.some(SBO_0000177) & hasParticipation.some(ReactantParticipation) & hasParticipation.some(ProductParticipation))
     
     class GeneticProductionInteraction (Interaction):
         label = "GeneticProductionInteraction"
     GeneticProductionInteraction.domainEntity = ["true"]
-    GeneticProductionInteraction.equivalent_to.append(Interaction & type.some(SBO_0000589) & participant.some(TemplateParticipation) & participant.exactly(1, ProductParticipation))
+    GeneticProductionInteraction.equivalent_to.append(Interaction & type.some(SBO_0000589) & hasParticipation.some(TemplateParticipation) & hasParticipation.some(ProductParticipation) & hasParticipation.min(0, PromoterParticipation)) 
     
     class ControlInteraction (Interaction):
         label = "ControlInteraction"
     ControlInteraction.domainEntity = ["true"]
-    ControlInteraction.equivalent_to.append(Interaction & type.some(SBO_0000168) & participant.some(ModifierParticipation) & participant.some(ModifiedParticipation))
+    ControlInteraction.equivalent_to.append(Interaction & type.some(SBO_0000168) & hasParticipation.some(ModifierParticipation) & hasParticipation.some(ModifiedParticipation))
 
 with prov:
   # sbol3:Identified prov properties
@@ -1395,9 +1395,9 @@ with om:
   class symbol(DataProperty, FunctionalProperty):
     label = ["symbol"]
     domain = [Unit | Prefix]
-    range  = [float]
-  Unit.is_a.append(symbol.some(float)) # [1..]
-  Prefix.is_a.append(symbol.some(float)) # [1..]
+    range  = [str]
+  Unit.is_a.append(symbol.some(str)) # [1..]
+  Prefix.is_a.append(symbol.some(str)) # [1..]
 
   #[1..0]
   class alternativeSymbol(DataProperty):

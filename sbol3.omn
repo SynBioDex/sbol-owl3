@@ -463,6 +463,7 @@ ObjectProperty: sbol:hasMeasure
         sbol:Identified
     
     Range: 
+        sbol:SBOLMeasure,
         om:Measure
     
     
@@ -964,7 +965,7 @@ DataProperty: om:symbol
         om:Prefix or om:Unit
     
     Range: 
-        xsd:decimal
+        xsd:string
     
     
 DataProperty: prov:endedAtTime
@@ -1812,7 +1813,7 @@ Class: om:Prefix
     SubClassOf: 
         owl:Thing,
         om:hasFactor some xsd:decimal,
-        om:symbol some xsd:decimal,
+        om:symbol some xsd:string,
         rdfs:label some xsd:string
     
     
@@ -1852,7 +1853,7 @@ Class: om:Unit
     
     SubClassOf: 
         owl:Thing,
-        om:symbol some xsd:decimal,
+        om:symbol some xsd:string,
         rdfs:label some xsd:string
     
     
@@ -1958,10 +1959,10 @@ Class: sbol:BiochemicalReactionInteraction
     EquivalentTo: 
         sbol:Interaction
          and (sbol:type some identifiers:SBO:0000176)
-         and (sbol:participant min 0 sbol:ModifiedParticipation)
-         and (sbol:participant min 0 sbol:ModifierParticipation)
-         and (sbol:participant min 0 sbol:ProductParticipation)
-         and (sbol:participant min 0 sbol:ReactantParticipation)
+         and (sbol:hasParticipation min 0 sbol:ModifiedParticipation)
+         and (sbol:hasParticipation min 0 sbol:ModifierParticipation)
+         and (sbol:hasParticipation min 0 sbol:ProductParticipation)
+         and (sbol:hasParticipation min 0 sbol:ReactantParticipation)
     
     SubClassOf: 
         sbol:Interaction
@@ -2049,7 +2050,7 @@ Class: sbol:ComponentReference
     
     SubClassOf: 
         sbol:Feature,
-        sbol:inChildOf some sbol:Component,
+        sbol:inChildOf some sbol:SubComponent,
         sbol:refersTo some sbol:Feature
     
     
@@ -2109,8 +2110,8 @@ Class: sbol:ControlInteraction
     
     EquivalentTo: 
         sbol:Interaction
-         and (sbol:participant some sbol:ModifiedParticipation)
-         and (sbol:participant some sbol:ModifierParticipation)
+         and (sbol:hasParticipation some sbol:ModifiedParticipation)
+         and (sbol:hasParticipation some sbol:ModifierParticipation)
          and (sbol:type some identifiers:SBO:0000168)
     
     SubClassOf: 
@@ -2189,7 +2190,7 @@ Class: sbol:DegradationInteraction
     
     EquivalentTo: 
         sbol:Interaction
-         and (sbol:participant some sbol:ReactantParticipation)
+         and (sbol:hasParticipation some sbol:ReactantParticipation)
          and (sbol:type some identifiers:SBO:0000179)
     
     SubClassOf: 
@@ -2350,9 +2351,10 @@ Class: sbol:GeneticProductionInteraction
     
     EquivalentTo: 
         sbol:Interaction
-         and (sbol:participant some sbol:TemplateParticipation)
+         and (sbol:hasParticipation some sbol:ProductParticipation)
+         and (sbol:hasParticipation some sbol:TemplateParticipation)
          and (sbol:type some identifiers:SBO:0000589)
-         and (sbol:participant exactly 1 sbol:ProductParticipation)
+         and (sbol:hasParticipation min 0 sbol:PromoterParticipation)
     
     SubClassOf: 
         sbol:Interaction
@@ -2427,8 +2429,8 @@ Class: sbol:InhibitionInteraction
     
     EquivalentTo: 
         sbol:Interaction
-         and (sbol:participant some sbol:InhibitedParticipation)
-         and (sbol:participant some sbol:InhibitorParticipation)
+         and (sbol:hasParticipation some sbol:InhibitedParticipation)
+         and (sbol:hasParticipation some sbol:InhibitorParticipation)
          and (sbol:type some identifiers:SBO:0000169)
     
     SubClassOf: 
@@ -2592,8 +2594,8 @@ Class: sbol:NonCovalentBindingInteraction
     
     EquivalentTo: 
         sbol:Interaction
-         and (sbol:participant some sbol:ProductParticipation)
-         and (sbol:participant some sbol:ReactantParticipation)
+         and (sbol:hasParticipation some sbol:ProductParticipation)
+         and (sbol:hasParticipation some sbol:ReactantParticipation)
          and (sbol:type some identifiers:SBO:0000177)
     
     SubClassOf: 
@@ -3198,8 +3200,8 @@ Class: sbol:StimulationInteraction
     
     EquivalentTo: 
         sbol:Interaction
-         and (sbol:participant some sbol:StimulatedParticipation)
-         and (sbol:participant some sbol:StimulatorParticipation)
+         and (sbol:hasParticipation some sbol:StimulatedParticipation)
+         and (sbol:hasParticipation some sbol:StimulatorParticipation)
          and (sbol:type some identifiers:SBO:0000170)
     
     SubClassOf: 

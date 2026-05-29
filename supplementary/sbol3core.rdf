@@ -22,6 +22,7 @@
 <owl:ObjectProperty rdf:about="#hasMeasure">
   <rdfs:subPropertyOf rdf:resource="#directlyComprises"/>
   <rdfs:domain rdf:resource="#Identified"/>
+  <rdfs:range rdf:resource="#SBOLMeasure"/>
   <rdfs:range rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Measure"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hasMeasure</rdfs:label>
 </owl:ObjectProperty>
@@ -836,7 +837,7 @@
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#inChildOf"/>
-      <owl:someValuesFrom rdf:resource="#Component"/>
+      <owl:someValuesFrom rdf:resource="#SubComponent"/>
     </owl:Restriction>
   </rdfs:subClassOf>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ComponentReference</rdfs:label>
@@ -2055,11 +2056,11 @@
           <owl:someValuesFrom rdf:resource="https://identifiers.org/SBO:0000169"/>
         </owl:Restriction>
         <owl:Restriction>
-          <owl:onProperty rdf:resource="#participant"/>
+          <owl:onProperty rdf:resource="#hasParticipation"/>
           <owl:someValuesFrom rdf:resource="#InhibitorParticipation"/>
         </owl:Restriction>
         <owl:Restriction>
-          <owl:onProperty rdf:resource="#participant"/>
+          <owl:onProperty rdf:resource="#hasParticipation"/>
           <owl:someValuesFrom rdf:resource="#InhibitedParticipation"/>
         </owl:Restriction>
       </owl:intersectionOf>
@@ -2080,11 +2081,11 @@
           <owl:someValuesFrom rdf:resource="https://identifiers.org/SBO:0000170"/>
         </owl:Restriction>
         <owl:Restriction>
-          <owl:onProperty rdf:resource="#participant"/>
+          <owl:onProperty rdf:resource="#hasParticipation"/>
           <owl:someValuesFrom rdf:resource="#StimulatedParticipation"/>
         </owl:Restriction>
         <owl:Restriction>
-          <owl:onProperty rdf:resource="#participant"/>
+          <owl:onProperty rdf:resource="#hasParticipation"/>
           <owl:someValuesFrom rdf:resource="#StimulatorParticipation"/>
         </owl:Restriction>
       </owl:intersectionOf>
@@ -2105,7 +2106,7 @@
           <owl:someValuesFrom rdf:resource="https://identifiers.org/SBO:0000179"/>
         </owl:Restriction>
         <owl:Restriction>
-          <owl:onProperty rdf:resource="#participant"/>
+          <owl:onProperty rdf:resource="#hasParticipation"/>
           <owl:someValuesFrom rdf:resource="#ReactantParticipation"/>
         </owl:Restriction>
       </owl:intersectionOf>
@@ -2126,22 +2127,22 @@
           <owl:someValuesFrom rdf:resource="https://identifiers.org/SBO:0000176"/>
         </owl:Restriction>
         <owl:Restriction>
-          <owl:onProperty rdf:resource="#participant"/>
+          <owl:onProperty rdf:resource="#hasParticipation"/>
           <owl:onClass rdf:resource="#ModifierParticipation"/>
           <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
         </owl:Restriction>
         <owl:Restriction>
-          <owl:onProperty rdf:resource="#participant"/>
+          <owl:onProperty rdf:resource="#hasParticipation"/>
           <owl:onClass rdf:resource="#ModifiedParticipation"/>
           <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
         </owl:Restriction>
         <owl:Restriction>
-          <owl:onProperty rdf:resource="#participant"/>
+          <owl:onProperty rdf:resource="#hasParticipation"/>
           <owl:onClass rdf:resource="#ProductParticipation"/>
           <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
         </owl:Restriction>
         <owl:Restriction>
-          <owl:onProperty rdf:resource="#participant"/>
+          <owl:onProperty rdf:resource="#hasParticipation"/>
           <owl:onClass rdf:resource="#ReactantParticipation"/>
           <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
         </owl:Restriction>
@@ -2163,11 +2164,11 @@
           <owl:someValuesFrom rdf:resource="https://identifiers.org/SBO:0000177"/>
         </owl:Restriction>
         <owl:Restriction>
-          <owl:onProperty rdf:resource="#participant"/>
+          <owl:onProperty rdf:resource="#hasParticipation"/>
           <owl:someValuesFrom rdf:resource="#ReactantParticipation"/>
         </owl:Restriction>
         <owl:Restriction>
-          <owl:onProperty rdf:resource="#participant"/>
+          <owl:onProperty rdf:resource="#hasParticipation"/>
           <owl:someValuesFrom rdf:resource="#ProductParticipation"/>
         </owl:Restriction>
       </owl:intersectionOf>
@@ -2188,13 +2189,17 @@
           <owl:someValuesFrom rdf:resource="https://identifiers.org/SBO:0000589"/>
         </owl:Restriction>
         <owl:Restriction>
-          <owl:onProperty rdf:resource="#participant"/>
+          <owl:onProperty rdf:resource="#hasParticipation"/>
           <owl:someValuesFrom rdf:resource="#TemplateParticipation"/>
         </owl:Restriction>
         <owl:Restriction>
-          <owl:onProperty rdf:resource="#participant"/>
-          <owl:onClass rdf:resource="#ProductParticipation"/>
-          <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+          <owl:onProperty rdf:resource="#hasParticipation"/>
+          <owl:someValuesFrom rdf:resource="#ProductParticipation"/>
+        </owl:Restriction>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasParticipation"/>
+          <owl:onClass rdf:resource="#PromoterParticipation"/>
+          <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
         </owl:Restriction>
       </owl:intersectionOf>
     </owl:Class>
@@ -2214,11 +2219,11 @@
           <owl:someValuesFrom rdf:resource="https://identifiers.org/SBO:0000168"/>
         </owl:Restriction>
         <owl:Restriction>
-          <owl:onProperty rdf:resource="#participant"/>
+          <owl:onProperty rdf:resource="#hasParticipation"/>
           <owl:someValuesFrom rdf:resource="#ModifierParticipation"/>
         </owl:Restriction>
         <owl:Restriction>
-          <owl:onProperty rdf:resource="#participant"/>
+          <owl:onProperty rdf:resource="#hasParticipation"/>
           <owl:someValuesFrom rdf:resource="#ModifiedParticipation"/>
         </owl:Restriction>
       </owl:intersectionOf>
