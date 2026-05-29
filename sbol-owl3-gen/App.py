@@ -1466,22 +1466,26 @@ with om:
   PrefixedUnit.is_a.append(hasPrefix.some(Prefix))
 
 
-# Save individual ontologies (with owl:imports intact for standalone validity)
-sbol3.save(file = "sbol3_core.txt", format = "rdfxml")
-sbol3.save(file = "sbol3_core.rdf", format = "rdfxml")
-sbo.save(file = "sbo.rdf", format = "rdfxml")
-so.save(file = "so.rdf", format = "rdfxml")
-edam.save(file = "edam.rdf", format = "rdfxml")
-chebi.save(file = "chebi.rdf", format = "rdfxml")
-go.save(file = "go.rdf", format = "rdfxml")
-om.save(file = "om.rdf", format = "rdfxml")
-prov.save(file = "prov.rdf", format = "rdfxml")
-otol.save(file = "otol.rdf", format = "rdfxml")
+# Temporary outputs will be in ../supplementary, main ontology files (sbol3.rdf, sbol3.owl, sbol3.ofn, sbol3.omn) will be in the parent folder. 
+SUPP = Path(__file__).parent.parent / "supplementary"
+MAIN = Path(__file__).parent.parent
+os.makedirs(SUPP, exist_ok=True)
+
+# Save individual ontologies: sbol3core.rdf, sbo.rdf, so.rdf, edam.rdf, chebi.rdf, go.rdf, om.rdf, prov.rdf, otol.rdf
+sbol3.save(file = str(SUPP / "sbol3core.rdf"), format = "rdfxml")
+sbo.save(file = str(SUPP / "sbo.rdf"), format = "rdfxml")
+so.save(file = str(SUPP / "so.rdf"), format = "rdfxml")
+edam.save(file = str(SUPP / "edam.rdf"), format = "rdfxml")
+chebi.save(file = str(SUPP / "chebi.rdf"), format = "rdfxml")
+go.save(file = str(SUPP / "go.rdf"), format = "rdfxml")
+om.save(file = str(SUPP / "om.rdf"), format = "rdfxml")
+prov.save(file = str(SUPP / "prov.rdf"), format = "rdfxml")
+otol.save(file = str(SUPP / "otol.rdf"), format = "rdfxml")
 
 from rdflib import URIRef
 
 # Merges  ontologies into a single combined rdf file
-def mergeOntologies(inputFiles, outputName):
+def mergeOntologies(inputFiles, rdfOutputFile):
     combined = Graph()
     for f in inputFiles:
         combined.parse(f, format="xml")
@@ -1491,11 +1495,19 @@ def mergeOntologies(inputFiles, outputName):
         if ontology != sbol3IRI:
             combined.remove((ontology, RDF.type, OWL.Ontology))
     combined.add((sbol3IRI, RDF.type, OWL.Ontology))
-    combined.serialize(destination=f"{outputName}.rdf", format="xml")
-    combined.serialize(destination=f"{outputName}.txt", format="xml")
+    combined.serialize(destination=rdfOutputFile, format="xml")
 
-mergeOntologies(["sbol3_core.rdf", "sbo.rdf", "so.rdf", "edam.rdf", "chebi.rdf", "go.rdf", "om.rdf", "prov.rdf", "otol.rdf"], "sbol3")
-mergeOntologies(["sbol3_core.rdf", "om.rdf", "prov.rdf"], "sbol_om_prov")
+#Create sbol3.rdf by merging the individual ontologies. From sbol3core.rdf, sbo.rdf, so.rdf, edam.rdf, chebi.rdf, go.rdf, om.rdf, prov.rdf, otol.rdf. 
+mergeOntologies(
+    [SUPP / "sbol3core.rdf", SUPP / "sbo.rdf", SUPP / "so.rdf", SUPP / "edam.rdf", SUPP / "chebi.rdf", SUPP / "go.rdf", SUPP / "om.rdf", SUPP / "prov.rdf", SUPP / "otol.rdf"],
+    MAIN / "sbol3.rdf"
+)
+
+# Also create a merged file for the SBOL-OM-PROV subset, since SBOL imports  a subset of prov-o and om2.
+mergeOntologies(
+    [SUPP / "sbol3core.rdf", SUPP / "om.rdf", SUPP / "prov.rdf"],
+    SUPP / "sbol3core_om_prov.rdf"
+)
 
 # Convert to OWL, OWL Functional, and Manchester Syntax
 import subprocess, os
@@ -1523,7 +1535,7 @@ def createOWL(robotJar, inputFile, outputFiles, prefixes):
         file.write_text(identifiersPattern.sub(r'identifiers:\1', file.read_text(encoding="utf-8")), encoding="utf-8")
         print(f"{fileName} - identifiers prefix applied!")
 
-robotJarFile = os.path.join(os.path.dirname(os.path.abspath(__file__)), "robot.jar")
+robotJarFile = Path(__file__).parent / "robot.jar"
 owlPrefixes = [
     ("sbol", sbol3.base_iri),
     ("om", om.base_iri),
@@ -1531,14 +1543,18 @@ owlPrefixes = [
     ("prov", prov.base_iri),
     ("otol", otol.base_iri)]
 
-createOWL(robotJarFile, "sbol3.rdf", ["sbol3.owl", "sbol3.ofn", "sbol3.omn"], owlPrefixes)
-createOWL(robotJarFile, "sbol_om_prov.rdf", ["sbol_om_prov.owl", "sbol_om_prov.ofn", "sbol_om_prov.omn"], owlPrefixes)
+createOWL(robotJarFile, MAIN / "sbol3.rdf",
+    [MAIN / "sbol3.owl", MAIN / "sbol3.ofn", MAIN / "sbol3.omn"],
+    owlPrefixes)
+createOWL(robotJarFile, SUPP / "sbol3core_om_prov.rdf",
+    [SUPP / "sbol3core_om_prov.owl", SUPP / "sbol3core_om_prov.ofn", SUPP / "sbol3core_om_prov.omn"],
+    owlPrefixes)
 
 #Expects a set of tuples for: rdf input file, html output file, and the ontology title
 #prefixes: list of (prefix, namespace) pairs
 def createHTML(ontologies, prefixes=None):
     try:
-        # Workaround for the pyLODE.pyproject.toml file issue. The following code creates a minimal pyproject.toml in the site-packages folder if it doesn't already exist. If the distribution does not include this file, then the pyLODE fails!
+        # Workaround for the pyLODE.pyproject.toml file issue. The following code creates a minimal pyproject.toml in the site-packages folder if it doesn't already exist. If the distribution does not include this file, then pyLODE fails!
         import site
         tomlFile = Path(site.getsitepackages()[0]) / "pyproject.toml"
         if not tomlFile.exists():
@@ -1569,6 +1585,9 @@ def createHTML(ontologies, prefixes=None):
         print(f"{htmlFile} could not be created: {e}")
 
 print("\nCreating the HTML files:")      
-createHTML([("sbol3.rdf", "sbol3.html", "SBOL3 Ontology"), ("sbol_om_prov.rdf", "sbol_om_prov.html", "SBOL3 Core Ontology")], owlPrefixes)
+createHTML([
+    (MAIN / "sbol3.rdf", MAIN / "sbol3.html", "SBOL3 Ontology"),
+    (SUPP / "sbol3core_om_prov.rdf", SUPP / "sbol3core_om_prov.html", "SBOL3 Core Ontology")
+], owlPrefixes)
 
 print ("\ndone!")

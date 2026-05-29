@@ -1,0 +1,128 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xml:base="https://www.w3.org/ns/prov"
+         xmlns="https://www.w3.org/ns/prov#">
+
+<owl:Ontology rdf:about="https://www.w3.org/ns/prov"/>
+
+<owl:ObjectProperty rdf:about="#wasDerivedFrom">
+  <rdfs:domain rdf:resource="http://sbols.org/v3#Identified"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">wasDerivedFrom</rdfs:label>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#wasInformedBy">
+  <rdfs:domain rdf:resource="#Activity"/>
+  <rdfs:range rdf:resource="#Activity"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">wasInformedBy</rdfs:label>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#wasGeneratedBy">
+  <rdfs:domain rdf:resource="http://sbols.org/v3#Identified"/>
+  <rdfs:range rdf:resource="http://sbols.org/v3#SBOLActivity"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">wasGeneratedBy</rdfs:label>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#qualifiedUsage">
+  <rdfs:domain rdf:resource="#Activity"/>
+  <rdfs:range rdf:resource="#Usage"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">qualifiedUsage</rdfs:label>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#qualifiedAssociation">
+  <rdfs:domain rdf:resource="#Activity"/>
+  <rdfs:range rdf:resource="#Association"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">qualifiedAssociation</rdfs:label>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#entity">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Usage"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">entity</rdfs:label>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#hadRole">
+  <rdfs:domain>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Usage"/>
+        <rdf:Description rdf:about="#Association"/>
+      </owl:unionOf>
+    </owl:Class>
+  </rdfs:domain>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hadRole</rdfs:label>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#hadPlan">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Association"/>
+  <rdfs:range rdf:resource="#Plan"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hadPlan</rdfs:label>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#agent">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Association"/>
+  <rdfs:range rdf:resource="#Agent"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">agent</rdfs:label>
+</owl:ObjectProperty>
+
+<owl:DatatypeProperty rdf:about="#startedAtTime">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Activity"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">startedAtTime</rdfs:label>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#endedAtTime">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Activity"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">endedAtTime</rdfs:label>
+</owl:DatatypeProperty>
+
+<owl:Class rdf:about="#Activity">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Activity</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#Association">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#agent"/>
+      <owl:someValuesFrom rdf:resource="#Agent"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Association</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#Agent">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Agent</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#Plan">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Plan</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#Usage">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Usage</rdfs:label>
+</owl:Class>
+
+<rdf:Description rdf:about="http://sbols.org/v3#SBOLUsage">
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#entity"/>
+      <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</rdf:Description>
+
+
+</rdf:RDF>

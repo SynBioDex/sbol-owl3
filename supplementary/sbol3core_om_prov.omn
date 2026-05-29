@@ -1,0 +1,3102 @@
+Prefix: identifiers: <https://identifiers.org/>
+Prefix: om: <http://www.ontology-of-units-of-measure.org/resource/om-2/>
+Prefix: otol: <http://keele.ac.uk/scm/otol#>
+Prefix: owl: <http://www.w3.org/2002/07/owl#>
+Prefix: prov: <https://www.w3.org/ns/prov#>
+Prefix: rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+Prefix: rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+Prefix: sbol: <http://sbols.org/v3#>
+Prefix: xml: <http://www.w3.org/XML/1998/namespace>
+Prefix: xsd: <http://www.w3.org/2001/XMLSchema#>
+Prefix: : <http://sbols.org/v3#>
+
+
+
+Ontology: <http://sbols.org/v3#>
+
+
+AnnotationProperty: otol:constantList
+
+    
+AnnotationProperty: otol:domainEntity
+
+    
+AnnotationProperty: otol:replacementOf
+
+    
+AnnotationProperty: otol:vocabulary
+
+    
+AnnotationProperty: rdfs:comment
+
+    
+AnnotationProperty: rdfs:label
+
+    
+Datatype: xsd:dateTime
+
+    
+Datatype: xsd:decimal
+
+    
+Datatype: xsd:integer
+
+    
+Datatype: xsd:string
+
+    
+ObjectProperty: om:hasBase
+
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        om:UnitExponentiation
+    
+    Range: 
+        om:Unit
+    
+    
+ObjectProperty: om:hasDenominator
+
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        om:UnitDivision
+    
+    Range: 
+        om:Unit
+    
+    
+ObjectProperty: om:hasNumerator
+
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        om:UnitDivision
+    
+    Range: 
+        om:Unit
+    
+    
+ObjectProperty: om:hasPrefix
+
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        om:PrefixedUnit
+    
+    Range: 
+        om:Prefix
+    
+    
+ObjectProperty: om:hasTerm1
+
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        om:UnitMultiplication
+    
+    Range: 
+        om:Unit
+    
+    
+ObjectProperty: om:hasTerm2
+
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        om:UnitMultiplication
+    
+    Range: 
+        om:Unit
+    
+    
+ObjectProperty: om:hasUnit
+
+    Annotations: 
+        rdfs:label "hasUnit"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        om:Measure or om:PrefixedUnit or om:SingularUnit
+    
+    Range: 
+        om:Unit
+    
+    
+ObjectProperty: owl:topObjectProperty
+
+    
+ObjectProperty: prov:agent
+
+    Annotations: 
+        rdfs:label "agent"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        prov:Association
+    
+    Range: 
+        prov:Agent
+    
+    
+ObjectProperty: prov:entity
+
+    Annotations: 
+        rdfs:label "entity"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        prov:Usage
+    
+    
+ObjectProperty: prov:hadPlan
+
+    Annotations: 
+        rdfs:label "hadPlan"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        prov:Association
+    
+    Range: 
+        prov:Plan
+    
+    
+ObjectProperty: prov:hadRole
+
+    Annotations: 
+        rdfs:label "hadRole"
+    
+    Domain: 
+        prov:Association or prov:Usage
+    
+    
+ObjectProperty: prov:qualifiedAssociation
+
+    Annotations: 
+        rdfs:label "qualifiedAssociation"
+    
+    Domain: 
+        prov:Activity
+    
+    Range: 
+        prov:Association
+    
+    
+ObjectProperty: prov:qualifiedUsage
+
+    Annotations: 
+        rdfs:label "qualifiedUsage"
+    
+    Domain: 
+        prov:Activity
+    
+    Range: 
+        prov:Usage
+    
+    
+ObjectProperty: prov:wasDerivedFrom
+
+    Annotations: 
+        rdfs:label "wasDerivedFrom"
+    
+    Domain: 
+        sbol:Identified
+    
+    Range: 
+        owl:Thing
+    
+    
+ObjectProperty: prov:wasGeneratedBy
+
+    Annotations: 
+        rdfs:label "wasGeneratedBy"
+    
+    Domain: 
+        sbol:Identified
+    
+    Range: 
+        sbol:SBOLActivity
+    
+    
+ObjectProperty: prov:wasInformedBy
+
+    Annotations: 
+        rdfs:label "wasInformedBy"
+    
+    Domain: 
+        prov:Activity
+    
+    Range: 
+        prov:Activity
+    
+    
+ObjectProperty: rdf:type
+
+    
+ObjectProperty: sbol:built
+
+    Annotations: 
+        rdfs:label "built"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        sbol:Implementation
+    
+    Range: 
+        sbol:Component
+    
+    
+ObjectProperty: sbol:cardinality
+
+    Annotations: 
+        rdfs:label "cardinality"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        sbol:VariableFeature
+    
+    Range: 
+        sbol:one or sbol:oneOrMore or sbol:zeroOrMore or sbol:zeroOrOne
+    
+    
+ObjectProperty: sbol:comprises
+
+    Annotations: 
+        rdfs:label "comprises"
+    
+    Characteristics: 
+        Transitive
+    
+    
+ObjectProperty: sbol:definition
+
+    Annotations: 
+        rdfs:label "definition"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        sbol:ExternallyDefined
+    
+    
+ObjectProperty: sbol:directlyComprises
+
+    Annotations: 
+        rdfs:label "directlyComprises"
+    
+    SubPropertyOf: 
+        sbol:comprises
+    
+    
+ObjectProperty: sbol:encoding
+
+    Annotations: 
+        rdfs:label "encoding"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        sbol:Sequence
+    
+    
+ObjectProperty: sbol:format
+
+    Annotations: 
+        rdfs:label "format"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        sbol:Attachment
+    
+    
+ObjectProperty: sbol:framework
+
+    Annotations: 
+        rdfs:label "framework"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        sbol:Model
+    
+    
+ObjectProperty: sbol:hasAttachment
+
+    Annotations: 
+        rdfs:label "hasAttachment"
+    
+    Domain: 
+        sbol:TopLevel
+    
+    Range: 
+        sbol:Attachment
+    
+    
+ObjectProperty: sbol:hasConstraint
+
+    Annotations: 
+        rdfs:label "hasConstraint"
+    
+    SubPropertyOf: 
+        sbol:directlyComprises
+    
+    Domain: 
+        sbol:Component
+    
+    Range: 
+        sbol:Constraint
+    
+    
+ObjectProperty: sbol:hasFeature
+
+    Annotations: 
+        rdfs:label "hasFeature"
+    
+    SubPropertyOf: 
+        sbol:directlyComprises
+    
+    Domain: 
+        sbol:Component
+    
+    Range: 
+        sbol:Feature
+    
+    
+ObjectProperty: sbol:hasInteraction
+
+    Annotations: 
+        rdfs:label "hasInteraction"
+    
+    SubPropertyOf: 
+        sbol:directlyComprises
+    
+    Domain: 
+        sbol:Component
+    
+    Range: 
+        sbol:Interaction
+    
+    
+ObjectProperty: sbol:hasInterface
+
+    Annotations: 
+        rdfs:label "hasInterface"
+    
+    SubPropertyOf: 
+        sbol:directlyComprises
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        sbol:Component
+    
+    Range: 
+        sbol:Interface
+    
+    
+ObjectProperty: sbol:hasLocation
+
+    Annotations: 
+        rdfs:label "hasLocation"
+    
+    SubPropertyOf: 
+        sbol:directlyComprises
+    
+    Domain: 
+        sbol:LocalSubComponent or sbol:SequenceFeature or sbol:SubComponent
+    
+    Range: 
+        sbol:Location
+    
+    
+ObjectProperty: sbol:hasMeasure
+
+    Annotations: 
+        rdfs:label "hasMeasure"
+    
+    SubPropertyOf: 
+        sbol:directlyComprises
+    
+    Domain: 
+        sbol:Identified
+    
+    Range: 
+        om:Measure
+    
+    
+ObjectProperty: sbol:hasModel
+
+    Annotations: 
+        rdfs:label "hasModel"
+    
+    Domain: 
+        sbol:Component
+    
+    Range: 
+        sbol:Model
+    
+    
+ObjectProperty: sbol:hasNamespace
+
+    Annotations: 
+        rdfs:label "hasNamespace"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        sbol:TopLevel
+    
+    
+ObjectProperty: sbol:hasParticipation
+
+    Annotations: 
+        rdfs:label "hasParticipation"
+    
+    SubPropertyOf: 
+        sbol:directlyComprises
+    
+    Domain: 
+        sbol:Interaction
+    
+    Range: 
+        sbol:Participation
+    
+    
+ObjectProperty: sbol:hasSequence
+
+    Annotations: 
+        rdfs:label "hasSequence"
+    
+    Domain: 
+        sbol:Component or sbol:Location
+    
+    Range: 
+        sbol:Sequence
+    
+    
+ObjectProperty: sbol:hasVariableFeature
+
+    Annotations: 
+        rdfs:label "hasVariableFeature"
+    
+    SubPropertyOf: 
+        sbol:directlyComprises
+    
+    Domain: 
+        sbol:CombinatorialDerivation
+    
+    Range: 
+        sbol:VariableFeature
+    
+    
+ObjectProperty: sbol:higherOrderParticipant
+
+    Annotations: 
+        rdfs:label "higherOrderParticipant"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        sbol:Participation
+    
+    Range: 
+        sbol:Interaction
+    
+    
+ObjectProperty: sbol:inChildOf
+
+    Annotations: 
+        rdfs:label "inChildOf"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        sbol:ComponentReference
+    
+    Range: 
+        sbol:SubComponent
+    
+    
+ObjectProperty: sbol:input
+
+    Annotations: 
+        rdfs:label "input"
+    
+    Domain: 
+        sbol:Interface
+    
+    Range: 
+        sbol:Feature
+    
+    
+ObjectProperty: sbol:instanceOf
+
+    Annotations: 
+        rdfs:label "instanceOf"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        sbol:SubComponent
+    
+    Range: 
+        sbol:Component
+    
+    
+ObjectProperty: sbol:language
+
+    Annotations: 
+        rdfs:label "language"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        sbol:Model
+    
+    
+ObjectProperty: sbol:member
+
+    Annotations: 
+        rdfs:label "member"
+    
+    Domain: 
+        sbol:Collection
+    
+    Range: 
+        sbol:TopLevel
+    
+    
+ObjectProperty: sbol:nondirectional
+
+    Annotations: 
+        rdfs:label "nondirectional"
+    
+    Domain: 
+        sbol:Interface
+    
+    Range: 
+        sbol:Feature
+    
+    
+ObjectProperty: sbol:object
+
+    Annotations: 
+        rdfs:label "object"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        sbol:Constraint
+    
+    Range: 
+        sbol:Feature
+    
+    
+ObjectProperty: sbol:orientation
+
+    Annotations: 
+        rdfs:label "orientation"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        sbol:Feature or sbol:Location
+    
+    Range: 
+        sbol:Orientation
+    
+    
+ObjectProperty: sbol:output
+
+    Annotations: 
+        rdfs:label "output"
+    
+    Domain: 
+        sbol:Interface
+    
+    Range: 
+        sbol:Feature
+    
+    
+ObjectProperty: sbol:participant
+
+    Annotations: 
+        rdfs:label "participant"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        sbol:Participation
+    
+    Range: 
+        sbol:Feature
+    
+    
+ObjectProperty: sbol:refersTo
+
+    Annotations: 
+        rdfs:label "refersTo"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        sbol:ComponentReference
+    
+    Range: 
+        sbol:Feature
+    
+    
+ObjectProperty: sbol:restriction
+
+    Annotations: 
+        rdfs:label "restriction"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        sbol:Constraint
+    
+    
+ObjectProperty: sbol:role
+
+    Annotations: 
+        rdfs:label "role"
+    
+    Domain: 
+        sbol:Component or sbol:Feature or sbol:Participation
+    
+    
+ObjectProperty: sbol:roleIntegration
+
+    Annotations: 
+        rdfs:label "roleIntegration"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        sbol:SubComponent
+    
+    
+ObjectProperty: sbol:source
+
+    Annotations: 
+        rdfs:label "source"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        sbol:Attachment or sbol:Model
+    
+    
+ObjectProperty: sbol:sourceLocation
+
+    Annotations: 
+        rdfs:label "sourceLocation"
+    
+    SubPropertyOf: 
+        sbol:directlyComprises
+    
+    Domain: 
+        sbol:SubComponent
+    
+    Range: 
+        sbol:Location
+    
+    
+ObjectProperty: sbol:strategy
+
+    Annotations: 
+        rdfs:label "strategy"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        sbol:CombinatorialDerivation
+    
+    Range: 
+        sbol:enumerate or sbol:sample
+    
+    
+ObjectProperty: sbol:subject
+
+    Annotations: 
+        rdfs:label "subject"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        sbol:Constraint
+    
+    Range: 
+        sbol:Feature
+    
+    
+ObjectProperty: sbol:template
+
+    Annotations: 
+        rdfs:label "template"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        sbol:CombinatorialDerivation
+    
+    Range: 
+        sbol:Component
+    
+    
+ObjectProperty: sbol:type
+
+    Annotations: 
+        rdfs:label "type"
+    
+    Domain: 
+        sbol:Component or sbol:ExternallyDefined or sbol:Interaction or sbol:LocalSubComponent or sbol:SBOLActivity or sbol:SBOLMeasure
+    
+    
+ObjectProperty: sbol:variable
+
+    Annotations: 
+        rdfs:label "variable"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        sbol:VariableFeature
+    
+    Range: 
+        sbol:Feature
+    
+    
+ObjectProperty: sbol:variant
+
+    Annotations: 
+        rdfs:label "variant"
+    
+    Domain: 
+        sbol:VariableFeature
+    
+    Range: 
+        sbol:Component
+    
+    
+ObjectProperty: sbol:variantCollection
+
+    Annotations: 
+        rdfs:label "variantCollection"
+    
+    Domain: 
+        sbol:VariableFeature
+    
+    Range: 
+        sbol:Collection
+    
+    
+ObjectProperty: sbol:variantDerivation
+
+    Annotations: 
+        rdfs:label "variantDerivation"
+    
+    Domain: 
+        sbol:VariableFeature
+    
+    Range: 
+        sbol:CombinatorialDerivation
+    
+    
+ObjectProperty: sbol:variantMeasure
+
+    Annotations: 
+        rdfs:label "variantMeasure"
+    
+    Domain: 
+        sbol:VariableFeature
+    
+    Range: 
+        om:Measure
+    
+    
+DataProperty: om:alternativeLabel
+
+    Annotations: 
+        rdfs:label "alternativeSymbol"
+    
+    Domain: 
+        om:Prefix or om:Unit
+    
+    Range: 
+        xsd:string
+    
+    
+DataProperty: om:alternativeSymbol
+
+    Annotations: 
+        rdfs:label "alternativeSymbol"
+    
+    Domain: 
+        om:Prefix or om:Unit
+    
+    Range: 
+        xsd:string
+    
+    
+DataProperty: om:hasExponent
+
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        om:UnitExponentiation
+    
+    Range: 
+        xsd:integer
+    
+    
+DataProperty: om:hasFactor
+
+    Annotations: 
+        rdfs:label "hasFactor"
+    
+    Domain: 
+        om:Prefix or om:SingularUnit
+    
+    Range: 
+        xsd:decimal
+    
+    
+DataProperty: om:hasNumericalValue
+
+    Annotations: 
+        rdfs:label "hasNumericalValue"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        om:Measure
+    
+    Range: 
+        xsd:decimal
+    
+    
+DataProperty: om:longComment
+
+    Annotations: 
+        rdfs:label "longcomment"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        om:Prefix or om:Unit
+    
+    Range: 
+        xsd:string
+    
+    
+DataProperty: om:symbol
+
+    Annotations: 
+        rdfs:label "symbol"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        om:Prefix or om:Unit
+    
+    Range: 
+        xsd:decimal
+    
+    
+DataProperty: prov:endedAtTime
+
+    Annotations: 
+        rdfs:label "endedAtTime"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        prov:Activity
+    
+    Range: 
+        xsd:dateTime
+    
+    
+DataProperty: prov:startedAtTime
+
+    Annotations: 
+        rdfs:label "startedAtTime"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        prov:Activity
+    
+    Range: 
+        xsd:dateTime
+    
+    
+DataProperty: rdfs:label
+
+    
+DataProperty: sbol:at
+
+    Annotations: 
+        rdfs:label "at"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        sbol:Cut
+    
+    Range: 
+        xsd:integer[>= 0]
+    
+    
+DataProperty: sbol:description
+
+    Annotations: 
+        rdfs:label "description"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        sbol:Identified
+    
+    Range: 
+        xsd:string
+    
+    
+DataProperty: sbol:displayId
+
+    Annotations: 
+        rdfs:label "displayId"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        sbol:Identified
+    
+    Range: 
+        xsd:string
+    
+    
+DataProperty: sbol:elements
+
+    Annotations: 
+        rdfs:label "elements"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        sbol:Sequence
+    
+    Range: 
+        xsd:string
+    
+    
+DataProperty: sbol:end
+
+    Annotations: 
+        rdfs:label "end"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        sbol:Range
+    
+    Range: 
+        xsd:integer[>= 1]
+    
+    
+DataProperty: sbol:hash
+
+    Annotations: 
+        rdfs:label "hash"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        sbol:Attachment
+    
+    Range: 
+        xsd:string
+    
+    
+DataProperty: sbol:hashAlgorithm
+
+    Annotations: 
+        rdfs:label "hashAlgorithm"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        sbol:Attachment
+    
+    Range: 
+        xsd:string
+    
+    
+DataProperty: sbol:name
+
+    Annotations: 
+        rdfs:label "name"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        sbol:Identified
+    
+    Range: 
+        xsd:string
+    
+    
+DataProperty: sbol:order
+
+    Annotations: 
+        rdfs:label "order"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        sbol:Location
+    
+    Range: 
+        xsd:integer[>= 1]
+    
+    
+DataProperty: sbol:size
+
+    Annotations: 
+        rdfs:label "size"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        sbol:Attachment
+    
+    Range: 
+        xsd:integer[>= 0]
+    
+    
+DataProperty: sbol:start
+
+    Annotations: 
+        rdfs:label "start"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        sbol:Range
+    
+    Range: 
+        xsd:integer[>= 1]
+    
+    
+Class: identifiers:CHEBI:35224
+
+    
+Class: identifiers:CHEBI:50906
+
+    
+Class: identifiers:GO:0003674
+
+    
+Class: identifiers:GO:0003700
+
+    
+Class: identifiers:SBO:0000010
+
+    
+Class: identifiers:SBO:0000011
+
+    
+Class: identifiers:SBO:0000019
+
+    
+Class: identifiers:SBO:0000020
+
+    
+Class: identifiers:SBO:0000062
+
+    
+Class: identifiers:SBO:0000063
+
+    
+Class: identifiers:SBO:0000168
+
+    
+Class: identifiers:SBO:0000169
+
+    
+Class: identifiers:SBO:0000170
+
+    
+Class: identifiers:SBO:0000176
+
+    
+Class: identifiers:SBO:0000177
+
+    
+Class: identifiers:SBO:0000179
+
+    
+Class: identifiers:SBO:0000234
+
+    
+Class: identifiers:SBO:0000236
+
+    
+Class: identifiers:SBO:0000241
+
+    
+Class: identifiers:SBO:0000247
+
+    
+Class: identifiers:SBO:0000250
+
+    
+Class: identifiers:SBO:0000251
+
+    
+Class: identifiers:SBO:0000252
+
+    
+Class: identifiers:SBO:0000253
+
+    
+Class: identifiers:SBO:0000459
+
+    
+Class: identifiers:SBO:0000589
+
+    
+Class: identifiers:SBO:0000598
+
+    
+Class: identifiers:SBO:0000642
+
+    
+Class: identifiers:SBO:0000643
+
+    
+Class: identifiers:SBO:0000644
+
+    
+Class: identifiers:SBO:0000645
+
+    
+Class: identifiers:SBO:0000681
+
+    
+Class: identifiers:SBO:0000693
+
+    
+Class: identifiers:SO:0000057
+
+    
+Class: identifiers:SO:0000110
+
+    
+Class: identifiers:SO:0000139
+
+    
+Class: identifiers:SO:0000141
+
+    
+Class: identifiers:SO:0000167
+
+    
+Class: identifiers:SO:0000234
+
+    
+Class: identifiers:SO:0000316
+
+    
+Class: identifiers:SO:0000704
+
+    
+Class: identifiers:SO:0000804
+
+    
+Class: identifiers:SO:0000984
+
+    
+Class: identifiers:SO:0000985
+
+    
+Class: identifiers:SO:0000987
+
+    
+Class: identifiers:SO:0000988
+
+    
+Class: identifiers:edam:format_1196
+
+    
+Class: identifiers:edam:format_1197
+
+    
+Class: identifiers:edam:format_1207
+
+    
+Class: identifiers:edam:format_1208
+
+    
+Class: identifiers:edam:format_2585
+
+    
+Class: identifiers:edam:format_3156
+
+    
+Class: identifiers:edam:format_3240
+
+    
+Class: om:BinaryPrefix
+
+    Annotations: 
+        rdfs:label "BinaryPrefix"
+    
+    SubClassOf: 
+        om:Prefix
+    
+    
+Class: om:CompoundUnit
+
+    Annotations: 
+        rdfs:label "CompoundUnit"
+    
+    SubClassOf: 
+        om:Unit
+    
+    
+Class: om:Measure
+
+    Annotations: 
+        rdfs:label "Measure"
+    
+    SubClassOf: 
+        owl:Thing,
+        om:hasUnit some om:Unit,
+        om:hasNumericalValue some xsd:decimal
+    
+    
+Class: om:Prefix
+
+    Annotations: 
+        rdfs:label "Prefix"
+    
+    SubClassOf: 
+        owl:Thing,
+        om:hasFactor some xsd:decimal,
+        om:symbol some xsd:decimal,
+        rdfs:label some xsd:string
+    
+    
+Class: om:PrefixedUnit
+
+    Annotations: 
+        rdfs:label "PrefixedUnit"
+    
+    SubClassOf: 
+        om:Unit,
+        om:hasPrefix some om:Prefix,
+        om:hasUnit some om:Unit
+    
+    
+Class: om:SIPrefix
+
+    Annotations: 
+        rdfs:label "SIPrefix"
+    
+    SubClassOf: 
+        om:Prefix
+    
+    
+Class: om:SingularUnit
+
+    Annotations: 
+        rdfs:label "SingularUnit"
+    
+    SubClassOf: 
+        om:Unit
+    
+    
+Class: om:Unit
+
+    Annotations: 
+        rdfs:label "Unit"
+    
+    SubClassOf: 
+        owl:Thing,
+        om:symbol some xsd:decimal,
+        rdfs:label some xsd:string
+    
+    
+Class: om:UnitDivision
+
+    Annotations: 
+        rdfs:label "UnitDivision"
+    
+    SubClassOf: 
+        om:Unit,
+        om:hasDenominator some om:Unit,
+        om:hasNumerator some om:Unit
+    
+    
+Class: om:UnitExponentiation
+
+    Annotations: 
+        rdfs:label "UnitExponentiation"
+    
+    SubClassOf: 
+        om:Unit,
+        om:hasBase some om:Unit,
+        om:hasExponent some xsd:integer
+    
+    
+Class: om:UnitMultiplication
+
+    Annotations: 
+        rdfs:label "UnitMultiplication"
+    
+    SubClassOf: 
+        om:Unit,
+        om:hasTerm1 some om:Unit,
+        om:hasTerm2 some om:Unit
+    
+    
+Class: owl:Thing
+
+    
+Class: prov:Activity
+
+    Annotations: 
+        rdfs:label "Activity"
+    
+    SubClassOf: 
+        owl:Thing
+    
+    
+Class: prov:Agent
+
+    Annotations: 
+        rdfs:label "Agent"
+    
+    SubClassOf: 
+        owl:Thing
+    
+    
+Class: prov:Association
+
+    Annotations: 
+        rdfs:label "Association"
+    
+    SubClassOf: 
+        owl:Thing,
+        prov:agent some prov:Agent
+    
+    
+Class: prov:Plan
+
+    Annotations: 
+        rdfs:label "Plan"
+    
+    SubClassOf: 
+        owl:Thing
+    
+    
+Class: prov:Usage
+
+    Annotations: 
+        rdfs:label "Usage"
+    
+    SubClassOf: 
+        owl:Thing
+    
+    
+Class: sbol:Attachment
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:label "Attachment"
+    
+    SubClassOf: 
+        sbol:TopLevel,
+        sbol:source some owl:Thing
+    
+    
+Class: sbol:BiochemicalReactionInteraction
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:label "BiochemicalReactionInteraction"
+    
+    EquivalentTo: 
+        sbol:Interaction
+         and (sbol:type some identifiers:SBO:0000176)
+         and (sbol:participant min 0 sbol:ModifiedParticipation)
+         and (sbol:participant min 0 sbol:ModifierParticipation)
+         and (sbol:participant min 0 sbol:ProductParticipation)
+         and (sbol:participant min 0 sbol:ReactantParticipation)
+    
+    SubClassOf: 
+        sbol:Interaction
+    
+    
+Class: sbol:CDSDNAComponent
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:label "CDS DNA Component"
+    
+    EquivalentTo: 
+        sbol:DNAComponent
+         and (sbol:role some identifiers:SO:0000316)
+    
+    SubClassOf: 
+        sbol:DNAComponent
+    
+    
+Class: sbol:Cardinality
+
+    Annotations: 
+        otol:constantList "true",
+        rdfs:label "Cardinality"
+    
+    EquivalentTo: 
+        sbol:one or sbol:oneOrMore or sbol:zeroOrMore or sbol:zeroOrOne
+    
+    SubClassOf: 
+        sbol:SBOLTerm
+    
+    
+Class: sbol:Collection
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:label "Collection"
+    
+    SubClassOf: 
+        sbol:TopLevel
+    
+    
+Class: sbol:CombinatorialDerivation
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:label "CombinatorialDerivation"
+    
+    SubClassOf: 
+        sbol:TopLevel,
+        sbol:template some sbol:Component
+    
+    
+Class: sbol:CombinatorialDerivationStrategy
+
+    Annotations: 
+        otol:constantList "true",
+        rdfs:label "CombinatorialDerivationStrategy"
+    
+    EquivalentTo: 
+        sbol:enumerate or sbol:sample
+    
+    SubClassOf: 
+        sbol:SBOLTerm
+    
+    
+Class: sbol:Component
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:label "Component"
+    
+    SubClassOf: 
+        sbol:TopLevel,
+        sbol:type some sbol:ComponentType,
+        sbol:type some owl:Thing,
+        sbol:type max 1 sbol:ComponentType
+    
+    
+Class: sbol:ComponentReference
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:label "ComponentReference"
+    
+    SubClassOf: 
+        sbol:Feature,
+        sbol:inChildOf some sbol:Component,
+        sbol:refersTo some sbol:Feature
+    
+    
+Class: sbol:ComponentRole
+
+    Annotations: 
+        rdfs:label "Component Role"
+    
+    SubClassOf: 
+        sbol:SBOLValue
+    
+    
+Class: sbol:ComponentType
+
+    Annotations: 
+        otol:constantList "true",
+        rdfs:label "Component Type"
+    
+    EquivalentTo: 
+        sbol:ComponentType or identifiers:SO:0000984 or identifiers:SO:0000985 or identifiers:SO:0000987 or identifiers:SO:0000988,
+        identifiers:SBO:0000241 or identifiers:SBO:0000247 or identifiers:SBO:0000250 or identifiers:SBO:0000251 or identifiers:SBO:0000252 or identifiers:SBO:0000253
+    
+    SubClassOf: 
+        sbol:SBOLValue,
+        identifiers:SBO:0000236
+    
+    
+Class: sbol:Constraint
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:label "Constraint"
+    
+    SubClassOf: 
+        sbol:Identified,
+        sbol:object some sbol:Feature,
+        sbol:restriction some owl:Thing,
+        sbol:subject some sbol:Feature
+    
+    
+Class: sbol:ConstraintRestriction
+
+    Annotations: 
+        otol:constantList "true",
+        rdfs:comment "Controlled vocabulary for the types of relationships that can be expressed in Constraints.",
+        rdfs:label "ConstraintRestriction"
+    
+    SubClassOf: 
+        sbol:SBOLTerm
+    
+    
+Class: sbol:ControlInteraction
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:label "ControlInteraction"
+    
+    EquivalentTo: 
+        sbol:Interaction
+         and (sbol:participant some sbol:ModifiedParticipation)
+         and (sbol:participant some sbol:ModifierParticipation)
+         and (sbol:type some identifiers:SBO:0000168)
+    
+    SubClassOf: 
+        sbol:Interaction
+    
+    
+Class: sbol:Cut
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:label "Cut"
+    
+    SubClassOf: 
+        sbol:Location,
+        sbol:at some xsd:integer[>= 0]
+    
+    
+Class: sbol:DNAComponent
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:label "DNA Component"
+    
+    EquivalentTo: 
+        sbol:Component
+         and (sbol:role some sbol:DNARole)
+         and (sbol:type some identifiers:SBO:0000251)
+         and (sbol:hasSequence only sbol:DNASequence)
+    
+    SubClassOf: 
+        sbol:Component
+    
+    
+Class: sbol:DNARNAComponentType
+
+    Annotations: 
+        otol:constantList "true",
+        rdfs:label "DNA or RNA Component Type"
+    
+    SubClassOf: 
+        sbol:ComponentType
+    
+    
+Class: sbol:DNARole
+
+    Annotations: 
+        otol:constantList "true",
+        rdfs:label "DNA Role"
+    
+    EquivalentTo: 
+        identifiers:SO:0000057 or identifiers:SO:0000110 or identifiers:SO:0000139 or identifiers:SO:0000141 or identifiers:SO:0000167 or identifiers:SO:0000316 or identifiers:SO:0000704 or identifiers:SO:0000804
+    
+    SubClassOf: 
+        sbol:ComponentRole
+    
+    
+Class: sbol:DNASequence
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:label "DNA Sequence"
+    
+    EquivalentTo: 
+        sbol:SequenceWithElements
+         and (sbol:encoding some identifiers:edam:format_1207)
+    
+    SubClassOf: 
+        sbol:SequenceWithElements
+    
+    
+Class: sbol:DegradationInteraction
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:label "DegradationInteraction"
+    
+    EquivalentTo: 
+        sbol:Interaction
+         and (sbol:participant some sbol:ReactantParticipation)
+         and (sbol:type some identifiers:SBO:0000179)
+    
+    SubClassOf: 
+        sbol:Interaction
+    
+    
+Class: sbol:EffectorSimpleChemicalComponent
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:label "Effector Simple Chemical Component"
+    
+    EquivalentTo: 
+        sbol:SimpleChemicalComponent
+         and (sbol:role some identifiers:CHEBI:35224)
+    
+    SubClassOf: 
+        sbol:SimpleChemicalComponent
+    
+    
+Class: sbol:Encoding
+
+    Annotations: 
+        otol:constantList "true",
+        rdfs:label "Encoding"
+    
+    EquivalentTo: 
+        identifiers:edam:format_1196 or identifiers:edam:format_1197 or identifiers:edam:format_1207 or identifiers:edam:format_1208
+    
+    SubClassOf: 
+        sbol:SBOLValue
+    
+    
+Class: sbol:EngineeredRegionDNAComponent
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:label "Engineered Region DNA Component"
+    
+    EquivalentTo: 
+        sbol:DNAComponent
+         and (sbol:role some identifiers:SO:0000804)
+    
+    SubClassOf: 
+        sbol:DNAComponent
+    
+    
+Class: sbol:EntireSequence
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:label "EntireSequence"
+    
+    SubClassOf: 
+        sbol:Location
+    
+    
+Class: sbol:Experiment
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:label "Experiment"
+    
+    SubClassOf: 
+        sbol:Collection
+    
+    
+Class: sbol:ExperimentalData
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:label "ExperimentalData"
+    
+    SubClassOf: 
+        sbol:TopLevel
+    
+    
+Class: sbol:ExternallyDefined
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:label "ExternallyDefined"
+    
+    SubClassOf: 
+        sbol:Feature,
+        sbol:definition some owl:Thing,
+        sbol:type some owl:Thing
+    
+    
+Class: sbol:Feature
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:label "Feature"
+    
+    SubClassOf: 
+        sbol:Identified
+    
+    
+Class: sbol:FunctionalEntityComponent
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:label "Functional Entity Component"
+    
+    EquivalentTo: 
+        sbol:Component
+         and (sbol:type some identifiers:SBO:0000241)
+    
+    SubClassOf: 
+        sbol:Component
+    
+    
+Class: sbol:GeneDNAComponent
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:label "Gene DNA Component"
+    
+    EquivalentTo: 
+        sbol:DNAComponent
+         and (sbol:role some identifiers:SO:0000704)
+    
+    SubClassOf: 
+        sbol:DNAComponent
+    
+    
+Class: sbol:GenericDNAComponent
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:label "Generic DNA Component"
+    
+    EquivalentTo: 
+        sbol:DNAComponent
+         and (sbol:role some identifiers:SO:0000110)
+    
+    SubClassOf: 
+        sbol:DNAComponent
+    
+    
+Class: sbol:GenericTopLevel
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:label "GenericTopLevel"
+    
+    SubClassOf: 
+        sbol:TopLevel,
+        rdf:type some owl:Thing
+    
+    
+Class: sbol:GeneticProductionInteraction
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:label "GeneticProductionInteraction"
+    
+    EquivalentTo: 
+        sbol:Interaction
+         and (sbol:participant some sbol:TemplateParticipation)
+         and (sbol:type some identifiers:SBO:0000589)
+         and (sbol:participant exactly 1 sbol:ProductParticipation)
+    
+    SubClassOf: 
+        sbol:Interaction
+    
+    
+Class: sbol:Identified
+
+    Annotations: 
+        rdfs:label "Identified"
+    
+    SubClassOf: 
+        owl:Thing,
+        owl:topObjectProperty min 0 sbol:Metadata
+    
+    
+Class: sbol:IdentityRestriction
+
+    Annotations: 
+        otol:constantList "true",
+        rdfs:label "IdentityRestriction"
+    
+    EquivalentTo: 
+        sbol:differentFrom or sbol:replaces or sbol:verifyIdentical
+    
+    SubClassOf: 
+        sbol:ConstraintRestriction
+    
+    
+Class: sbol:Implementation
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:label "Implementation"
+    
+    SubClassOf: 
+        sbol:TopLevel
+    
+    
+Class: sbol:InChISequence
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:label "InChI Sequence"
+    
+    EquivalentTo: 
+        sbol:SequenceWithElements
+         and (sbol:encoding some identifiers:edam:format_1197)
+    
+    SubClassOf: 
+        sbol:SequenceWithElements
+    
+    
+Class: sbol:InhibitedParticipation
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:label "InhibitedParticipation"
+    
+    EquivalentTo: 
+        sbol:Participation
+         and (sbol:role some identifiers:SBO:0000642)
+    
+    SubClassOf: 
+        sbol:Participation
+    
+    
+Class: sbol:InhibitionInteraction
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:label "InhibitionInteraction"
+    
+    EquivalentTo: 
+        sbol:Interaction
+         and (sbol:participant some sbol:InhibitedParticipation)
+         and (sbol:participant some sbol:InhibitorParticipation)
+         and (sbol:type some identifiers:SBO:0000169)
+    
+    SubClassOf: 
+        sbol:Interaction
+    
+    
+Class: sbol:InhibitorParticipation
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:label "InhibitorParticipant"
+    
+    EquivalentTo: 
+        sbol:Participation
+         and (sbol:role some identifiers:SBO:0000020)
+    
+    SubClassOf: 
+        sbol:Participation
+    
+    
+Class: sbol:Interaction
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:label "Interaction"
+    
+    SubClassOf: 
+        sbol:Identified,
+        sbol:type some owl:Thing
+    
+    
+Class: sbol:InteractionType
+
+    Annotations: 
+        otol:constantList "true",
+        rdfs:label "InteractionType"
+    
+    EquivalentTo: 
+        identifiers:SBO:0000168 or identifiers:SBO:0000169 or identifiers:SBO:0000170 or identifiers:SBO:0000176 or identifiers:SBO:0000177 or identifiers:SBO:0000179 or identifiers:SBO:0000589
+    
+    SubClassOf: 
+        sbol:SBOLValue
+    
+    
+Class: sbol:Interface
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:label "Interface"
+    
+    SubClassOf: 
+        sbol:Identified
+    
+    
+Class: sbol:LocalSubComponent
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:label "LocalSubComponent"
+    
+    SubClassOf: 
+        sbol:Feature,
+        sbol:type some owl:Thing
+    
+    
+Class: sbol:Location
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:label "Location"
+    
+    SubClassOf: 
+        sbol:Identified,
+        sbol:hasSequence some sbol:Sequence,
+        sbol:hasSequence max 1 sbol:Sequence
+    
+    
+Class: sbol:Metadata
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:label "Metadata"
+    
+    SubClassOf: 
+        sbol:Identified,
+        rdf:type some owl:Thing
+    
+    
+Class: sbol:Model
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:label "Model"
+    
+    SubClassOf: 
+        sbol:TopLevel,
+        sbol:framework some owl:Thing,
+        sbol:language some owl:Thing,
+        sbol:source some owl:Thing
+    
+    
+Class: sbol:ModelFramework
+
+    Annotations: 
+        otol:constantList "true",
+        rdfs:label "ModelFramework"
+    
+    EquivalentTo: 
+        identifiers:SBO:0000062 or identifiers:SBO:0000063 or identifiers:SBO:0000234 or identifiers:SBO:0000681 or identifiers:SBO:0000693
+    
+    SubClassOf: 
+        sbol:SBOLValue
+    
+    
+Class: sbol:ModelLanguage
+
+    Annotations: 
+        otol:constantList "true",
+        rdfs:label "ModelLanguage"
+    
+    EquivalentTo: 
+        identifiers:edam:format_2585 or identifiers:edam:format_3156 or identifiers:edam:format_3240
+    
+    SubClassOf: 
+        sbol:SBOLValue
+    
+    
+Class: sbol:ModifiedParticipation
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:label "ModifiedParticipation"
+    
+    EquivalentTo: 
+        sbol:Participation
+         and (sbol:role some identifiers:SBO:0000644)
+    
+    SubClassOf: 
+        sbol:Participation
+    
+    
+Class: sbol:ModifierParticipation
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:label "ModifierParticipation"
+    
+    EquivalentTo: 
+        sbol:Participation
+         and (sbol:role some identifiers:SBO:0000019)
+    
+    SubClassOf: 
+        sbol:Participation
+    
+    
+Class: sbol:NonCovalentBindingInteraction
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:label "NonCovalentBindingInteraction"
+    
+    EquivalentTo: 
+        sbol:Interaction
+         and (sbol:participant some sbol:ProductParticipation)
+         and (sbol:participant some sbol:ReactantParticipation)
+         and (sbol:type some identifiers:SBO:0000177)
+    
+    SubClassOf: 
+        sbol:Interaction
+    
+    
+Class: sbol:NonCovalentComplexComponent
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:label "Non-Covalent Complex Component"
+    
+    EquivalentTo: 
+        sbol:Component
+         and (sbol:type some identifiers:SBO:0000253)
+    
+    SubClassOf: 
+        sbol:Component
+    
+    
+Class: sbol:NucleicAcidTopology
+
+    Annotations: 
+        otol:constantList "true",
+        rdfs:label "NucleicAcidTopology"
+    
+    EquivalentTo: 
+        identifiers:SO:0000984 or identifiers:SO:0000985 or identifiers:SO:0000987 or identifiers:SO:0000988
+    
+    SubClassOf: 
+        sbol:SBOLValue
+    
+    
+Class: sbol:OperatorDNAComponent
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:label "Operator DNA Component"
+    
+    EquivalentTo: 
+        sbol:DNAComponent
+         and (sbol:role some identifiers:SO:0000057)
+    
+    SubClassOf: 
+        sbol:DNAComponent
+    
+    
+Class: sbol:Orientation
+
+    Annotations: 
+        otol:constantList "true",
+        rdfs:label "Orientation"
+    
+    EquivalentTo: 
+        sbol:inline or sbol:reverseComplement
+    
+    SubClassOf: 
+        sbol:SBOLTerm
+    
+    
+Class: sbol:OrientationRestriction
+
+    Annotations: 
+        otol:constantList "true",
+        rdfs:label "OrientationRestriction"
+    
+    EquivalentTo: 
+        sbol:oppositeOrientationAs or sbol:sameOrientationAs
+    
+    SubClassOf: 
+        sbol:ConstraintRestriction
+    
+    
+Class: sbol:Participation
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:label "Participation"
+    
+    SubClassOf: 
+        sbol:Identified,
+        sbol:role some owl:Thing
+    
+    
+Class: sbol:ParticipationRole
+
+    Annotations: 
+        otol:constantList "true",
+        rdfs:label "ParticipationRole"
+    
+    EquivalentTo: 
+        identifiers:SBO:0000010 or identifiers:SBO:0000011 or identifiers:SBO:0000019 or identifiers:SBO:0000020 or identifiers:SBO:0000459 or identifiers:SBO:0000598 or identifiers:SBO:0000642 or identifiers:SBO:0000643 or identifiers:SBO:0000645
+    
+    SubClassOf: 
+        sbol:SBOLValue
+    
+    
+Class: sbol:ProductParticipation
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:label "ProductParticipation"
+    
+    EquivalentTo: 
+        sbol:Participation
+         and (sbol:role some identifiers:SBO:0000011)
+    
+    SubClassOf: 
+        sbol:Participation
+    
+    
+Class: sbol:PromoterDNAComponent
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:label "Promoter DNA Component"
+    
+    EquivalentTo: 
+        sbol:DNAComponent
+         and (sbol:role some identifiers:SO:0000167)
+    
+    SubClassOf: 
+        sbol:DNAComponent
+    
+    
+Class: sbol:PromoterParticipation
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:label "PromoterParticipation"
+    
+    EquivalentTo: 
+        sbol:Participation
+         and (sbol:role some identifiers:SBO:0000598)
+    
+    SubClassOf: 
+        sbol:Participation
+    
+    
+Class: sbol:ProteinComponent
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:label "Protein Component"
+    
+    EquivalentTo: 
+        sbol:Component
+         and (sbol:role some sbol:ProteinRole)
+         and (sbol:type some identifiers:SBO:0000252)
+         and (sbol:hasSequence only sbol:ProteinSequence)
+    
+    SubClassOf: 
+        sbol:Component
+    
+    
+Class: sbol:ProteinRole
+
+    Annotations: 
+        otol:constantList "true",
+        rdfs:label "Protein Role"
+    
+    EquivalentTo: 
+        identifiers:GO:0003674 or identifiers:GO:0003700
+    
+    SubClassOf: 
+        sbol:ComponentRole
+    
+    
+Class: sbol:ProteinSequence
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:label "Protein Sequence"
+    
+    EquivalentTo: 
+        sbol:SequenceWithElements
+         and (sbol:encoding some identifiers:edam:format_1208)
+    
+    SubClassOf: 
+        sbol:SequenceWithElements
+    
+    
+Class: sbol:RBSDNAComponent
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:label "RBS DNA Component"
+    
+    EquivalentTo: 
+        sbol:DNAComponent
+         and (sbol:role some identifiers:SO:0000139)
+    
+    SubClassOf: 
+        sbol:DNAComponent
+    
+    
+Class: sbol:RNAComponent
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:label "RNA Component"
+    
+    EquivalentTo: 
+        sbol:Component
+         and (sbol:role some sbol:RNARole)
+         and (sbol:type some identifiers:SBO:0000250)
+         and (sbol:hasSequence only sbol:RNASequence)
+    
+    SubClassOf: 
+        sbol:Component
+    
+    
+Class: sbol:RNARole
+
+    Annotations: 
+        otol:constantList "true",
+        rdfs:label "RNA role"
+    
+    EquivalentTo: 
+        identifiers:SO:0000110 or identifiers:SO:0000234
+    
+    SubClassOf: 
+        sbol:ComponentRole
+    
+    
+Class: sbol:RNASequence
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:label "RNA Sequence"
+    
+    EquivalentTo: 
+        sbol:SequenceWithElements
+         and (sbol:encoding some identifiers:edam:format_1207)
+    
+    SubClassOf: 
+        sbol:SequenceWithElements
+    
+    
+Class: sbol:Range
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:label "Range"
+    
+    SubClassOf: 
+        sbol:Location,
+        sbol:end some xsd:integer[>= 1],
+        sbol:start some xsd:integer[>= 1]
+    
+    
+Class: sbol:ReactantParticipation
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:label "ReactantParticipation"
+    
+    EquivalentTo: 
+        sbol:Participation
+         and (sbol:role some identifiers:SBO:0000010)
+    
+    SubClassOf: 
+        sbol:Participation
+    
+    
+Class: sbol:RoleIntegration
+
+    Annotations: 
+        otol:constantList "true",
+        rdfs:label "RoleIntegration"
+    
+    EquivalentTo: 
+        sbol:mergeRoles or sbol:overrideRoles
+    
+    SubClassOf: 
+        sbol:SBOLTerm
+    
+    
+Class: sbol:SBOLActivity
+
+    Annotations: 
+        otol:domainEntity "true",
+        otol:replacementOf <https://www.w3.org/ns/prov#Activity>,
+        rdfs:label "SBOL Activity"
+    
+    SubClassOf: 
+        sbol:TopLevel,
+        prov:Activity
+    
+    
+Class: sbol:SBOLAgent
+
+    Annotations: 
+        otol:domainEntity "true",
+        otol:replacementOf <https://www.w3.org/ns/prov#Agent>,
+        rdfs:label "SBOL Agent"
+    
+    SubClassOf: 
+        sbol:TopLevel,
+        prov:Agent
+    
+    
+Class: sbol:SBOLAssociation
+
+    Annotations: 
+        otol:domainEntity "true",
+        otol:replacementOf <https://www.w3.org/ns/prov#Association>,
+        rdfs:label "SBOL Association"
+    
+    SubClassOf: 
+        sbol:Identified,
+        prov:Association
+    
+    
+Class: sbol:SBOLBinaryPrefix
+
+    Annotations: 
+        otol:domainEntity "true",
+        otol:replacementOf <http://www.ontology-of-units-of-measure.org/resource/om-2/BinaryPrefix>,
+        rdfs:label "BinaryPrefix"
+    
+    SubClassOf: 
+        sbol:SBOLPrefix,
+        om:BinaryPrefix
+    
+    
+Class: sbol:SBOLCompoundUnit
+
+    Annotations: 
+        otol:domainEntity "true",
+        otol:replacementOf <http://www.ontology-of-units-of-measure.org/resource/om-2/CompoundUnit>,
+        rdfs:label "CompoundUnit"
+    
+    SubClassOf: 
+        sbol:SBOLUnit,
+        om:CompoundUnit
+    
+    
+Class: sbol:SBOLMeasure
+
+    Annotations: 
+        otol:domainEntity "true",
+        otol:replacementOf <http://www.ontology-of-units-of-measure.org/resource/om-2/Measure>,
+        rdfs:label "SBOL Measure"
+    
+    SubClassOf: 
+        sbol:Identified,
+        om:Measure
+    
+    
+Class: sbol:SBOLPlan
+
+    Annotations: 
+        otol:domainEntity "true",
+        otol:replacementOf <https://www.w3.org/ns/prov#Plan>,
+        rdfs:label "SBOLPlan"
+    
+    SubClassOf: 
+        sbol:TopLevel,
+        prov:Plan
+    
+    
+Class: sbol:SBOLPrefix
+
+    Annotations: 
+        otol:domainEntity "true",
+        otol:replacementOf <http://www.ontology-of-units-of-measure.org/resource/om-2/Prefix>,
+        rdfs:label "Prefix"
+    
+    SubClassOf: 
+        sbol:TopLevel,
+        om:Prefix
+    
+    
+Class: sbol:SBOLPrefixedUnit
+
+    Annotations: 
+        otol:domainEntity "true",
+        otol:replacementOf <http://www.ontology-of-units-of-measure.org/resource/om-2/PrefixedUnit>,
+        rdfs:label "PrefixedUnit"
+    
+    SubClassOf: 
+        sbol:SBOLUnit,
+        om:PrefixedUnit
+    
+    
+Class: sbol:SBOLSIPrefix
+
+    Annotations: 
+        otol:domainEntity "true",
+        otol:replacementOf <http://www.ontology-of-units-of-measure.org/resource/om-2/SIPrefix>,
+        rdfs:label "SIPrefix"
+    
+    SubClassOf: 
+        sbol:SBOLPrefix,
+        om:SIPrefix
+    
+    
+Class: sbol:SBOLSingularUnit
+
+    Annotations: 
+        otol:domainEntity "true",
+        otol:replacementOf <http://www.ontology-of-units-of-measure.org/resource/om-2/SingularUnit>,
+        rdfs:label "SingularUnit"
+    
+    SubClassOf: 
+        sbol:SBOLUnit,
+        om:SingularUnit
+    
+    
+Class: sbol:SBOLTerm
+
+    Annotations: 
+        otol:vocabulary "true",
+        rdfs:label "SBOL Term"
+    
+    SubClassOf: 
+        owl:Thing
+    
+    
+Class: sbol:SBOLUnit
+
+    Annotations: 
+        otol:domainEntity "true",
+        otol:replacementOf <http://www.ontology-of-units-of-measure.org/resource/om-2/Unit>,
+        rdfs:label "Unit"
+    
+    SubClassOf: 
+        sbol:TopLevel,
+        om:Unit
+    
+    
+Class: sbol:SBOLUnitDivision
+
+    Annotations: 
+        otol:domainEntity "true",
+        otol:replacementOf <http://www.ontology-of-units-of-measure.org/resource/om-2/UnitDivision>,
+        rdfs:label "UnitDivision"
+    
+    SubClassOf: 
+        sbol:SBOLUnit,
+        om:UnitDivision
+    
+    
+Class: sbol:SBOLUnitExponentiation
+
+    Annotations: 
+        otol:domainEntity "true",
+        otol:replacementOf <http://www.ontology-of-units-of-measure.org/resource/om-2/UnitExponentiation>,
+        rdfs:label "UnitExponentiation"
+    
+    SubClassOf: 
+        sbol:SBOLUnit,
+        om:UnitExponentiation
+    
+    
+Class: sbol:SBOLUnitMultiplication
+
+    Annotations: 
+        otol:domainEntity "true",
+        otol:replacementOf <http://www.ontology-of-units-of-measure.org/resource/om-2/UnitMultiplication>,
+        rdfs:label "UnitMultiplication"
+    
+    SubClassOf: 
+        sbol:SBOLUnit,
+        om:UnitMultiplication
+    
+    
+Class: sbol:SBOLUsage
+
+    Annotations: 
+        otol:domainEntity "true",
+        otol:replacementOf <https://www.w3.org/ns/prov#Usage>,
+        rdfs:label "SBOL Usage"
+    
+    SubClassOf: 
+        sbol:Identified,
+        prov:Usage,
+        prov:entity some owl:Thing
+    
+    
+Class: sbol:SBOLValue
+
+    Annotations: 
+        otol:vocabulary "true"
+    
+    SubClassOf: 
+        owl:Thing
+    
+    
+Class: sbol:SMILESSequence
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:label "SMILES Sequence"
+    
+    EquivalentTo: 
+        sbol:SequenceWithElements
+         and (sbol:encoding some identifiers:edam:format_1196)
+    
+    SubClassOf: 
+        sbol:SequenceWithElements
+    
+    
+Class: sbol:Sequence
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:label "Sequence"
+    
+    SubClassOf: 
+        sbol:TopLevel
+    
+    
+Class: sbol:SequenceFeature
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:label "SequenceFeature"
+    
+    SubClassOf: 
+        sbol:Feature,
+        sbol:hasLocation some sbol:Location
+    
+    
+Class: sbol:SequenceWithElements
+
+    Annotations: 
+        rdfs:label "Sequence With Elements"
+    
+    EquivalentTo: 
+        sbol:Sequence
+         and (sbol:encoding some sbol:Encoding)
+         and (sbol:elements some xsd:string)
+    
+    SubClassOf: 
+        sbol:Sequence
+    
+    
+Class: sbol:SequentialRestriction
+
+    Annotations: 
+        otol:constantList "true",
+        rdfs:label "SequentialRestriction"
+    
+    EquivalentTo: 
+        sbol:contains or sbol:equals or sbol:finishes or sbol:meets or sbol:overlaps or sbol:precedes or sbol:starts or sbol:strictlyContains or sbol:strictlyPrecedes
+    
+    SubClassOf: 
+        sbol:ConstraintRestriction
+    
+    
+Class: sbol:SimpleChemicalComponent
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:label "Simple Chemical Component"
+    
+    EquivalentTo: 
+        sbol:Component
+         and (sbol:role some sbol:SmallMoleculeRole)
+         and (sbol:type some identifiers:SBO:0000247)
+         and (sbol:hasSequence only 
+            (sbol:InChISequence or sbol:SMILESSequence))
+    
+    SubClassOf: 
+        sbol:Component
+    
+    
+Class: sbol:SmallMoleculeRole
+
+    Annotations: 
+        otol:constantList "true",
+        rdfs:label "Small Molecule Role"
+    
+    EquivalentTo: 
+        identifiers:CHEBI:35224 or identifiers:CHEBI:50906
+    
+    SubClassOf: 
+        sbol:ComponentRole
+    
+    
+Class: sbol:StimulatedParticipation
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:label "StimulatedParticipation"
+    
+    EquivalentTo: 
+        sbol:Participation
+         and (sbol:role some identifiers:SBO:0000643)
+    
+    SubClassOf: 
+        sbol:Participation
+    
+    
+Class: sbol:StimulationInteraction
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:label "StimulationInteraction"
+    
+    EquivalentTo: 
+        sbol:Interaction
+         and (sbol:participant some sbol:StimulatedParticipation)
+         and (sbol:participant some sbol:StimulatorParticipation)
+         and (sbol:type some identifiers:SBO:0000170)
+    
+    SubClassOf: 
+        sbol:Interaction
+    
+    
+Class: sbol:StimulatorParticipation
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:label "StimulatorParticipation"
+    
+    EquivalentTo: 
+        sbol:Participation
+         and (sbol:role some identifiers:SBO:0000459)
+    
+    SubClassOf: 
+        sbol:Participation
+    
+    
+Class: sbol:SubComponent
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:label "SubComponent"
+    
+    SubClassOf: 
+        sbol:Feature,
+        sbol:instanceOf some sbol:Component
+    
+    
+Class: sbol:TemplateParticipation
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:label "TemplateParticipation"
+    
+    EquivalentTo: 
+        sbol:Participation
+         and (sbol:role some identifiers:SBO:0000645)
+    
+    SubClassOf: 
+        sbol:Participation
+    
+    
+Class: sbol:TerminatorDNAComponent
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:label "Terminator DNA Component"
+    
+    EquivalentTo: 
+        sbol:DNAComponent
+         and (sbol:role some identifiers:SO:0000141)
+    
+    SubClassOf: 
+        sbol:DNAComponent
+    
+    
+Class: sbol:TopLevel
+
+    Annotations: 
+        rdfs:label "TopLevel"
+    
+    SubClassOf: 
+        sbol:Identified,
+        sbol:hasNamespace some owl:Thing
+    
+    
+Class: sbol:TopologyRestriction
+
+    Annotations: 
+        otol:constantList "true",
+        rdfs:label "TopologyRestriction"
+    
+    EquivalentTo: 
+        sbol:contains or sbol:covers or sbol:equals or sbol:isDisjointFrom or sbol:meets or sbol:overlaps or sbol:strictlyContains
+    
+    SubClassOf: 
+        sbol:ConstraintRestriction
+    
+    
+Class: sbol:TranscriptionFactorProteinComponent
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:label "Transcription Factor Protein Component"
+    
+    EquivalentTo: 
+        sbol:ProteinComponent
+         and (sbol:role some identifiers:GO:0003700)
+    
+    SubClassOf: 
+        sbol:ProteinComponent
+    
+    
+Class: sbol:VariableFeature
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:label "VariableFeature"
+    
+    SubClassOf: 
+        sbol:Identified,
+        sbol:cardinality some sbol:Cardinality,
+        sbol:variable some sbol:Feature
+    
+    
+Class: sbol:contains
+
+    Annotations: 
+        rdfs:comment "Subject contains object; they might or might not share a boundary.",
+        rdfs:label "contains"
+    
+    SubClassOf: 
+        sbol:ConstraintRestriction
+    
+    
+Class: sbol:covers
+
+    Annotations: 
+        rdfs:comment "Subject covers object.",
+        rdfs:label "covers"
+    
+    SubClassOf: 
+        sbol:ConstraintRestriction
+    
+    
+Class: sbol:differentFrom
+
+    Annotations: 
+        rdfs:comment "Subject and object must NOT refer to the same Component/definition.",
+        rdfs:label "differentFrom"
+    
+    SubClassOf: 
+        sbol:ConstraintRestriction
+    
+    
+Class: sbol:enumerate
+
+    Annotations: 
+        rdfs:label "enumerate"
+    
+    SubClassOf: 
+        sbol:CombinatorialDerivationStrategy
+    
+    
+Class: sbol:equals
+
+    Annotations: 
+        rdfs:comment "Subject and object occupy the same location in space or sequence.",
+        rdfs:label "equals"
+    
+    SubClassOf: 
+        sbol:ConstraintRestriction
+    
+    
+Class: sbol:finishes
+
+    Annotations: 
+        rdfs:comment "Subject starts after object starts; end positions are equal.",
+        rdfs:label "finishes"
+    
+    SubClassOf: 
+        sbol:ConstraintRestriction
+    
+    
+Class: sbol:inline
+
+    Annotations: 
+        rdfs:label "inline"
+    
+    SubClassOf: 
+        sbol:Orientation
+    
+    
+Class: sbol:isDisjointFrom
+
+    Annotations: 
+        rdfs:comment "Subject and object do not overlap in space.",
+        rdfs:label "isDisjointFrom"
+    
+    SubClassOf: 
+        sbol:ConstraintRestriction
+    
+    
+Class: sbol:meets
+
+    Annotations: 
+        rdfs:comment "Subject and object are connected at a shared boundary.",
+        rdfs:label "meets"
+    
+    SubClassOf: 
+        sbol:ConstraintRestriction
+    
+    
+Class: sbol:mergeRoles
+
+    Annotations: 
+        rdfs:label "mergeRoles"
+    
+    SubClassOf: 
+        sbol:RoleIntegration
+    
+    
+Class: sbol:one
+
+    Annotations: 
+        rdfs:label "one"
+    
+    SubClassOf: 
+        sbol:Cardinality
+    
+    
+Class: sbol:oneOrMore
+
+    Annotations: 
+        rdfs:label "OneOrMore"
+    
+    SubClassOf: 
+        sbol:Cardinality
+    
+    
+Class: sbol:oppositeOrientationAs
+
+    Annotations: 
+        rdfs:comment "Subject and object have opposite strand orientations.",
+        rdfs:label "oppositeOrientationAs"
+    
+    SubClassOf: 
+        sbol:OrientationRestriction
+    
+    
+Class: sbol:overlaps
+
+    Annotations: 
+        rdfs:comment "Subject and object overlap but portions of each are outside the other.",
+        rdfs:label "overlaps"
+    
+    SubClassOf: 
+        sbol:ConstraintRestriction
+    
+    
+Class: sbol:overrideRoles
+
+    Annotations: 
+        rdfs:label "overrideRoles"
+    
+    SubClassOf: 
+        sbol:RoleIntegration
+    
+    
+Class: sbol:precedes
+
+    Annotations: 
+        rdfs:comment "Start of subject location is less than start of object location.",
+        rdfs:label "precedes"
+    
+    SubClassOf: 
+        sbol:ConstraintRestriction
+    
+    
+Class: sbol:replaces
+
+    Annotations: 
+        rdfs:comment "The definition of subject is to replace the definition of object during design resolution.",
+        rdfs:label "replaces"
+    
+    SubClassOf: 
+        sbol:ConstraintRestriction
+    
+    
+Class: sbol:reverseComplement
+
+    Annotations: 
+        rdfs:label "reverseComplement"
+    
+    SubClassOf: 
+        sbol:Orientation
+    
+    
+Class: sbol:sameOrientationAs
+
+    Annotations: 
+        rdfs:comment "Subject and object have the same strand orientation.",
+        rdfs:label "sameOrientationAs"
+    
+    SubClassOf: 
+        sbol:OrientationRestriction
+    
+    
+Class: sbol:sample
+
+    Annotations: 
+        rdfs:label "sample"
+    
+    SubClassOf: 
+        sbol:CombinatorialDerivationStrategy
+    
+    
+Class: sbol:starts
+
+    Annotations: 
+        rdfs:comment "Start positions are equal; subject ends before object ends.",
+        rdfs:label "starts"
+    
+    SubClassOf: 
+        sbol:ConstraintRestriction
+    
+    
+Class: sbol:strictlyContains
+
+    Annotations: 
+        rdfs:comment "Subject entirely contains object without sharing any boundary.",
+        rdfs:label "strictlyContains"
+    
+    SubClassOf: 
+        sbol:ConstraintRestriction
+    
+    
+Class: sbol:strictlyPrecedes
+
+    Annotations: 
+        rdfs:comment "End of subject location is less than start of object location.",
+        rdfs:label "strictlyPrecedes"
+    
+    SubClassOf: 
+        sbol:ConstraintRestriction
+    
+    
+Class: sbol:verifyIdentical
+
+    Annotations: 
+        rdfs:comment "Subject and object must both be SubComponents with the same instanceOf or ExternallyDefined with the same definition.",
+        rdfs:label "verifyIdentical"
+    
+    SubClassOf: 
+        sbol:ConstraintRestriction
+    
+    
+Class: sbol:zeroOrMore
+
+    Annotations: 
+        rdfs:label "zeroOrMore"
+    
+    SubClassOf: 
+        sbol:Cardinality
+    
+    
+Class: sbol:zeroOrOne
+
+    Annotations: 
+        rdfs:label "zeroOrOne"
+    
+    SubClassOf: 
+        sbol:Cardinality
+    
+    
+DisjointClasses: 
+    sbol:Attachment,sbol:Collection,sbol:CombinatorialDerivation,sbol:Component,sbol:ExperimentalData,sbol:Implementation,sbol:Model,sbol:SBOLActivity,sbol:SBOLAgent,sbol:SBOLBinaryPrefix,sbol:SBOLCompoundUnit,sbol:SBOLMeasure,sbol:SBOLPlan,sbol:SBOLPrefixedUnit,sbol:SBOLSIPrefix,sbol:SBOLSingularUnit,sbol:SBOLUnitDivision,sbol:SBOLUnitExponentiation,sbol:SBOLUnitMultiplication,sbol:Sequence
+
+DisjointClasses: 
+    sbol:ComponentReference,sbol:ExternallyDefined,sbol:LocalSubComponent,sbol:SequenceFeature,sbol:SubComponent
+
+DisjointClasses: 
+    sbol:Cut,sbol:EntireSequence,sbol:Range
+
