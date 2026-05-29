@@ -1,8 +1,9 @@
 '''
-Created on 26 May 2021
+Initial version: Created on 26 May 2021
 
-@author: gokselmisirli
-@author: metehanunal
+@author: Goksel Misirli
+@author: Metehan Unal
+@author: Ihsan Tolga Medeni
 '''
 
 # Dependencies: owlready2, rdflib, pylode --> pip install owlready2 rdflib pylode)
