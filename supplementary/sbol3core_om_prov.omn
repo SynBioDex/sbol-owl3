@@ -1,0 +1,3336 @@
+Prefix: identifiers: <https://identifiers.org/>
+Prefix: om: <http://www.ontology-of-units-of-measure.org/resource/om-2/>
+Prefix: otol: <http://keele.ac.uk/scm/otol#>
+Prefix: owl: <http://www.w3.org/2002/07/owl#>
+Prefix: prov: <https://www.w3.org/ns/prov#>
+Prefix: rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+Prefix: rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+Prefix: sbol: <http://sbols.org/v3#>
+Prefix: xml: <http://www.w3.org/XML/1998/namespace>
+Prefix: xsd: <http://www.w3.org/2001/XMLSchema#>
+Prefix: : <http://sbols.org/v3#>
+
+
+
+Ontology: <http://sbols.org/v3#>
+
+
+AnnotationProperty: otol:constantList
+
+    
+AnnotationProperty: otol:domainEntity
+
+    
+AnnotationProperty: otol:replacementOf
+
+    
+AnnotationProperty: otol:vocabulary
+
+    
+AnnotationProperty: rdfs:comment
+
+    
+AnnotationProperty: rdfs:label
+
+    
+Datatype: xsd:dateTime
+
+    
+Datatype: xsd:decimal
+
+    
+Datatype: xsd:integer
+
+    
+Datatype: xsd:string
+
+    
+ObjectProperty: om:hasBase
+
+    Annotations: 
+        rdfs:comment "The om:hasBase property is REQUIRED and MUST contain a IRI that refers to another om:Unit.",
+        rdfs:label "hasBase"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        om:UnitExponentiation
+    
+    Range: 
+        om:Unit
+    
+    
+ObjectProperty: om:hasDenominator
+
+    Annotations: 
+        rdfs:comment "The om:hasDenominator property is REQUIRED and MUST contain a IRI that refers to another om:Unit.",
+        rdfs:label "hasDenominator"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        om:UnitDivision
+    
+    Range: 
+        om:Unit
+    
+    
+ObjectProperty: om:hasNumerator
+
+    Annotations: 
+        rdfs:comment "The om:hasNumerator property is REQUIRED and MUST contain a IRI that refers to another om:Unit.",
+        rdfs:label "hasNumerator"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        om:UnitDivision
+    
+    Range: 
+        om:Unit
+    
+    
+ObjectProperty: om:hasPrefix
+
+    Annotations: 
+        rdfs:comment "The om:hasPrefix property is REQUIRED and MUST contain a IRI that refers to a om:Prefix.",
+        rdfs:label "hasPrefix"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        om:PrefixedUnit
+    
+    Range: 
+        om:Prefix
+    
+    
+ObjectProperty: om:hasTerm1
+
+    Annotations: 
+        rdfs:comment "The om:hasTerm1 property is REQUIRED and MUST contain a IRI that refers to another om:Unit. This om:Unit is the first multiplication term.",
+        rdfs:label "hasTerm1"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        om:UnitMultiplication
+    
+    Range: 
+        om:Unit
+    
+    
+ObjectProperty: om:hasTerm2
+
+    Annotations: 
+        rdfs:comment "The om:hasTerm2 property is REQUIRED and MUST contain a IRI that refers to another om:Unit. This om:Unit is the second multiplication term. It is okay if the om:Unit referred to by om:hasTerm1 is the same as that referred to by om:hasTerm2.",
+        rdfs:label "hasTerm2"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        om:UnitMultiplication
+    
+    Range: 
+        om:Unit
+    
+    
+ObjectProperty: om:hasUnit
+
+    Annotations: 
+        rdfs:comment "This property can be used in a Measure, SingularUnit or PrefixedUnit. For Measure and PrefixedUnit, the om:hasUnit property is REQUIRED and MUST contain a IRI that refers to a om:Unit. For SingularUnit, the om:hasUnit is OPTIONAL and MAY contain a IRI.",
+        rdfs:label "hasUnit"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        om:Measure or om:PrefixedUnit or om:SingularUnit
+    
+    Range: 
+        om:Unit
+    
+    
+ObjectProperty: owl:topObjectProperty
+
+    
+ObjectProperty: prov:agent
+
+    Annotations: 
+        rdfs:comment "The prov:agent property is REQUIRED and MUST contain a IRI that refers to an prov:Agent object.",
+        rdfs:label "agent"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        prov:Association
+    
+    Range: 
+        prov:Agent
+    
+    
+ObjectProperty: prov:entity
+
+    Annotations: 
+        rdfs:comment "The prov:entity property is REQUIRED and MUST contain a IRI which MAY refer to an Identified object.",
+        rdfs:label "entity"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        prov:Usage
+    
+    
+ObjectProperty: prov:hadPlan
+
+    Annotations: 
+        rdfs:comment "The prov:hadPlan property is OPTIONAL and contains a IRI that refers to a prov:Plan.",
+        rdfs:label "hadPlan"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        prov:Association
+    
+    Range: 
+        prov:Plan
+    
+    
+ObjectProperty: prov:hadRole
+
+    Annotations: 
+        rdfs:comment "An prov:Usage MAY have one or more prov:hadRole properties, each of type IRI that refers to particular term(s) describing the usage of an prov:Entity referenced by the prov:entity property.",
+        rdfs:label "hadRole"
+    
+    Domain: 
+        prov:Association or prov:Usage
+    
+    
+ObjectProperty: prov:qualifiedAssociation
+
+    Annotations: 
+        rdfs:comment "An prov:Activity MAY have one or more prov:qualifiedAssociation properties, each of type IRI that refers to an prov:Association object.",
+        rdfs:label "qualifiedAssociation"
+    
+    Domain: 
+        prov:Activity
+    
+    Range: 
+        prov:Association
+    
+    
+ObjectProperty: prov:qualifiedUsage
+
+    Annotations: 
+        rdfs:comment "An prov:Activity MAY have one or more prov:qualifiedUsage properties, each of type IRI that refers to an prov:Usage object.",
+        rdfs:label "qualifiedUsage"
+    
+    Domain: 
+        prov:Activity
+    
+    Range: 
+        prov:Usage
+    
+    
+ObjectProperty: prov:wasDerivedFrom
+
+    Annotations: 
+        rdfs:comment "An Identified object MAY have zero or more prov:wasDerivedFrom properties, each of type IRI. This property is defined by the PROV-O ontology and is located in the https://www.w3.org/ns/prov# namespace",
+        rdfs:label "wasDerivedFrom"
+    
+    Domain: 
+        sbol:Identified
+    
+    Range: 
+        owl:Thing
+    
+    
+ObjectProperty: prov:wasGeneratedBy
+
+    Annotations: 
+        rdfs:comment "An Identified object MAY have zero or more prov:wasGeneratedBy properties, each of type IRI.",
+        rdfs:label "wasGeneratedBy"
+    
+    Domain: 
+        sbol:Identified
+    
+    Range: 
+        sbol:SBOLActivity
+    
+    
+ObjectProperty: prov:wasInformedBy
+
+    Annotations: 
+        rdfs:comment "An prov:Activity MAY have one or more prov:wasInformedBy properties, each of type IRI that refers to another prov:Activity object.",
+        rdfs:label "wasInformedBy"
+    
+    Domain: 
+        prov:Activity
+    
+    Range: 
+        prov:Activity
+    
+    
+ObjectProperty: rdf:type
+
+    
+ObjectProperty: sbol:built
+
+    Annotations: 
+        rdfs:comment "The built property is OPTIONAL and MAY contain a IRI that MUST refer to a Component. This Component is intended to describe the actual physical structure and/or functional behavior of the Implementation.",
+        rdfs:label "built"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        sbol:Implementation
+    
+    Range: 
+        sbol:Component
+    
+    
+ObjectProperty: sbol:cardinality
+
+    Annotations: 
+        rdfs:comment "The cardinality property is REQUIRED and has type of IRI. This property specifies how many Feature objects SHOULD be derived from the template Feature during the derivation of a new Component.",
+        rdfs:label "cardinality"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        sbol:VariableFeature
+    
+    Range: 
+        sbol:one or sbol:oneOrMore or sbol:zeroOrMore or sbol:zeroOrOne
+    
+    
+ObjectProperty: sbol:comprises
+
+    Annotations: 
+        rdfs:comment "The comprises property can be used to express parent-child compositional relationships as a custom approach if needed.",
+        rdfs:label "comprises"
+    
+    Characteristics: 
+        Transitive
+    
+    
+ObjectProperty: sbol:definition
+
+    Annotations: 
+        rdfs:comment "The definition property is REQUIRED and is of type IRI that links to a canonical definition external to SBOL.",
+        rdfs:label "definition"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        sbol:ExternallyDefined
+    
+    
+ObjectProperty: sbol:directlyComprises
+
+    Annotations: 
+        rdfs:comment "Subclass of comprises that is used to express direct parent-child compositional relationships.",
+        rdfs:label "directlyComprises"
+    
+    SubPropertyOf: 
+        sbol:comprises
+    
+    
+ObjectProperty: sbol:encoding
+
+    Annotations: 
+        rdfs:comment "The encoding property has a data type of IRI, and is OPTIONAL unless elements is set, in which case it is REQUIRED.",
+        rdfs:label "encoding"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        sbol:Sequence
+    
+    
+ObjectProperty: sbol:format
+
+    Annotations: 
+        rdfs:comment "The format property is OPTIONAL and MAY contain a IRI that specifies the format of the attached file. It is RECOMMENDED that this IRI refer to a term from the EMBRACE Data and Methods (EDAM) ontology",
+        rdfs:label "format"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        sbol:Attachment
+    
+    
+ObjectProperty: sbol:framework
+
+    Annotations: 
+        rdfs:comment "The framework property is REQUIRED and MUST contain a IRI that specifies the framework in which the model is implemented. It is RECOMMENDED this IRI refer to a term from the modeling framework branch of the SBO when possible.",
+        rdfs:label "framework"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        sbol:Model
+    
+    
+ObjectProperty: sbol:hasAttachment
+
+    Annotations: 
+        rdfs:comment "A TopLevel object can have zero or more hasAttachment properties, each of type IRI specifying an Attachment object.",
+        rdfs:label "hasAttachment"
+    
+    Domain: 
+        sbol:TopLevel
+    
+    Range: 
+        sbol:Attachment
+    
+    
+ObjectProperty: sbol:hasConstraint
+
+    Annotations: 
+        rdfs:comment "A Component MAY have any number of hasConstraint properties, each of type IRI, that MUST reference a Constraint object.",
+        rdfs:label "hasConstraint"
+    
+    SubPropertyOf: 
+        sbol:directlyComprises
+    
+    Domain: 
+        sbol:Component
+    
+    Range: 
+        sbol:Constraint
+    
+    
+ObjectProperty: sbol:hasFeature
+
+    Annotations: 
+        rdfs:comment "A Component MAY have any number of hasFeature properties, each of type IRI that MUST reference a Feature object",
+        rdfs:label "hasFeature"
+    
+    SubPropertyOf: 
+        sbol:directlyComprises
+    
+    Domain: 
+        sbol:Component
+    
+    Range: 
+        sbol:Feature
+    
+    
+ObjectProperty: sbol:hasInteraction
+
+    Annotations: 
+        rdfs:comment "A Component MAY have any number of hasInteraction properties, each of type IRI, that MUST reference an Interaction object.",
+        rdfs:label "hasInteraction"
+    
+    SubPropertyOf: 
+        sbol:directlyComprises
+    
+    Domain: 
+        sbol:Component
+    
+    Range: 
+        sbol:Interaction
+    
+    
+ObjectProperty: sbol:hasInterface
+
+    Annotations: 
+        rdfs:comment "A Component MAY have zero or one hasInterface property of type IRI that MUST reference an Interface object.",
+        rdfs:label "hasInterface"
+    
+    SubPropertyOf: 
+        sbol:directlyComprises
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        sbol:Component
+    
+    Range: 
+        sbol:Interface
+    
+    
+ObjectProperty: sbol:hasLocation
+
+    Annotations: 
+        rdfs:comment "A SubComponent MAY have any number of hasLocation properties, each of type IRI, that MUST refer to Location objects that indicates the location of the Sequence from the instanceOf Component in a Sequence of the parent Component. A LocalSubComponent MAY have any number of hasLocation properties, each of type IRI, that MUST refer to Location objects. In SequenceFeature, the hasLocation is REQUIRED and contains one or more IRIs, which MUST refer to Location objects.",
+        rdfs:label "hasLocation"
+    
+    SubPropertyOf: 
+        sbol:directlyComprises
+    
+    Domain: 
+        sbol:LocalSubComponent or sbol:SequenceFeature or sbol:SubComponent
+    
+    Range: 
+        sbol:Location
+    
+    
+ObjectProperty: sbol:hasMeasure
+
+    Annotations: 
+        rdfs:label "hasMeasure"
+    
+    SubPropertyOf: 
+        sbol:directlyComprises
+    
+    Domain: 
+        sbol:Identified
+    
+    Range: 
+        sbol:SBOLMeasure,
+        om:Measure
+    
+    
+ObjectProperty: sbol:hasModel
+
+    Annotations: 
+        rdfs:comment "A Component MAY have any number of hasModel properties, each of type IRI, that MUST reference a Model object.",
+        rdfs:label "hasModel"
+    
+    Domain: 
+        sbol:Component
+    
+    Range: 
+        sbol:Model
+    
+    
+ObjectProperty: sbol:hasNamespace
+
+    Annotations: 
+        rdfs:comment "A TopLevel object MUST have precisely one hasNamespace property, which contains a URL that defines the namespace portion of URLs for this object and any child objects.",
+        rdfs:label "hasNamespace"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        sbol:TopLevel
+    
+    
+ObjectProperty: sbol:hasParticipation
+
+    Annotations: 
+        rdfs:comment "An Interaction MAY have any number of hasParticipation properties, each of type IRI, that MUST reference a Participation object, each of which identifies the role that its referenced Feature plays in the Interaction.",
+        rdfs:label "hasParticipation"
+    
+    SubPropertyOf: 
+        sbol:directlyComprises
+    
+    Domain: 
+        sbol:Interaction
+    
+    Range: 
+        sbol:Participation
+    
+    
+ObjectProperty: sbol:hasSequence
+
+    Annotations: 
+        rdfs:comment "This property can be used in a Component or Location. A Component MAY have any number of hasSequence properties, each of type IRI, that MUST reference a Sequence object. In a Location, the hasSequence property is REQUIRED and MUST contain the IRI of a Sequence object.",
+        rdfs:label "hasSequence"
+    
+    Domain: 
+        sbol:Component or sbol:Location
+    
+    Range: 
+        sbol:Sequence
+    
+    
+ObjectProperty: sbol:hasVariableFeature
+
+    Annotations: 
+        rdfs:comment "A CombinatorialDerivation object can have zero or more hasVariableFeature properties, each of type IRI, specifying a VariableFeature. The set of hasVariableFeature properties MUST NOT contain two or more VariableFeature objects that refer to the same template.",
+        rdfs:label "hasVariableFeature"
+    
+    SubPropertyOf: 
+        sbol:directlyComprises
+    
+    Domain: 
+        sbol:CombinatorialDerivation
+    
+    Range: 
+        sbol:VariableFeature
+    
+    
+ObjectProperty: sbol:higherOrderParticipant
+
+    Annotations: 
+        rdfs:comment "The higherOrderParticipant property indicates an Interaction object that plays the designated role in its parent Interaction object. Precisely one value MUST be specified for precisely one of participant or higherOrderParticipant.",
+        rdfs:label "higherOrderParticipant"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        sbol:Participation
+    
+    Range: 
+        sbol:Interaction
+    
+    
+ObjectProperty: sbol:inChildOf
+
+    Annotations: 
+        rdfs:label "inChildOf"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        sbol:ComponentReference
+    
+    Range: 
+        sbol:SubComponent
+    
+    
+ObjectProperty: sbol:input
+
+    Annotations: 
+        rdfs:comment "An Interface MAY have any number of input properties, each of type IRI, that MUST reference a Feature object in the same Component.",
+        rdfs:label "input"
+    
+    Domain: 
+        sbol:Interface
+    
+    Range: 
+        sbol:Feature
+    
+    
+ObjectProperty: sbol:instanceOf
+
+    Annotations: 
+        rdfs:comment "The instanceOf property is a REQUIRED IRI that refers to the Component providing the definition for this SubComponent.",
+        rdfs:label "instanceOf"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        sbol:SubComponent
+    
+    Range: 
+        sbol:Component
+    
+    
+ObjectProperty: sbol:language
+
+    Annotations: 
+        rdfs:comment "The language property is REQUIRED and MUST contain a IRI that specifies the language in which the model is implemented. It is RECOMMENDED that this IRI refer to a term from the EMBRACE Data and Methods (EDAM) ontology.",
+        rdfs:label "language"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        sbol:Model
+    
+    
+ObjectProperty: sbol:member
+
+    Annotations: 
+        rdfs:comment "A Collection object can have zero or more member properties, each of type IRI specifying a TopLevel object.",
+        rdfs:label "member"
+    
+    Domain: 
+        sbol:Collection
+    
+    Range: 
+        sbol:TopLevel
+    
+    
+ObjectProperty: sbol:nondirectional
+
+    Annotations: 
+        rdfs:comment "An Interface MAY have any number of nondirectional properties, each of type IRI, that MUST reference a Feature object in the same Component.",
+        rdfs:label "nondirectional"
+    
+    Domain: 
+        sbol:Interface
+    
+    Range: 
+        sbol:Feature
+    
+    
+ObjectProperty: sbol:object
+
+    Annotations: 
+        rdfs:comment "The object property is REQUIRED and MUST contain a IRI that refers to a Feature contained by the same parent Component that contains the Constraint. This Feature MUST NOT be the same Feature that the Constraint refers to via its subject property.",
+        rdfs:label "object"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        sbol:Constraint
+    
+    Range: 
+        sbol:Feature
+    
+    
+ObjectProperty: sbol:orientation
+
+    Annotations: 
+        rdfs:comment "The orientation property is OPTIONAL and has a data type of IRI.",
+        rdfs:label "orientation"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        sbol:Feature or sbol:Location
+    
+    Range: 
+        sbol:Orientation
+    
+    
+ObjectProperty: sbol:output
+
+    Annotations: 
+        rdfs:comment "An Interface MAY have any number of output properties, each of type IRI, that MUST reference a Feature object in the same Component.",
+        rdfs:label "output"
+    
+    Domain: 
+        sbol:Interface
+    
+    Range: 
+        sbol:Feature
+    
+    
+ObjectProperty: sbol:participant
+
+    Annotations: 
+        rdfs:comment "The participant property indicates a Feature object that plays the designated role in its parent Interaction object. Precisely one value MUST be specified for precisely one of participant or higherOrderParticipant.",
+        rdfs:label "participant"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        sbol:Participation
+    
+    Range: 
+        sbol:Feature
+    
+    
+ObjectProperty: sbol:refersTo
+
+    Annotations: 
+        rdfs:comment "The refersTo property is a REQUIRED IRI that refers to a Feature.",
+        rdfs:label "refersTo"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        sbol:ComponentReference
+    
+    Range: 
+        sbol:Feature
+    
+    
+ObjectProperty: sbol:restriction
+
+    Annotations: 
+        rdfs:comment "The restriction property is REQUIRED and has a data type of IRI. This property MUST indicate the type of restriction on the locations, orientations, or identities of the subject and object Feature objects in relation to each other.",
+        rdfs:label "restriction"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        sbol:Constraint
+    
+    
+ObjectProperty: sbol:role
+
+    Annotations: 
+        rdfs:comment "This property can be used in a Component, Feature or Participation. A Component MAY have any number of role properties, each of type IRI, that MUST identify terms from ontologies that are consistent with the type property of the Component. Each Feature can have zero or more role property IRIs describing the purpose or potential function of this Feature in the context of its parent Component. A Participation is REQUIRED to have one or more role properties, each of type IRI, that describes the behavior of a Participation (and by extension its referenced Feature) in the context of its parent Interaction.",
+        rdfs:label "role"
+    
+    Domain: 
+        sbol:Component or sbol:Feature or sbol:Participation
+    
+    
+ObjectProperty: sbol:roleIntegration
+
+    Annotations: 
+        rdfs:comment "A roleIntegration specifies the relationship between a SubComponent instance's own set of role properties and the set of role properties on the included Component.",
+        rdfs:label "roleIntegration"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        sbol:SubComponent
+    
+    
+ObjectProperty: sbol:source
+
+    Annotations: 
+        rdfs:comment "The source property is REQUIRED and MUST contain a IRI reference to the source file.",
+        rdfs:label "source"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        sbol:Attachment or sbol:Model
+    
+    
+ObjectProperty: sbol:sourceLocation
+
+    Annotations: 
+        rdfs:comment "The sourceLocation property allows for only a portion of a Component's Sequence to be included, rather than its entirety.",
+        rdfs:label "sourceLocation"
+    
+    SubPropertyOf: 
+        sbol:directlyComprises
+    
+    Domain: 
+        sbol:SubComponent
+    
+    Range: 
+        sbol:Location
+    
+    
+ObjectProperty: sbol:strategy
+
+    Annotations: 
+        rdfs:comment "The strategy property is OPTIONAL and has a data type of IRI.",
+        rdfs:label "strategy"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        sbol:CombinatorialDerivation
+    
+    Range: 
+        sbol:enumerate or sbol:sample
+    
+    
+ObjectProperty: sbol:subject
+
+    Annotations: 
+        rdfs:comment "The subject property is REQUIRED and MUST contain a IRI that refers to a Feature contained by the same parent Component that contains the Constraint.",
+        rdfs:label "subject"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        sbol:Constraint
+    
+    Range: 
+        sbol:Feature
+    
+    
+ObjectProperty: sbol:template
+
+    Annotations: 
+        rdfs:comment "The template property is REQUIRED and MUST contain a IRI that refers to a Component. ",
+        rdfs:label "template"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        sbol:CombinatorialDerivation
+    
+    Range: 
+        sbol:Component
+    
+    
+ObjectProperty: sbol:type
+
+    Annotations: 
+        rdfs:comment "A Component MUST have one or more type properties, each of type IRI specifying the category of biochemical or physical entity (for example DNA, protein, or simple chemical) that a Component object abstracts for the purpose of engineering design",
+        rdfs:label "type"
+    
+    Domain: 
+        sbol:Component or sbol:ExternallyDefined or sbol:Interaction or sbol:LocalSubComponent or sbol:SBOLActivity or sbol:SBOLMeasure
+    
+    
+ObjectProperty: sbol:variable
+
+    Annotations: 
+        rdfs:comment "The variable property is REQUIRED and MUST contain a IRI that refers to a template Feature in the template Component referred to by this VariableFeature's parent CombinatorialDerivation",
+        rdfs:label "variable"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        sbol:VariableFeature
+    
+    Range: 
+        sbol:Feature
+    
+    
+ObjectProperty: sbol:variant
+
+    Annotations: 
+        rdfs:comment "A VariableFeature object can have zero or more variant properties, each of type IRI, specifying a Component object. This property specifies individual Component objects to serve as options when deriving a new Feature for the variable Feature from the template.",
+        rdfs:label "variant"
+    
+    Domain: 
+        sbol:VariableFeature
+    
+    Range: 
+        sbol:Component
+    
+    
+ObjectProperty: sbol:variantCollection
+
+    Annotations: 
+        rdfs:comment "A VariableFeature object can have zero or more variantCollection properties, each of type IRI, specifying a Collection object. Such a Collection MUST NOT contain any objects besides Component objects or Collection objects that themselves contain only Component or Collection objects. This property enables the specification of existing groups of Component objects to serve as options.",
+        rdfs:label "variantCollection"
+    
+    Domain: 
+        sbol:VariableFeature
+    
+    Range: 
+        sbol:Collection
+    
+    
+ObjectProperty: sbol:variantDerivation
+
+    Annotations: 
+        rdfs:comment "A VariableFeature object can have zero or more variantDerivation properties, each of type IRI, specifying a CombinatorialDerivation object. This property enables the specification of Component objects derived in accordance with another CombinatorialDerivation to serve as options when deriving a new Feature for the variable Feature from the template.",
+        rdfs:label "variantDerivation"
+    
+    Domain: 
+        sbol:VariableFeature
+    
+    Range: 
+        sbol:CombinatorialDerivation
+    
+    
+ObjectProperty: sbol:variantMeasure
+
+    Annotations: 
+        rdfs:comment "A VariableFeature object can have zero or more variantMeasure properties, each of type IRI, specifying a om:Measure object. This property specifies numerical values that are options to be applied to the variable Feature from the template when deriving a new Component.",
+        rdfs:label "variantMeasure"
+    
+    Domain: 
+        sbol:VariableFeature
+    
+    Range: 
+        om:Measure
+    
+    
+DataProperty: om:alternativeLabel
+
+    Annotations: 
+        rdfs:comment "This property can be used in a Unit or Prefix. The om:alternativeLabel property is OPTIONAL and MAY contain a set of Strings. This property can be used to specify alternative common names other than that specified using om:label property.",
+        rdfs:label "alternativeLabel"
+    
+    Domain: 
+        om:Prefix or om:Unit
+    
+    Range: 
+        xsd:string
+    
+    
+DataProperty: om:alternativeSymbol
+
+    Annotations: 
+        rdfs:comment "This property can be used in a Unit or Prefix. The om:alternativeSymbol property is OPTIONAL and MAY contain a set of Strings. This property can be used to specify alternative abbreviations other than that specified using the om:symbol property",
+        rdfs:label "alternativeSymbol"
+    
+    Domain: 
+        om:Prefix or om:Unit
+    
+    Range: 
+        xsd:string
+    
+    
+DataProperty: om:hasExponent
+
+    Annotations: 
+        rdfs:comment "The om:hasExponent property is REQUIRED and MUST contain an xsd:integer.",
+        rdfs:label "hasExponent"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        om:UnitExponentiation
+    
+    Range: 
+        xsd:integer
+    
+    
+DataProperty: om:hasFactor
+
+    Annotations: 
+        rdfs:comment "This property can be used in a SingularUnit or Prefix. For SingularUnit, the om:hasFactor property is OPTIONAL and MAY contain a xsd:float. If the om:hasFactor property of a om:SingularUnit is non-empty, then its om:hasUnit property SHOULD also be non-empty. For Prefix, The om:hasFactor property is REQUIRED and MUST contain an xsd:float.",
+        rdfs:label "hasFactor"
+    
+    Domain: 
+        om:Prefix or om:SingularUnit
+    
+    Range: 
+        xsd:decimal
+    
+    
+DataProperty: om:hasNumericalValue
+
+    Annotations: 
+        rdfs:comment "The om:hasNumericalValue property is REQUIRED and MUST contain a single xsd:float.",
+        rdfs:label "hasNumericalValue"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        om:Measure
+    
+    Range: 
+        xsd:decimal
+    
+    
+DataProperty: om:longComment
+
+    Annotations: 
+        rdfs:comment "This property can be used in a Unit or Prefix. The om:longcomment property is OPTIONAL and MAY contain a String. This String is a long description of the unit of measure and SHOULD be longer than any String contained by the om:comment property.",
+        rdfs:label "longComment"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        om:Prefix or om:Unit
+    
+    Range: 
+        xsd:string
+    
+    
+DataProperty: om:symbol
+
+    Annotations: 
+        rdfs:comment "This property can be used in a Unit or Prefix. The om:symbol property is REQUIRED and MUST contain a String. This String is commonly used to abbreviate the name of the unit of measure or prefix.",
+        rdfs:label "symbol"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        om:Prefix or om:Unit
+    
+    Range: 
+        xsd:string
+    
+    
+DataProperty: prov:endedAtTime
+
+    Annotations: 
+        rdfs:comment "The prov:endedAtTime property is OPTIONAL and contains a DateTime value, indicating when the activity ended.",
+        rdfs:label "endedAtTime"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        prov:Activity
+    
+    Range: 
+        xsd:dateTime
+    
+    
+DataProperty: prov:startedAtTime
+
+    Annotations: 
+        rdfs:comment "The prov:startedAtTime property is OPTIONAL and contains a DateTime value, indicating when the activity started. If this property is present, then the prov:endedAtTime property is REQUIRED.",
+        rdfs:label "startedAtTime"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        prov:Activity
+    
+    Range: 
+        xsd:dateTime
+    
+    
+DataProperty: rdfs:label
+
+    
+DataProperty: sbol:at
+
+    Annotations: 
+        rdfs:comment "The at property is REQUIRED and MUST contain an Integer value greater than or equal to zero. The region specified by the Cut is between the position specified by this property and the position that immediately follows it. When the at property is equal to zero, the specified region is immediately before the first discrete position or character in the elements String of a Sequence.",
+        rdfs:label "at"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        sbol:Cut
+    
+    Range: 
+        xsd:integer[>= 0]
+    
+    
+DataProperty: sbol:description
+
+    Annotations: 
+        rdfs:comment "The description property is OPTIONAL and has a data type of String. This property is intended to contain a more thorough text description of an Identified object.",
+        rdfs:label "description"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        sbol:Identified
+    
+    Range: 
+        xsd:string
+    
+    
+DataProperty: sbol:displayId
+
+    Annotations: 
+        rdfs:comment "The displayId property is an OPTIONAL identifier with a data type of String. This property is intended to be an intermediate between a IRI and the name property that is machine-readable, but more human-readable than the full IRI of an object",
+        rdfs:label "displayId"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        sbol:Identified
+    
+    Range: 
+        xsd:string
+    
+    
+DataProperty: sbol:elements
+
+    Annotations: 
+        rdfs:comment "The elements property is an OPTIONAL String of characters that represents the constituents of a biological or chemical molecule.",
+        rdfs:label "elements"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        sbol:Sequence
+    
+    Range: 
+        xsd:string
+    
+    
+DataProperty: sbol:end
+
+    Annotations: 
+        rdfs:comment "The end property specifies the inclusive ending position of the Range. This property is REQUIRED and MUST contain an Integer value greater than zero. In addition, this Integer value MUST be greater than or equal to that of the start property.",
+        rdfs:label "end"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        sbol:Range
+    
+    Range: 
+        xsd:integer[>= 1]
+    
+    
+DataProperty: sbol:hash
+
+    Annotations: 
+        rdfs:comment "The hash property is OPTIONAL and MAY contain a hash value for the file contents represented as a hexadecimal digest.",
+        rdfs:label "hash"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        sbol:Attachment
+    
+    Range: 
+        xsd:string
+    
+    
+DataProperty: sbol:hashAlgorithm
+
+    Annotations: 
+        rdfs:comment "The hashAlgorithm property is OPTIONAL and MAY contain the name of the hash algorithm used to generate the value of the hash property. The value of this property SHOULD be a hash name string from the IANA Named Information Hash Algorithm Registry, of which sha3-256 is currently RECOMMENDED. If the hash property is set, then hashAlgorithm MUST be set as well.",
+        rdfs:label "hashAlgorithm"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        sbol:Attachment
+    
+    Range: 
+        xsd:string
+    
+    
+DataProperty: sbol:name
+
+    Annotations: 
+        rdfs:comment "The name property is OPTIONAL and has a data type of String. This property is intended to be displayed to a human when visualizing an Identified object.",
+        rdfs:label "name"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        sbol:Identified
+    
+    Range: 
+        xsd:string
+    
+    
+DataProperty: sbol:order
+
+    Annotations: 
+        rdfs:comment "The order property is OPTIONAL and has a data type of Integer. If there are multiple Location objects associated with a Feature, the order property is used to specify the order (in increasing value) in which the specified Locations are to be joined to form the sequence of the Feature.",
+        rdfs:label "order"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        sbol:Location
+    
+    Range: 
+        xsd:integer[>= 1]
+    
+    
+DataProperty: sbol:size
+
+    Annotations: 
+        rdfs:comment "The size property is OPTIONAL and MAY contain a long indicating the file size in bytes.",
+        rdfs:label "size"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        sbol:Attachment
+    
+    Range: 
+        xsd:integer[>= 0]
+    
+    
+DataProperty: sbol:start
+
+    Annotations: 
+        rdfs:comment "The start property specifies the inclusive starting position of the Range. This property is REQUIRED and MUST contain an Integer value greater than zero.",
+        rdfs:label "start"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        sbol:Range
+    
+    Range: 
+        xsd:integer[>= 1]
+    
+    
+Class: identifiers:CHEBI:35224
+
+    
+Class: identifiers:CHEBI:50906
+
+    
+Class: identifiers:GO:0003674
+
+    
+Class: identifiers:GO:0003700
+
+    
+Class: identifiers:SBO:0000010
+
+    
+Class: identifiers:SBO:0000011
+
+    
+Class: identifiers:SBO:0000019
+
+    
+Class: identifiers:SBO:0000020
+
+    
+Class: identifiers:SBO:0000062
+
+    
+Class: identifiers:SBO:0000063
+
+    
+Class: identifiers:SBO:0000168
+
+    
+Class: identifiers:SBO:0000169
+
+    
+Class: identifiers:SBO:0000170
+
+    
+Class: identifiers:SBO:0000176
+
+    
+Class: identifiers:SBO:0000177
+
+    
+Class: identifiers:SBO:0000179
+
+    
+Class: identifiers:SBO:0000234
+
+    
+Class: identifiers:SBO:0000236
+
+    
+Class: identifiers:SBO:0000241
+
+    
+Class: identifiers:SBO:0000247
+
+    
+Class: identifiers:SBO:0000250
+
+    
+Class: identifiers:SBO:0000251
+
+    
+Class: identifiers:SBO:0000252
+
+    
+Class: identifiers:SBO:0000253
+
+    
+Class: identifiers:SBO:0000459
+
+    
+Class: identifiers:SBO:0000589
+
+    
+Class: identifiers:SBO:0000598
+
+    
+Class: identifiers:SBO:0000642
+
+    
+Class: identifiers:SBO:0000643
+
+    
+Class: identifiers:SBO:0000644
+
+    
+Class: identifiers:SBO:0000645
+
+    
+Class: identifiers:SBO:0000681
+
+    
+Class: identifiers:SBO:0000693
+
+    
+Class: identifiers:SO:0000057
+
+    
+Class: identifiers:SO:0000110
+
+    
+Class: identifiers:SO:0000139
+
+    
+Class: identifiers:SO:0000141
+
+    
+Class: identifiers:SO:0000167
+
+    
+Class: identifiers:SO:0000234
+
+    
+Class: identifiers:SO:0000316
+
+    
+Class: identifiers:SO:0000704
+
+    
+Class: identifiers:SO:0000804
+
+    
+Class: identifiers:SO:0000984
+
+    
+Class: identifiers:SO:0000985
+
+    
+Class: identifiers:SO:0000987
+
+    
+Class: identifiers:SO:0000988
+
+    
+Class: identifiers:edam:format_1196
+
+    
+Class: identifiers:edam:format_1197
+
+    
+Class: identifiers:edam:format_1207
+
+    
+Class: identifiers:edam:format_1208
+
+    
+Class: identifiers:edam:format_2585
+
+    
+Class: identifiers:edam:format_3156
+
+    
+Class: identifiers:edam:format_3240
+
+    
+Class: om:BinaryPrefix
+
+    Annotations: 
+        rdfs:comment "The purpose of the om:BinaryPrefix class is to describe standard binary prefixes such as \"kibi\", \"mebi\", \"gibi\", etc.",
+        rdfs:label "BinaryPrefix"
+    
+    SubClassOf: 
+        om:Prefix
+    
+    
+Class: om:CompoundUnit
+
+    Annotations: 
+        rdfs:comment "om:CompoundUnit is an abstract class that is extended by other classes to describe units of measure that can be represented as combinations of multiple other units of measure.",
+        rdfs:label "CompoundUnit"
+    
+    SubClassOf: 
+        om:Unit
+    
+    
+Class: om:Measure
+
+    Annotations: 
+        rdfs:comment "The purpose of the om:Measure class is to link a numerical value to a om:Unit.",
+        rdfs:label "Measure"
+    
+    SubClassOf: 
+        owl:Thing,
+        om:hasUnit some om:Unit,
+        om:hasNumericalValue some xsd:decimal
+    
+    
+Class: om:Prefix
+
+    Annotations: 
+        rdfs:comment "om:Prefix is an abstract class that is extended by other classes to describe factors that are  commonly represented by standard unit prefixes.",
+        rdfs:label "Prefix"
+    
+    SubClassOf: 
+        owl:Thing,
+        om:hasFactor some xsd:decimal,
+        om:symbol some xsd:string,
+        rdfs:label some xsd:string
+    
+    
+Class: om:PrefixedUnit
+
+    Annotations: 
+        rdfs:comment "The purpose of the om:PrefixedUnit class is to describe a unit of measure that is the multiplication of another unit of measure and a factor represented by a standard prefix such as \"milli\", \"centi\", \"kilo\", etc.",
+        rdfs:label "PrefixedUnit"
+    
+    SubClassOf: 
+        om:Unit,
+        om:hasPrefix some om:Prefix,
+        om:hasUnit some om:Unit
+    
+    
+Class: om:SIPrefix
+
+    Annotations: 
+        rdfs:comment "The purpose of the om:SIPrefix class is to describe standard SI prefixes such as \"milli\", \"centi\", \"kilo\", etc.",
+        rdfs:label "SIPrefix"
+    
+    SubClassOf: 
+        om:Prefix
+    
+    
+Class: om:SingularUnit
+
+    Annotations: 
+        rdfs:comment "The purpose of the om:SingularUnit class is to describe a unit of measure that is not explicitly represented as a combination of multiple units, but could be equivalent to such a representation.",
+        rdfs:label "SingularUnit"
+    
+    SubClassOf: 
+        om:Unit
+    
+    
+Class: om:Unit
+
+    Annotations: 
+        rdfs:comment "om:Unit is an abstract class that is extended by other classes to describe units of measure using a shared set of properties.",
+        rdfs:label "Unit"
+    
+    SubClassOf: 
+        owl:Thing,
+        om:symbol some xsd:string,
+        rdfs:label some xsd:string
+    
+    
+Class: om:UnitDivision
+
+    Annotations: 
+        rdfs:comment "The purpose of the om:UnitDivision class is to describe a unit of measure that is the division of one unit of measure by another.",
+        rdfs:label "UnitDivision"
+    
+    SubClassOf: 
+        om:Unit,
+        om:hasDenominator some om:Unit,
+        om:hasNumerator some om:Unit
+    
+    
+Class: om:UnitExponentiation
+
+    Annotations: 
+        rdfs:comment "The purpose of the om:UnitExponentiation class is to describe a unit of measure that is raised to an integer power.",
+        rdfs:label "UnitExponentiation"
+    
+    SubClassOf: 
+        om:Unit,
+        om:hasBase some om:Unit,
+        om:hasExponent some xsd:integer
+    
+    
+Class: om:UnitMultiplication
+
+    Annotations: 
+        rdfs:comment "The purpose of the om:UnitMultiplication class is to describe a unit of measure that is the multiplication of two other units of measure.",
+        rdfs:label "UnitMultiplication"
+    
+    SubClassOf: 
+        om:Unit,
+        om:hasTerm1 some om:Unit,
+        om:hasTerm2 some om:Unit
+    
+    
+Class: owl:Thing
+
+    
+Class: prov:Activity
+
+    Annotations: 
+        rdfs:comment "An Activity is used to represent the execution of a process or set of processes. An Activity is linked through prov:qualifiedAssociation to one or more Associations, and is linked through prov:used to one or more Entities.",
+        rdfs:label "Activity"
+    
+    SubClassOf: 
+        owl:Thing
+    
+    
+Class: prov:Agent
+
+    Annotations: 
+        rdfs:comment "An Agent is something that bears some form of responsibility for an Activity taking place, such as a person, organization, or software agent.",
+        rdfs:label "Agent"
+    
+    SubClassOf: 
+        owl:Thing
+    
+    
+Class: prov:Association
+
+    Annotations: 
+        rdfs:comment "An Association is used to link an Activity to one or more Agents, and to describe the role of each Agent in the execution of the Activity. An Association is linked through prov:qualifiedAssociation to an Activity, and is linked through prov:agent to one or more Agents.",
+        rdfs:label "Association"
+    
+    SubClassOf: 
+        owl:Thing,
+        prov:agent some prov:Agent
+    
+    
+Class: prov:Plan
+
+    Annotations: 
+        rdfs:comment "A Plan is used to describe a set of actions or steps intended to achieve a specific goal or outcome.",
+        rdfs:label "Plan"
+    
+    SubClassOf: 
+        owl:Thing
+    
+    
+Class: prov:Usage
+
+    Annotations: 
+        rdfs:comment "A Usage is used to describe the involvement of an Entity in an Activity, specifying how the Entity was used during the execution of the Activity.",
+        rdfs:label "Usage"
+    
+    SubClassOf: 
+        owl:Thing
+    
+    
+Class: sbol:Attachment
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:comment "The purpose of the Attachment class is to serve as a general container for data files, especially experimental data files. It provides a means for linking files and metadata to SBOL designs.",
+        rdfs:label "Attachment"
+    
+    SubClassOf: 
+        sbol:TopLevel,
+        sbol:source some owl:Thing
+    
+    
+Class: sbol:BiochemicalReactionInteraction
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:comment "Represents a biochemical reaction interaction, with the type of SBO:biochemical_reaction, that involves zero or more modifier, modified, product, and reactant participations.",
+        rdfs:label "BiochemicalReactionInteraction"
+    
+    EquivalentTo: 
+        sbol:Interaction
+         and (sbol:type some identifiers:SBO:0000176)
+         and (sbol:hasParticipation min 0 sbol:ModifiedParticipation)
+         and (sbol:hasParticipation min 0 sbol:ModifierParticipation)
+         and (sbol:hasParticipation min 0 sbol:ProductParticipation)
+         and (sbol:hasParticipation min 0 sbol:ReactantParticipation)
+    
+    SubClassOf: 
+        sbol:Interaction
+    
+    
+Class: sbol:CDSDNAComponent
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:comment "Represents a coding sequence DNA component, with the role of SO:CDS.",
+        rdfs:label "CDS DNA Component"
+    
+    EquivalentTo: 
+        sbol:DNAComponent
+         and (sbol:role some identifiers:SO:0000316)
+    
+    SubClassOf: 
+        sbol:DNAComponent
+    
+    
+Class: sbol:Cardinality
+
+    Annotations: 
+        otol:constantList "true",
+        rdfs:comment "Provides a controlled vocabulary for describing restrictions between pairs of Feature objects, including identity, topology, sequence order, and orientation relationships.",
+        rdfs:label "Cardinality"
+    
+    EquivalentTo: 
+        sbol:one or sbol:oneOrMore or sbol:zeroOrMore or sbol:zeroOrOne
+    
+    SubClassOf: 
+        sbol:SBOLTerm
+    
+    
+Class: sbol:Collection
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:comment "The Collection class is a class that groups together a set of TopLevel objects that have something in common.",
+        rdfs:label "Collection"
+    
+    SubClassOf: 
+        sbol:TopLevel
+    
+    
+Class: sbol:CombinatorialDerivation
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:comment "The purpose of the CombinatorialDerivation class is to specify combinatorial biological designs without having to specify every possible design variant.",
+        rdfs:label "CombinatorialDerivation"
+    
+    SubClassOf: 
+        sbol:TopLevel,
+        sbol:template some sbol:Component
+    
+    
+Class: sbol:CombinatorialDerivationStrategy
+
+    Annotations: 
+        otol:constantList "true",
+        rdfs:comment "Controlled vocabulary for the strategies that can be used to derive new Components from a template Component. ",
+        rdfs:label "CombinatorialDerivationStrategy"
+    
+    EquivalentTo: 
+        sbol:enumerate or sbol:sample
+    
+    SubClassOf: 
+        sbol:SBOLTerm
+    
+    
+Class: sbol:Component
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:comment "The Component class represents the structural and/or functional entities of a biological design. The primary usage of this class is to represent entities with designed sequences, such as DNA, RNA, and proteins, but it can also be used to represent any other entity that is part of a design, such as simple chemicals, molecular complexes, strains, media, light, and abstract functional groupings of other entities.",
+        rdfs:label "Component"
+    
+    SubClassOf: 
+        sbol:TopLevel,
+        sbol:type some sbol:ComponentType,
+        sbol:type some owl:Thing,
+        sbol:type max 1 sbol:ComponentType
+    
+    
+Class: sbol:ComponentReference
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:comment "The ComponentReference class is a subclass of Feature that can be used to reference Features within SubComponents.",
+        rdfs:label "ComponentReference"
+    
+    SubClassOf: 
+        sbol:Feature,
+        sbol:inChildOf some sbol:SubComponent,
+        sbol:refersTo some sbol:Feature
+    
+    
+Class: sbol:ComponentRole
+
+    Annotations: 
+        rdfs:comment "Controlled vocabulary for the roles that a Component can play in a design. The value of a Component's role property must be an instance of a class that is a subclass of ComponentRole.",
+        rdfs:label "Component Role"
+    
+    SubClassOf: 
+        sbol:SBOLValue
+    
+    
+Class: sbol:ComponentType
+
+    Annotations: 
+        otol:constantList "true",
+        rdfs:comment "Controlled vocabulary for the types of physical entities that can be represented in SBOL. The value of a Component's type property must be an instance of a class that is a subclass of ComponentType.",
+        rdfs:label "Component Type"
+    
+    EquivalentTo: 
+        sbol:ComponentType or identifiers:SO:0000984 or identifiers:SO:0000985 or identifiers:SO:0000987 or identifiers:SO:0000988,
+        identifiers:SBO:0000241 or identifiers:SBO:0000247 or identifiers:SBO:0000250 or identifiers:SBO:0000251 or identifiers:SBO:0000252 or identifiers:SBO:0000253
+    
+    SubClassOf: 
+        sbol:SBOLValue,
+        identifiers:SBO:0000236
+    
+    
+Class: sbol:Constraint
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:comment "The Constraint class can be used to assert restrictions on the relationships of pairs of Feature objects contained by the same parent Component. Uses of this class include expressing containment (e.g., a plasmid transformed into a chassis strain), identity mappings (e.g., replacing a placeholder value with a complete definition), and expressing relative, sequence-based positions (e.g., the ordering of features within a template).",
+        rdfs:label "Constraint"
+    
+    SubClassOf: 
+        sbol:Identified,
+        sbol:object some sbol:Feature,
+        sbol:restriction some owl:Thing,
+        sbol:subject some sbol:Feature
+    
+    
+Class: sbol:ConstraintRestriction
+
+    Annotations: 
+        otol:constantList "true",
+        rdfs:comment "Controlled vocabulary for the types of restrictions that can be expressed in a Constraint. The value of a Constraint's restriction property must be an instance of a class that is a subclass of ConstraintRestriction. Subclasses of ConstraintRestriction include IdentityRestriction, TopologyRestriction, SequentialRestriction, and OrientationRestriction.",
+        rdfs:label "ConstraintRestriction"
+    
+    SubClassOf: 
+        sbol:SBOLTerm
+    
+    
+Class: sbol:ControlInteraction
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:comment "Represents a control interaction, with the type of SBO:control, that involves at least one modifier participation and at least one modified participation.",
+        rdfs:label "ControlInteraction"
+    
+    EquivalentTo: 
+        sbol:Interaction
+         and (sbol:hasParticipation some sbol:ModifiedParticipation)
+         and (sbol:hasParticipation some sbol:ModifierParticipation)
+         and (sbol:type some identifiers:SBO:0000168)
+    
+    SubClassOf: 
+        sbol:Interaction
+    
+    
+Class: sbol:Cut
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:comment "The Cut class has been introduced to enable the specification of a region between two discrete positions. This specification is accomplished using the at property, which specifies a discrete position that corresponds to the index of a character in the elements String of a Sequence (except in the case when at is equal to zero.)",
+        rdfs:label "Cut"
+    
+    SubClassOf: 
+        sbol:Location,
+        sbol:at some xsd:integer[>= 0]
+    
+    
+Class: sbol:DNAComponent
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:comment "Represents a DNA component, with the type of SBO:DNA, the role of DNARole. It restricts instances to have the sequences with the correct DNA encoding.",
+        rdfs:label "DNA Component"
+    
+    EquivalentTo: 
+        sbol:Component
+         and (sbol:role some sbol:DNARole)
+         and (sbol:type some identifiers:SBO:0000251)
+         and (sbol:hasSequence only sbol:DNASequence)
+    
+    SubClassOf: 
+        sbol:Component
+    
+    
+Class: sbol:DNARNAComponentType
+
+    Annotations: 
+        otol:constantList "true",
+        rdfs:comment "Type for DNA or RNA components. The value of a Component's type property must be an instance of a class that is a subclass of DNARNAComponentType if the Component has a role that is a subclass of DNARole or RNARole.",
+        rdfs:label "DNA or RNA Component Type"
+    
+    SubClassOf: 
+        sbol:ComponentType
+    
+    
+Class: sbol:DNARole
+
+    Annotations: 
+        otol:constantList "true",
+        rdfs:comment "Controlled vocabulary for the roles that a DNA Component can play in a design. The value of a Component's role property must be an instance of a class that is a subclass of DNARole.",
+        rdfs:label "DNA Role"
+    
+    EquivalentTo: 
+        identifiers:SO:0000057 or identifiers:SO:0000110 or identifiers:SO:0000139 or identifiers:SO:0000141 or identifiers:SO:0000167 or identifiers:SO:0000316 or identifiers:SO:0000704 or identifiers:SO:0000804
+    
+    SubClassOf: 
+        sbol:ComponentRole
+    
+    
+Class: sbol:DNASequence
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:comment "Represents a DNA sequence, with the encoding of EDAM format 1207. The elements property MUST contain only characters from the IUPAC DNA character set: A, C, G, T, U, M, R, W, S, Y, K, V, H, D, B, N and -.",
+        rdfs:label "DNA Sequence"
+    
+    EquivalentTo: 
+        sbol:SequenceWithElements
+         and (sbol:encoding some identifiers:edam:format_1207)
+    
+    SubClassOf: 
+        sbol:SequenceWithElements
+    
+    
+Class: sbol:DegradationInteraction
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:comment "Represents a degradation interaction, with the type of SBO:degradation, that involves at least one reactant participation.",
+        rdfs:label "DegradationInteraction"
+    
+    EquivalentTo: 
+        sbol:Interaction
+         and (sbol:hasParticipation some sbol:ReactantParticipation)
+         and (sbol:type some identifiers:SBO:0000179)
+    
+    SubClassOf: 
+        sbol:Interaction
+    
+    
+Class: sbol:EffectorSimpleChemicalComponent
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:comment "Represents an effector simple chemical component, with the role of CHEBI:effector.",
+        rdfs:label "Effector Simple Chemical Component"
+    
+    EquivalentTo: 
+        sbol:SimpleChemicalComponent
+         and (sbol:role some identifiers:CHEBI:35224)
+    
+    SubClassOf: 
+        sbol:SimpleChemicalComponent
+    
+    
+Class: sbol:Encoding
+
+    Annotations: 
+        otol:constantList "true",
+        rdfs:comment "Controlled vocabulary for the types of encoding that can be used to represent the primary structure of a Component. The value of a Sequence's encoding property must be an instance of a class that is a subclass of Encoding.",
+        rdfs:label "Encoding"
+    
+    EquivalentTo: 
+        identifiers:edam:format_1196 or identifiers:edam:format_1197 or identifiers:edam:format_1207 or identifiers:edam:format_1208
+    
+    SubClassOf: 
+        sbol:SBOLValue
+    
+    
+Class: sbol:EngineeredRegionDNAComponent
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:comment "Represents an engineered region DNA component, with the role of SO:engineered_region.",
+        rdfs:label "Engineered Region DNA Component"
+    
+    EquivalentTo: 
+        sbol:DNAComponent
+         and (sbol:role some identifiers:SO:0000804)
+    
+    SubClassOf: 
+        sbol:DNAComponent
+    
+    
+Class: sbol:EntireSequence
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:comment "The EntireSequence class does not have any additional properties. Use of this class indicates that the linked Sequence describes the entirety of the Component or Feature parent of this Location object.",
+        rdfs:label "EntireSequence"
+    
+    SubClassOf: 
+        sbol:Location
+    
+    
+Class: sbol:Experiment
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:comment "The purpose of the Experiment class is to aggregate ExperimentalData objects for subsequent analysis, usually in accordance with an experimental design.",
+        rdfs:label "Experiment"
+    
+    SubClassOf: 
+        sbol:Collection
+    
+    
+Class: sbol:ExperimentalData
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:comment "The purpose of the ExperimentalData class is to aggregate links to experimental data files. An ExperimentalData is typically associated with a single sample, lab instrument, or experimental condition and can be used to describe the output of the test phase of a design-build-test-learn workflow.",
+        rdfs:label "ExperimentalData"
+    
+    SubClassOf: 
+        sbol:TopLevel
+    
+    
+Class: sbol:ExternallyDefined
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:comment "The ExternallyDefined class has been introduced so that external definitions in databases like ChEBI or UniProt can be referenced.",
+        rdfs:label "ExternallyDefined"
+    
+    SubClassOf: 
+        sbol:Feature,
+        sbol:definition some owl:Thing,
+        sbol:type some owl:Thing
+    
+    
+Class: sbol:Feature
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:comment "The Feature class, is used to compose Component objects into a structural or functional hierarchy. Feature is an abstract class; only its child classes are actually instantiated.",
+        rdfs:label "Feature"
+    
+    SubClassOf: 
+        sbol:Identified
+    
+    
+Class: sbol:FunctionalEntityComponent
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:comment "Represents a functional entity component, with the type of SBO:functional_entity.",
+        rdfs:label "Functional Entity Component"
+    
+    EquivalentTo: 
+        sbol:Component
+         and (sbol:type some identifiers:SBO:0000241)
+    
+    SubClassOf: 
+        sbol:Component
+    
+    
+Class: sbol:GeneDNAComponent
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:comment "Represents a gene DNA component, with the role of SO:gene.",
+        rdfs:label "Gene DNA Component"
+    
+    EquivalentTo: 
+        sbol:DNAComponent
+         and (sbol:role some identifiers:SO:0000704)
+    
+    SubClassOf: 
+        sbol:DNAComponent
+    
+    
+Class: sbol:GenericDNAComponent
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:comment "Represents a generic DNA component, with the role of SO:sequence_feature.",
+        rdfs:label "Generic DNA Component"
+    
+    EquivalentTo: 
+        sbol:DNAComponent
+         and (sbol:role some identifiers:SO:0000110)
+    
+    SubClassOf: 
+        sbol:DNAComponent
+    
+    
+Class: sbol:GenericTopLevel
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:comment "The GenericTopLevel class is a way to create a placeholder for a top-level entity that is not defined in the SBOL data model.",
+        rdfs:label "GenericTopLevel"
+    
+    SubClassOf: 
+        sbol:TopLevel,
+        rdf:type some owl:Thing
+    
+    
+Class: sbol:GeneticProductionInteraction
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:comment "Represents a genetic production interaction, with the type of SBO:genetic_production, that involves at least one template participation and at least one product participation.",
+        rdfs:label "GeneticProductionInteraction"
+    
+    EquivalentTo: 
+        sbol:Interaction
+         and (sbol:hasParticipation some sbol:ProductParticipation)
+         and (sbol:hasParticipation some sbol:TemplateParticipation)
+         and (sbol:type some identifiers:SBO:0000589)
+         and (sbol:hasParticipation min 0 sbol:PromoterParticipation)
+    
+    SubClassOf: 
+        sbol:Interaction
+    
+    
+Class: sbol:Identified
+
+    Annotations: 
+        rdfs:comment "All SBOL-defined classes are directly or indirectly derived from the Identified abstract class.",
+        rdfs:label "Identified"
+    
+    SubClassOf: 
+        owl:Thing,
+        owl:topObjectProperty min 0 sbol:Metadata
+    
+    
+Class: sbol:IdentityRestriction
+
+    Annotations: 
+        otol:constantList "true",
+        rdfs:comment "Identity restrictions are a subset of the ConstraintRestriction class that are used to express identity relationships between pairs of Features within a template Component. The value of an IdentityRestriction must be one of the following: verifyIdentical, differentFrom, or replaces.",
+        rdfs:label "IdentityRestriction"
+    
+    EquivalentTo: 
+        sbol:differentFrom or sbol:replaces or sbol:verifyIdentical
+    
+    SubClassOf: 
+        sbol:ConstraintRestriction
+    
+    
+Class: sbol:Implementation
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:comment "An Implementation represents a realized instance of a Component, such a sample of DNA resulting from fabricating a genetic design or an aliquot of a specified reagent.",
+        rdfs:label "Implementation"
+    
+    SubClassOf: 
+        sbol:TopLevel
+    
+    
+Class: sbol:InChISequence
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:comment "Represents a chemical structure using the IUPAC International Chemical Identifier (InChI) format, with the encoding of EDAM format 1197. The elements property MUST contain a valid InChI string.",
+        rdfs:label "InChI Sequence"
+    
+    EquivalentTo: 
+        sbol:SequenceWithElements
+         and (sbol:encoding some identifiers:edam:format_1197)
+    
+    SubClassOf: 
+        sbol:SequenceWithElements
+    
+    
+Class: sbol:InhibitedParticipation
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:comment "Represents a participation of a feature that is inhibited in an interaction, with the role of SBO:inhibited.",
+        rdfs:label "InhibitedParticipation"
+    
+    EquivalentTo: 
+        sbol:Participation
+         and (sbol:role some identifiers:SBO:0000642)
+    
+    SubClassOf: 
+        sbol:Participation
+    
+    
+Class: sbol:InhibitionInteraction
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:comment "Represents an inhibition interaction, with the type of SBO:inhibition, that involves at least one inhibitor participation and at least one inhibited participation.",
+        rdfs:label "InhibitionInteraction"
+    
+    EquivalentTo: 
+        sbol:Interaction
+         and (sbol:hasParticipation some sbol:InhibitedParticipation)
+         and (sbol:hasParticipation some sbol:InhibitorParticipation)
+         and (sbol:type some identifiers:SBO:0000169)
+    
+    SubClassOf: 
+        sbol:Interaction
+    
+    
+Class: sbol:InhibitorParticipation
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:comment "Represents a participation of a feature that inhibits an interaction, with the role of SBO:inhibitor.",
+        rdfs:label "InhibitorParticipant"
+    
+    EquivalentTo: 
+        sbol:Participation
+         and (sbol:role some identifiers:SBO:0000020)
+    
+    SubClassOf: 
+        sbol:Participation
+    
+    
+Class: sbol:Interaction
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:comment "The Interaction class provides more detailed description of how the Feature objects of a Component are intended to work together. For example, this class can be used to represent different forms of genetic regulation (e.g., transcriptional activation or repression), processes from the central dogma of biology (e.g. transcription and translation), and other basic molecular interactions (e.g., non-covalent binding or enzymatic phosphorylation).",
+        rdfs:label "Interaction"
+    
+    SubClassOf: 
+        sbol:Identified,
+        sbol:type some owl:Thing
+    
+    
+Class: sbol:InteractionType
+
+    Annotations: 
+        otol:constantList "true",
+        rdfs:comment "Provides a vocabulary to choose the interaction type of behavior represented by an Interaction. Interaction types are typically identified using IRIs, such as terms from the Systems Biology Ontology.",
+        rdfs:label "InteractionType"
+    
+    EquivalentTo: 
+        identifiers:SBO:0000168 or identifiers:SBO:0000169 or identifiers:SBO:0000170 or identifiers:SBO:0000176 or identifiers:SBO:0000177 or identifiers:SBO:0000179 or identifiers:SBO:0000589
+    
+    SubClassOf: 
+        sbol:SBOLValue
+    
+    
+Class: sbol:Interface
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:comment "The Interface class is a way of explicitly specifying the interface of a Component.",
+        rdfs:label "Interface"
+    
+    SubClassOf: 
+        sbol:Identified
+    
+    
+Class: sbol:LocalSubComponent
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:comment "The LocalSubComponent class is a subclass of Feature. This class serves as a way to create a placeholder in more complex Components, such as a variable to be filled in later or a composite that exists only within the context of the parent Component.",
+        rdfs:label "LocalSubComponent"
+    
+    SubClassOf: 
+        sbol:Feature,
+        sbol:type some owl:Thing
+    
+    
+Class: sbol:Location
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:comment "The Location class is used to represent the location of Features within Sequences. This class is extended by the Range, Cut, and EntireSequence classes. Location is an abstract class; only its child classes are actually instantiated.",
+        rdfs:label "Location"
+    
+    SubClassOf: 
+        sbol:Identified,
+        sbol:hasSequence some sbol:Sequence,
+        sbol:hasSequence max 1 sbol:Sequence
+    
+    
+Class: sbol:Metadata
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:comment "Custom data in the form of independent objects can participate in the SBOL data model if they are assigned one of the SBOL types Identified or TopLevel. An example is an RDF object that is annotated such that it represents a data sheet that describes the performance of a Component in a particular context.",
+        rdfs:label "Metadata"
+    
+    SubClassOf: 
+        sbol:Identified,
+        rdf:type some owl:Thing
+    
+    
+Class: sbol:Model
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:comment "The purpose of the Model class is to serve as a placeholder for an external computational model and provide additional meta-data to enable better reasoning about the contents of this model.",
+        rdfs:label "Model"
+    
+    SubClassOf: 
+        sbol:TopLevel,
+        sbol:framework some owl:Thing,
+        sbol:language some owl:Thing,
+        sbol:source some owl:Thing
+    
+    
+Class: sbol:ModelFramework
+
+    Annotations: 
+        otol:constantList "true",
+        rdfs:comment "Provides a vocabulary to choose the modeling framework of a Model. Model frameworks are typically identified using IRIs, such as terms from the Systems Biology Ontology.",
+        rdfs:label "ModelFramework"
+    
+    EquivalentTo: 
+        identifiers:SBO:0000062 or identifiers:SBO:0000063 or identifiers:SBO:0000234 or identifiers:SBO:0000681 or identifiers:SBO:0000693
+    
+    SubClassOf: 
+        sbol:SBOLValue
+    
+    
+Class: sbol:ModelLanguage
+
+    Annotations: 
+        otol:constantList "true",
+        rdfs:comment "Provides a vocabulary to choose the modeling language of a Model. Model languages are typically identified using IRIs, such as terms from the EDAM ontology.",
+        rdfs:label "ModelLanguage"
+    
+    EquivalentTo: 
+        identifiers:edam:format_2585 or identifiers:edam:format_3156 or identifiers:edam:format_3240
+    
+    SubClassOf: 
+        sbol:SBOLValue
+    
+    
+Class: sbol:ModifiedParticipation
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:comment "Represents a participation of a feature that is modified in an interaction, with the role of SBO:modified.",
+        rdfs:label "ModifiedParticipation"
+    
+    EquivalentTo: 
+        sbol:Participation
+         and (sbol:role some identifiers:SBO:0000644)
+    
+    SubClassOf: 
+        sbol:Participation
+    
+    
+Class: sbol:ModifierParticipation
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:comment "Represents a participation of a feature that is a modifier in an interaction, with the role of SBO:modifier.",
+        rdfs:label "ModifierParticipation"
+    
+    EquivalentTo: 
+        sbol:Participation
+         and (sbol:role some identifiers:SBO:0000019)
+    
+    SubClassOf: 
+        sbol:Participation
+    
+    
+Class: sbol:NonCovalentBindingInteraction
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:comment "Represents a non-covalent binding interaction, with the type of SBO:non_covalent_binding, that involves at least one reactant participation and at least one product participation.",
+        rdfs:label "NonCovalentBindingInteraction"
+    
+    EquivalentTo: 
+        sbol:Interaction
+         and (sbol:hasParticipation some sbol:ProductParticipation)
+         and (sbol:hasParticipation some sbol:ReactantParticipation)
+         and (sbol:type some identifiers:SBO:0000177)
+    
+    SubClassOf: 
+        sbol:Interaction
+    
+    
+Class: sbol:NonCovalentComplexComponent
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:comment "Represents a non-covalent complex Component, with the type SBO:non-covalent complex.",
+        rdfs:label "Non-Covalent Complex Component"
+    
+    EquivalentTo: 
+        sbol:Component
+         and (sbol:type some identifiers:SBO:0000253)
+    
+    SubClassOf: 
+        sbol:Component
+    
+    
+Class: sbol:NucleicAcidTopology
+
+    Annotations: 
+        otol:constantList "true",
+        rdfs:comment "Specifies the topology of a nucleic acid Component. Values are linear, circular, single, and double. For DNA Components with a fully specified sequence, topology information is recommended and should be provided using a term from the Topology Attribute branch of the Sequence Ontology.",
+        rdfs:label "NucleicAcidTopology"
+    
+    EquivalentTo: 
+        identifiers:SO:0000984 or identifiers:SO:0000985 or identifiers:SO:0000987 or identifiers:SO:0000988
+    
+    SubClassOf: 
+        sbol:SBOLValue
+    
+    
+Class: sbol:OperatorDNAComponent
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:comment "Represents an operator DNA component, with the role of SO:operator.",
+        rdfs:label "Operator DNA Component"
+    
+    EquivalentTo: 
+        sbol:DNAComponent
+         and (sbol:role some identifiers:SO:0000057)
+    
+    SubClassOf: 
+        sbol:DNAComponent
+    
+    
+Class: sbol:Orientation
+
+    Annotations: 
+        otol:constantList "true",
+        rdfs:comment "Controlled vocabulary for the orientation of a Feature or Location. The value of a Feature or Location's orientation property must be an instance of a class that is a subclass of Orientation.",
+        rdfs:label "Orientation"
+    
+    EquivalentTo: 
+        sbol:inline or sbol:reverseComplement
+    
+    SubClassOf: 
+        sbol:SBOLTerm
+    
+    
+Class: sbol:OrientationRestriction
+
+    Annotations: 
+        otol:constantList "true",
+        rdfs:comment "Orientation restrictions are a subset of the ConstraintRestriction class that are used to express orientation relationships between pairs of Features within a template Component. The value of an OrientationRestriction must be one of the following: sameOrientationAs or oppositeOrientationAs.",
+        rdfs:label "OrientationRestriction"
+    
+    EquivalentTo: 
+        sbol:oppositeOrientationAs or sbol:sameOrientationAs
+    
+    SubClassOf: 
+        sbol:ConstraintRestriction
+    
+    
+Class: sbol:Participation
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:comment "Each Participation represents how a particular Feature behaves in its parent Interaction.",
+        rdfs:label "Participation"
+    
+    SubClassOf: 
+        sbol:Identified,
+        sbol:role some owl:Thing
+    
+    
+Class: sbol:ParticipationRole
+
+    Annotations: 
+        otol:constantList "true",
+        rdfs:comment "Provides a vocabulary to choose the role of a Participation in an Interaction. Participation roles are typically identified using IRIs, such as terms from the Systems Biology Ontology.",
+        rdfs:label "ParticipationRole"
+    
+    EquivalentTo: 
+        identifiers:SBO:0000010 or identifiers:SBO:0000011 or identifiers:SBO:0000019 or identifiers:SBO:0000020 or identifiers:SBO:0000459 or identifiers:SBO:0000598 or identifiers:SBO:0000642 or identifiers:SBO:0000643 or identifiers:SBO:0000645
+    
+    SubClassOf: 
+        sbol:SBOLValue
+    
+    
+Class: sbol:ProductParticipation
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:comment "Represents a participation of a feature that is a product in an interaction, with the role of SBO:product.",
+        rdfs:label "ProductParticipation"
+    
+    EquivalentTo: 
+        sbol:Participation
+         and (sbol:role some identifiers:SBO:0000011)
+    
+    SubClassOf: 
+        sbol:Participation
+    
+    
+Class: sbol:PromoterDNAComponent
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:comment "Represents a promoter DNA component, with the role of SO:promoter.",
+        rdfs:label "Promoter DNA Component"
+    
+    EquivalentTo: 
+        sbol:DNAComponent
+         and (sbol:role some identifiers:SO:0000167)
+    
+    SubClassOf: 
+        sbol:DNAComponent
+    
+    
+Class: sbol:PromoterParticipation
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:comment "Represents a participation of a feature that is a promoter in an interaction, with the role of SBO:promoter.",
+        rdfs:label "PromoterParticipation"
+    
+    EquivalentTo: 
+        sbol:Participation
+         and (sbol:role some identifiers:SBO:0000598)
+    
+    SubClassOf: 
+        sbol:Participation
+    
+    
+Class: sbol:ProteinComponent
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:comment "Represents a protein component, with the type of SBO:protein, the role of ProteinRole. It restricts instances to have the sequences with the correct protein encoding.",
+        rdfs:label "Protein Component"
+    
+    EquivalentTo: 
+        sbol:Component
+         and (sbol:role some sbol:ProteinRole)
+         and (sbol:type some identifiers:SBO:0000252)
+         and (sbol:hasSequence only sbol:ProteinSequence)
+    
+    SubClassOf: 
+        sbol:Component
+    
+    
+Class: sbol:ProteinRole
+
+    Annotations: 
+        otol:constantList "true",
+        rdfs:comment "Controlled vocabulary for the roles that a Protein Component can play in a design. The value of a Component's role property must be an instance of a class that is a subclass of ProteinRole.",
+        rdfs:label "Protein Role"
+    
+    EquivalentTo: 
+        identifiers:GO:0003674 or identifiers:GO:0003700
+    
+    SubClassOf: 
+        sbol:ComponentRole
+    
+    
+Class: sbol:ProteinSequence
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:comment "Represents a protein sequence, with the encoding of EDAM format 1208. The elements property MUST contain only characters from the IUPAC Protein character set: A, C, D, E, F, G, H, I, K, L, M, N, P, Q, R, S, T, V, W, Y and -.",
+        rdfs:label "Protein Sequence"
+    
+    EquivalentTo: 
+        sbol:SequenceWithElements
+         and (sbol:encoding some identifiers:edam:format_1208)
+    
+    SubClassOf: 
+        sbol:SequenceWithElements
+    
+    
+Class: sbol:RBSDNAComponent
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:comment "Represents a ribosome binding site DNA component, with the role of SO:RBS.",
+        rdfs:label "RBS DNA Component"
+    
+    EquivalentTo: 
+        sbol:DNAComponent
+         and (sbol:role some identifiers:SO:0000139)
+    
+    SubClassOf: 
+        sbol:DNAComponent
+    
+    
+Class: sbol:RNAComponent
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:comment "Represents an RNA component, with the type of SBO:RNA, the role of RNARole. It restricts instances to have the sequences with the correct RNA encoding.",
+        rdfs:label "RNA Component"
+    
+    EquivalentTo: 
+        sbol:Component
+         and (sbol:role some sbol:RNARole)
+         and (sbol:type some identifiers:SBO:0000250)
+         and (sbol:hasSequence only sbol:RNASequence)
+    
+    SubClassOf: 
+        sbol:Component
+    
+    
+Class: sbol:RNARole
+
+    Annotations: 
+        otol:constantList "true",
+        rdfs:comment "Controlled vocabulary for the roles that an RNA Component can play in a design. The value of a Component's role property must be an instance of a class that is a subclass of RNARole.",
+        rdfs:label "RNA role"
+    
+    EquivalentTo: 
+        identifiers:SO:0000110 or identifiers:SO:0000234
+    
+    SubClassOf: 
+        sbol:ComponentRole
+    
+    
+Class: sbol:RNASequence
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:comment "Represents an RNA sequence, with the encoding of EDAM format 1207. The elements property MUST contain only characters from the IUPAC RNA character set: A, C, G, U, M, R, W, S, Y, K, V, H, D, B, N and -.",
+        rdfs:label "RNA Sequence"
+    
+    EquivalentTo: 
+        sbol:SequenceWithElements
+         and (sbol:encoding some identifiers:edam:format_1207)
+    
+    SubClassOf: 
+        sbol:SequenceWithElements
+    
+    
+Class: sbol:Range
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:comment "A Range object specifies a region via discrete, inclusive start and end positions that correspond to indices for characters in the elements String of a Sequence.",
+        rdfs:label "Range"
+    
+    SubClassOf: 
+        sbol:Location,
+        sbol:end some xsd:integer[>= 1],
+        sbol:start some xsd:integer[>= 1]
+    
+    
+Class: sbol:ReactantParticipation
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:comment "Represents a participation of a feature that is a reactant in an interaction, with the role of SBO:reactant.",
+        rdfs:label "ReactantParticipation"
+    
+    EquivalentTo: 
+        sbol:Participation
+         and (sbol:role some identifiers:SBO:0000010)
+    
+    SubClassOf: 
+        sbol:Participation
+    
+    
+Class: sbol:RoleIntegration
+
+    Annotations: 
+        otol:constantList "true",
+        rdfs:comment "A roleIntegration specifies the relationship between a SubComponent instance's own set of role properties and the set of role properties on the included Component.",
+        rdfs:label "RoleIntegration"
+    
+    EquivalentTo: 
+        sbol:mergeRoles or sbol:overrideRoles
+    
+    SubClassOf: 
+        sbol:SBOLTerm
+    
+    
+Class: sbol:SBOLActivity
+
+    Annotations: 
+        otol:domainEntity "true",
+        otol:replacementOf <https://www.w3.org/ns/prov#Activity>,
+        rdfs:comment "A wrapper for the PROV Activity class. The purpose of this class is to allow for the inclusion of SBOL-specific properties on PROV Activities, such as the association of an Activity with a particular Component or Interaction.",
+        rdfs:label "SBOL Activity"
+    
+    SubClassOf: 
+        sbol:TopLevel,
+        prov:Activity
+    
+    
+Class: sbol:SBOLAgent
+
+    Annotations: 
+        otol:domainEntity "true",
+        otol:replacementOf <https://www.w3.org/ns/prov#Agent>,
+        rdfs:comment "A wrapper for the PROV-O Agent class. The purpose of this class is to allow for the inclusion of SBOL-specific properties on PROV Agents, such as the association of an Agent with a particular Component or Interaction.",
+        rdfs:label "SBOL Agent"
+    
+    SubClassOf: 
+        sbol:TopLevel,
+        prov:Agent
+    
+    
+Class: sbol:SBOLAssociation
+
+    Annotations: 
+        otol:domainEntity "true",
+        otol:replacementOf <https://www.w3.org/ns/prov#Association>,
+        rdfs:comment "A wrapper for the PROV-O Association class. The purpose of this class is to allow for the inclusion of SBOL-specific properties on PROV Associations, such as the association of an Association with a particular Component or Interaction.",
+        rdfs:label "SBOL Association"
+    
+    SubClassOf: 
+        sbol:Identified,
+        prov:Association
+    
+    
+Class: sbol:SBOLBinaryPrefix
+
+    Annotations: 
+        otol:domainEntity "true",
+        otol:replacementOf <http://www.ontology-of-units-of-measure.org/resource/om-2/BinaryPrefix>,
+        rdfs:comment "A wrapper class to enable the use of OM BinaryPrefixes in SBOL. This class allows adding custom SBOL relationships.",
+        rdfs:label "SBOLBinaryPrefix"
+    
+    SubClassOf: 
+        sbol:SBOLPrefix,
+        om:BinaryPrefix
+    
+    
+Class: sbol:SBOLCompoundUnit
+
+    Annotations: 
+        otol:domainEntity "true",
+        otol:replacementOf <http://www.ontology-of-units-of-measure.org/resource/om-2/CompoundUnit>,
+        rdfs:comment "A wrapper class to enable the use of OM CompoundUnits in SBOL. This class allows adding custom SBOL relationships.",
+        rdfs:label "SBOLCompoundUnit"
+    
+    SubClassOf: 
+        sbol:SBOLUnit,
+        om:CompoundUnit
+    
+    
+Class: sbol:SBOLMeasure
+
+    Annotations: 
+        otol:domainEntity "true",
+        otol:replacementOf <http://www.ontology-of-units-of-measure.org/resource/om-2/Measure>,
+        rdfs:comment "A wrapper for the OM Measure class. The purpose of this class is to allow for the inclusion of SBOL-specific properties on OM Measures, such as the association of a Measure with a particular Component or Interaction.",
+        rdfs:label "SBOL Measure"
+    
+    SubClassOf: 
+        sbol:Identified,
+        om:Measure
+    
+    
+Class: sbol:SBOLPlan
+
+    Annotations: 
+        otol:domainEntity "true",
+        otol:replacementOf <https://www.w3.org/ns/prov#Plan>,
+        rdfs:comment "A wrapper for the PROV-O Plan class. The purpose of this class is to allow for the inclusion of SBOL-specific properties on PROV Plans, such as the association of a Plan with a particular Component or Interaction.",
+        rdfs:label "SBOL Plan"
+    
+    SubClassOf: 
+        sbol:TopLevel,
+        prov:Plan
+    
+    
+Class: sbol:SBOLPrefix
+
+    Annotations: 
+        otol:domainEntity "true",
+        otol:replacementOf <http://www.ontology-of-units-of-measure.org/resource/om-2/Prefix>,
+        rdfs:comment "A wrapper class to enable the use of OM Prefixes in SBOL. This class allows adding custom SBOL relationships.",
+        rdfs:label "SBOLPrefix"
+    
+    SubClassOf: 
+        sbol:TopLevel,
+        om:Prefix
+    
+    
+Class: sbol:SBOLPrefixedUnit
+
+    Annotations: 
+        otol:domainEntity "true",
+        otol:replacementOf <http://www.ontology-of-units-of-measure.org/resource/om-2/PrefixedUnit>,
+        rdfs:comment "A wrapper class to enable the use of OM PrefixedUnits in SBOL. This class allows adding custom SBOL relationships.",
+        rdfs:label "SBOLPrefixedUnit"
+    
+    SubClassOf: 
+        sbol:SBOLUnit,
+        om:PrefixedUnit
+    
+    
+Class: sbol:SBOLSIPrefix
+
+    Annotations: 
+        otol:domainEntity "true",
+        otol:replacementOf <http://www.ontology-of-units-of-measure.org/resource/om-2/SIPrefix>,
+        rdfs:comment "A wrapper class to enable the use of OM SIPrefixes in SBOL. This class allows adding custom SBOL relationships.",
+        rdfs:label "SBOLSIPrefix"
+    
+    SubClassOf: 
+        sbol:SBOLPrefix,
+        om:SIPrefix
+    
+    
+Class: sbol:SBOLSingularUnit
+
+    Annotations: 
+        otol:domainEntity "true",
+        otol:replacementOf <http://www.ontology-of-units-of-measure.org/resource/om-2/SingularUnit>,
+        rdfs:comment "A wrapper class to enable the use of OM SingularUnits in SBOL. This class allows adding custom SBOL relationships.",
+        rdfs:label "SBOLSingularUnit"
+    
+    SubClassOf: 
+        sbol:SBOLUnit,
+        om:SingularUnit
+    
+    
+Class: sbol:SBOLTerm
+
+    Annotations: 
+        otol:vocabulary "true",
+        rdfs:comment "The SBOLTerm class is a way to create a placeholder for a term in an SBOL-controlled vocabulary.",
+        rdfs:label "SBOL Term"
+    
+    SubClassOf: 
+        owl:Thing
+    
+    
+Class: sbol:SBOLUnit
+
+    Annotations: 
+        otol:domainEntity "true",
+        otol:replacementOf <http://www.ontology-of-units-of-measure.org/resource/om-2/Unit>,
+        rdfs:comment "A wrapper class to enable the use of OM Units in SBOL. This class allows adding custom SBOL relationships.",
+        rdfs:label "SBOLUnit"
+    
+    SubClassOf: 
+        sbol:TopLevel,
+        om:Unit
+    
+    
+Class: sbol:SBOLUnitDivision
+
+    Annotations: 
+        otol:domainEntity "true",
+        otol:replacementOf <http://www.ontology-of-units-of-measure.org/resource/om-2/UnitDivision>,
+        rdfs:comment "A wrapper class to enable the use of OM UnitDivisions in SBOL. This class allows adding custom SBOL relationships.",
+        rdfs:label "SBOLUnitDivision"
+    
+    SubClassOf: 
+        sbol:SBOLUnit,
+        om:UnitDivision
+    
+    
+Class: sbol:SBOLUnitExponentiation
+
+    Annotations: 
+        otol:domainEntity "true",
+        otol:replacementOf <http://www.ontology-of-units-of-measure.org/resource/om-2/UnitExponentiation>,
+        rdfs:comment "A wrapper class to enable the use of OM UnitExponentiations in SBOL. This class allows adding custom SBOL relationships.",
+        rdfs:label "SBOLUnitExponentiation"
+    
+    SubClassOf: 
+        sbol:SBOLUnit,
+        om:UnitExponentiation
+    
+    
+Class: sbol:SBOLUnitMultiplication
+
+    Annotations: 
+        otol:domainEntity "true",
+        otol:replacementOf <http://www.ontology-of-units-of-measure.org/resource/om-2/UnitMultiplication>,
+        rdfs:comment "A wrapper class to enable the use of OM UnitMultiplications in SBOL. This class allows adding custom SBOL relationships.",
+        rdfs:label "SBOLUnitMultiplication"
+    
+    SubClassOf: 
+        sbol:SBOLUnit,
+        om:UnitMultiplication
+    
+    
+Class: sbol:SBOLUsage
+
+    Annotations: 
+        otol:domainEntity "true",
+        otol:replacementOf <https://www.w3.org/ns/prov#Usage>,
+        rdfs:comment "A wrapper for the PROV-O Usage class. The purpose of this class is to allow for the inclusion of SBOL-specific properties on PROV Usages, such as the association of a Usage with a particular Component or Interaction.",
+        rdfs:label "SBOL Usage"
+    
+    SubClassOf: 
+        sbol:Identified,
+        prov:Usage,
+        prov:entity some owl:Thing
+    
+    
+Class: sbol:SBOLValue
+
+    Annotations: 
+        otol:vocabulary "true"
+    
+    SubClassOf: 
+        owl:Thing
+    
+    
+Class: sbol:SMILESSequence
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:comment "Represents a chemical structure using the Simplified Molecular-Input Line-Entry System (SMILES) format, with the encoding of EDAM format 1196. The elements property MUST contain a valid SMILES string.",
+        rdfs:label "SMILES Sequence"
+    
+    EquivalentTo: 
+        sbol:SequenceWithElements
+         and (sbol:encoding some identifiers:edam:format_1196)
+    
+    SubClassOf: 
+        sbol:SequenceWithElements
+    
+    
+Class: sbol:Sequence
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:comment "The purpose of the Sequence class is to represent the primary structure of a Component object and the manner in which it is encoded.",
+        rdfs:label "Sequence"
+    
+    SubClassOf: 
+        sbol:TopLevel
+    
+    
+Class: sbol:SequenceFeature
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:comment "The SequenceFeature class describes one or more regions of interest on the Sequence objects referred to by its parent Component.",
+        rdfs:label "SequenceFeature"
+    
+    SubClassOf: 
+        sbol:Feature,
+        sbol:hasLocation some sbol:Location
+    
+    
+Class: sbol:SequenceWithElements
+
+    Annotations: 
+        rdfs:comment "A SequenceWithElements is a Sequence that contains elements and an encoding.",
+        rdfs:label "Sequence With Elements"
+    
+    EquivalentTo: 
+        sbol:Sequence
+         and (sbol:encoding some sbol:Encoding)
+         and (sbol:elements some xsd:string)
+    
+    SubClassOf: 
+        sbol:Sequence
+    
+    
+Class: sbol:SequentialRestriction
+
+    Annotations: 
+        otol:constantList "true",
+        rdfs:comment "Sequential restrictions are a subset of the ConstraintRestriction class that are used to express relative, sequence-based positions of pairs of Features within a template Component. The value of a SequentialRestriction must be one of the following: precedes, strictlyPrecedes, meets, overlaps, contains, strictlyContains, equals, starts, or finishes.",
+        rdfs:label "SequentialRestriction"
+    
+    EquivalentTo: 
+        sbol:contains or sbol:equals or sbol:finishes or sbol:meets or sbol:overlaps or sbol:precedes or sbol:starts or sbol:strictlyContains or sbol:strictlyPrecedes
+    
+    SubClassOf: 
+        sbol:ConstraintRestriction
+    
+    
+Class: sbol:SimpleChemicalComponent
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:comment "Represents a simple chemical component, with the type of SBO:simple_chemical, the role of SmallMoleculeRole. It restricts instances to have the sequences with the correct chemical encoding.",
+        rdfs:label "Simple Chemical Component"
+    
+    EquivalentTo: 
+        sbol:Component
+         and (sbol:role some sbol:SmallMoleculeRole)
+         and (sbol:type some identifiers:SBO:0000247)
+         and (sbol:hasSequence only 
+            (sbol:InChISequence or sbol:SMILESSequence))
+    
+    SubClassOf: 
+        sbol:Component
+    
+    
+Class: sbol:SmallMoleculeRole
+
+    Annotations: 
+        otol:constantList "true",
+        rdfs:comment "Controlled vocabulary for the roles that a Small Molecule Component can play in a design. The value of a Component's role property must be an instance of a class that is a subclass of SmallMoleculeRole.",
+        rdfs:label "Small Molecule Role"
+    
+    EquivalentTo: 
+        identifiers:CHEBI:35224 or identifiers:CHEBI:50906
+    
+    SubClassOf: 
+        sbol:ComponentRole
+    
+    
+Class: sbol:StimulatedParticipation
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:comment "Represents a participation of a feature that is stimulated in an interaction, with the role of SBO:stimulated.",
+        rdfs:label "StimulatedParticipation"
+    
+    EquivalentTo: 
+        sbol:Participation
+         and (sbol:role some identifiers:SBO:0000643)
+    
+    SubClassOf: 
+        sbol:Participation
+    
+    
+Class: sbol:StimulationInteraction
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:comment "Represents a stimulation interaction, with the type of SBO:stimulation, that involves at least one stimulator participation and at least one stimulated participation.",
+        rdfs:label "StimulationInteraction"
+    
+    EquivalentTo: 
+        sbol:Interaction
+         and (sbol:hasParticipation some sbol:StimulatedParticipation)
+         and (sbol:hasParticipation some sbol:StimulatorParticipation)
+         and (sbol:type some identifiers:SBO:0000170)
+    
+    SubClassOf: 
+        sbol:Interaction
+    
+    
+Class: sbol:StimulatorParticipation
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:comment "Represents a participation of a feature that stimulates an interaction, with the role of SBO:stimulator.",
+        rdfs:label "StimulatorParticipation"
+    
+    EquivalentTo: 
+        sbol:Participation
+         and (sbol:role some identifiers:SBO:0000459)
+    
+    SubClassOf: 
+        sbol:Participation
+    
+    
+Class: sbol:SubComponent
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:comment "The SubComponent class is a subclass of the Feature class that can be used to specify structural hierarchy.",
+        rdfs:label "SubComponent"
+    
+    SubClassOf: 
+        sbol:Feature,
+        sbol:instanceOf some sbol:Component
+    
+    
+Class: sbol:TemplateParticipation
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:comment "Represents a participation of a feature that is a template in an interaction, with the role of SBO:template.",
+        rdfs:label "TemplateParticipation"
+    
+    EquivalentTo: 
+        sbol:Participation
+         and (sbol:role some identifiers:SBO:0000645)
+    
+    SubClassOf: 
+        sbol:Participation
+    
+    
+Class: sbol:TerminatorDNAComponent
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:comment "Represents a terminator DNA component, with the role of SO:terminator.",
+        rdfs:label "Terminator DNA Component"
+    
+    EquivalentTo: 
+        sbol:DNAComponent
+         and (sbol:role some identifiers:SO:0000141)
+    
+    SubClassOf: 
+        sbol:DNAComponent
+    
+    
+Class: sbol:TopLevel
+
+    Annotations: 
+        rdfs:comment "TopLevel is an abstract class that is extended by any Identified class that can be found at the top level of an SBOL document or file.",
+        rdfs:label "TopLevel"
+    
+    SubClassOf: 
+        sbol:Identified,
+        sbol:hasNamespace some owl:Thing
+    
+    
+Class: sbol:TopologyRestriction
+
+    Annotations: 
+        otol:constantList "true",
+        rdfs:comment "Topology restrictions are a subset of the ConstraintRestriction class that are used to express topological relationships between pairs of Features within a template Component. The value of a TopologyRestriction must be one of the following: contains, strictlyContains, equals, covers, overlaps, meets, or isDisjointFrom.",
+        rdfs:label "TopologyRestriction"
+    
+    EquivalentTo: 
+        sbol:contains or sbol:covers or sbol:equals or sbol:isDisjointFrom or sbol:meets or sbol:overlaps or sbol:strictlyContains
+    
+    SubClassOf: 
+        sbol:ConstraintRestriction
+    
+    
+Class: sbol:TranscriptionFactorProteinComponent
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:comment "Represents a transcription factor protein component, with the role of GO:DNA-binding transcription factor activity.",
+        rdfs:label "Transcription Factor Protein Component"
+    
+    EquivalentTo: 
+        sbol:ProteinComponent
+         and (sbol:role some identifiers:GO:0003700)
+    
+    SubClassOf: 
+        sbol:ProteinComponent
+    
+    
+Class: sbol:VariableFeature
+
+    Annotations: 
+        otol:domainEntity "true",
+        rdfs:comment "VariableFeature class specifies a variable and set of values that will replace one of the Feature objects in the template of a CombinatorialDerivation. The variable is specified by the variable property, and the set of values is defined by the union of Component objects referred to by the variant, variantCollection, and variantDerivation properties.",
+        rdfs:label "VariableFeature"
+    
+    SubClassOf: 
+        sbol:Identified,
+        sbol:cardinality some sbol:Cardinality,
+        sbol:variable some sbol:Feature
+    
+    
+Class: sbol:contains
+
+    Annotations: 
+        rdfs:comment "The subject contains the object and they might or might not share a boundary.",
+        rdfs:label "contains"
+    
+    SubClassOf: 
+        sbol:ConstraintRestriction
+    
+    
+Class: sbol:covers
+
+    Annotations: 
+        rdfs:comment "The subject contains the object but also shares a boundary.",
+        rdfs:label "covers"
+    
+    SubClassOf: 
+        sbol:ConstraintRestriction
+    
+    
+Class: sbol:differentFrom
+
+    Annotations: 
+        rdfs:comment "The subject and object, after tracing through any layers of ComponentReference, MUST NOT both refer to SubComponent objects with the same instanceOf value or both refer to ExternallyDefined objects with the same definition. Example: two fluorescent reporters must be different.",
+        rdfs:label "differentFrom"
+    
+    SubClassOf: 
+        sbol:ConstraintRestriction
+    
+    
+Class: sbol:enumerate
+
+    Annotations: 
+        rdfs:comment "Enumerate is a strategy for deriving new Components from a template Component. The enumerate strategy specifies that a new Component should be derived for every possible combination of values for the variable specified by the VariableFeature objects in the template Component.",
+        rdfs:label "enumerate"
+    
+    SubClassOf: 
+        sbol:CombinatorialDerivationStrategy
+    
+    
+Class: sbol:equals
+
+    Annotations: 
+        rdfs:comment "The subject and object occupy the same location in space.",
+        rdfs:label "equals"
+    
+    SubClassOf: 
+        sbol:ConstraintRestriction
+    
+    
+Class: sbol:finishes
+
+    Annotations: 
+        rdfs:comment "The start of the location for subject is after the start of the location for object and the end of the location for subject is equal to the end of the location for object.",
+        rdfs:label "finishes"
+    
+    SubClassOf: 
+        sbol:ConstraintRestriction
+    
+    
+Class: sbol:inline
+
+    Annotations: 
+        rdfs:comment "Inline is an attribute of the feature, where the feature is in the 5' to 3' direction.",
+        rdfs:label "inline"
+    
+    SubClassOf: 
+        sbol:Orientation
+    
+    
+Class: sbol:isDisjointFrom
+
+    Annotations: 
+        rdfs:comment "The subject and object do not overlap in space.",
+        rdfs:label "isDisjointFrom"
+    
+    SubClassOf: 
+        sbol:ConstraintRestriction
+    
+    
+Class: sbol:meets
+
+    Annotations: 
+        rdfs:comment "The subject and object are connected at a shared boundary.",
+        rdfs:label "meets"
+    
+    SubClassOf: 
+        sbol:ConstraintRestriction
+    
+    
+Class: sbol:mergeRoles
+
+    Annotations: 
+        rdfs:comment "Use the union of the two sets: both the set of zero or more role properties given for this SubComponent as well as the set of zero or more role properties given for the included Component.",
+        rdfs:label "mergeRoles"
+    
+    SubClassOf: 
+        sbol:RoleIntegration
+    
+    
+Class: sbol:one
+
+    Annotations: 
+        rdfs:comment "Exactly one Feature in the derived Component SHOULD have a prov:wasDerivedFrom property that refers to the template Feature.",
+        rdfs:label "one"
+    
+    SubClassOf: 
+        sbol:Cardinality
+    
+    
+Class: sbol:oneOrMore
+
+    Annotations: 
+        rdfs:comment "At least one Feature in the derived Component SHOULD have a prov:wasDerivedFrom property that refers to the template Feature.",
+        rdfs:label "OneOrMore"
+    
+    SubClassOf: 
+        sbol:Cardinality
+    
+    
+Class: sbol:oppositeOrientationAs
+
+    Annotations: 
+        rdfs:comment "The subject and object Component objects MUST have opposite orientations.",
+        rdfs:label "oppositeOrientationAs"
+    
+    SubClassOf: 
+        sbol:OrientationRestriction
+    
+    
+Class: sbol:overlaps
+
+    Annotations: 
+        rdfs:comment "The subject and object overlap in space, but portions of each are outside of the other.",
+        rdfs:label "overlaps"
+    
+    SubClassOf: 
+        sbol:ConstraintRestriction
+    
+    
+Class: sbol:overrideRoles
+
+    Annotations: 
+        rdfs:comment "In the context of this SubComponent, ignore any role given for the included Component. Instead use only the set of zero or more role properties given for this SubComponent.",
+        rdfs:label "overrideRoles"
+    
+    SubClassOf: 
+        sbol:RoleIntegration
+    
+    
+Class: sbol:precedes
+
+    Annotations: 
+        rdfs:comment "The start of the location for subject is less than the start of the location for object.",
+        rdfs:label "precedes"
+    
+    SubClassOf: 
+        sbol:ConstraintRestriction
+    
+    
+Class: sbol:replaces
+
+    Annotations: 
+        rdfs:comment "In the context of the parent object of the Constraint, information about the subject should be used in place of all instances of the object. Example: the J23101 promoter replaces a generic promoter.",
+        rdfs:label "replaces"
+    
+    SubClassOf: 
+        sbol:ConstraintRestriction
+    
+    
+Class: sbol:reverseComplement
+
+    Annotations: 
+        rdfs:comment "Reverse complement is an attribute of the feature, where the feature is in the 3' to 5' direction.",
+        rdfs:label "reverseComplement"
+    
+    SubClassOf: 
+        sbol:Orientation
+    
+    
+Class: sbol:sameOrientationAs
+
+    Annotations: 
+        rdfs:comment "The subject and object Component objects MUST have the same orientation. ",
+        rdfs:label "sameOrientationAs"
+    
+    SubClassOf: 
+        sbol:OrientationRestriction
+    
+    
+Class: sbol:sample
+
+    Annotations: 
+        rdfs:comment "Sample is a strategy for deriving new Components from a template Component. The sample strategy specifies that a new Component should be derived for a random sample of the possible combinations of values for the variable specified by the VariableFeature objects in the template Component.",
+        rdfs:label "sample"
+    
+    SubClassOf: 
+        sbol:CombinatorialDerivationStrategy
+    
+    
+Class: sbol:starts
+
+    Annotations: 
+        rdfs:comment "The start of the location for subject is equal to the start of the location for object and the end of the location for subject is before the end of the location for object.",
+        rdfs:label "starts"
+    
+    SubClassOf: 
+        sbol:ConstraintRestriction
+    
+    
+Class: sbol:strictlyContains
+
+    Annotations: 
+        rdfs:comment "The subject entirely contains the object: they do not share a boundary.",
+        rdfs:label "strictlyContains"
+    
+    SubClassOf: 
+        sbol:ConstraintRestriction
+    
+    
+Class: sbol:strictlyPrecedes
+
+    Annotations: 
+        rdfs:comment "The end of the location for subject is less than the start of the location for object.",
+        rdfs:label "strictlyPrecedes"
+    
+    SubClassOf: 
+        sbol:ConstraintRestriction
+    
+    
+Class: sbol:verifyIdentical
+
+    Annotations: 
+        rdfs:comment "The subject and object, after tracing through any layers of ComponentReference, MUST both refer to SubComponent objects with the same instanceOf value or both refer to ExternallyDefined objects with the same definition. Example: a promoter included via two different subsystems must be the identical.",
+        rdfs:label "verifyIdentical"
+    
+    SubClassOf: 
+        sbol:ConstraintRestriction
+    
+    
+Class: sbol:zeroOrMore
+
+    Annotations: 
+        rdfs:comment "Any number of Feature objects in the derived Component MAY have prov:wasDerivedFrom properties that refer to the template Feature.",
+        rdfs:label "zeroOrMore"
+    
+    SubClassOf: 
+        sbol:Cardinality
+    
+    
+Class: sbol:zeroOrOne
+
+    Annotations: 
+        rdfs:comment "No more than one Feature in the derived Component SHOULD have a prov:wasDerivedFrom property that refers to the template Feature.",
+        rdfs:label "zeroOrOne"
+    
+    SubClassOf: 
+        sbol:Cardinality
+    
+    
+DisjointClasses: 
+    sbol:Attachment,sbol:Collection,sbol:CombinatorialDerivation,sbol:Component,sbol:ExperimentalData,sbol:Implementation,sbol:Model,sbol:SBOLActivity,sbol:SBOLAgent,sbol:SBOLBinaryPrefix,sbol:SBOLCompoundUnit,sbol:SBOLMeasure,sbol:SBOLPlan,sbol:SBOLPrefixedUnit,sbol:SBOLSIPrefix,sbol:SBOLSingularUnit,sbol:SBOLUnitDivision,sbol:SBOLUnitExponentiation,sbol:SBOLUnitMultiplication,sbol:Sequence
+
+DisjointClasses: 
+    sbol:ComponentReference,sbol:ExternallyDefined,sbol:LocalSubComponent,sbol:SequenceFeature,sbol:SubComponent
+
+DisjointClasses: 
+    sbol:Cut,sbol:EntireSequence,sbol:Range
+

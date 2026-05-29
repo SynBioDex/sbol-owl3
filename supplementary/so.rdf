@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xml:base="https://identifiers.org/SO:"
+         xmlns="https://identifiers.org/SO:#">
+
+<owl:Ontology rdf:about="https://identifiers.org/SO:"/>
+
+<owl:Class rdf:about="https://identifiers.org/SO:0000110">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">sequence_feature</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Any extent of continuous biological sequence.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="https://identifiers.org/SO:0000167">
+  <rdfs:subClassOf rdf:resource="https://identifiers.org/SO:0000110"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">promoter</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This term is mapped to MGED. Do not obsolete without consulting MGED ontology. The region on a DNA molecule involved in RNA polymerase binding to initiate transcription. Moved from is_a: SO:0001055 transcriptional_cis_regulatory_region as per request from GREEKC initiative in August 2020. Merged with RNA_polymerase_promoter (SO:0001203) Aug 2020. Moved up one level from is_a CRM (SO:0000727) to is_a transcriptional_cis_regulatory_region (SO:0001055) as part of the GREEKC work January 2021. Pascale Gaudet from Gene Ontology pointed out that CRM can be located upstream of the promoter and therefore cannot include the promoter. A regulatory_region composed of the TSS(s) and binding sites for TF_complexes of the core transcription machinery. A region (DNA) to which RNA polymerase binds, to begin transcription.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="https://identifiers.org/SO:0000139">
+  <rdfs:subClassOf rdf:resource="https://identifiers.org/SO:0000110"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ribosome_entry_site</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Region in mRNA where ribosome assembles.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="https://identifiers.org/SO:0000316">
+  <rdfs:subClassOf rdf:resource="https://identifiers.org/SO:0000110"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CDS</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A contiguous sequence which begins with, and includes, a start codon and ends with, and includes, a stop codon.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="https://identifiers.org/SO:0000141">
+  <rdfs:subClassOf rdf:resource="https://identifiers.org/SO:0000110"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">terminator</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Moved from transcription_regulatory_region (SO:0001679) to transcriptional_cis_regulatory_region (SO:0001055) by Dave Sant on Feb 11, 2021 when transcription_regulatory_region was merged into transcriptional_cis_regulatory_region to be consistent with GO and reduce redundancy as part of the GREEKC consortium. See GitHub Issue #527. The sequence of DNA located either at the end of the transcript that causes RNA polymerase to terminate transcription.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="https://identifiers.org/SO:0000704">
+  <rdfs:subClassOf rdf:resource="https://identifiers.org/SO:0000110"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">gene</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This term is mapped to MGED. Do not obsolete without consulting MGED ontology. A gene may be considered as a unit of inheritance. A region (or regions) that includes all of the sequence elements necessary to encode a functional transcript. A gene may include regulatory regions, transcribed regions and/or other functional sequence regions.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="https://identifiers.org/SO:0000057">
+  <rdfs:subClassOf rdf:resource="https://identifiers.org/SO:0000110"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">operator</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Moved to transcriptional_cis_regulatory_region (SO:0001055) from gene_group_regulatory_region (SO:0000752) on 11 Feb 2021 when SO:0000752 was merged into SO:0001055. See GitHub Issue #529. A regulatory element of an operon to which activators or repressors bind thereby effecting translation of genes in that operon.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="https://identifiers.org/SO:0000804">
+  <rdfs:subClassOf rdf:resource="https://identifiers.org/SO:0000110"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">engineered_region</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A region that is engineered.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="https://identifiers.org/SO:0000234">
+  <rdfs:subClassOf rdf:resource="https://identifiers.org/SO:0000110"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">mRNA</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An mRNA does not contain introns as it is a processed_transcript. The equivalent kind of primary_transcript is protein_coding_primary_transcript (SO:0000120) which may contain introns. This term is mapped to MGED. Do not obsolete without consulting MGED ontology. Messenger RNA is the intermediate molecule between DNA and protein. It includes UTR and coding sequences. It does not contain introns.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="https://identifiers.org/SO:0000400">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">sequence_attribute</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An attribute describes a quality of sequence.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="https://identifiers.org/SO:0000987">
+  <rdfs:subClassOf rdf:resource="https://identifiers.org/SO:0000400"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">linear</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Attributes added to describe the different kinds of replicon. SO workshop, September 2006. A quality of a nucleotide polymer that has a 3'-terminal residue and a 5'-terminal residue.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="https://identifiers.org/SO:0000988">
+  <rdfs:subClassOf rdf:resource="https://identifiers.org/SO:0000400"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">circular</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Attributes added to describe the different kinds of replicon. SO workshop, September 2006. A quality of a nucleotide polymer that has no terminal nucleotide residues.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="https://identifiers.org/SO:0000984">
+  <rdfs:subClassOf rdf:resource="https://identifiers.org/SO:0000400"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">single</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Attributes added to describe the different kinds of replicon. SO workshop, September 2006. When a nucleotide polymer has only one strand.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="https://identifiers.org/SO:0000985">
+  <rdfs:subClassOf rdf:resource="https://identifiers.org/SO:0000400"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">double</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Attributes added to describe the different kinds of replicon. SO workshop, September 2006. When a nucleotide polymer has two strands that are reverse-complement to one another and pair together.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="https://identifiers.org/SO:0001030">
+  <rdfs:subClassOf rdf:resource="https://identifiers.org/SO:0000400"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">forward</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Forward is an attribute of the feature, where the feature is in the 5' to 3' direction.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="https://identifiers.org/SO:0001031">
+  <rdfs:subClassOf rdf:resource="https://identifiers.org/SO:0000400"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">reverse</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Reverse is an attribute of the feature, where the feature is in the 3' to 5' direction. Again could be applied to primer.</rdfs:comment>
+</owl:Class>
+
+
+</rdf:RDF>

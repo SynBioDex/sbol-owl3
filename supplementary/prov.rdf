@@ -1,0 +1,144 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xml:base="https://www.w3.org/ns/prov"
+         xmlns="https://www.w3.org/ns/prov#">
+
+<owl:Ontology rdf:about="https://www.w3.org/ns/prov"/>
+
+<owl:ObjectProperty rdf:about="#wasDerivedFrom">
+  <rdfs:domain rdf:resource="http://sbols.org/v3#Identified"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">wasDerivedFrom</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An Identified object MAY have zero or more prov:wasDerivedFrom properties, each of type IRI. This property is defined by the PROV-O ontology and is located in the https://www.w3.org/ns/prov# namespace</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#wasInformedBy">
+  <rdfs:domain rdf:resource="#Activity"/>
+  <rdfs:range rdf:resource="#Activity"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">wasInformedBy</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An prov:Activity MAY have one or more prov:wasInformedBy properties, each of type IRI that refers to another prov:Activity object.</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#wasGeneratedBy">
+  <rdfs:domain rdf:resource="http://sbols.org/v3#Identified"/>
+  <rdfs:range rdf:resource="http://sbols.org/v3#SBOLActivity"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">wasGeneratedBy</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An Identified object MAY have zero or more prov:wasGeneratedBy properties, each of type IRI.</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#qualifiedUsage">
+  <rdfs:domain rdf:resource="#Activity"/>
+  <rdfs:range rdf:resource="#Usage"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">qualifiedUsage</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An prov:Activity MAY have one or more prov:qualifiedUsage properties, each of type IRI that refers to an prov:Usage object.</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#qualifiedAssociation">
+  <rdfs:domain rdf:resource="#Activity"/>
+  <rdfs:range rdf:resource="#Association"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">qualifiedAssociation</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An prov:Activity MAY have one or more prov:qualifiedAssociation properties, each of type IRI that refers to an prov:Association object.</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#entity">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Usage"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">entity</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The prov:entity property is REQUIRED and MUST contain a IRI which MAY refer to an Identified object.</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#hadRole">
+  <rdfs:domain>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Usage"/>
+        <rdf:Description rdf:about="#Association"/>
+      </owl:unionOf>
+    </owl:Class>
+  </rdfs:domain>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hadRole</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An prov:Usage MAY have one or more prov:hadRole properties, each of type IRI that refers to particular term(s) describing the usage of an prov:Entity referenced by the prov:entity property.</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#hadPlan">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Association"/>
+  <rdfs:range rdf:resource="#Plan"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hadPlan</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The prov:hadPlan property is OPTIONAL and contains a IRI that refers to a prov:Plan.</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#agent">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Association"/>
+  <rdfs:range rdf:resource="#Agent"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">agent</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The prov:agent property is REQUIRED and MUST contain a IRI that refers to an prov:Agent object.</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:DatatypeProperty rdf:about="#startedAtTime">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Activity"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">startedAtTime</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The prov:startedAtTime property is OPTIONAL and contains a DateTime value, indicating when the activity started. If this property is present, then the prov:endedAtTime property is REQUIRED.</rdfs:comment>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#endedAtTime">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Activity"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">endedAtTime</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The prov:endedAtTime property is OPTIONAL and contains a DateTime value, indicating when the activity ended.</rdfs:comment>
+</owl:DatatypeProperty>
+
+<owl:Class rdf:about="#Activity">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Activity</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An Activity is used to represent the execution of a process or set of processes. An Activity is linked through prov:qualifiedAssociation to one or more Associations, and is linked through prov:used to one or more Entities.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#Association">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#agent"/>
+      <owl:someValuesFrom rdf:resource="#Agent"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Association</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An Association is used to link an Activity to one or more Agents, and to describe the role of each Agent in the execution of the Activity. An Association is linked through prov:qualifiedAssociation to an Activity, and is linked through prov:agent to one or more Agents.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#Agent">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Agent</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An Agent is something that bears some form of responsibility for an Activity taking place, such as a person, organization, or software agent.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#Plan">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Plan</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A Plan is used to describe a set of actions or steps intended to achieve a specific goal or outcome.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#Usage">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Usage</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A Usage is used to describe the involvement of an Entity in an Activity, specifying how the Entity was used during the execution of the Activity.</rdfs:comment>
+</owl:Class>
+
+<rdf:Description rdf:about="http://sbols.org/v3#SBOLUsage">
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#entity"/>
+      <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</rdf:Description>
+
+
+</rdf:RDF>
