@@ -4,7 +4,7 @@ The SBOL-OWL3 ontology provides a set of controlled terms that are used to descr
 
 - Descriptions of SBOL entities (e.g. [Component](https://synbiodex.github.io/sbol-owl3/sbol3.html#Component), [SubComponent](https://synbiodex.github.io/sbol-owl3/sbol3.html#CSubomponent), and [Model](https://synbiodex.github.io/sbol-owl3/sbol3.html#Model)). 
 
-- Properties that connect SBOL3 entities to one another or to accepted values. Examples include properties such as [hasFeature](https://synbiodex.github.io/sbol-owl3/sbol3.html#hasFeature), [hasSequence](https://synbiodex.github.io/sbol-owl3/sbol3.html#hassequence), [hasInteraction](https://synbiodex.github.io/sbol-owl3/sbol3.html#hasInteraction), [hasParticipation](https://synbiodex.github.io/sbol-owl3/sbol3.html#hasInteraction), and [role](https://synbiodex.github.io/sbol-owl3/sbol3.html#role), and other relationships used to describe the structure and behavior of biological designs. 
+- Properties that connect SBOL3 entities to one another or to accepted values. Examples include properties such as [hasFeature](https://synbiodex.github.io/sbol-owl3/sbol3.html#hasFeature), [hasSequence](https://synbiodex.github.io/sbol-owl3/sbol3.html#hasSequence), [hasInteraction](https://synbiodex.github.io/sbol-owl3/sbol3.html#hasInteraction), [hasParticipation](https://synbiodex.github.io/sbol-owl3/sbol3.html#hasParticipation), and [role](https://synbiodex.github.io/sbol-owl3/sbol3.html#role), and other relationships used to describe the structure and behavior of biological designs. 
 
 - SBOL-specific constraints (e.g. A Component must have at least one 'type' value).
 
@@ -14,7 +14,7 @@ The SBOL-OWL3 ontology provides a set of controlled terms that are used to descr
 
 - Enumerations that group different SBOL terms. (e.g. "[Orientation](https://synbiodex.github.io/sbol-owl3/sbol3.html#Orientation)")
 
-- Metadata terms (e.g. "[Promoter](https://synbiodex.github.io/sbol-owl3/sbol3.html#Promoter)") for commonly used descriptions of design entities. Such terms may require the use of several SBOL entities and properties.
+- Metadata terms (e.g. "[NonCovalentBindingInteraction](https://synbiodex.github.io/sbol-owl3/sbol3.html#NonCovalentBindingInteraction)") for commonly used descriptions of design entities. Such terms may require the use of several SBOL entities and properties.
 
 - Wrrapper terms to add SBOL specific rules for external tems (e.g. "[SBOLActivity](https://synbiodex.github.io/sbol-owl3/sbol3.html#SBOLActivity)" which inherits from  [prov:Activity](https://synbiodex.github.io/sbol-owl3/sbol3.html#Activity) and [TopLevel](https://synbiodex.github.io/sbol-owl3/sbol3.html#TopLevel)).
 
@@ -24,9 +24,9 @@ The SBOL-OWL3 ontology provides a set of controlled terms that are used to descr
 ### Download
 SBOL-OWL3 is available in different formats.
 
-- [OWL file](https://synbiodex.github.io/sbol-owl3/sbol.owl)
-- [RDF file](https://synbiodex.github.io/sbol-owl3/sbol.rdf)
-- [OMN file](https://synbiodex.github.io/sbol-owl3/sbol.omn) (Manchester Syntax)
+- [OWL file](https://synbiodex.github.io/sbol-owl3/sbol3.owl)
+- [RDF file](https://synbiodex.github.io/sbol-owl3/sbol3.rdf)
+- [OMN file](https://synbiodex.github.io/sbol-owl3/sbol3.omn) (Manchester Syntax)
 
 # Dependencies
 * owlready2 0.5
