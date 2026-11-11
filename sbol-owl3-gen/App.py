@@ -1790,6 +1790,7 @@ def createHTML(ontologies, prefixes=None):
         # Workaround for the pyLODE.pyproject.toml file issue. The following code creates a minimal pyproject.toml in the site-packages folder if it doesn't already exist. If the distribution does not include this file, then pyLODE fails!
         import site
         tomlFile = Path(site.getsitepackages()[0]) / "pyproject.toml"
+        print(tomlFile)
         if not tomlFile.exists():
             tomlFile.write_text(f'[project]\nversion = "{version("pylode")}"\n', encoding="utf-8")
 
